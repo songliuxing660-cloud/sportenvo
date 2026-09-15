@@ -52,3 +52,18 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
 @media(max-width:900px){.site-nav .inner{height:70px}.mobile-toggle{display:block}.navlinks{display:none;position:absolute;top:70px;left:0;right:0;height:auto;max-height:calc(100vh - 70px);overflow:auto;background:#07111f;padding:12px 20px 22px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.nav-item{height:auto;display:block}.nav-main{height:auto;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);justify-content:space-between}.nav-item.active>.nav-main:after{display:none}.mega-menu{position:static;width:auto!important;transform:none!important;opacity:1;visibility:visible;pointer-events:auto;display:none}.has-dropdown.open .mega-menu{display:block}.has-dropdown:hover .mega-menu{display:none}.has-dropdown.open:hover .mega-menu{display:block}.mega-inner,.mega-inner.compact{grid-template-columns:1fr;background:#0b1c2d;color:#fff;border:0;border-radius:0;box-shadow:none;padding:14px;margin-bottom:6px}.mega-intro{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:16px}.mega-intro p,.mega-links span{color:#9db0bd}.mega-links{grid-template-columns:1fr}.mega-links a{border-color:rgba(255,255,255,.1);color:#fff}.mega-col a,.mega-link{color:#d7e4eb}.mega-cta{background:#10263e}.nav-cta{margin:12px 0 0;justify-content:center}.audience-grid{grid-template-columns:1fr 1fr}.insights-grid{grid-template-columns:1fr 1fr}.cta-inline,.article-cta{align-items:flex-start;flex-direction:column}}
 @media(max-width:620px){.brand{font-size:21px}.audience-grid,.insights-grid{grid-template-columns:1fr}.cta-inline{padding:24px}.article-main{padding:54px 0 78px}.article-main h2{font-size:29px}.article-hero{padding:132px 0 60px}}
 @media(min-width:901px){.mega-small{left:auto;right:0;transform:translateY(10px)}.has-dropdown:hover .mega-small,.has-dropdown:focus-within .mega-small{transform:translateY(0)}.mega-small .mega-inner.compact{grid-template-columns:1.1fr .9fr}}
+
+/* ===== SPORTENVO NAV PREMIUM PATCH ===== */
+.site-nav .inner{height:80px}
+.brand{font-size:0;text-decoration:none;display:flex;align-items:center;flex-shrink:0}
+.brand img{display:none!important}
+.brand::after{content:"SPORTENVO";font-size:26px;font-weight:900;letter-spacing:.06em;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:linear-gradient(90deg,#ffffff 0%,#c8e8ff 55%,#18a8f7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-main{font-size:14px;font-weight:700;padding:0 16px;letter-spacing:.01em;color:#ccdce8}
+.nav-main:hover,.nav-item.active>.nav-main{color:#fff}
+.nav-cta{margin-left:16px;padding:13px 22px;background:#fff;color:#07111f!important;border-radius:10px;font-size:13.5px;font-weight:800;letter-spacing:.01em;border:none;box-shadow:none;transition:.2s}
+.nav-cta:hover{background:#f0f7ff;transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.nav-cta span{font-size:15px}
+.nav-item.active>.nav-main:after{height:2px;background:#18a8f7;left:16px;right:16px}
+.site-nav.scrolled{background:rgba(5,13,24,.98);box-shadow:0 4px 24px rgba(0,0,0,.18)}
+@media(max-width:900px){.site-nav .inner{height:72px}.navlinks{top:72px}.brand::after{font-size:22px}}
+@media(max-width:620px){.brand::after{font-size:20px}}
