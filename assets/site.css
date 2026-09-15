@@ -67,3 +67,11 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
 .site-nav.scrolled{background:rgba(5,13,24,.98);box-shadow:0 4px 24px rgba(0,0,0,.18)}
 @media(max-width:900px){.site-nav .inner{height:72px}.navlinks{top:72px}.brand::after{font-size:22px}}
 @media(max-width:620px){.brand::after{font-size:20px}}
+/* ===== WhatsApp Float Button ===== */
+.wa-float{position:fixed;left:24px;bottom:28px;z-index:9999;display:flex;align-items:center;gap:10px;text-decoration:none}
+.wa-float .wa-icon{width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.38);transition:.25s}
+.wa-float:hover .wa-icon{transform:scale(1.08);box-shadow:0 10px 30px rgba(37,211,102,.48)}
+.wa-float .wa-icon svg{width:28px;height:28px;fill:#fff}
+.wa-float .wa-label{background:#fff;color:#07111f;font-size:12px;font-weight:800;padding:7px 13px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.12);opacity:0;transform:translateX(-8px);transition:.2s;white-space:nowrap;pointer-events:none}
+.wa-float:hover .wa-label{opacity:1;transform:translateX(0)}
+@media(max-width:620px){.wa-float{left:16px;bottom:20px}.wa-float .wa-icon{width:48px;height:48px}.wa-float .wa-label{display:none}}
