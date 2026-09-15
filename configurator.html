@@ -1,2 +1,369 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Find Your Padel Court | SPORTENVO</title><meta name="description" content="Interactive selector for choosing a padel court, foundation and roof solution."><link rel="stylesheet" href="assets/site.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SPORTENVO","description":"Padel court manufacturer and global project solution provider"}</script></head><body><nav><div class="wrap inner"><a class="brand" href="index.html"><img src="assets/logo.webp" onerror="this.style.display='none'" alt="SPORTENVO"><span>SPORTENVO</span></a><button class="mobile-toggle" aria-label="menu">☰</button><div class="navlinks"><a href="courts.html">Padel Courts</a><a href="solutions.html">Solutions</a><a href="projects.html">Projects</a><a href="configurator.html">Find Your Court</a><a href="resources.html">Resources</a><a href="about.html">About</a><a class="nav-cta" href="contact.html">Start Your Project</a></div></div></nav><header class="page-hero"><div class="wrap"><div class="breadcrumbs"><a href="index.html">Home</a> / Find Your Court</div><div class="eyebrow">Interactive Product Selector</div><h1 class="display">FIND YOUR<br>PADEL COURT.</h1><p>Answer five project questions. The selector will recommend a court, foundation and roof direction for further technical discussion.</p></div></header>
-<section><div class="wrap config-shell"><div class="config-panel"><div class="q"><label>1. Installation environment</label><div class="options"><button class="option active" data-q="location">Outdoor</button><button class="option" data-q="location">Indoor</button><button class="option" data-q="location">Rooftop</button><button class="option" data-q="location">Coastal / High Wind</button></div></div><div class="q"><label>2. Venue type</label><div class="options"><button class="option active" data-q="venue">Padel Club</button><button class="option" data-q="venue">Hotel / Resort</button><button class="option" data-q="venue">Sports Center</button><button class="option" data-q="venue">School</button></div></div><div class="q"><label>3. Number of courts</label><div class="options"><button class="option" data-q="courts">1</button><button class="option active" data-q="courts">2–4</button><button class="option" data-q="courts">5–10</button><button class="option" data-q="courts">10+</button></div></div><div class="q"><label>4. Foundation</label><div class="options"><button class="option" data-q="foundation">Existing Concrete</button><button class="option" data-q="foundation">Modular Foundation</button><button class="option active" data-q="foundation">Not Sure</button></div></div><div class="q"><label>5. Roof</label><div class="options"><button class="option" data-q="roof">No Roof</button><button class="option" data-q="roof">Fixed Roof</button><button class="option" data-q="roof">Retractable Roof</button><button class="option active" data-q="roof">Not Sure</button></div></div></div><aside class="result-panel"><div class="eyebrow" style="color:#77d8ff">Recommended Direction</div><h3>Your project combination</h3><p>This is a pre-sales recommendation, not a final structural design. Site dimensions and local engineering requirements should be reviewed before quotation.</p><div id="recommendation"></div></aside></div></section><footer><div class="wrap"><div class="foot"><div><a class="brand" href="index.html"><span>SPORTENVO</span></a><p style="max-width:370px">Factory-direct padel court systems and project solutions for clubs, resorts, sports facilities and commercial developments worldwide.</p></div><div><h5>Products</h5><p><a href="panoramic.html">Panoramic Court</a></p><p><a href="super-panoramic.html">Super Panoramic</a></p><p><a href="mobile.html">Mobile / Modular</a></p><p><a href="force-hx.html">FORCE-HX</a></p></div><div><h5>Solutions</h5><p><a href="modular-foundation.html">Modular Foundation</a></p><p><a href="roof.html">Roof Solutions</a></p><p><a href="projects.html">Global Projects</a></p><p><a href="configurator.html">Find Your Court</a></p></div><div><h5>Markets</h5><p><a href="markets/germany.html">Germany</a></p><p><a href="markets/netherlands.html">Netherlands</a></p><p><a href="markets/uk.html">United Kingdom</a></p><p><a href="contact.html">Request Quote</a></p></div></div><div class="copyright">© 2026 SPORTENVO · Online Padel Court Catalogue · Prototype v2</div></div></footer><script src="assets/site.js"></script></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Find Your Padel Court | Court Selector Tool | SPORTENVO</title>
+<meta name="description" content="Use our interactive padel court selector to find the right court, foundation and roof combination for your project. Answer 5 questions to get a tailored recommendation.">
+<link rel="canonical" href="https://sportenvo.com/configurator.html">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SPORTENVO","description":"Padel court manufacturer and global project solution provider"}</script>
+<style>
+/* ── Configurator overrides ── */
+.config-shell{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.config-panel{border:1px solid var(--line);border-radius:24px;background:#fff;padding:32px}
+.q{margin-bottom:28px}
+.q label{display:block;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;color:var(--ink)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#07111f;color:#fff;font-size:11px;font-weight:900;margin-right:8px}
+.options{display:flex;gap:8px;flex-wrap:wrap}
+.option{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;transition:.2s;color:var(--ink)}
+.option:hover{border-color:#18a8f7;color:#18a8f7}
+.option.active{background:#07111f;color:#fff;border-color:#07111f}
+
+/* Result panel */
+.result-panel{position:sticky;top:96px;background:#07111f;color:#fff;border-radius:24px;padding:32px;min-height:500px}
+.result-panel .eyebrow{color:#77d8ff}
+.result-panel h3{font-size:28px;margin:8px 0 6px;letter-spacing:-.04em;line-height:1.1}
+.result-panel .sub-note{font-size:13px;color:#7a99ad;margin-bottom:24px;line-height:1.6}
+
+/* Court card in result */
+.rec-court{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.rec-court-img{width:100%;height:180px;object-fit:cover;display:block}
+.rec-court-body{padding:18px}
+.rec-court-body .tag{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#79dcff;margin-bottom:6px}
+.rec-court-body h4{font-size:20px;font-weight:900;letter-spacing:-.03em;margin:0 0 8px}
+.rec-court-body p{font-size:13px;color:#afc0cc;margin:0 0 14px;line-height:1.6}
+.rec-court-body a{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:#18a8f7;text-decoration:none}
+.rec-court-body a:hover{color:#79dcff}
+
+/* Spec mini-cards */
+.rec-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.rec-spec{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 14px}
+.rec-spec b{display:block;font-size:15px;font-weight:900;margin-bottom:2px}
+.rec-spec span{font-size:11px;color:#7a99ad;text-transform:uppercase;letter-spacing:.06em}
+
+/* CTA in panel */
+.rec-cta{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.rec-cta a.primary{display:flex;justify-content:center;align-items:center;padding:14px;background:#18a8f7;color:#03121d;border-radius:12px;font-weight:900;font-size:14px;text-decoration:none;transition:.2s}
+.rec-cta a.primary:hover{background:#79dcff}
+.rec-cta a.ghost{display:flex;justify-content:center;align-items:center;padding:12px;border:1px solid rgba(255,255,255,.2);color:#d0e4ef;border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;transition:.2s}
+.rec-cta a.ghost:hover{border-color:#fff;color:#fff}
+
+/* Progress bar */
+.progress-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-bottom:24px;overflow:hidden}
+.progress-fill{height:100%;background:#18a8f7;border-radius:2px;transition:width .4s ease}
+
+/* Mobile */
+@media(max-width:900px){
+  .config-shell{grid-template-columns:1fr}
+  .result-panel{position:static}
+}
+</style>
+</head><body>
+
+<nav><div class="wrap inner">
+  <a class="brand" href="index.html"><img src="assets/logo.webp" onerror="this.style.display='none'" alt="SPORTENVO"><span>SPORTENVO</span></a>
+  <button class="mobile-toggle" aria-label="menu">☰</button>
+  <div class="navlinks">
+    <a href="courts.html">Padel Courts</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="projects.html">Projects</a>
+    <a href="configurator.html">Find Your Court</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a class="nav-cta" href="contact.html">Start Your Project</a>
+  </div>
+</div></nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs"><a href="index.html">Home</a> / Find Your Court</div>
+    <div class="eyebrow">Interactive Court Selector</div>
+    <h1 class="display">FIND YOUR<br>PADEL COURT.</h1>
+    <p>Answer five project questions. The selector recommends a court model, foundation type and roof direction for your site — then you can request a formal quotation.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap config-shell">
+
+    <!-- Left: Questions -->
+    <div class="config-panel">
+
+      <div class="q">
+        <label><span class="q-num">1</span>Installation environment</label>
+        <div class="options">
+          <button class="option active" data-q="location">Outdoor</button>
+          <button class="option" data-q="location">Indoor</button>
+          <button class="option" data-q="location">Rooftop</button>
+          <button class="option" data-q="location">Coastal / High Wind</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label><span class="q-num">2</span>Venue type</label>
+        <div class="options">
+          <button class="option active" data-q="venue">Padel Club</button>
+          <button class="option" data-q="venue">Hotel / Resort</button>
+          <button class="option" data-q="venue">Sports Center</button>
+          <button class="option" data-q="venue">School / University</button>
+          <button class="option" data-q="venue">Residential</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label><span class="q-num">3</span>Number of courts</label>
+        <div class="options">
+          <button class="option" data-q="courts">1</button>
+          <button class="option active" data-q="courts">2–4</button>
+          <button class="option" data-q="courts">5–10</button>
+          <button class="option" data-q="courts">10+</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label><span class="q-num">4</span>Foundation preference</label>
+        <div class="options">
+          <button class="option" data-q="foundation">Existing Concrete</button>
+          <button class="option" data-q="foundation">Modular Foundation</button>
+          <button class="option active" data-q="foundation">Not Sure</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label><span class="q-num">5</span>Roof requirement</label>
+        <div class="options">
+          <button class="option" data-q="roof">No Roof</button>
+          <button class="option" data-q="roof">Fixed Roof</button>
+          <button class="option" data-q="roof">Retractable Roof</button>
+          <button class="option active" data-q="roof">Not Sure</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Result -->
+    <aside class="result-panel">
+      <div class="eyebrow">Recommended Direction</div>
+      <h3 id="rec-title">Your project combination</h3>
+      <p class="sub-note">Pre-sales guidance only. Site dimensions and local engineering requirements are reviewed at quotation stage.</p>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:40%"></div></div>
+      <div id="recommendation"></div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- How it works -->
+<section style="background:#f5f7f9;padding:72px 0">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">How It Works</div>
+        <h2 class="section-title">From selector to project proposal.</h2>
+      </div>
+    </div>
+    <div class="process">
+      <div class="step"><em>01 / SELECT</em><h4>Choose your parameters</h4><p>Set your installation environment, venue type, court count, foundation and roof preference above.</p></div>
+      <div class="step"><em>02 / REVIEW</em><h4>Get your recommendation</h4><p>The selector returns a court model, foundation type and roof option matched to your project profile.</p></div>
+      <div class="step"><em>03 / INQUIRE</em><h4>Send your project details</h4><p>Use the Request Quote button to submit your site dimensions and project country for a formal quotation.</p></div>
+      <div class="step"><em>04 / CONFIRM</em><h4>Receive solution package</h4><p>We prepare drawings, specifications and a project cost estimate for your review and approval.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><div class="foot">
+  <div>
+    <a class="brand" href="index.html"><span>SPORTENVO</span></a>
+    <p style="max-width:370px">Factory-direct padel court systems and project solutions for clubs, resorts, sports facilities and commercial developments worldwide.</p>
+  </div>
+  <div><h5>Products</h5>
+    <p><a href="panoramic.html">Panoramic Court</a></p>
+    <p><a href="super-panoramic.html">Super Panoramic</a></p>
+    <p><a href="mobile.html">Mobile / Modular</a></p>
+    <p><a href="force-hx.html">FORCE-HX</a></p>
+  </div>
+  <div><h5>Solutions</h5>
+    <p><a href="modular-foundation.html">Modular Foundation</a></p>
+    <p><a href="roof.html">Roof Solutions</a></p>
+    <p><a href="projects.html">Global Projects</a></p>
+    <p><a href="configurator.html">Find Your Court</a></p>
+  </div>
+  <div><h5>Markets</h5>
+    <p><a href="markets/germany.html">Germany</a></p>
+    <p><a href="markets/netherlands.html">Netherlands</a></p>
+    <p><a href="markets/uk.html">United Kingdom</a></p>
+    <p><a href="contact.html">Request Quote</a></p>
+  </div>
+</div><div class="copyright">© 2026 SPORTENVO · Online Padel Court Catalogue · Prototype v2</div></div></footer>
+
+<script src="assets/site.js"></script>
+<script>
+// ── Court data ──
+const COURTS = {
+  panoramic: {
+    title: 'Panoramic Padel Court',
+    tag: 'Best Seller · Outdoor / Indoor',
+    desc: 'Full-height tempered glass on all sides. The standard choice for commercial clubs, resorts and sports facilities requiring maximum visibility and professional presentation.',
+    img: 'https://c61.hongcdn.com/uploads-gzun/2311/2-5298-j.webp',
+    link: 'panoramic.html',
+    specs: [{v:'12 mm',l:'Tempered Glass'},{v:'Q235B',l:'Galvanized Steel'},{v:'200W',l:'LED Lighting'},{v:'10×20 m',l:'Standard Size'}]
+  },
+  superPanoramic: {
+    title: 'Super Panoramic Court',
+    tag: 'Premium · Indoor / Showcase',
+    desc: 'Maximum visual openness for premium indoor venues, tournament presentation and showcase club environments. The flagship indoor court system.',
+    img: 'https://c61.hongcdn.com/uploads-gzun/2603/26031002232930753-j.webp',
+    link: 'super-panoramic.html',
+    specs: [{v:'12 mm',l:'Tempered Glass'},{v:'Q235B',l:'Galvanized Steel'},{v:'200W',l:'LED Lighting'},{v:'Indoor',l:'Optimized'}]
+  },
+  mobile: {
+    title: 'Mobile / Modular Court',
+    tag: 'Flexible · Rooftop / Events',
+    desc: 'Modular steel system designed for rooftop installations, leased sites and relocatable venues. Pairs with the Modular Foundation system for selected projects.',
+    img: 'https://sc04.alicdn.com/kf/Aefbc62bfb10544978ea0aea4e4172780K.jpg',
+    link: 'mobile.html',
+    specs: [{v:'Modular',l:'Steel System'},{v:'12 mm',l:'Tempered Glass'},{v:'Portable',l:'Design'},{v:'Rooftop',l:'Ready'}]
+  },
+  forceHX: {
+    title: 'FORCE-HX Extreme Weather',
+    tag: 'Severe Weather · Coastal',
+    desc: 'Reinforced structural concept for coastal, typhoon and hurricane-prone environments. 136.8 MPH wind resistance, engineered to Category 4 hurricane standard.',
+    img: 'https://c61.hongcdn.com/uploads-gzun/2512/1111-j.webp',
+    link: 'force-hx.html',
+    specs: [{v:'136.8 MPH',l:'Wind Rating'},{v:'Cat. 4',l:'Hurricane Std.'},{v:'200×200×6mm',l:'Main Structure'},{v:'12 mm',l:'Tempered Glass'}]
+  }
+};
+
+const FOUNDATIONS = {
+  modular: { label: 'Modular Steel Foundation', note: 'Reduces civil works. Ideal for rooftops, leased sites and locations where concrete pouring is restricted.', link: 'modular-foundation.html' },
+  concrete: { label: 'Standard Concrete Foundation', note: 'Conventional poured concrete slab. Suitable for most permanent outdoor and indoor installations.' },
+  engineered: { label: 'Engineered Foundation', note: 'Site-specific structural design required for severe weather, high-load or complex terrain projects.' }
+};
+
+const ROOFS = {
+  none: { label: 'No Roof Required', note: 'Open-air installation. Suitable for most outdoor clubs in mild climates.' },
+  fixed: { label: 'Fixed Roof System', note: 'Permanent weather protection for outdoor courts converting to all-season venues.' },
+  retractable: { label: 'Retractable Roof System', note: 'Maximum flexibility — open in good weather, closed in rain. Premium solution for commercial clubs.', link: 'roof.html' },
+  indoor: { label: 'Indoor Venue (No Roof Needed)', note: 'Existing building provides full weather protection. Focus on lighting and ventilation.' }
+};
+
+// ── State ──
+const state = { location:'Outdoor', venue:'Padel Club', courts:'2–4', foundation:'Not Sure', roof:'Not Sure' };
+
+function calcProgress(){
+  let score = 0;
+  if(state.foundation !== 'Not Sure') score += 20;
+  if(state.roof !== 'Not Sure') score += 20;
+  score += 20; // location
+  score += 20; // venue
+  score += 20; // courts
+  return Math.min(score, 100);
+}
+
+function getRecommendation(){
+  let courtKey = 'panoramic';
+  let foundKey = 'concrete';
+  let roofKey  = 'none';
+  let note = '';
+
+  // Court selection logic
+  if(state.location === 'Indoor') courtKey = 'superPanoramic';
+  else if(state.location === 'Rooftop') courtKey = 'mobile';
+  else if(state.location === 'Coastal / High Wind') courtKey = 'forceHX';
+  else courtKey = 'panoramic';
+
+  // Foundation
+  if(state.location === 'Rooftop' || state.foundation === 'Modular Foundation') foundKey = 'modular';
+  else if(state.location === 'Coastal / High Wind') foundKey = 'engineered';
+  else foundKey = 'concrete';
+
+  // Roof
+  if(state.location === 'Indoor') roofKey = 'indoor';
+  else if(state.roof === 'Retractable Roof') roofKey = 'retractable';
+  else if(state.roof === 'Fixed Roof') roofKey = 'fixed';
+  else if(state.roof === 'No Roof') roofKey = 'none';
+  else {
+    // Smart default
+    if(state.venue === 'Hotel / Resort') roofKey = 'retractable';
+    else roofKey = 'none';
+  }
+
+  // Contextual note
+  if(state.courts === '10+') note = 'Large multi-court projects benefit from shared LED infrastructure and coordinated foundation planning.';
+  else if(state.venue === 'Hotel / Resort') note = 'Resort venues often prioritise all-season play — a retractable roof extends usable hours and adds premium appeal.';
+  else if(state.location === 'Coastal / High Wind') note = 'Coastal projects require structural review of local wind codes before finalising foundation and structure specifications.';
+  else note = 'This is a pre-sales direction. Court count, site dimensions and local engineering requirements are confirmed at quotation stage.';
+
+  return { court: COURTS[courtKey], found: FOUNDATIONS[foundKey], roof: ROOFS[roofKey], note };
+}
+
+function renderResult(){
+  const { court, found, roof, note } = getRecommendation();
+
+  // Update title
+  document.getElementById('rec-title').textContent = court.title;
+
+  // Progress
+  document.getElementById('progress-fill').style.width = calcProgress() + '%';
+
+  // Spec rows
+  const specsHtml = court.specs.map(s =>
+    `<div class="rec-spec"><b>${s.v}</b><span>${s.l}</span></div>`
+  ).join('');
+
+  // Foundation link
+  const foundLink = found.link ? `<a href="${found.link}" style="font-size:12px;color:#79dcff;text-decoration:none;">Learn more →</a>` : '';
+
+  // Roof link
+  const roofLink = roof.link ? `<a href="${roof.link}" style="font-size:12px;color:#79dcff;text-decoration:none;">Learn more →</a>` : '';
+
+  document.getElementById('recommendation').innerHTML = `
+    <div class="rec-court">
+      <img class="rec-court-img" src="${court.img}" alt="${court.title}" loading="lazy">
+      <div class="rec-court-body">
+        <div class="tag">${court.tag}</div>
+        <h4>${court.title}</h4>
+        <p>${court.desc}</p>
+        <div class="rec-specs">${specsHtml}</div>
+        <a href="${court.link}">View full specifications →</a>
+      </div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+      <div style="font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#79dcff;margin-bottom:6px">Foundation</div>
+      <div style="font-weight:800;font-size:15px;margin-bottom:4px">${found.label}</div>
+      <div style="font-size:12px;color:#7a99ad;line-height:1.5">${found.note}</div>
+      ${foundLink}
+    </div>
+
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;margin-bottom:16px">
+      <div style="font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#79dcff;margin-bottom:6px">Roof</div>
+      <div style="font-weight:800;font-size:15px;margin-bottom:4px">${roof.label}</div>
+      <div style="font-size:12px;color:#7a99ad;line-height:1.5">${roof.note}</div>
+      ${roofLink}
+    </div>
+
+    <div style="font-size:12px;color:#5a7a8a;line-height:1.6;margin-bottom:16px;padding:12px;border-left:2px solid #18a8f7">
+      ${note}
+    </div>
+
+    <div class="rec-cta">
+      <a class="primary" href="contact.html?court=${encodeURIComponent(court.title)}">Request Project Quote →</a>
+      <a class="ghost" href="${court.link}">Explore ${court.title}</a>
+    </div>
+  `;
+}
+
+// ── Event listeners ──
+document.querySelectorAll('[data-q]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.q;
+    document.querySelectorAll(`[data-q="${key}"]`).forEach(x => x.classList.remove('active'));
+    btn.classList.add('active');
+    state[key] = btn.textContent.trim();
+    renderResult();
+  });
+});
+
+// Initial render
+renderResult();
+</script>
+</body></html>
