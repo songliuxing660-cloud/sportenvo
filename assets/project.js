@@ -57,16 +57,18 @@ function copyEstimatorToForm(){
     const option=[...el.options].find(o=>o.value===quoteState[key]||o.text===quoteState[key]);
     if(option) el.value=option.value;
   });
-  const form=document.getElementById('projectQuoteForm');
-  if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-document.getElementById('useConfig')?.addEventListener('click',copyEstimatorToForm);
-
-document.getElementById('projectQuoteForm')?.addEventListener('submit',e=>{
-  e.preventDefault();
+document.getElementById('useConfig')?.addEventListener('click',()=>{
   copyEstimatorToForm();
-  document.getElementById('quoteResponse')?.classList.add('show');
+  const form=document.getElementById('projectQuoteForm');
+  if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+// Fix: sync estimator values then allow native form submission to Formspree
+document.getElementById('projectQuoteForm')?.addEventListener('submit',e=>{
+  copyEstimatorToForm();
+  // Do NOT call e.preventDefault() — let the form submit normally to Formspree
 });
 
 updateScope();
