@@ -26,60 +26,76 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
 @media(max-width:620px){.wa-float{bottom:18px;right:18px}.wa-float a.wa-btn{width:52px;height:52px}}
 
 /* ===== HERO REFINEMENT ===== */
-.hero{position:relative;min-height:700px;display:flex;flex-direction:column;justify-content:space-between;padding-top:0;padding-bottom:0}
-.hero-content{flex:1;display:flex;align-items:center;padding:110px 0 48px}
+/* --- Desktop default (≥769px): full-bg composition --- */
+.hero{position:relative;display:flex;flex-direction:column;min-height:700px;background:linear-gradient(90deg,rgba(3,10,18,.87),rgba(3,10,18,.52) 52%,rgba(3,10,18,.1) 82%),url('https://sc04.alicdn.com/kf/A5003922970d64026bc72c15fb7dabc03i.jpg') 60% center/cover no-repeat;color:#fff}
+.hero-img-mobile{display:none}
+.hero-body{flex:1;display:flex;align-items:center;padding:120px 0 52px}
 .hero-text{max-width:640px}
-.hero-text h1{font-size:62px;line-height:1.05;font-weight:700;letter-spacing:-.01em;margin:14px 0 20px}
-.hero-trust{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 28px;font-weight:600}
+.hero-text .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:14px}
+.hero-text h1{font-size:clamp(52px,3.6vw,64px);line-height:1.04;font-weight:700;letter-spacing:-.01em;margin:0 0 20px;color:#fff}
+.hero-sub{font-size:18px;line-height:1.55;color:rgba(255,255,255,.85);max-width:580px;margin:0 0 14px}
+.hero-trust{font-size:13px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.5);margin:0 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.br-desktop{display:inline}
 /* Stats bar */
-.hero-stats{background:rgba(3,10,18,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1)}
-.hero-stats-inner{display:flex;align-items:center;height:88px;gap:0}
-.hero-stat{flex:1;text-align:center;padding:0 20px}
-.hero-stat b{display:block;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.1}
-.hero-stat span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.48);margin-top:4px;font-weight:600}
-.hero-stat-div{width:1px;height:36px;background:rgba(255,255,255,.12);flex-shrink:0}
-/* Remove old hero grid */
-.hero-grid,.metrics,.metric,.trust-pills{display:none}
-@media(max-width:768px){
-  /* 1. Hero height */
-  .hero{min-height:460px;background-position:55% center}
-  .hero-content{padding:100px 0 32px}
-  .hero-text h1{font-size:40px!important;line-height:1.08!important}
-  .hero-sub{font-size:15px;line-height:1.55}
-  .hero-stats-inner{height:auto;flex-wrap:wrap;padding:12px 0}
-  .hero-stat{flex:0 0 50%;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
-  .hero-stat-div{display:none}
+.hero-stats{background:rgba(3,10,18,.76);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.09)}
+.hero-stats-inner{display:flex;align-items:center;height:96px}
+.hero-stat{flex:1;text-align:center;padding:0 16px}
+.hero-stat b{display:block;font-size:22px;font-weight:800;color:#fff;line-height:1.1}
+.hero-stat span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.45);margin-top:5px;font-weight:600}
+.hero-stat-div{width:1px;height:32px;background:rgba(255,255,255,.11);flex-shrink:0}
+/* Remove old classes */
+.hero-grid,.metrics,.metric,.trust-pills,.hero-content{display:revert}
+.hero-grid{display:none}.metrics{display:none}.metric{display:none}.trust-pills{display:none}.hero-content{display:none}
+/* --- Tablet 769–1023px --- */
+@media(min-width:769px) and (max-width:1023px){
+  .hero{min-height:620px;background-position:55% center}
+  .hero-text h1{font-size:48px}
+  .hero-sub{font-size:16px}
+  .hero-stats-inner{height:80px}
   .hero-stat b{font-size:18px}
-  .hero-stat span{font-size:9px}
-  .product-hero{min-height:460px;padding:110px 0 48px;background-position:center center}
-  /* Solutions hero */
+}
+@media(max-width:768px){
+  /* --- Mobile hero: split layout --- */
+  .hero{min-height:unset;background:none!important;color:var(--ink)}
+  .hero-img-mobile{display:block;width:100%;height:260px;background:url('https://sc04.alicdn.com/kf/A5003922970d64026bc72c15fb7dabc03i.jpg') 60% center/cover no-repeat}
+  .hero-body{background:#07111f;color:#fff}
+  .hero-body .wrap{padding:28px 20px 34px;width:calc(100% - 40px)}
+  .hero-text .eyebrow{font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-bottom:10px}
+  .hero-text h1{font-size:40px!important;line-height:1.05!important;font-weight:700;margin:0 0 16px;color:#fff}
+  .hero-sub{font-size:15px;line-height:1.52;color:rgba(255,255,255,.82);margin:0 0 12px}
+  .br-desktop{display:none}
+  .hero-trust{font-size:13px;color:rgba(255,255,255,.48);line-height:1.5;margin:0 0 24px}
+  .hero-actions{flex-direction:column;gap:10px}
+  .hero-actions .btn{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center}
+  /* Mobile stats 2x2 */
+  .hero-stats{background:#0d1e30;border-top:1px solid rgba(255,255,255,.08)}
+  .hero-stats-inner{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .hero-stat{padding:18px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);border-right:1px solid rgba(255,255,255,.07)}
+  .hero-stat:nth-child(2n){border-right:none}
+  .hero-stat:nth-last-child(-n+2){border-bottom:none}
+  .hero-stat b{font-size:20px}
+  .hero-stat span{font-size:9px;margin-top:3px}
+  .hero-stat-div{display:none}
+  /* Nav: hide CTA button */
+  .nav-cta{display:none}
+  /* product-hero pages */
+  .product-hero{min-height:420px;padding:90px 0 40px;background-position:center center}
   .product-hero[style*="A318be28"]{background-position:58% center}
-  /* Indoor / super panoramic hero */
   .product-hero[style*="A2334ad3"]{background-position:center center}
-  /* hotel / resort image */
   .product-hero[style*="A70fd143"]{background-position:center center}
-
-  /* 2. Mobile H1 */
-  .display{font-size:40px;line-height:1.08}
-  .hero p,.product-hero p{font-size:15px;line-height:1.55}
-  .wrap{width:calc(100% - 36px)}
-
-  /* 3. Section spacing */
+  /* H1 display on product pages */
+  .display{font-size:38px!important;line-height:1.08}
+  /* Section spacing */
   section{padding:64px 0}
-
-  /* 4. Below-the-fold project images */
-  .product-card .media{height:auto;aspect-ratio:4/3}
+  .wrap{width:calc(100% - 36px)}
+  /* Below-fold images */
+  .product-card .media{aspect-ratio:4/3;height:auto;overflow:hidden}
   .product-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-  .project-main,.project-small{min-height:260px;aspect-ratio:16/10}
-  .stack .project-small{min-height:200px}
-
-  /* 5. Feature / solution section images */
-  .solution{min-height:300px}
-  .solution img{aspect-ratio:16/10;height:auto;min-height:280px}
-  .feature-media{min-height:280px;aspect-ratio:16/9}
-  .feature-media img{height:auto;aspect-ratio:16/9}
-
-  /* 6. Section head layout */
+  .project-main,.project-small{min-height:240px;aspect-ratio:16/10}
+  .solution{min-height:unset}
+  .solution img{aspect-ratio:16/10;min-height:260px;object-fit:cover}
+  /* Section head */
   .section-head{display:block}
   .section-head .btn{margin-top:16px}
 }
