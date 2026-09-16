@@ -25,10 +25,32 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}.wa-float a.wa-btn{display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#25d366;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;transition:.25s ease}.wa-float a.wa-btn:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.55)}.wa-float a.wa-btn svg{width:30px;height:30px;fill:#fff}.wa-float .wa-tooltip{background:#07111f;color:#fff;font-size:12px;font-weight:800;padding:7px 13px;border-radius:999px;white-space:nowrap;opacity:0;transform:translateX(8px);transition:.2s ease;pointer-events:none}.wa-float:hover .wa-tooltip{opacity:1;transform:translateX(0)}
 @media(max-width:620px){.wa-float{bottom:18px;right:18px}.wa-float a.wa-btn{width:52px;height:52px}}
 
-/* ===== MOBILE IMAGE DISPLAY PATCH ===== */
+/* ===== HERO REFINEMENT ===== */
+.hero{position:relative;min-height:700px;display:flex;flex-direction:column;justify-content:space-between;padding-top:0;padding-bottom:0}
+.hero-content{flex:1;display:flex;align-items:center;padding:110px 0 48px}
+.hero-text{max-width:640px}
+.hero-text h1{font-size:62px;line-height:1.05;font-weight:700;letter-spacing:-.01em;margin:14px 0 20px}
+.hero-trust{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 28px;font-weight:600}
+/* Stats bar */
+.hero-stats{background:rgba(3,10,18,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1)}
+.hero-stats-inner{display:flex;align-items:center;height:88px;gap:0}
+.hero-stat{flex:1;text-align:center;padding:0 20px}
+.hero-stat b{display:block;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.1}
+.hero-stat span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.48);margin-top:4px;font-weight:600}
+.hero-stat-div{width:1px;height:36px;background:rgba(255,255,255,.12);flex-shrink:0}
+/* Remove old hero grid */
+.hero-grid,.metrics,.metric,.trust-pills{display:none}
 @media(max-width:768px){
   /* 1. Hero height */
-  .hero{min-height:460px;padding:110px 0 52px;background-position:55% center}
+  .hero{min-height:460px;background-position:55% center}
+  .hero-content{padding:100px 0 32px}
+  .hero-text h1{font-size:40px!important;line-height:1.08!important}
+  .hero-sub{font-size:15px;line-height:1.55}
+  .hero-stats-inner{height:auto;flex-wrap:wrap;padding:12px 0}
+  .hero-stat{flex:0 0 50%;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-stat-div{display:none}
+  .hero-stat b{font-size:18px}
+  .hero-stat span{font-size:9px}
   .product-hero{min-height:460px;padding:110px 0 48px;background-position:center center}
   /* Solutions hero */
   .product-hero[style*="A318be28"]{background-position:58% center}
