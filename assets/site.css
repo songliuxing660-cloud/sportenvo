@@ -83,3 +83,19 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
   .section-head{display:block}
   .section-head .btn{margin-top:16px}
 }
+
+/* Keep enquiry feedback readable in both contact layouts. */
+.inquiry-status{margin:20px 28px;padding:16px;border:1px solid #c5dbe8;border-radius:10px;background:#eef7fc;color:#173c52;font-size:14px;line-height:1.6}
+.inquiry-status[data-state="error"]{background:#fff4f1;border-color:#e8b8a9;color:#812d19}
+.inquiry-status[data-state="success"]{background:#edf8f0;border-color:#b0d8bb;color:#185a2f}
+[data-project-inquiry] button:disabled{opacity:.65;cursor:wait}
+@media(max-width:620px){.faq-grid{grid-template-columns:minmax(0,1fr)!important}}
+
+.feature > *, .project-grid > *, .responsive-columns > *{min-width:0}
+@media(max-width:900px){.feature,.project-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:768px){.responsive-columns{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:900px){
+  .feature-media,.project-main,.project-small{width:100%;max-width:100%}
+  .feature-media{min-height:0}
+  .project-main .caption,.project-small .caption{overflow-wrap:anywhere}
+}

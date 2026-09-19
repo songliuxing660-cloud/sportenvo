@@ -37,14 +37,15 @@
       <p>MOQ: 1 set<br>Payment: 30% deposit, 70% before shipment<br>Lead time: 35–40 days</p>
     </div>
   </div>
-  <form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <form data-project-inquiry class="form" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="57a18bd2-db66-4a34-adc5-df4a9a086bff">
     <input type="hidden" name="subject" value="New Padel Court Inquiry - SPORTENVO">
     <input type="hidden" name="from_name" value="SPORTENVO Website">
     <div class="form-grid">
       <input required name="name" placeholder="Name">
       <input required type="email" name="email" placeholder="Business Email">
-      <input name="country" placeholder="Country">
+      <input name="country" placeholder="Country" aria-label="Country">
+      <input name="phone" type="tel" autocomplete="tel" placeholder="WhatsApp / Phone (optional, include country code)" aria-label="WhatsApp or phone">
       <select name="project_type">
         <option value="">Project Type</option>
         <option>Padel Club</option>
@@ -84,6 +85,8 @@
       <textarea class="span2" name="message" placeholder="Site dimensions, project schedule, special requirements..."></textarea>
       <button class="span2" type="submit">REQUEST PROJECT SOLUTION →</button>
     </div>
+  <p style="margin:20px 28px;font-size:14px">Prefer email? <a href="mailto:sales@sportenvo.com?subject=Padel%20Court%20Project%20Enquiry">sales@sportenvo.com</a>. You can attach photos and drawings to your email.</p>
+<p class="inquiry-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
   </form>
 </div></section>
 
@@ -92,6 +95,7 @@
   <div><h5>Courts</h5><p><a href="panoramic.html">Panoramic Court</a></p><p><a href="super-panoramic.html">Super Panoramic</a></p><p><a href="mobile.html">Mobile / Modular</a></p><p><a href="force-hx.html">FORCE-HX</a></p></div>
   <div><h5>Project Solutions</h5><p><a href="modular-foundation.html">Modular Foundation</a></p><p><a href="roof.html">Roof Solutions</a></p><p><a href="projects.html">Global Projects</a></p><p><a href="insights.html">Insights</a></p></div>
   <div><h5>Company</h5><p><a href="about.html">About</a></p><p><a href="engineering.html">Engineering</a></p><p><a href="quality.html">Quality</a></p><p><a href="start-project.html">Start Your Project</a></p></div>
-</div><div class="copyright">© 2026 SPORTENVO · Padel Court &amp; Project Solutions</div></div></footer>
+</div><p class="contact-email">Project enquiries: <a href="mailto:sales@sportenvo.com">sales@sportenvo.com</a></p><div class="copyright">© 2026 SPORTENVO · Padel Court &amp; Project Solutions</div></div></footer>
 <script src="assets/site.js"></script>
+<script src="assets/inquiry.js"></script>
 </body></html>

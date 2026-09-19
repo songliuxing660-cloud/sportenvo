@@ -71,3 +71,6 @@
   .est-options{gap:6px}
   .est-option{font-size:11px;padding:8px 11px}
 }
+
+.quote-form .quote-section{padding:0}
+@media(max-width:768px){.quote-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-proof-item{min-width:0;padding:22px 14px}.quote-proof-item b{font-size:22px;overflow-wrap:anywhere}}

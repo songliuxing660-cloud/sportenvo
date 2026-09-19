@@ -65,10 +65,5 @@ document.getElementById('useConfig')?.addEventListener('click',()=>{
   if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
 });
 
-// Fix: sync estimator values then allow native form submission to Formspree
-document.getElementById('projectQuoteForm')?.addEventListener('submit',e=>{
-  copyEstimatorToForm();
-  // Do NOT call e.preventDefault() — let the form submit normally to Formspree
-});
-
+// Apply a configuration only when explicitly requested. Keep subsequent form edits.
 updateScope();

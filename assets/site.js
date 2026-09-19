@@ -1,7 +1,11 @@
 const toggle=document.querySelector('.mobile-toggle');
 const nav=document.querySelector('.navlinks');
-if(toggle&&nav) toggle.addEventListener('click',()=>nav.classList.toggle('open'));
-// demo forms removed — live forms submit to Formspree directly
+if(toggle&&nav) toggle.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+});
+// Project enquiries use the existing Web3Forms endpoint.
 const state={location:'Outdoor',venue:'Padel Club',courts:'2–4',foundation:'Not Sure',roof:'Not Sure'};
 function updateResult(){const r=document.querySelector('#recommendation');if(!r)return;let court='Panoramic Padel Court';let foundation=state.foundation==='Modular Foundation'?'Modular Foundation':'Standard Civil Foundation';let roof='No Roof Required';let note='Balanced commercial solution for professional padel clubs.';
 if(state.location==='Indoor'){court='Super Panoramic Padel Court';foundation='Existing / Standard Slab';roof='Indoor Venue';note='Maximizes visibility and premium club presentation indoors.'}
@@ -15,6 +19,7 @@ updateResult();
 
 // ── WhatsApp Floating Button (global, injected into every page) ──
 (function(){
+  if(document.querySelector('.wa-float')) return;
   const wa = document.createElement('div');
   wa.className = 'wa-float';
   wa.innerHTML = `

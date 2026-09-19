@@ -118,7 +118,7 @@
   <div class="wrap quote-layout">
     <aside class="quote-card quote-estimator">
       <div class="quote-card-head">
-        <div class="mini">01 · Quick Project Estimator</div>
+        <div class="mini">01 · Quick Project Configurator</div>
         <h2>Build your project scope.</h2>
         <p>Select the essentials. We will use this configuration as the starting point for your project proposal.</p>
       </div>
@@ -142,11 +142,11 @@
       </div>
     </aside>
 
-    <form class="quote-card quote-form" id="projectQuoteForm" action="https://api.web3forms.com/submit" method="POST">
+    <form data-project-inquiry class="quote-card quote-form" id="projectQuoteForm" action="https://api.web3forms.com/submit" method="POST">
       <div class="quote-card-head">
         <div class="mini">02 · Project Brief</div>
         <h2>Tell us what you want to build.</h2>
-        <p>Only the information needed to qualify a commercial project. Your estimator selections will be copied into the form automatically.</p>
+        <p>Only the information needed to qualify a commercial project. Choose “Use this configuration” to copy your selections, then adjust any details below.</p>
       </div>
       <section class="quote-section">
         <div class="quote-section-title"><span class="quote-section-num">01</span><h3>Contact information</h3></div>
@@ -154,6 +154,7 @@
           <div class="field"><label for="name">Name *</label><input id="name" name="name" required placeholder="Your name"></div>
           <div class="field"><label for="company">Company</label><input id="company" name="company" placeholder="Company / organization"></div>
           <div class="field"><label for="email">Business Email *</label><input id="email" name="email" type="email" required placeholder="name@company.com"></div>
+          <div class="field"><label for="phone">WhatsApp / Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code"></div>
           <div class="field"><label for="country">Country / Market *</label><input id="country" name="country" required placeholder="Project country"></div>
         </div>
       </section>
@@ -172,20 +173,23 @@
       </section>
       <section class="quote-section">
         <div class="quote-section-title"><span class="quote-section-num">03</span><h3>Site files</h3></div>
-        <div class="file-drop">
-          <label for="files" style="display:block;font-weight:900;font-size:13px;margin-bottom:7px">Upload site photo / drawing / reference</label>
-          <input id="files" name="files" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.dwg,.dxf">
-          <div class="file-note">PDF, JPG, PNG, WEBP, DWG or DXF.</div>
+        <div class="field full">
+          <label for="referenceUrl">Site photo or drawing link (optional)</label>
+          <input id="referenceUrl" name="reference_url" type="url" placeholder="https://…" aria-describedby="referenceHelp">
+          <p id="referenceHelp" style="font-size:13px;color:#5a6e7a">Paste a shareable link to your photos, drawings or project folder. Please allow our team to view it.</p>
+          <a class="link" href="https://wa.me/8613128265916?text=Hi%2C%20I%20would%20like%20to%20share%20files%20for%20my%20padel%20project." target="_blank" rel="noopener">Or send your project files on WhatsApp →</a>
         </div>
       </section>
       <input type="hidden" name="access_key" value="57a18bd2-db66-4a34-adc5-df4a9a086bff">
       <input type="hidden" name="subject" value="New Padel Court Project Brief - SPORTENVO">
       <input type="hidden" name="from_name" value="SPORTENVO Website">
-      <input type="hidden" name="redirect" value="https://sportenvo.com/start-project.html">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
       <div class="form-submit">
-        <label class="privacy-line"><input type="checkbox" required><span>I agree to be contacted about this project and understand the final quotation depends on confirmed project details.</span></label>
+        <label class="privacy-line"><input type="checkbox" name="contact_consent" value="agreed" required><span>I agree to be contacted about this project and understand the final quotation depends on confirmed project details.</span></label>
         <button type="submit">SEND PROJECT BRIEF →</button>
       </div>
+    <p style="margin:20px 28px;font-size:14px">Prefer email? <a href="mailto:sales@sportenvo.com?subject=Padel%20Court%20Project%20Enquiry">sales@sportenvo.com</a>. You can attach photos and drawings to your email.</p>
+<p class="inquiry-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
     </form>
   </div>
 </main>
@@ -203,7 +207,7 @@
 <section style="padding:72px 0;background:#fff">
   <div class="wrap">
     <h2 class="section-title" style="max-width:760px;margin-bottom:48px">How to Plan a Commercial Padel Court Project</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:32px">
 
       <div style="border-left:3px solid #18a8f7;padding-left:20px">
         <div style="font-size:11px;font-weight:800;letter-spacing:.1em;color:#18a8f7;margin-bottom:8px">01</div>
@@ -248,7 +252,7 @@
 <!-- WHAT INFORMATION IS NEEDED -->
 <section style="padding:72px 0;background:#f5f7f9">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+    <div class="responsive-columns" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
       <div>
         <h2 class="section-title" style="margin-bottom:24px">What Information Is Needed for a Padel Court Proposal?</h2>
         <p style="font-size:15px;line-height:1.7;color:#687689;margin-bottom:28px">To prepare a tailored commercial padel court proposal, the following project details are typically required. You do not need all of these at the initial stage — partial information is fine to start the conversation.</p>
@@ -298,7 +302,7 @@
 <section style="padding:72px 0;background:#fff">
   <div class="wrap">
     <h2 class="section-title" style="max-width:760px;margin-bottom:48px">Commercial Padel Project FAQ</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:32px;max-width:1100px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:32px;max-width:1100px">
 
       <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">How much space is required for a padel court?</h3>
@@ -307,7 +311,7 @@
 
       <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">What information is needed for a padel court quotation?</h3>
-        <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">A commercial padel court quotation typically requires: project country and destination port, number of courts, court type, site dimensions, indoor or outdoor installation, existing foundation condition, roof requirements, target installation timeline, and ideally site photos or drawings. The more detail provided, the more accurate the proposal. Use the project estimator above to start.</p>
+        <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">A commercial padel court quotation typically requires: project country and destination port, number of courts, court type, site dimensions, indoor or outdoor installation, existing foundation condition, roof requirements, target installation timeline, and ideally site photos or drawings. The more detail provided, the more accurate the proposal. Use the project configurator above to start.</p>
       </div>
 
       <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
@@ -368,8 +372,9 @@
   <div><h5>Courts</h5><p><a href="panoramic.html">Panoramic Court</a></p><p><a href="super-panoramic.html">Super Panoramic</a></p><p><a href="mobile.html">Mobile / Modular</a></p><p><a href="force-hx.html">FORCE-HX</a></p></div>
   <div><h5>Project Solutions</h5><p><a href="modular-foundation.html">Modular Foundation</a></p><p><a href="roof.html">Roof Solutions</a></p><p><a href="projects.html">Global Projects</a></p><p><a href="insights.html">Insights</a></p></div>
   <div><h5>Resources</h5><p><a href="how-much-does-a-padel-court-cost.html">Padel Court Cost Guide</a></p><p><a href="padel-court-dimensions.html">Padel Court Dimensions</a></p><p><a href="engineering.html">Engineering</a></p><p><a href="quality.html">Quality &amp; Certifications</a></p></div>
-</div><div class="copyright">© 2026 SPORTENVO · Padel Court &amp; Project Solutions</div></div></footer>
+</div><p class="contact-email">Project enquiries: <a href="mailto:sales@sportenvo.com">sales@sportenvo.com</a></p><div class="copyright">© 2026 SPORTENVO · Padel Court &amp; Project Solutions</div></div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/project.js"></script>
+<script src="assets/inquiry.js"></script>
 </body>
 </html>
