@@ -1,0 +1,12 @@
+/* Status and alternate routes stay outside the Zoho form. */
+.inquiry-help{padding:22px 26px;border-bottom:1px solid #dce4eb;background:#f5f9fc;color:#17364a}
+.inquiry-help p{font-size:14px;line-height:1.6;margin:0 0 12px}
+.inquiry-help .inquiry-alternative{font-size:13px;color:#536274}
+.inquiry-help-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.inquiry-help-actions a:not(.btn){font-size:13px;font-weight:650;overflow-wrap:anywhere;text-underline-offset:4px}
+.inquiry-help .btn{font-size:13px;min-height:44px}
+.inquiry-retry{background:#fff;border:1px solid #93aabd;border-radius:10px;min-height:44px;padding:10px 16px;font:inherit;font-size:13px;cursor:pointer}
+.inquiry-retry[hidden],.inquiry-loading[hidden]{display:none}
+.inquiry-help[data-state="delayed"]{background:#fff8ed;border-color:#e6cba1}
+.inquiry-help a:focus-visible,.inquiry-help button:focus-visible{outline:3px solid #118fcf;outline-offset:4px}
+@media(max-width:620px){.inquiry-help{padding:20px}.inquiry-help-actions{align-items:flex-start;flex-direction:column;gap:14px}}
