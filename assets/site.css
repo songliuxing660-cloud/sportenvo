@@ -99,3 +99,29 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
   .feature-media{min-height:0}
   .project-main .caption,.project-small .caption{overflow-wrap:anywhere}
 }
+
+/* Consistent headings and a visible mobile enquiry route. */
+.section-title,.cta .section-title{font-size:clamp(28px,3.3vw,44px);line-height:1.12}
+nav.breadcrumbs{position:static;background:none;backdrop-filter:none;border:0;z-index:auto;font-size:12px;line-height:1.5;margin-bottom:20px}
+#projectQuoteForm,[id^="zf_div_"]{scroll-margin-top:94px}
+.mobile-contact-dock{display:none}
+.site-nav .mobile-toggle{min-width:44px;min-height:44px}
+.site-nav .mobile-toggle span{display:block;width:20px;height:2px;margin:4px auto;background:currentColor;border-radius:2px}
+@media(max-width:900px){
+ body.has-mobile-contact{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+ .mobile-contact-dock{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:1000;background:#fff;border-top:1px solid #dce4eb;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -5px 24px rgba(7,17,31,.08)}
+ .mobile-contact-dock a{display:flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;font-size:14px;font-weight:800;border-radius:10px}
+ .mobile-contact-dock .mobile-quote{background:#18a8f7;color:#07111f}
+ .mobile-contact-dock .mobile-whatsapp{background:#e8f7ef;color:#145337;border:1px solid #b7dfc9}
+ .mobile-contact-dock a:focus-visible{outline:3px solid #07111f;outline-offset:2px}
+ body.has-mobile-contact .wa-float{display:none}
+ .site-nav .navlinks.open{max-height:calc(100dvh - 160px);overflow-y:auto;overscroll-behavior:contain}
+ .site-nav .nav-item>.mega-menu{display:none}
+}
+@media(max-width:620px){.section-title,.cta .section-title{font-size:30px;line-height:1.15}}
+
+/* Keep project detail tables and image/text pairs inside the mobile viewport. */
+.project-case .case-grid>*{min-width:0}
+.project-case table{min-width:0;table-layout:fixed}
+.project-case td{overflow-wrap:anywhere}
+@media(max-width:900px){.project-case .case-grid{grid-template-columns:minmax(0,1fr)!important;gap:26px!important}}

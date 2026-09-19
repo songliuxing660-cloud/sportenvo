@@ -5,7 +5,7 @@ if(toggle&&nav) toggle.addEventListener('click',()=>{
   toggle.setAttribute('aria-expanded',String(open));
   toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
 });
-// Project enquiries use the existing Web3Forms endpoint.
+// Legacy project selector links to the enquiry page.
 const state={location:'Outdoor',venue:'Padel Club',courts:'2–4',foundation:'Not Sure',roof:'Not Sure'};
 function updateResult(){const r=document.querySelector('#recommendation');if(!r)return;let court='Panoramic Padel Court';let foundation=state.foundation==='Modular Foundation'?'Modular Foundation':'Standard Civil Foundation';let roof='No Roof Required';let note='Balanced commercial solution for professional padel clubs.';
 if(state.location==='Indoor'){court='Super Panoramic Padel Court';foundation='Existing / Standard Slab';roof='Indoor Venue';note='Maximizes visibility and premium club presentation indoors.'}
@@ -30,4 +30,24 @@ updateResult();
       </svg>
     </a>`;
   document.body.appendChild(wa);
+})();
+
+// Keep enquiry actions visible when the mobile navigation is closed.
+(function(){
+  if(document.querySelector('.mobile-contact-dock')) return;
+  const dock=document.createElement('div');
+  dock.className='mobile-contact-dock';
+  dock.setAttribute('role','group');
+  dock.setAttribute('aria-label','Contact the SPORTENVO project team');
+  const quote=document.createElement('a');
+  quote.className='mobile-quote';
+  const localForm=document.getElementById('projectQuoteForm') || document.querySelector('[id^="zf_div_"]');
+  quote.href=localForm ? '#'+localForm.id : '/start-project.html#projectQuoteForm';
+  quote.textContent=localForm ? 'Go to Inquiry Form' : 'Get a Quote';
+  const whatsapp=document.createElement('a');
+  whatsapp.className='mobile-whatsapp';
+  whatsapp.href='https://wa.me/8613128265916?text=Hi%2C%20I%27m%20interested%20in%20a%20padel%20court%20project.';
+  whatsapp.target='_blank';whatsapp.rel='noopener';whatsapp.textContent='WhatsApp';
+  dock.append(quote,whatsapp);document.body.appendChild(dock);
+  document.body.classList.add('has-mobile-contact');
 })();
