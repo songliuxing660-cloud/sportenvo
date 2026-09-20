@@ -1,9 +1,44 @@
 const toggle=document.querySelector('.mobile-toggle');
 const nav=document.querySelector('.navlinks');
+const siteNav=document.querySelector('.site-nav');
+if(siteNav){
+  const updateHeaderState=()=>siteNav.classList.toggle('is-scrolled',window.scrollY>18);
+  updateHeaderState();
+  window.addEventListener('scroll',updateHeaderState,{passive:true});
+  const path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  let section='';
+  if(/^(courts|panoramic|super-panoramic|mobile|force-hx)/.test(path)||window.location.pathname.includes('/padel-courts/')) section='courts';
+  else if(/^(solutions|modular-foundation|roof)/.test(path)) section='solutions';
+  else if(/^(projects|project-)/.test(path)) section='projects';
+  else if(path==='insights.html'||/(guide|cost|dimensions|panoramic-vs)/.test(path)) section='blog';
+  else if(/^(about|engineering|quality|resources)/.test(path)) section='about';
+  const active=section&&siteNav.querySelector('[data-section="'+section+'"]');
+  if(active){active.classList.add('is-active');active.querySelector('.nav-main')?.setAttribute('aria-current','page');}
+}
 if(toggle&&nav) toggle.addEventListener('click',()=>{
   const open=nav.classList.toggle('open');
   toggle.setAttribute('aria-expanded',String(open));
   toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+});
+document.querySelectorAll('.site-nav .has-dropdown>.nav-main').forEach(link=>{
+  link.addEventListener('click',event=>{
+    if(!window.matchMedia('(max-width: 900px)').matches) return;
+    event.preventDefault();
+    const item=link.parentElement;
+    const opening=!item.classList.contains('submenu-open');
+    document.querySelectorAll('.site-nav .submenu-open').forEach(openItem=>{
+      if(openItem!==item){openItem.classList.remove('submenu-open');openItem.querySelector('.nav-main')?.setAttribute('aria-expanded','false');}
+    });
+    item.classList.toggle('submenu-open',opening);
+    link.setAttribute('aria-expanded',String(opening));
+  });
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900){
+    nav?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded','false');
+    document.querySelectorAll('.site-nav .submenu-open').forEach(item=>item.classList.remove('submenu-open'));
+  }
 });
 // Legacy project selector links to the enquiry page.
 const state={location:'Outdoor',venue:'Padel Club',courts:'2–4',foundation:'Not Sure',roof:'Not Sure'};
