@@ -199,6 +199,24 @@
 		f.style.width="99%";
 		f.style.transition="all 0.5s ease";
 		f.setAttribute("aria-label", 'SPORTENVO Project Inquiry');
+        f.addEventListener("load", function(){
+            try{
+                if(typeof window.sportenvoRememberLeadIntent==="function"){
+                    window.sportenvoRememberLeadIntent();
+                }else{
+                    localStorage.setItem("sportenvo_lead_started_at",String(Date.now()));
+                    localStorage.setItem("sportenvo_lead_source_page",window.location.pathname+window.location.search);
+                    localStorage.setItem("sportenvo_lead_source_title",document.title);
+                }
+            }catch(e){}
+            if(typeof window.gtag==="function"){
+                window.gtag("event","project_form_view",{
+                    form_name:"SPORTENVO Project Inquiry",
+                    page_location:window.location.href,
+                    page_title:document.title
+                });
+            }
+        },{once:true});
 		var d = document.getElementById("zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI");
 		d.appendChild(f);
 		window.addEventListener('message', function (){

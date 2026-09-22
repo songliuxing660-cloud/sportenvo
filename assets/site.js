@@ -88,8 +88,17 @@ updateResult();
 })();
 
 
-// Anonymous GA4 intent events for commercial project enquiries.
+// Anonymous GA4 enquiry funnel events for commercial project leads.
 (function(){
+  const rememberLeadIntent=()=>{
+    try{
+      localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
+      localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
+      localStorage.setItem('sportenvo_lead_source_title',document.title);
+    }catch(error){}
+  };
+  window.sportenvoRememberLeadIntent=rememberLeadIntent;
+
   document.addEventListener('click',event=>{
     const target=event.target instanceof Element?event.target:event.target?.parentElement;
     const link=target?.closest?.('a[href]');
@@ -99,29 +108,45 @@ updateResult();
     try{destination=new URL(rawHref,window.location.href);}catch(error){return;}
     const path=destination.pathname.replace(/\/+$/,'');
     const visibleText=(link.textContent||link.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,120);
-    let eventName='';
-    let linkText=visibleText;
+    const params={
+      link_url:destination.href,
+      link_text:visibleText,
+      page_location:window.location.href,
+      page_title:document.title
+    };
+
     if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
-      eventName='start_project_click';
-    }else if(
+      rememberLeadIntent();
+      window.gtag('event','start_project_click',params);
+      return;
+    }
+
+    if(destination.hostname==='forms.zohopublic.com'&&destination.pathname.includes('/SPORTENVOProjectInquiry/')){
+      rememberLeadIntent();
+      window.gtag('event','project_form_external_open',params);
+      window.gtag('event','request_quote_click',params);
+      return;
+    }
+
+    if(destination.hostname==='wa.me'||destination.hostname==='api.whatsapp.com'){
+      rememberLeadIntent();
+      window.gtag('event','contact_whatsapp_click',params);
+      return;
+    }
+
+    if(destination.protocol==='mailto:'&&/sales@sportenvo\.com/i.test(destination.href)){
+      rememberLeadIntent();
+      window.gtag('event','contact_email_click',params);
+      return;
+    }
+
+    if(
       destination.origin===window.location.origin&&
       path.endsWith('/contact.html')&&
       /discuss|request|quote|proposal|project|contact/i.test(visibleText)
     ){
-      eventName='request_quote_click';
-    }else if(
-      destination.hostname==='forms.zohopublic.com'&&
-      destination.pathname.includes('/SPORTENVOProjectInquiry/')
-    ){
-      eventName='request_quote_click';
-      linkText='Open project inquiry form';
+      rememberLeadIntent();
+      window.gtag('event','request_quote_click',params);
     }
-    if(!eventName) return;
-    window.gtag('event',eventName,{
-      link_url:destination.href,
-      link_text:linkText,
-      page_location:window.location.href,
-      page_title:document.title
-    });
   },{capture:true});
 })();

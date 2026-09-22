@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2R150CJB3Z"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-2R150CJB3Z');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Inquiry Received | SPORTENVO</title>
+<meta name="description" content="Your SPORTENVO commercial padel project inquiry has been received.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="assets/site.css?v=20260920-header">
+<style>
+.thanks{min-height:72vh;display:grid;place-items:center;padding:110px 24px 80px;background:#07111f;color:#fff}
+.thanks-card{width:min(820px,100%);padding:54px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.04)}
+.thanks .eyebrow{color:#8bdfff}.thanks h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:1;letter-spacing:-.04em;color:#fff;margin:16px 0 22px}
+.thanks p{max-width:680px;color:#c5d2da;font-size:17px;line-height:1.75}.thanks-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+@media(max-width:640px){.thanks-card{padding:34px 24px}.thanks{padding-top:86px}}
+</style>
+</head>
+<body>
+<main class="thanks">
+  <section class="thanks-card" aria-labelledby="thanks-title">
+    <div class="eyebrow">Project Inquiry Received</div>
+    <h1 id="thanks-title">Thank you.<br>We have your brief.</h1>
+    <p>Your commercial padel project inquiry has been submitted. The project team can now review the venue, court quantity, foundation, roof and delivery requirements you provided.</p>
+    <p>You can continue reviewing SPORTENVO project references while your brief is being evaluated.</p>
+    <div class="thanks-actions">
+      <a class="btn primary" href="projects.html">View Project References ↗</a>
+      <a class="btn white" href="courts.html">Explore Court Systems ↗</a>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var started=0,sourcePage='',sourceTitle='';
+  try{
+    started=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
+    sourcePage=localStorage.getItem('sportenvo_lead_source_page')||'';
+    sourceTitle=localStorage.getItem('sportenvo_lead_source_title')||'';
+  }catch(e){}
+  var recent=started&&Date.now()-started<2*60*60*1000;
+  var onceKey='sportenvo_lead_converted_'+String(started||'direct');
+  var already=false;
+  try{already=sessionStorage.getItem(onceKey)==='1';}catch(e){}
+  if(typeof window.gtag==='function'){
+    window.gtag('event','project_form_submit',{
+      form_name:'SPORTENVO Project Inquiry',
+      lead_source_page:sourcePage,
+      lead_source_title:sourceTitle
+    });
+    if(recent&&!already){
+      window.gtag('event','generate_lead',{
+        currency:'USD',
+        value:0,
+        lead_source_page:sourcePage,
+        lead_source_title:sourceTitle
+      });
+      try{sessionStorage.setItem(onceKey,'1');}catch(e){}
+    }
+  }
+})();
+</script>
+<script src="assets/site.js?v=20260923-lead-funnel"></script>
+</body>
+</html>
