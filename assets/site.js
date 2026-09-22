@@ -86,3 +86,42 @@ updateResult();
   dock.append(quote,whatsapp);document.body.appendChild(dock);
   document.body.classList.add('has-mobile-contact');
 })();
+
+
+// Anonymous GA4 intent events for commercial project enquiries.
+(function(){
+  document.addEventListener('click',event=>{
+    const target=event.target instanceof Element?event.target:event.target?.parentElement;
+    const link=target?.closest?.('a[href]');
+    if(!link||typeof window.gtag!=='function') return;
+    const rawHref=link.getAttribute('href')||'';
+    let destination;
+    try{destination=new URL(rawHref,window.location.href);}catch(error){return;}
+    const path=destination.pathname.replace(/\/+$/,'');
+    const visibleText=(link.textContent||link.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,120);
+    let eventName='';
+    let linkText=visibleText;
+    if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
+      eventName='start_project_click';
+    }else if(
+      destination.origin===window.location.origin&&
+      path.endsWith('/contact.html')&&
+      /discuss|request|quote|proposal|project|contact/i.test(visibleText)
+    ){
+      eventName='request_quote_click';
+    }else if(
+      destination.hostname==='forms.zohopublic.com'&&
+      destination.pathname.includes('/SPORTENVOProjectInquiry/')
+    ){
+      eventName='request_quote_click';
+      linkText='Open project inquiry form';
+    }
+    if(!eventName) return;
+    window.gtag('event',eventName,{
+      link_url:destination.href,
+      link_text:linkText,
+      page_location:window.location.href,
+      page_title:document.title
+    });
+  },{capture:true});
+})();
