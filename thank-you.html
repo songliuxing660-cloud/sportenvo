@@ -38,11 +38,12 @@ gtag('config','G-2R150CJB3Z');
 </main>
 <script>
 (function(){
-  var started=0,sourcePage='',sourceTitle='';
+  var started=0,sourcePage='',sourceTitle='',sourceCta='';
   try{
     started=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
     sourcePage=localStorage.getItem('sportenvo_lead_source_page')||'';
     sourceTitle=localStorage.getItem('sportenvo_lead_source_title')||'';
+    sourceCta=localStorage.getItem('sportenvo_lead_source_cta')||'';
   }catch(e){}
   var recent=started&&Date.now()-started<2*60*60*1000;
   var onceKey='sportenvo_lead_converted_'+String(started||'direct');
@@ -52,20 +53,22 @@ gtag('config','G-2R150CJB3Z');
     window.gtag('event','project_form_submit',{
       form_name:'SPORTENVO Project Inquiry',
       lead_source_page:sourcePage,
-      lead_source_title:sourceTitle
+      lead_source_title:sourceTitle,
+      lead_source_cta:sourceCta
     });
     if(recent&&!already){
       window.gtag('event','generate_lead',{
         currency:'USD',
         value:0,
         lead_source_page:sourcePage,
-        lead_source_title:sourceTitle
+        lead_source_title:sourceTitle,
+        lead_source_cta:sourceCta
       });
       try{sessionStorage.setItem(onceKey,'1');}catch(e){}
     }
   }
 })();
 </script>
-<script src="assets/site.js?v=20260923-lead-funnel"></script>
+<script src="assets/site.js?v=20260923-attribution"></script>
 </body>
 </html>

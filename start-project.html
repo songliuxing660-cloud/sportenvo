@@ -533,11 +533,16 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
         f.addEventListener("load", function(){
             try{
                 if(typeof window.sportenvoRememberLeadIntent==="function"){
-                    window.sportenvoRememberLeadIntent();
+                    window.sportenvoRememberLeadIntent("",true);
                 }else{
-                    localStorage.setItem("sportenvo_lead_started_at",String(Date.now()));
-                    localStorage.setItem("sportenvo_lead_source_page",window.location.pathname+window.location.search);
-                    localStorage.setItem("sportenvo_lead_source_title",document.title);
+                    var existingSource=localStorage.getItem("sportenvo_lead_source_page")||"";
+                    var existingStarted=parseInt(localStorage.getItem("sportenvo_lead_started_at")||"0",10);
+                    var existingRecent=existingStarted&&Date.now()-existingStarted<2*60*60*1000;
+                    if(!existingSource||!existingRecent){
+                      localStorage.setItem("sportenvo_lead_started_at",String(Date.now()));
+                      localStorage.setItem("sportenvo_lead_source_page",window.location.pathname+window.location.search);
+                      localStorage.setItem("sportenvo_lead_source_title",document.title);
+                    }
                 }
             }catch(e){}
             if(typeof window.gtag==="function"){
@@ -782,7 +787,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
   <div><h5>Project Solutions</h5><p><a href="modular-foundation.html">Modular Foundation</a></p><p><a href="roof.html">Roof Solutions</a></p><p><a href="projects.html">Global Projects</a></p><p><a href="insights.html">Insights</a></p></div>
   <div><h5>Resources</h5><p><a href="how-much-does-a-padel-court-cost.html">Padel Court Cost Guide</a></p><p><a href="padel-court-dimensions.html">Padel Court Dimensions</a></p><p><a href="engineering.html">Engineering</a></p><p><a href="quality.html">Quality &amp; Certifications</a></p></div>
 </div><p class="contact-email">Project enquiries: <a href="mailto:sales@sportenvo.com">sales@sportenvo.com</a></p><div class="copyright">© 2026 SPORTENVO · Padel Court &amp; Project Solutions</div></div></footer>
-<script src="assets/site.js?v=20260923-performance"></script>
+<script src="assets/site.js?v=20260923-attribution"></script>
 
 
 </body>

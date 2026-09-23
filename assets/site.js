@@ -90,11 +90,16 @@ updateResult();
 
 // Anonymous GA4 enquiry funnel events for commercial project leads.
 (function(){
-  const rememberLeadIntent=()=>{
+  const rememberLeadIntent=(ctaText='',preserveExisting=false)=>{
     try{
+      const existingPage=localStorage.getItem('sportenvo_lead_source_page')||'';
+      const existingStarted=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
+      const existingRecent=existingStarted&&Date.now()-existingStarted<2*60*60*1000;
+      if(preserveExisting&&existingPage&&existingRecent) return;
       localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
       localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
       localStorage.setItem('sportenvo_lead_source_title',document.title);
+      if(ctaText) localStorage.setItem('sportenvo_lead_source_cta',String(ctaText).slice(0,120));
     }catch(error){}
   };
   window.sportenvoRememberLeadIntent=rememberLeadIntent;
@@ -116,26 +121,26 @@ updateResult();
     };
 
     if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
-      rememberLeadIntent();
+      rememberLeadIntent(visibleText);
       window.gtag('event','start_project_click',params);
       return;
     }
 
     if(destination.hostname==='forms.zohopublic.com'&&destination.pathname.includes('/SPORTENVOProjectInquiry/')){
-      rememberLeadIntent();
+      rememberLeadIntent(visibleText);
       window.gtag('event','project_form_external_open',params);
       window.gtag('event','request_quote_click',params);
       return;
     }
 
     if(destination.hostname==='wa.me'||destination.hostname==='api.whatsapp.com'){
-      rememberLeadIntent();
+      rememberLeadIntent(visibleText);
       window.gtag('event','contact_whatsapp_click',params);
       return;
     }
 
     if(destination.protocol==='mailto:'&&/sales@sportenvo\.com/i.test(destination.href)){
-      rememberLeadIntent();
+      rememberLeadIntent(visibleText);
       window.gtag('event','contact_email_click',params);
       return;
     }
@@ -145,7 +150,7 @@ updateResult();
       path.endsWith('/contact.html')&&
       /discuss|request|quote|proposal|project|contact/i.test(visibleText)
     ){
-      rememberLeadIntent();
+      rememberLeadIntent(visibleText);
       window.gtag('event','request_quote_click',params);
     }
   },{capture:true});
@@ -160,10 +165,12 @@ updateResult();
     let started=0;
     let sourcePage='';
     let sourceTitle='';
+    let sourceCta='';
     try{
       started=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
       sourcePage=localStorage.getItem('sportenvo_lead_source_page')||'';
       sourceTitle=localStorage.getItem('sportenvo_lead_source_title')||'';
+      sourceCta=localStorage.getItem('sportenvo_lead_source_cta')||'';
     }catch(error){}
 
     // Prevent duplicate conversion events from repeated postMessage callbacks.
@@ -178,7 +185,8 @@ updateResult();
       page_location:window.location.href,
       page_title:document.title,
       lead_source_page:sourcePage,
-      lead_source_title:sourceTitle
+      lead_source_title:sourceTitle,
+      lead_source_cta:sourceCta
     };
 
     if(meta&&typeof meta==='object'){
@@ -193,7 +201,8 @@ updateResult();
         value:0,
         form_name:params.form_name,
         lead_source_page:sourcePage,
-        lead_source_title:sourceTitle
+        lead_source_title:sourceTitle,
+        lead_source_cta:sourceCta
       });
     }
 
