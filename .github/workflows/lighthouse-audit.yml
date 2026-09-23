@@ -1,4 +1,4 @@
-name: Lighthouse mobile audit
+name: Lighthouse core pages audit
 
 on:
   push:
@@ -9,33 +9,45 @@ on:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Install Lighthouse
         run: npm install -g lighthouse@latest
-      - name: Run mobile Lighthouse
+      - name: Audit core mobile pages
         run: |
-          lighthouse https://sportenvo.com/             --only-categories=performance             --output=json             --output-path=lighthouse.json             --chrome-flags="--headless --no-sandbox"             --quiet
-      - name: Print key metrics
+          set -e
+          for item in "home|https://sportenvo.com/" "courts|https://sportenvo.com/courts.html" "projects|https://sportenvo.com/projects.html" "start-project|https://sportenvo.com/start-project.html"; do
+            name="${item%%|*}"
+            url="${item#*|}"
+            lighthouse "$url"               --only-categories=performance               --output=json               --output-path="$name.json"               --chrome-flags="--headless --no-sandbox"               --quiet
+          done
+      - name: Print core metrics
         run: |
           node <<'NODE'
           const fs=require('fs');
-          const r=JSON.parse(fs.readFileSync('lighthouse.json','utf8'));
-          const a=r.audits;
-          const out={
-            performance:Math.round((r.categories.performance.score||0)*100),
-            fcp:a['first-contentful-paint']?.displayValue,
-            lcp:a['largest-contentful-paint']?.displayValue,
-            speedIndex:a['speed-index']?.displayValue,
-            tbt:a['total-blocking-time']?.displayValue,
-            cls:a['cumulative-layout-shift']?.displayValue,
-            renderBlocking:a['render-blocking-resources']?.displayValue || null,
-            unusedJs:a['unused-javascript']?.displayValue || null
-          };
-          console.log('LIGHTHOUSE_METRICS '+JSON.stringify(out));
-          for (const [id,v] of Object.entries(a)) {
-            if (/lcp|largest-contentful|render-block|unused-javascript|mainthread|long-task|third-part|network-dependency|bootup-time/i.test(id)) {
-              console.log('\nAUDIT '+id+'\n'+JSON.stringify({title:v.title,score:v.score,displayValue:v.displayValue,details:v.details},null,2));
+          for (const name of ['home','courts','projects','start-project']) {
+            const r=JSON.parse(fs.readFileSync(name+'.json','utf8'));
+            const a=r.audits;
+            const lcp=a['lcp-breakdown-insight'];
+            let renderDelay=null,ttfb=null;
+            const tables=lcp?.details?.items||[];
+            for(const t of tables){
+              for(const x of (t.items||[])){
+                if(x.subpart==='elementRenderDelay') renderDelay=x.duration;
+                if(x.subpart==='timeToFirstByte') ttfb=x.duration;
+              }
             }
+            console.log('CORE_METRICS '+JSON.stringify({
+              page:name,
+              performance:Math.round((r.categories.performance.score||0)*100),
+              fcp:a['first-contentful-paint']?.numericValue,
+              lcp:a['largest-contentful-paint']?.numericValue,
+              speedIndex:a['speed-index']?.numericValue,
+              tbt:a['total-blocking-time']?.numericValue,
+              cls:a['cumulative-layout-shift']?.numericValue,
+              renderDelay,
+              ttfb,
+              unusedJs:a['unused-javascript']?.details?.overallSavingsBytes||0
+            }));
           }
           NODE
