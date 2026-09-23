@@ -34,8 +34,8 @@ jobs:
           };
           console.log('LIGHTHOUSE_METRICS '+JSON.stringify(out));
           for (const [id,v] of Object.entries(a)) {
-            if (/lcp|largest-contentful|render-block/i.test(id)) {
-              console.log('\nAUDIT '+id+'\n'+JSON.stringify({title:v.title,displayValue:v.displayValue,details:v.details},null,2));
+            if (/lcp|largest-contentful|render-block|unused-javascript|mainthread|long-task|third-part|network-dependency|bootup-time/i.test(id)) {
+              console.log('\nAUDIT '+id+'\n'+JSON.stringify({title:v.title,score:v.score,displayValue:v.displayValue,details:v.details},null,2));
             }
           }
           NODE
