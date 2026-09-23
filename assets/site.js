@@ -150,3 +150,53 @@ updateResult();
     }
   },{capture:true});
 })();
+
+
+// Canonical conversion handler for Zoho Forms PostMessage Tracking.
+// The Zoho-generated tracking listener should call this function only on the Submit Form event.
+(function(){
+  window.sportenvoHandleZohoSubmit=function(meta){
+    const now=Date.now();
+    let started=0;
+    let sourcePage='';
+    let sourceTitle='';
+    try{
+      started=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
+      sourcePage=localStorage.getItem('sportenvo_lead_source_page')||'';
+      sourceTitle=localStorage.getItem('sportenvo_lead_source_title')||'';
+    }catch(error){}
+
+    // Prevent duplicate conversion events from repeated postMessage callbacks.
+    const dedupeKey='sportenvo_zoho_submit_'+String(started||Math.floor(now/60000));
+    try{
+      if(sessionStorage.getItem(dedupeKey)==='1') return;
+      sessionStorage.setItem(dedupeKey,'1');
+    }catch(error){}
+
+    const params={
+      form_name:'SPORTENVO Project Inquiry',
+      page_location:window.location.href,
+      page_title:document.title,
+      lead_source_page:sourcePage,
+      lead_source_title:sourceTitle
+    };
+
+    if(meta&&typeof meta==='object'){
+      if(meta.form_alias) params.form_alias=String(meta.form_alias).slice(0,100);
+      if(meta.event_name) params.zoho_event=String(meta.event_name).slice(0,100);
+    }
+
+    if(typeof window.gtag==='function'){
+      window.gtag('event','project_form_submit',params);
+      window.gtag('event','generate_lead',{
+        currency:'USD',
+        value:0,
+        form_name:params.form_name,
+        lead_source_page:sourcePage,
+        lead_source_title:sourceTitle
+      });
+    }
+
+    document.dispatchEvent(new CustomEvent('sportenvo:lead-submitted',{detail:params}));
+  };
+})();
