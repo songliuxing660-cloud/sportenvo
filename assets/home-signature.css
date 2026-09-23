@@ -27,3 +27,15 @@
 @media(max-width:600px){.signature-inner{width:calc(100% - 40px)}.signature-hero{min-height:850px}.signature-inner{padding:112px 0 24px}.signature-background{object-position:65% center}.signature-shade{background:linear-gradient(90deg,rgba(3,12,20,.81),rgba(3,12,20,.42)),linear-gradient(0deg,rgba(3,12,20,.86),transparent 48%,rgba(3,12,20,.35))}.signature-kicker{font-size:8px;letter-spacing:.26em;margin-bottom:25px}.home-signature .signature-hero h1{font-size:clamp(36px,9.3vw,54px);line-height:1.06;letter-spacing:-.04em;margin-bottom:22px}.signature-lead{font-size:21px;max-width:340px}.desktop-break{display:none}.signature-description{font-size:14px;max-width:340px;line-height:1.65}.signature-actions{display:grid;grid-template-columns:1fr;gap:12px;max-width:350px;margin-top:27px}.signature-button{min-height:52px;font-size:14px;padding:14px 20px}.signature-capabilities{flex-wrap:wrap;gap:18px 0;margin-top:30px;margin-bottom:38px}.signature-capabilities li{padding:0 14px}.signature-capabilities strong{font-size:12px}.signature-capabilities span{font-size:7px;letter-spacing:.03em}.signature-capabilities li:last-child{padding-left:0;border:0;flex-basis:100%}.signature-bottom{align-items:flex-end;font-size:8px;gap:12px}.signature-bottom a{font-size:7px;letter-spacing:.12em;max-width:180px}.signature-bottom a span{margin-right:8px}.signature-bottom>span{max-width:85px;text-align:right}}
 @media(prefers-reduced-motion:reduce){.signature-button{transition:none}}
 .home-signature .signature-background{height:100%;width:100%;object-fit:cover}
+
+
+/* HOME PERFORMANCE: defer offscreen editorial sections without changing layout. */
+.home-signature .ed-section{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 760px;
+}
+@media (max-width:760px){
+  .home-signature .ed-section{
+    contain-intrinsic-size:auto 680px;
+  }
+}
