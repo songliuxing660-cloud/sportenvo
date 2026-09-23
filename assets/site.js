@@ -48,7 +48,7 @@ if(state.location==='Rooftop'){court='Mobile / Modular Padel Court';foundation='
 if(state.location==='Coastal / High Wind'){court='FORCE-HX Extreme Weather Court';foundation='Engineered Foundation';roof='Site-Specific';note='Reinforced structural concept for coastal and severe-wind project environments.'}
 if(state.roof==='Retractable Roof'){roof='Retractable Roof System'} else if(state.roof==='Fixed Roof'){roof='Fixed Roof System'}
 if(state.foundation==='Modular Foundation')foundation='Modular Steel Foundation';
-r.innerHTML=`<div class="recommend"><b>${court}</b><span>${note}</span></div><div class="recommend"><b>${foundation}</b><span>Foundation recommendation based on your current selection.</span></div><div class="recommend"><b>${roof}</b><span>Weather protection recommendation.</span></div><a class="btn primary" href="contact.html">Request Project Proposal →</a>`}
+r.innerHTML=`<div class="recommend"><b>${court}</b><span>${note}</span></div><div class="recommend"><b>${foundation}</b><span>Foundation recommendation based on your current selection.</span></div><div class="recommend"><b>${roof}</b><span>Weather protection recommendation.</span></div><a class="btn primary" href="start-project.html#projectQuoteForm">Request Project Proposal →</a>`}
 document.querySelectorAll('[data-q]').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.q;document.querySelectorAll(`[data-q="${key}"]`).forEach(x=>x.classList.remove('active'));btn.classList.add('active');state[key]=btn.textContent.trim();updateResult()}));
 updateResult();
 
