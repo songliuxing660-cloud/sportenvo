@@ -67,6 +67,19 @@ button { color: inherit; }
 
 .site-header.is-scrolled { box-shadow: 0 8px 30px rgba(7, 19, 30, .08); }
 
+.header-brand {
+  display: block;
+  width: 190px;
+  height: 54px;
+}
+
+.header-brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
 .brand {
   display: inline-flex;
   align-items: baseline;
@@ -489,6 +502,7 @@ h3 { font-size: 24px; line-height: 1.15; }
 @media (max-width: 860px) {
   :root { --pad: 22px; }
   .site-header { height: 68px; grid-template-columns: 1fr auto; }
+  .header-brand { width: 154px; height: 46px; }
   .menu-toggle { display: grid; grid-template-columns: 22px auto; gap: 3px 9px; align-items: center; border: 0; background: transparent; cursor: pointer; }
   .menu-toggle span { grid-column: 1; display: block; width: 22px; height: 1px; background: var(--ink); }
   .menu-toggle b { grid-column: 2; grid-row: 1 / 4; font-size: 12px; text-transform: uppercase; }
