@@ -606,7 +606,7 @@ h3 { font-size: 24px; line-height: 1.15; }
   .footer-grid { grid-template-columns: repeat(2,1fr); }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   :root { --pad: 22px; }
   .site-header { height: 68px; grid-template-columns: 1fr auto; gap:18px; padding-left:var(--pad); padding-right:var(--pad); }
   .header-brand { width: 154px; height: 46px; }
