@@ -15,8 +15,8 @@
 
 /* Hero: premium commercial B2B positioning */
 .home-v6 .home-hero{
-  min-height:calc(100vh - 94px);
-  min-height:calc(100svh - 94px);
+  min-height:calc(100vh - 104px);
+  min-height:calc(100svh - 104px);
   max-height:none;
   align-items:center;
   overflow:hidden;
