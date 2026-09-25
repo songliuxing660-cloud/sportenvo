@@ -55,11 +55,11 @@ button { color: inherit; }
   top: 0;
   z-index: 100;
   height: 94px;
-  padding: 0 60px;
+  padding: 0 clamp(48px, 4vw, 72px);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 232px minmax(0, 1fr) 232px;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
   background: rgba(243, 241, 236, .965);
   border-bottom: 1px solid rgba(11, 16, 21, .10);
   backdrop-filter: blur(16px);
@@ -71,6 +71,7 @@ button { color: inherit; }
   display: block;
   width: 232px;
   height: 66px;
+  justify-self: start;
 }
 
 .header-brand img {
@@ -95,6 +96,7 @@ button { color: inherit; }
 .primary-nav {
   display: flex;
   justify-content: center;
+  justify-self: center;
   align-items: center;
   gap: 42px;
   font-size: 16px;
@@ -151,7 +153,7 @@ button { color: inherit; }
   display: grid;
   grid-template-columns: 1.15fr 1.15fr .9fr;
   gap: 0;
-  padding: 46px max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad)));
+  padding: 46px clamp(60px, 6vw, 120px) 50px;
   background: linear-gradient(110deg, #07131e 0%, #0a1a27 100%);
   color: var(--white);
   box-shadow: 0 32px 68px rgba(7, 19, 30, .30);
@@ -197,6 +199,9 @@ button { color: inherit; }
   display: inline-flex;
   gap: 24px;
   align-items: center;
+  justify-content: space-between;
+  justify-self: end;
+  width: 232px;
   min-height: 54px;
   padding: 0 15px 0 22px;
   background: var(--navy);
@@ -571,10 +576,10 @@ h3 { font-size: 24px; line-height: 1.15; }
 
 @media (max-width: 1100px) {
   :root { --pad: 30px; }
-  .site-header { grid-template-columns: auto auto 1fr; padding-left:30px; padding-right:30px; }
+  .site-header { grid-template-columns: auto 1fr auto; gap:24px; padding-left:30px; padding-right:30px; }
   .primary-nav { gap: 22px; }
   .primary-nav > a, .nav-dropdown > summary { font-size: 14px; }
-  .header-cta { justify-self: end; }
+  .header-cta { width:auto; min-width:210px; justify-self:end; }
   .hero-copy h1 { font-size: 72px; }
   h1 { font-size: 58px; }
   h2 { font-size: 38px; }
@@ -587,7 +592,7 @@ h3 { font-size: 24px; line-height: 1.15; }
 
 @media (max-width: 860px) {
   :root { --pad: 22px; }
-  .site-header { height: 68px; grid-template-columns: 1fr auto; padding-left:var(--pad); padding-right:var(--pad); }
+  .site-header { height: 68px; grid-template-columns: 1fr auto; gap:18px; padding-left:var(--pad); padding-right:var(--pad); }
   .header-brand { width: 154px; height: 46px; }
   .menu-toggle { display: grid; grid-template-columns: 22px auto; gap: 3px 9px; align-items: center; border: 0; background: transparent; cursor: pointer; }
   .menu-toggle span { grid-column: 1; display: block; width: 22px; height: 1px; background: var(--ink); }
