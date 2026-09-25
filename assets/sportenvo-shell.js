@@ -10,7 +10,7 @@
       document.body.classList.toggle("menu-open", !open);
     });
     nav.addEventListener("click", (event) => {
-      if (event.target.closest("a") && window.innerWidth <= 860) {
+      if (event.target.closest("a") && window.innerWidth <= 960) {
         nav.classList.remove("is-open");
         menuButton.setAttribute("aria-expanded", "false");
         document.body.classList.remove("menu-open");
