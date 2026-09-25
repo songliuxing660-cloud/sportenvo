@@ -1,0 +1,89 @@
+/* SPORTENVO shared v2 header/footer shell for legacy content pages */
+:root{
+  --shell-navy:#07131e;
+  --shell-navy-soft:#0d2130;
+  --shell-ink:#0b1015;
+  --shell-paper:#f3f1ec;
+  --shell-line:#d4d2cc;
+  --shell-steel:#b7c5ce;
+  --shell-steel-dark:#5f7482;
+  --shell-max:1440px;
+  --shell-pad:48px;
+}
+body.shell-v2.menu-open{overflow:hidden}
+.site-header,.site-header *,.site-footer,.site-footer *{box-sizing:border-box}
+.site-header a,.site-footer a{text-decoration:none}
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1100;height:78px;padding:0 var(--shell-pad);
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:36px;
+  background:rgba(243,241,236,.96);border-bottom:1px solid rgba(11,16,21,.14);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)
+}
+.site-header.is-scrolled{box-shadow:0 8px 30px rgba(7,19,30,.08)}
+.header-brand{display:block;width:190px;height:54px}
+.header-brand img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}
+.primary-nav{display:flex;justify-content:center;align-items:center;gap:30px;font-size:14px;font-weight:700;color:var(--shell-ink)}
+.primary-nav>a,.nav-dropdown>summary{padding:28px 0;cursor:pointer;list-style:none;white-space:nowrap;color:var(--shell-ink)}
+.nav-dropdown>summary::-webkit-details-marker{display:none}
+.nav-dropdown>summary span{margin-left:5px;color:var(--shell-steel-dark)}
+.primary-nav>a:hover,.nav-dropdown>summary:hover{color:var(--shell-steel-dark)}
+.nav-dropdown{position:static}
+.site-header .mega-menu{
+  position:absolute;top:77px;left:0;right:0;display:grid;grid-template-columns:1.2fr 1.2fr 1fr;
+  gap:48px;padding:42px max(var(--shell-pad),calc((100vw - var(--shell-max))/2 + var(--shell-pad)));
+  background:var(--shell-navy);color:var(--shell-paper);box-shadow:0 30px 60px rgba(7,19,30,.28);border:0;border-radius:0
+}
+.site-header .mega-menu div{display:flex;flex-direction:column;gap:9px}
+.site-header .mega-menu a{color:#d9e0e3;font-size:15px;font-weight:500;padding:5px 0}
+.site-header .mega-menu a:hover{color:var(--shell-steel)}
+.site-header .mega-title{margin:0 0 10px;color:#8d9aa3;font-size:12px;font-weight:800;text-transform:uppercase}
+.site-header .mega-menu .mega-all{margin-top:16px;color:var(--shell-steel);font-weight:800}
+.header-cta{
+  display:inline-flex;gap:22px;align-items:center;padding:12px 15px 12px 18px;background:var(--shell-navy);
+  color:var(--shell-paper);font-size:14px;font-weight:800
+}
+.header-cta:hover{background:var(--shell-navy-soft);color:var(--shell-paper)}
+.header-cta span{color:var(--shell-steel);font-size:20px;line-height:1}
+.site-header .menu-toggle{display:none}
+
+.site-footer{padding:80px var(--shell-pad) 28px;background:var(--shell-navy);color:var(--shell-paper);font-family:Inter,"Helvetica Neue",Arial,sans-serif}
+.footer-intro{max-width:var(--shell-max);margin:0 auto 70px;display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:30px;align-items:start;border-bottom:1px solid rgba(183,197,206,.24);padding-bottom:35px}
+.footer-intro p{margin:0;color:var(--shell-steel)}
+.site-footer .brand{position:relative;display:block;width:190px;height:54px;font-size:0!important;color:transparent!important}
+.site-footer .brand span,.site-footer .brand strong{display:none!important}
+.site-footer .brand::before{content:"";position:absolute;inset:0;background:url('/assets/sportenvo-header-logo.png') left center/contain no-repeat;filter:brightness(0) invert(1)}
+.footer-grid{max-width:var(--shell-max);margin:0 auto;display:grid;grid-template-columns:1.15fr 1.15fr 1fr 1fr;gap:45px}
+.footer-grid>div{display:flex;flex-direction:column;gap:9px}
+.footer-grid h2{margin:0 0 10px;color:#8d9aa3;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:0}
+.footer-grid a{color:#d9e0e3;font-size:14px}
+.footer-grid a:hover{color:var(--shell-steel)}
+.footer-grid .footer-subhead{margin-top:24px}
+.footer-contact p{margin:25px 0 0;color:#8d9aa3;font-size:14px}
+.footer-base{max-width:var(--shell-max);margin:65px auto 0;padding-top:24px;display:flex;justify-content:space-between;border-top:1px solid rgba(183,197,206,.24);color:#84939c;font-size:12px}
+
+@media(max-width:1100px){
+  :root{--shell-pad:30px}
+  .site-header{grid-template-columns:auto auto 1fr}
+  .primary-nav{gap:20px}
+  .primary-nav>a,.nav-dropdown>summary{font-size:13px}
+  .header-cta{justify-self:end}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  :root{--shell-pad:22px}
+  .site-header{height:68px;grid-template-columns:1fr auto}
+  .header-brand{width:154px;height:46px}
+  .site-header .menu-toggle{display:grid;grid-template-columns:22px auto;gap:3px 9px;align-items:center;border:0;background:transparent;cursor:pointer;color:var(--shell-ink)}
+  .site-header .menu-toggle span{grid-column:1;display:block;width:22px;height:1px;background:var(--shell-ink)}
+  .site-header .menu-toggle b{grid-column:2;grid-row:1/4;font-size:12px;text-transform:uppercase}
+  .primary-nav{display:none;position:absolute;top:100%;left:0;right:0;height:calc(100dvh - 68px);padding:24px var(--shell-pad) 100px;overflow-y:auto;align-items:stretch;justify-content:flex-start;flex-direction:column;gap:0;background:var(--shell-paper)}
+  .primary-nav.is-open{display:flex}
+  .primary-nav>a,.nav-dropdown>summary{display:block;padding:16px 0;border-bottom:1px solid var(--shell-line);font-size:17px}
+  .site-header .mega-menu{position:static;grid-template-columns:1fr;gap:20px;padding:22px;box-shadow:none}
+  .header-cta{display:none}
+}
+@media(max-width:620px){
+  .footer-intro,.footer-grid{grid-template-columns:1fr}
+  .footer-base{flex-direction:column;gap:8px}
+  .site-footer .brand{width:170px;height:48px}
+}
