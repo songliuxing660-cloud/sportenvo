@@ -17,6 +17,7 @@
 .buyer-guide-path{
   position:relative;
   z-index:20;
+  margin-top:104px;
   display:grid;
   grid-template-columns:auto minmax(0,1fr);
   align-items:stretch;
@@ -28,7 +29,7 @@
 .buyer-guide-path>strong{
   display:flex;
   align-items:center;
-  padding:0 26px 0 48px;
+  padding:0 26px 0 clamp(28px,5vw,96px);
   border-right:1px solid rgba(183,197,206,.2);
   color:var(--kg-steel);
   font-size:10px;
@@ -365,6 +366,13 @@
   font-weight:750;
 }
 
+@media(max-width:1320px){
+  .buyer-guide-path{margin-top:94px}
+}
+@media(max-width:960px){
+  .buyer-guide-path{margin-top:68px}
+  .buyer-guide-path>strong{padding-left:22px;padding-right:18px}
+}
 @media(max-width:1100px){
   .procurement-path-wrap{grid-template-columns:1fr;width:calc(100% - 56px)}
   .procurement-path-intro{border-right:0;border-bottom:1px solid var(--kg-line);padding-left:0}
