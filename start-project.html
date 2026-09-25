@@ -2,19 +2,31 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2R150CJB3Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-2R150CJB3Z');
+    (function(){
+      function loadAnalytics(){
+        if(document.querySelector('script[data-sportenvo-ga4]')) return;
+        var s=document.createElement('script');
+        s.async=true;
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-2R150CJB3Z';
+        s.setAttribute('data-sportenvo-ga4','1');
+        document.head.appendChild(s);
+      }
+      if(document.readyState==='complete') loadAnalytics();
+      else window.addEventListener('load',loadAnalytics,{once:true});
+    })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Padel Court Project Planning &amp; Proposal | SPORTENVO</title>
 <meta name="description" content="Plan your commercial padel court project with SPORTENVO. Configure court type, foundation, roof and quantity, then request technical drawings and a tailored project proposal.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://sportenvo.com/start-project.html">\n<link rel="stylesheet" href="assets/site.css?v=20260925-v2bridge">
+<link rel="canonical" href="https://sportenvo.com/start-project.html">
+<link rel="stylesheet" href="assets/site.css?v=20260925-v2bridge">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -468,7 +480,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       </div>
 <div class="inquiry-help" id="inquiryHelp"><p class="inquiry-loading" role="status" aria-live="polite">Loading the inquiry form…</p><p class="inquiry-alternative">Prefer another way to send your project?</p><div class="inquiry-help-actions"><a class="btn dark" href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">Open Form in New Tab ↗</a><a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">Email sales@sportenvo.com</a><button type="button" class="inquiry-retry" hidden>Retry Embedded Form</button></div><noscript><p>Open the form in a new tab or email us to send your enquiry.</p></noscript></div><div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI">
 </div>
-<script src="assets/inquiry-status.js?v=20260919-status"></script>
+<script src="assets/inquiry-status.js?v=20260919-status" defer></script>
 <script type="text/javascript">
 (function(){
   var mounted=false;
@@ -799,8 +811,8 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
   </div>
   <div class="footer-base"><span>&copy; 2026 SPORTENVO</span><span>Commercial Padel Court Systems</span></div>
 </footer>
-<script src="assets/site.js?v=20260923-attribution"></script>
-<script src="/assets/sportenvo-conversion-v7.js?v=20260925-v7a"></script>
+<script src="assets/site.js?v=20260923-attribution" defer></script>
+<script src="/assets/sportenvo-conversion-v7.js?v=20260925-v7a" defer></script>
 
 
 <script src="/assets/sportenvo-shell.js?v=20260925-shell1" defer></script>
