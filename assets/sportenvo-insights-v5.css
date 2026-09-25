@@ -321,7 +321,11 @@
   grid-template-columns:240px minmax(0,1fr);
 }
 .procurement-path-intro{
-  padding:34px 32px 34px 0;
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px 28px 20px 0;
   border-right:1px solid var(--kg-line);
 }
 .procurement-path-intro span{
@@ -344,7 +348,11 @@
 }
 .procurement-path-steps a{
   min-width:0;
-  padding:32px 20px;
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:18px 16px;
   border-right:1px solid var(--kg-line);
   text-decoration:none;
   color:var(--kg-ink);
@@ -354,14 +362,14 @@
 .procurement-path-steps a:hover{background:var(--kg-paper-alt)}
 .procurement-path-steps b{
   display:block;
-  margin-bottom:24px;
+  margin-bottom:9px;
   color:var(--kg-steel-dark);
   font-size:10px;
   letter-spacing:.1em;
 }
 .procurement-path-steps span{
   display:block;
-  font-size:14px;
+  font-size:13px;
   line-height:1.35;
   font-weight:750;
 }
