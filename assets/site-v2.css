@@ -579,3 +579,37 @@ h3 { font-size: 24px; line-height: 1.15; }
 .site-footer .brand span,.site-footer .brand strong{display:none!important}
 .site-footer .brand::before{content:"";position:absolute;inset:0;background:url('sportenvo-header-logo.png') left center/contain no-repeat;filter:brightness(0) invert(1)}
 @media(max-width:620px){.site-footer .brand{width:170px;height:48px}}
+
+
+/* ===== SPORTENVO PROJECTS INDEX V4 2026-09-25 ===== */
+.projects-index-v4 .project-grid{gap:1px;background:var(--line);border:1px solid var(--line)}
+.projects-index-v4 .project-card{
+  min-height:560px;
+  display:block;
+  text-decoration:none;
+  border-radius:0;
+  background:var(--navy);
+  outline-offset:4px;
+}
+.projects-index-v4 .project-card>img{opacity:.82}
+.projects-index-v4 .project-card:hover>img{transform:scale(1.018);opacity:.62}
+.projects-index-v4 .project-card>div{
+  padding:34px;
+  background:linear-gradient(180deg,rgba(7,19,30,.08),rgba(7,19,30,.94) 42%);
+}
+.projects-index-v4 .project-card h3{
+  max-width:560px;
+  margin-bottom:10px;
+  font-size:32px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.projects-index-v4 .project-card p{max-width:540px;margin-bottom:22px;line-height:1.6}
+.projects-index-v4 .project-card span{color:var(--accent);letter-spacing:.08em}
+.projects-index-v4 .project-card:focus-visible{outline:3px solid var(--signal)}
+.projects-index-v4 .reference-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:620px){
+  .projects-index-v4 .project-card{min-height:460px}
+  .projects-index-v4 .project-card>div{padding:26px}
+  .projects-index-v4 .project-card h3{font-size:28px}
+}
