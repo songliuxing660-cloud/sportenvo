@@ -14,42 +14,42 @@ body.shell-v2.menu-open{overflow:hidden}
 .site-header,.site-header *,.site-footer,.site-footer *{box-sizing:border-box}
 .site-header a,.site-footer a{text-decoration:none}
 .site-header{
-  position:fixed;top:0;left:0;right:0;z-index:1100;height:88px;padding:0 56px;
-  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:42px;
+  position:fixed;top:0;left:0;right:0;z-index:1100;height:94px;padding:0 60px;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:48px;
   background:rgba(243,241,236,.965);border-bottom:1px solid rgba(11,16,21,.10);
   -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)
 }
 .site-header.is-scrolled{box-shadow:0 10px 34px rgba(7,19,30,.09)}
-.header-brand{display:block;width:220px;height:62px}
+.header-brand{display:block;width:232px;height:66px}
 .header-brand img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}
-.site-header .primary-nav{position:static;top:auto;left:auto;right:auto;bottom:auto;z-index:auto;height:auto;margin:0;padding:0;display:flex;justify-content:center;align-items:center;gap:36px;font-size:15px;font-weight:700;letter-spacing:-.008em;color:var(--shell-ink);background:transparent;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-.site-header .primary-nav>a,.nav-dropdown>summary{position:relative;padding:33px 0;cursor:pointer;list-style:none;white-space:nowrap;color:var(--shell-ink);transition:color .22s ease}
-.site-header .primary-nav>a::after,.nav-dropdown>summary::after{content:"";position:absolute;left:0;right:0;bottom:20px;height:1px;background:var(--shell-navy);transform:scaleX(0);transform-origin:left center;transition:transform .22s ease}
+.site-header .primary-nav{position:static;top:auto;left:auto;right:auto;bottom:auto;z-index:auto;height:auto;margin:0;padding:0;display:flex;justify-content:center;align-items:center;gap:42px;font-size:16px;font-weight:700;letter-spacing:-.006em;color:var(--shell-ink);background:transparent;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.site-header .primary-nav>a,.nav-dropdown>summary{position:relative;padding:36px 0;cursor:pointer;list-style:none;white-space:nowrap;color:var(--shell-ink);transition:color .22s ease}
+.site-header .primary-nav>a::after,.nav-dropdown>summary::after{content:"";position:absolute;left:0;right:0;bottom:22px;height:1px;background:var(--shell-navy);transform:scaleX(0);transform-origin:left center;transition:transform .22s ease}
 .nav-dropdown>summary::-webkit-details-marker{display:none}
-.nav-dropdown>summary span{display:inline-block;margin-left:6px;color:var(--shell-steel-dark);font-size:13px;transition:transform .22s ease,color .22s ease}
+.nav-dropdown>summary span{display:inline-block;margin-left:6px;color:var(--shell-steel-dark);font-size:14px;transition:transform .22s ease,color .22s ease}
 .nav-dropdown[open]>summary span{transform:rotate(45deg);color:var(--shell-navy)}
 .site-header .primary-nav>a:hover,.nav-dropdown>summary:hover{color:var(--shell-navy)}
 .site-header .primary-nav>a:hover::after,.nav-dropdown>summary:hover::after,.nav-dropdown[open]>summary::after{transform:scaleX(1)}
 .nav-dropdown{position:static}
 .site-header .mega-menu{
-  position:absolute;top:87px;left:0;right:0;display:grid;grid-template-columns:1.15fr 1.15fr .9fr;
+  position:absolute;top:93px;left:0;right:0;display:grid;grid-template-columns:1.15fr 1.15fr .9fr;
   gap:0;padding:46px max(var(--shell-pad),calc((100vw - var(--shell-max))/2 + var(--shell-pad)));
   background:linear-gradient(110deg,#07131e 0%,#0a1a27 100%);color:var(--shell-paper);box-shadow:0 32px 68px rgba(7,19,30,.30);border-top:1px solid rgba(183,197,206,.18);border-radius:0
 }
 .site-header .mega-menu div{display:flex;flex-direction:column;gap:7px;min-width:0;padding:0 40px;border-left:1px solid rgba(183,197,206,.16)}
 .site-header .mega-menu div:first-child{padding-left:0;border-left:0}
 .site-header .mega-menu div:last-child{padding-right:0}
-.site-header .mega-menu a{color:#d9e0e3;font-size:15px;font-weight:520;line-height:1.35;padding:7px 0;transition:color .18s ease,transform .18s ease}
+.site-header .mega-menu a{color:#d9e0e3;font-size:16px;font-weight:520;line-height:1.35;padding:7px 0;transition:color .18s ease,transform .18s ease}
 .site-header .mega-menu a:hover{color:#fff;transform:translateX(3px)}
 .site-header .mega-title{margin:0 0 13px;color:#8d9aa3;font-size:11px;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
 .site-header .mega-menu .mega-all{margin-top:16px;padding-top:17px;border-top:1px solid rgba(183,197,206,.16);color:var(--shell-steel);font-weight:800}
 .header-cta{
-  display:inline-flex;gap:24px;align-items:center;min-height:50px;padding:0 14px 0 20px;background:var(--shell-navy);
-  color:var(--shell-paper);border:1px solid var(--shell-navy);box-shadow:0 8px 22px rgba(7,19,30,.08);font-size:15px;font-weight:800;letter-spacing:-.01em;
+  display:inline-flex;gap:24px;align-items:center;min-height:54px;padding:0 15px 0 22px;background:var(--shell-navy);
+  color:var(--shell-paper);border:1px solid var(--shell-navy);box-shadow:0 8px 22px rgba(7,19,30,.08);font-size:16px;font-weight:800;letter-spacing:-.01em;
   transition:background .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease
 }
 .header-cta:hover{background:var(--shell-navy-soft);border-color:var(--shell-navy-soft);color:var(--shell-paper);box-shadow:0 12px 28px rgba(7,19,30,.14);transform:translateY(-1px)}
-.header-cta span{width:27px;height:27px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:var(--shell-steel);font-size:19px;line-height:1;transition:transform .22s ease,background .22s ease}
+.header-cta span{width:29px;height:29px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:var(--shell-steel);font-size:20px;line-height:1;transition:transform .22s ease,background .22s ease}
 .header-cta:hover span{transform:rotate(90deg);background:rgba(255,255,255,.11)}
 .header-cta:focus-visible,.site-header .primary-nav>a:focus-visible,.nav-dropdown>summary:focus-visible{outline:2px solid var(--shell-steel-dark);outline-offset:4px}
 .site-header .menu-toggle{display:none}
