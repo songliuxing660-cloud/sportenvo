@@ -51,5 +51,37 @@ jobs:
             }));
           }
           NODE
+      - name: Print homepage diagnostics
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const r=JSON.parse(fs.readFileSync('home.json','utf8'));
+          const a=r.audits||{};
+          const ids=[
+            'largest-contentful-paint-element',
+            'lcp-breakdown-insight',
+            'lcp-discovery-insight',
+            'render-blocking-insight',
+            'image-delivery-insight',
+            'third-parties-insight',
+            'network-dependency-tree-insight',
+            'mainthread-work-breakdown',
+            'bootup-time',
+            'long-tasks',
+            'unused-javascript'
+          ];
+          for(const id of ids){
+            const x=a[id];
+            if(!x) continue;
+            const payload={
+              id,
+              score:x.score,
+              numericValue:x.numericValue,
+              displayValue:x.displayValue,
+              details:x.details
+            };
+            console.log('HOME_DIAGNOSTICS '+JSON.stringify(payload));
+          }
+          NODE
 
-# refresh-responsive-preload-20260925-2140
+# refresh-home-diagnostics-20260925
