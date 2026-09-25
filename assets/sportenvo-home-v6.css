@@ -247,3 +247,20 @@
   content-visibility:auto;
   contain-intrinsic-size:auto 520px;
 }
+
+
+/* Home V6 initial-render containment */
+.home-v6 #court-systems .product-card{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 620px;
+}
+.home-v6 main > section:nth-of-type(n+3){
+  content-visibility:auto;
+  contain-intrinsic-size:auto 900px;
+}
+.home-v6 .foundation-feature{contain-intrinsic-size:auto 720px}
+.home-v6 .system-logic{contain-intrinsic-size:auto 900px}
+.home-v6 .proof-band{contain-intrinsic-size:auto 820px}
+.home-v6 .home-projects{contain-intrinsic-size:auto 900px}
+.home-v6 .home-guides{contain-intrinsic-size:auto 820px}
+.home-v6 .cta-band{contain-intrinsic-size:auto 520px}
