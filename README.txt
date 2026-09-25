@@ -1,26 +1,43 @@
-UNIPADEL Online Catalogue v2
+SPORTENVO — Commercial Padel Court Systems
 
-Main pages:
+Production website:
+https://sportenvo.com/
+
+Core sections:
 - index.html
 - courts.html
+- solutions.html
+- projects.html
+- insights.html
+- about.html
+- engineering.html
+- quality.html
+- start-project.html
+
+Court systems:
 - panoramic.html
 - super-panoramic.html
+- classic-padel-court.html
 - mobile.html
-- force-hx.html
-- solutions.html
-- modular-foundation.html
+- electric-tent-padel-court.html
 - roof.html
-- configurator.html
-- projects.html
-- project-kuala-lumpur.html
-- resources.html
-- about.html
-- contact.html
-- markets/germany.html
-- markets/netherlands.html
-- markets/uk.html
+- force-hx.html
+- modular-foundation.html
 
-Prototype notes:
-- Uses existing remote project image URLs. Replace with your approved local originals before final production deployment.
-- Inquiry forms are front-end demos only. Connect to CRM/email/backend in production.
-- Smart configurator provides a pre-sales recommendation, not structural engineering approval.
+Buyer guides:
+- how-much-does-a-padel-court-cost.html
+- padel-court-dimensions.html
+- how-to-choose-a-padel-court-manufacturer.html
+- modular-foundation-guide.html
+- padel-court-roof-guide.html
+- high-wind-padel-court-guide.html
+
+Project case studies:
+See projects.html for the complete categorized project library.
+
+Production notes:
+- SPORTENVO is positioned for commercial B2B padel court projects.
+- Project enquiries are handled through the production Zoho form flow on start-project.html.
+- GA4 is installed for attribution and conversion measurement.
+- Some legacy project photography is still served from the approved HongCDN source until local originals are available.
+- Technical pages and configuration guidance support project planning and do not replace site-specific structural engineering approval.
