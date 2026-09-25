@@ -231,3 +231,19 @@
   .home-v6 .home-project-card,.home-v6 .home-project-card:first-child,.home-v6 .home-project-card:nth-child(n+2){grid-column:auto;min-height:430px}
   .home-v6 .home-guide-card,.home-v6 .home-guide-card:last-child{grid-column:auto;min-height:280px}
 }
+
+
+/* Home V6 critical-render optimization 2026-09-25 */
+.home-v6 .foundation-feature,
+.home-v6 .system-logic,
+.home-v6 .proof-band,
+.home-v6 .home-projects,
+.home-v6 .home-guides,
+.home-v6 .cta-band{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 760px;
+}
+.home-v6 .site-footer{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 520px;
+}
