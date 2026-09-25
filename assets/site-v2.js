@@ -42,6 +42,31 @@ for (const key of attributionKeys) {
   try { sessionStorage.setItem(`sportenvo_${key}`, value); } catch {}
 }
 
+const whatsappHref = "https://wa.me/8613128265916?text=Hi%2C%20I%27m%20interested%20in%20a%20padel%20court%20project.";
+const existingWhatsApp = document.querySelector(".whatsapp");
+const contactActions = document.createElement("div");
+contactActions.className = "floating-contact-actions";
+contactActions.setAttribute("role", "group");
+contactActions.setAttribute("aria-label", "Contact SPORTENVO on WhatsApp");
+
+const whatsappLink = existingWhatsApp || document.createElement("a");
+whatsappLink.className = "whatsapp floating-whatsapp";
+whatsappLink.href = whatsappHref;
+whatsappLink.target = "_blank";
+whatsappLink.rel = "noopener";
+whatsappLink.setAttribute("aria-label", "Chat with SPORTENVO on WhatsApp");
+whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt=""><span>WhatsApp</span>';
+
+const quoteLink = document.createElement("a");
+quoteLink.className = "floating-quote";
+quoteLink.href = whatsappHref;
+quoteLink.target = "_blank";
+quoteLink.rel = "noopener";
+quoteLink.innerHTML = 'Get a Free Quote <span aria-hidden="true">&#8594;</span>';
+
+contactActions.append(whatsappLink, quoteLink);
+document.body.appendChild(contactActions);
+
 function trackEvent(eventName, parameters = {}) {
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, parameters);
@@ -68,9 +93,9 @@ document.addEventListener("click", (event) => {
   let destination;
   try { destination = new URL(rawHref, window.location.href); } catch { return; }
 
-  const path = destination.pathname.replace(/\\/+$/, "");
+  const path = destination.pathname.replace(/\/+$/, "");
   const visibleText = (link.textContent || link.getAttribute("aria-label") || "")
-    .replace(/\\s+/g, " ").trim().slice(0, 120);
+    .replace(/\s+/g, " ").trim().slice(0, 120);
   const params = {
     link_url: destination.href,
     link_text: visibleText,
@@ -98,7 +123,7 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  if (destination.protocol === "mailto:" && /sales@sportenvo\\.com/i.test(destination.href)) {
+  if (destination.protocol === "mailto:" && /sales@sportenvo\.com/i.test(destination.href)) {
     rememberLeadIntent(visibleText);
     trackEvent("contact_email_click", params);
   }
