@@ -67,7 +67,6 @@ updateResult();
   actions.innerHTML=`
     <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="Chat with SPORTENVO on WhatsApp">
       <img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">
-      <span>WhatsApp</span>
     </a>
     <a class="floating-quote" href="${href}" target="_blank" rel="noopener">Get a Free Quote <span aria-hidden="true">&#8594;</span></a>`;
   document.body.appendChild(actions);

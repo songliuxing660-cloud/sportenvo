@@ -55,7 +55,7 @@ whatsappLink.href = whatsappHref;
 whatsappLink.target = "_blank";
 whatsappLink.rel = "noopener";
 whatsappLink.setAttribute("aria-label", "Chat with SPORTENVO on WhatsApp");
-whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt=""><span>WhatsApp</span>';
+whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">';
 
 const quoteLink = document.createElement("a");
 quoteLink.className = "floating-quote";
