@@ -29,6 +29,37 @@ document.addEventListener("click", (event) => {
   });
 });
 
+const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+const currentParams = new URLSearchParams(window.location.search);
+const attribution = {};
+
+for (const key of attributionKeys) {
+  let storedValue = "";
+  try { storedValue = sessionStorage.getItem(`sportenvo_${key}`) || ""; } catch {}
+  const value = currentParams.get(key) || storedValue;
+  if (!value) continue;
+  attribution[key] = value;
+  try { sessionStorage.setItem(`sportenvo_${key}`, value); } catch {}
+}
+
+function trackEvent(eventName, parameters = {}) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, parameters);
+    return;
+  }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...parameters });
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  if (href.startsWith("https://wa.me/")) trackEvent("whatsapp_click", { link_url: href, ...attribution });
+  if (href.startsWith("mailto:")) trackEvent("email_click", { link_url: href, ...attribution });
+  if (href.includes("start-project.html")) trackEvent("project_cta_click", { link_text: link.textContent.trim(), ...attribution });
+});
+
 const projectForm = document.querySelector("#project-form");
 
 if (projectForm) {
