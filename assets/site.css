@@ -287,3 +287,14 @@ footer h5{color:#f3f1ec}footer a{color:#b7c5ce}footer .copyright{color:#83919b;b
 @media(max-width:1180px){.site-nav .wrap.inner,footer .wrap,.wrap{width:calc(100% - 56px)}.site-nav .brand{flex-basis:170px;width:170px;margin-right:24px}.site-nav .nav-menu{gap:22px}.site-nav .nav-cta{margin-left:20px}}
 @media(max-width:900px){.site-nav,.site-nav .wrap.inner{height:72px}.site-nav .wrap.inner{width:calc(100% - 32px);justify-content:space-between}.site-nav .brand{flex:0 0 168px;width:168px;height:46px;margin-right:0}.site-nav .mobile-toggle{display:flex;width:44px;height:44px;padding:0;border:1px solid rgba(11,16,21,.18);border-radius:0;background:transparent;color:#07131e;align-items:center;justify-content:center;flex-direction:column;gap:5px}.site-nav .mobile-toggle span{background:#07131e}.site-nav .navlinks{display:none;position:absolute;top:72px;right:0;left:0;margin:0;padding:12px 16px 20px;max-height:calc(100dvh - 72px);overflow-y:auto;background:#f3f1ec;border-top:1px solid #d4d2cc}.site-nav .navlinks.open{display:block}.site-nav .nav-menu{display:flex;align-items:stretch;gap:0;flex-direction:column}.site-nav .nav-item{border-bottom:1px solid #d4d2cc}.site-nav .nav-main,.site-nav .navlinks>a:not(.nav-cta){height:54px;color:#0b1015!important;justify-content:space-between;padding:0 4px}.site-nav .nav-item.submenu-open>.mega-menu{display:block;position:static;min-width:0;width:100%;margin:0 0 12px;padding:16px;background:#07131e;opacity:1;visibility:visible;pointer-events:auto;transform:none;box-shadow:none}.site-nav .nav-cta{width:100%;height:48px;margin:16px 0 0;display:flex}footer .wrap,.wrap{width:calc(100% - 36px)}footer .foot{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){section{padding:72px 0}footer .foot{grid-template-columns:1fr}footer .brand{width:170px;height:48px}}
+
+
+/* ===== SPORTENVO V2 BRIDGE REFINEMENTS 2026-09-25 ===== */
+.card,.statbox,.market-card,.config-panel,.form,.step{background:#f3f1ec}
+.page-hero:after{background:radial-gradient(circle,#0d2130 0%,transparent 68%)}
+.icon-card .num{color:#5f7482}
+.mobile-contact-dock .mobile-quote{background:#07131e;color:#f3f1ec}
+.mobile-contact-dock .mobile-whatsapp{background:#ebe8e1;color:#0d2130;border-color:#b7c5ce}
+section[style*="#f5f7f9"]{background:#ebe8e1!important}
+section[style*="#07111f"] .eyebrow,.dark .eyebrow,.article-hero .eyebrow{color:#b7c5ce!important}
+.cta-inline{border-radius:8px}
