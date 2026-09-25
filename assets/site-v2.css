@@ -60,12 +60,12 @@ button { color: inherit; }
   grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
   align-items: center;
   gap: 52px;
-  background: rgba(243, 241, 236, .965);
-  border-bottom: 1px solid rgba(11, 16, 21, .10);
-  backdrop-filter: blur(16px);
+  background: rgba(249, 248, 245, .985);
+  border-bottom: 1px solid rgba(7, 19, 30, .065);
+  backdrop-filter: blur(18px);
 }
 
-.site-header.is-scrolled { box-shadow: 0 10px 34px rgba(7, 19, 30, .09); }
+.site-header.is-scrolled { box-shadow: 0 12px 36px rgba(7, 19, 30, .06); }
 
 .header-brand {
   display: block;
@@ -210,7 +210,7 @@ button { color: inherit; }
   background: var(--navy);
   color: var(--white);
   border: 1px solid var(--navy);
-  box-shadow: 0 8px 22px rgba(7, 19, 30, .08);
+  box-shadow: 0 6px 18px rgba(7, 19, 30, .055);
   font-size: 16px;
   font-weight: 750;
   line-height: 1;
@@ -233,7 +233,7 @@ button { color: inherit; }
 .header-cta:hover {
   background: var(--navy-soft);
   border-color: var(--navy-soft);
-  box-shadow: 0 12px 28px rgba(7, 19, 30, .14);
+  box-shadow: 0 12px 30px rgba(7, 19, 30, .11);
   transform: translateY(-1px);
 }
 .header-cta:hover span { transform: rotate(90deg); background: rgba(255,255,255,.11); }
