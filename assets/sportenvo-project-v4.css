@@ -320,6 +320,10 @@
 .project-case-v4 .link{color:#405d70!important;font-weight:750}
 
 /* Responsive */
+@media(max-width:960px){
+  .project-case-v4 .product-hero{padding-top:118px!important}
+  .project-case-v4 .case-hero{padding-top:120px}
+}
 @media(max-width:1050px){
   .project-case-v4 .feature{grid-template-columns:1fr!important;gap:42px!important}
   .project-case-v4 .feature>.table-wrap{position:static}
