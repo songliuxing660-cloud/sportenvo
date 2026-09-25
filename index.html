@@ -3,12 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R150CJB3Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
     gtag("config", "G-2R150CJB3Z");
+    (function(){
+      function loadAnalytics(){
+        if (document.querySelector('script[data-sportenvo-ga4]')) return;
+        var s=document.createElement('script');
+        s.async=true;
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-2R150CJB3Z';
+        s.setAttribute('data-sportenvo-ga4','1');
+        document.head.appendChild(s);
+      }
+      if(document.readyState==='complete') loadAnalytics();
+      else window.addEventListener('load',loadAnalytics,{once:true});
+    })();
   </script>
   <title>Padel Court Manufacturer & Commercial Systems | SPORTENVO</title>
   <meta name="description" content="Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.">
