@@ -1,6 +1,5 @@
 (function(){
   'use strict';
-  const GA_ID='G-2R150CJB3Z';
   const isStart=/\/start-project\.html$/i.test(location.pathname);
   const isThanks=/\/thank-you\.html$/i.test(location.pathname);
 
@@ -59,6 +58,10 @@
           event_name:'zf_submitform',
           form_alias:'SPORTENVO Project Inquiry'
         });
+      }else{
+        document.dispatchEvent(new CustomEvent('sportenvo:lead-submitted',{
+          detail:{event_name:'zf_submitform',form_alias:'SPORTENVO Project Inquiry'}
+        }));
       }
     },false);
 
