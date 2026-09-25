@@ -51,13 +51,57 @@ function trackEvent(eventName, parameters = {}) {
   window.dataLayer.push({ event: eventName, ...parameters });
 }
 
+function rememberLeadIntent(ctaText = "") {
+  try {
+    localStorage.setItem("sportenvo_lead_started_at", String(Date.now()));
+    localStorage.setItem("sportenvo_lead_source_page", window.location.pathname + window.location.search);
+    localStorage.setItem("sportenvo_lead_source_title", document.title);
+    if (ctaText) localStorage.setItem("sportenvo_lead_source_cta", String(ctaText).slice(0, 120));
+  } catch {}
+}
+window.sportenvoRememberLeadIntent = rememberLeadIntent;
+
 document.addEventListener("click", (event) => {
-  const link = event.target.closest("a");
+  const link = event.target.closest("a[href]");
   if (!link) return;
-  const href = link.getAttribute("href") || "";
-  if (href.startsWith("https://wa.me/")) trackEvent("whatsapp_click", { link_url: href, ...attribution });
-  if (href.startsWith("mailto:")) trackEvent("email_click", { link_url: href, ...attribution });
-  if (href.includes("start-project.html")) trackEvent("project_cta_click", { link_text: link.textContent.trim(), ...attribution });
+  const rawHref = link.getAttribute("href") || "";
+  let destination;
+  try { destination = new URL(rawHref, window.location.href); } catch { return; }
+
+  const path = destination.pathname.replace(/\\/+$/, "");
+  const visibleText = (link.textContent || link.getAttribute("aria-label") || "")
+    .replace(/\\s+/g, " ").trim().slice(0, 120);
+  const params = {
+    link_url: destination.href,
+    link_text: visibleText,
+    page_location: window.location.href,
+    page_title: document.title,
+    ...attribution
+  };
+
+  if (destination.origin === window.location.origin && path.endsWith("/start-project.html")) {
+    rememberLeadIntent(visibleText);
+    trackEvent("start_project_click", params);
+    return;
+  }
+
+  if (destination.hostname === "forms.zohopublic.com") {
+    rememberLeadIntent(visibleText);
+    trackEvent("project_form_external_open", params);
+    trackEvent("request_quote_click", params);
+    return;
+  }
+
+  if (destination.hostname === "wa.me" || destination.hostname === "api.whatsapp.com") {
+    rememberLeadIntent(visibleText);
+    trackEvent("contact_whatsapp_click", params);
+    return;
+  }
+
+  if (destination.protocol === "mailto:" && /sales@sportenvo\\.com/i.test(destination.href)) {
+    rememberLeadIntent(visibleText);
+    trackEvent("contact_email_click", params);
+  }
 });
 
 const projectForm = document.querySelector("#project-form");
