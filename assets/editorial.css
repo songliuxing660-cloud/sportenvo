@@ -80,3 +80,20 @@
 }
 @media(max-width:360px){.editorial-page .ed-hero h1,.editorial-page .ed-home-hero h1{font-size:35px}.editorial-page .ed-court{grid-template-columns:100px minmax(0,1fr)}.editorial-page .ed-court .ed-image img{height:115px}.editorial-page .ed-actions{gap:16px}}
 @media(prefers-reduced-motion:reduce){.editorial-page a.ed-card{transition:none}}
+
+
+/* ===== SPORTENVO V2 EDITORIAL ALIGNMENT 2026-09-25 ===== */
+.editorial-page .ed-hero{background:#07131e;color:#f3f1ec}
+.editorial-page .ed-hero .eyebrow,.editorial-page .ed-final .eyebrow{color:#b7c5ce}
+.editorial-page .ed-hero p,.editorial-page .ed-final p{color:#cdd5da}
+.editorial-page .ed-service-strip,.editorial-page .ed-tint{background:#ebe8e1}
+.editorial-page .ed-service-strip{border-bottom-color:#d4d2cc}
+.editorial-page .ed-service-step+.ed-service-step{border-left-color:#d4d2cc}
+.editorial-page .ed-service-step b,.editorial-page .ed-steps span{color:#5f7482}
+.editorial-page .ed-card{border-color:#d4d2cc;border-radius:8px;background:#f3f1ec;color:#0b1015}
+.editorial-page a.ed-card:hover{box-shadow:0 12px 28px rgba(7,19,30,.08)}
+.editorial-page .ed-rounded,.editorial-page .ed-hero figure{border-radius:8px}
+.editorial-page .ed-list li,.editorial-page .ed-case-notes{border-color:#d4d2cc}
+.editorial-page .ed-section p,.editorial-page .ed-list span,.editorial-page .ed-card-copy>span{color:#6e757c}
+.editorial-page .ed-final{background:#07131e}
+.editorial-page a:focus-visible{outline-color:#5f7482}
