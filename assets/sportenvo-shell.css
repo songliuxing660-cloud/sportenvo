@@ -58,7 +58,17 @@ body.shell-v2.menu-open{overflow:hidden}
 .footer-intro{max-width:var(--shell-max);margin:0 auto 70px;display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:30px;align-items:start;border-bottom:1px solid rgba(183,197,206,.24);padding-bottom:35px}
 .footer-intro p{margin:0;color:var(--shell-steel)}
 .site-footer .brand{position:relative;display:block;width:190px;height:54px;font-size:0!important;color:transparent!important}
-.site-footer .brand span,.site-footer .brand strong{display:none!important}
+.site-footer .brand span,.site-footer .brand strong{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important
+}
 .site-footer .brand::before{content:"";position:absolute;inset:0;background:url('/assets/sportenvo-header-logo.png') left center/contain no-repeat;filter:brightness(0) invert(1)}
 .footer-grid{max-width:var(--shell-max);margin:0 auto;display:grid;grid-template-columns:1.15fr 1.15fr 1fr 1fr;gap:45px}
 .footer-grid>div{display:flex;flex-direction:column;gap:9px}
