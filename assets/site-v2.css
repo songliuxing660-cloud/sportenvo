@@ -60,12 +60,12 @@ button { color: inherit; }
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 42px;
-  background: rgba(243, 241, 236, .96);
-  border-bottom: 1px solid rgba(11, 16, 21, .14);
-  backdrop-filter: blur(14px);
+  background: rgba(243, 241, 236, .965);
+  border-bottom: 1px solid rgba(11, 16, 21, .10);
+  backdrop-filter: blur(16px);
 }
 
-.site-header.is-scrolled { box-shadow: 0 8px 30px rgba(7, 19, 30, .08); }
+.site-header.is-scrolled { box-shadow: 0 10px 34px rgba(7, 19, 30, .09); }
 
 .header-brand {
   display: block;
@@ -99,19 +99,47 @@ button { color: inherit; }
   gap: 36px;
   font-size: 15px;
   font-weight: 700;
+  letter-spacing: -.008em;
 }
 
 .primary-nav > a,
 .nav-dropdown > summary {
+  position: relative;
   padding: 33px 0;
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
+  transition: color .22s ease;
+}
+
+.primary-nav > a::after,
+.nav-dropdown > summary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  height: 1px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .22s ease;
 }
 
 .nav-dropdown > summary::-webkit-details-marker { display: none; }
-.nav-dropdown > summary span { margin-left: 5px; color: var(--signal); }
-.primary-nav > a:hover, .nav-dropdown > summary:hover { color: var(--signal); }
+.nav-dropdown > summary span {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--signal);
+  font-size: 13px;
+  transition: transform .22s ease, color .22s ease;
+}
+.nav-dropdown[open] > summary span { transform: rotate(45deg); color: var(--navy); }
+.primary-nav > a:hover,
+.nav-dropdown > summary:hover { color: var(--navy); }
+.primary-nav > a:hover::after,
+.nav-dropdown > summary:hover::after,
+.nav-dropdown[open] > summary::after { transform: scaleX(1); }
 
 .nav-dropdown { position: static; }
 
@@ -121,34 +149,90 @@ button { color: inherit; }
   left: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1fr;
-  gap: 48px;
-  padding: 42px max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad)));
-  background: var(--navy);
+  grid-template-columns: 1.15fr 1.15fr .9fr;
+  gap: 0;
+  padding: 46px max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad)));
+  background: linear-gradient(110deg, #07131e 0%, #0a1a27 100%);
   color: var(--white);
-  box-shadow: 0 30px 60px rgba(7, 19, 30, .28);
+  box-shadow: 0 32px 68px rgba(7, 19, 30, .30);
+  border-top: 1px solid rgba(183, 197, 206, .18);
 }
 
-.mega-menu div { display: flex; flex-direction: column; gap: 9px; }
-.mega-menu a { color: #d9e0e3; font-size: 15px; font-weight: 500; padding: 5px 0; }
-.mega-menu a:hover { color: var(--accent); }
-.mega-title { margin: 0 0 10px; color: #8d9aa3; font-size: 12px; font-weight: 800; text-transform: uppercase; }
-.mega-menu .mega-all { margin-top: 16px; color: var(--accent); font-weight: 800; }
+.mega-menu div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  padding: 0 40px;
+  border-left: 1px solid rgba(183, 197, 206, .16);
+}
+.mega-menu div:first-child { padding-left: 0; border-left: 0; }
+.mega-menu div:last-child { padding-right: 0; }
+.mega-menu a {
+  color: #d9e0e3;
+  font-size: 15px;
+  font-weight: 520;
+  line-height: 1.35;
+  padding: 7px 0;
+  transition: color .18s ease, transform .18s ease;
+}
+.mega-menu a:hover { color: #fff; transform: translateX(3px); }
+.mega-title {
+  margin: 0 0 13px;
+  color: #8d9aa3;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.mega-menu .mega-all {
+  margin-top: 16px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(183, 197, 206, .16);
+  color: var(--accent);
+  font-weight: 800;
+}
 
 .header-cta {
   display: inline-flex;
   gap: 24px;
   align-items: center;
   min-height: 50px;
-  padding: 0 22px;
+  padding: 0 14px 0 20px;
   background: var(--navy);
   color: var(--white);
+  border: 1px solid var(--navy);
+  box-shadow: 0 8px 22px rgba(7, 19, 30, .08);
   font-size: 15px;
   font-weight: 800;
   letter-spacing: -.01em;
+  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease;
 }
 
-.header-cta span { color: var(--accent); font-size: 20px; line-height: 1; }
+.header-cta span {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.07);
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1;
+  transition: transform .22s ease, background .22s ease;
+}
+.header-cta:hover {
+  background: var(--navy-soft);
+  border-color: var(--navy-soft);
+  box-shadow: 0 12px 28px rgba(7, 19, 30, .14);
+  transform: translateY(-1px);
+}
+.header-cta:hover span { transform: rotate(90deg); background: rgba(255,255,255,.11); }
+.header-cta:focus-visible,
+.primary-nav > a:focus-visible,
+.nav-dropdown > summary:focus-visible {
+  outline: 2px solid var(--steel-dark);
+  outline-offset: 4px;
+}
 .menu-toggle { display: none; }
 
 main { overflow: hidden; }
@@ -511,7 +595,9 @@ h3 { font-size: 24px; line-height: 1.15; }
   .primary-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; bottom: auto; height: calc(100vh - 68px); height: calc(100dvh - 68px); padding: 24px var(--pad) 100px; overflow-y: auto; align-self: stretch; align-items: stretch; justify-content: flex-start; flex-direction: column; gap: 0; background: var(--paper); }
   .primary-nav.is-open { display: flex; }
   .primary-nav > a, .nav-dropdown > summary { display: block; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
-  .mega-menu { position: static; grid-template-columns: 1fr; gap: 20px; padding: 22px; box-shadow: none; }
+  .primary-nav > a::after, .nav-dropdown > summary::after { display: none; }
+  .mega-menu { position: static; grid-template-columns: 1fr; gap: 20px; padding: 22px; box-shadow: none; border-top: 0; }
+  .mega-menu div, .mega-menu div:first-child, .mega-menu div:last-child { padding: 0; border-left: 0; }
   .header-cta { display: none; }
   .home-hero { min-height: 720px; }
   .hero-copy { width: 100%; padding-bottom: 110px; }
