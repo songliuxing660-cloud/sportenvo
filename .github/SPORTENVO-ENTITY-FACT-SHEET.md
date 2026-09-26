@@ -26,6 +26,18 @@ Short descriptor: **Manufacturer + Project Support**
 | Project support scope | Site-input review, system selection, project-specific configuration, technical drawings, manufacturing, quality control, export packing, shipping coordination and installation guidance |
 | Public project evidence | Completed project references including Kuala Lumpur, Moldova, Costa Rica, Guatemala and other international venues published on sportenvo.com/projects.html |
 
+## Numeric Claims Status
+
+The following figures are currently published on SPORTENVO-owned pages. Treat them as **company-reported claims**, not independent third-party verification. Before repeating them on LinkedIn, YouTube, directories or PR, confirm the internal source record and keep the wording consistent.
+
+| Claim | Current status | External-use rule |
+| --- | --- | --- |
+| 10+ Years Export Experience | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; describe as company-reported where context requires |
+| 50+ Export Markets | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; do not silently change between "markets" and "countries" |
+| 5,000+ Cooperative Clients | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; avoid implying independently audited customer counts |
+
+If internal evidence cannot be confirmed, remove the number from new third-party profiles rather than creating additional copies of an uncertain claim.
+
 ## Approved Descriptions
 
 ### One line
