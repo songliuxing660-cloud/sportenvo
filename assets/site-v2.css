@@ -756,6 +756,16 @@ h3 { font-size: 24px; line-height: 1.15; }
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   border-left:1px solid var(--line)
 }
+.projects-index-v4 .project-system-links{
+  display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 0 20px;border-bottom:1px solid var(--line)
+}
+.projects-index-v4 .project-system-links strong{
+  color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase
+}
+.projects-index-v4 .project-system-links a{
+  color:var(--steel-dark);font-size:12px;font-weight:800;text-decoration:none
+}
+.projects-index-v4 .project-system-links a:hover{text-decoration:underline;text-underline-offset:4px}
 .projects-index-v4 .project-library-card{
   min-height:190px;padding:28px;display:flex;flex-direction:column;
   border-right:1px solid var(--line);border-bottom:1px solid var(--line);
