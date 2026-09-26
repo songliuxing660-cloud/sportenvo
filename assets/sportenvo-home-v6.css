@@ -398,3 +398,15 @@
 .home-v6 .home-projects{contain-intrinsic-size:auto 900px}
 .home-v6 .home-guides{contain-intrinsic-size:auto 820px}
 .home-v6 .cta-band{contain-intrinsic-size:auto 520px}
+
+.home-solution-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:22px;
+  margin-top:28px;
+}
+.home-solution-actions .text-link{margin:0}
+@media(max-width:760px){
+  .home-solution-actions{align-items:flex-start;gap:16px}
+}
