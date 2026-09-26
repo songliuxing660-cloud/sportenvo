@@ -104,6 +104,11 @@ document.addEventListener("click", (event) => {
     ...attribution
   };
 
+  if (destination.origin === window.location.origin && path.endsWith("/padel-court-rfq-checklist.html")) {
+    trackEvent("rfq_tool_click", params);
+    return;
+  }
+
   if (destination.origin === window.location.origin && path.endsWith("/start-project.html")) {
     rememberLeadIntent(visibleText);
     trackEvent("start_project_click", params);
