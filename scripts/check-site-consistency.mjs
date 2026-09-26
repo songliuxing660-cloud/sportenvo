@@ -21,6 +21,16 @@ const requiredNav = [
 const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".html") && name !== "404.html" && !/^google[a-z0-9_-]+\.html$/i.test(name));
 const failures = [];
 
+const forbiddenPublicPatterns = [
+  [/\bAnti Hurricane\b/g, "legacy FORCE-HX naming"],
+  [/Explore FORCE-HX span aria-hidden/g, "malformed FORCE-HX link markup"],
+  [/MOQ:\s*1 set/gi, "unverified fixed MOQ"],
+  [/Lead time:\s*35[–-]40 days/gi, "unverified fixed lead time"],
+  [/projectQuoteForm/g, "legacy project form anchor/id"],
+  [/10,000 m²/g, "unverified company scale metric"],
+  [/5,000\+/g, "unverified cooperative-client metric"]
+];
+
 for (const file of htmlFiles) {
   const full = path.join(root, file);
   const html = fs.readFileSync(full, "utf8");
@@ -39,6 +49,11 @@ for (const file of htmlFiles) {
 
   const h1Count = (html.match(/<h1\b/gi) || []).length;
   if (h1Count !== 1) failures.push([file, `expected 1 H1, found ${h1Count}`]);
+
+  for (const [pattern, reason] of forbiddenPublicPatterns) {
+    pattern.lastIndex = 0;
+    if (pattern.test(html)) failures.push([file, reason]);
+  }
 
   const navMatch = html.match(/<nav\s+class=["'][^"']*primary-nav[^"']*["'][\s\S]*?<\/nav>/i);
   if (!navMatch) {
