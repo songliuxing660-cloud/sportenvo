@@ -44,11 +44,11 @@ window.addEventListener('resize',()=>{
 const state={location:'Outdoor',venue:'Padel Club',courts:'2–4',foundation:'Not Sure',roof:'Not Sure'};
 function updateResult(){const r=document.querySelector('#recommendation');if(!r)return;let court='Panoramic Padel Court';let foundation=state.foundation==='Modular Foundation'?'Modular Foundation':'Standard Civil Foundation';let roof='No Roof Required';let note='Balanced commercial solution for professional padel clubs.';
 if(state.location==='Indoor'){court='Super Panoramic Padel Court';foundation='Existing / Standard Slab';roof='Indoor Venue';note='Maximizes visibility and premium club presentation indoors.'}
-if(state.location==='Rooftop'){court='Mobile / Modular Padel Court';foundation='Modular Foundation';roof='Optional Lightweight Roof';note='Flexible system for selected rooftop and constrained sites, subject to structural verification.'}
-if(state.location==='Coastal / High Wind'){court='FORCE-HX Extreme Weather Court';foundation='Engineered Foundation';roof='Site-Specific';note='Reinforced structural concept for coastal and severe-wind project environments.'}
+if(state.location==='Rooftop'){court='Mobile Padel Court';foundation='Modular Foundation';roof='Optional Lightweight Roof';note='Flexible system for selected rooftop and constrained sites, subject to structural verification.'}
+if(state.location==='Coastal / High Wind'){court='Anti-Hurricane Padel Court — FORCE-HX Series';foundation='Engineered Foundation';roof='Site-Specific';note='Reinforced structural concept for coastal and severe-wind project environments.'}
 if(state.roof==='Retractable Roof'){roof='Retractable Roof System'} else if(state.roof==='Fixed Roof'){roof='Fixed Roof System'}
 if(state.foundation==='Modular Foundation')foundation='Modular Steel Foundation';
-r.innerHTML=`<div class="recommend"><b>${court}</b><span>${note}</span></div><div class="recommend"><b>${foundation}</b><span>Foundation recommendation based on your current selection.</span></div><div class="recommend"><b>${roof}</b><span>Weather protection recommendation.</span></div><a class="btn primary" href="start-project.html#projectQuoteForm">Request Project Proposal →</a>`}
+r.innerHTML=`<div class="recommend"><b>${court}</b><span>${note}</span></div><div class="recommend"><b>${foundation}</b><span>Foundation recommendation based on your current selection.</span></div><div class="recommend"><b>${roof}</b><span>Weather protection recommendation.</span></div><a class="btn primary" href="start-project.html#projectConfiguratorTitle">Request Project Proposal →</a>`}
 document.querySelectorAll('[data-q]').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.q;document.querySelectorAll(`[data-q="${key}"]`).forEach(x=>x.classList.remove('active'));btn.classList.add('active');state[key]=btn.textContent.trim();updateResult()}));
 updateResult();
 
@@ -63,12 +63,12 @@ updateResult();
   const actions=document.createElement('div');
   actions.className='floating-contact-actions';
   actions.setAttribute('role','group');
-  actions.setAttribute('aria-label','Contact SPORTENVO on WhatsApp');
+  actions.setAttribute('aria-label','SPORTENVO project enquiry options');
   actions.innerHTML=`
-    <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="Chat with SPORTENVO on WhatsApp">
+    <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="Chat with SPORTENVO">
       <img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">
     </a>
-    <a class="floating-quote" href="${href}" target="_blank" rel="noopener">Get a Free Quote <span aria-hidden="true">&#8594;</span></a>`;
+    <a class="floating-quote" href="/start-project.html?source=floating-project-cta#projectConfiguratorTitle">Start Project <span aria-hidden="true">&#8594;</span></a>`;
   document.body.appendChild(actions);
 })();
 
