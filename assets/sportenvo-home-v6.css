@@ -354,9 +354,9 @@
     border-left:0;
     border-top:1px solid rgba(243,241,236,.14);
   }
-  .home-v6 .hero-scope div:nth-child(odd){padding-left:0}
-  .home-v6 .hero-scope div:nth-child(even){border-left:1px solid rgba(243,241,236,.14)}
-  .home-v6 .hero-scope div:nth-child(-n+2){border-top:0}
+  .home-v6 .hero-scope a:nth-child(odd){padding-left:0}
+  .home-v6 .hero-scope a:nth-child(even){border-left:1px solid rgba(243,241,236,.14)}
+  .home-v6 .hero-scope a:nth-child(-n+2){border-top:0}
   .home-v6 .hero-scope b{font-size:12px}
   .home-v6 .hero-scope small{display:none}
   .home-v6 .proof-points{grid-template-columns:1fr}
