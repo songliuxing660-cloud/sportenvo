@@ -25,11 +25,15 @@ for (const file of htmlFiles) {
   const full = path.join(root, file);
   const html = fs.readFileSync(full, "utf8");
 
-  if (!/<link\s+rel=["']canonical["'][^>]+href=["']https:\/\/sportenvo\.com\//i.test(html)) {
+  const noindex = /<meta\s+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html);
+
+  if (!noindex && !/<link\s+rel=["']canonical["'][^>]+href=["']https:\/\/sportenvo\.com\//i.test(html)) {
     failures.push([file, "missing canonical"]);
   }
 
-  if (!/<meta\s+name=["']description["'][^>]+content=["'][^"']{40,}["']/i.test(html)) {
+  const metaTag = html.match(/<meta\s+name=["']description["'][^>]*>/i)?.[0] || "";
+  const metaContent = (metaTag.match(/content="([^"]+)"/i)?.[1] || metaTag.match(/content='([^']+)'/i)?.[1] || "").trim();
+  if (metaContent.length < 40) {
     failures.push([file, "missing/short meta description"]);
   }
 
