@@ -23,7 +23,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Padel Court Project Planning &amp; Proposal | SPORTENVO</title>
-<meta name="description" content="Plan your commercial padel court project with SPORTENVO. Configure court type, foundation, roof and quantity, then request technical drawings and a tailored project proposal.">
+<meta name="description" content="Plan a commercial padel project with SPORTENVO. Use the project configurator to define venue, court quantity, site condition, foundation and weather protection, or choose Not Sure for a recommended system direction.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://sportenvo.com/start-project.html">
 <link rel="stylesheet" href="assets/site.css?v=20260926-contact2">
@@ -419,6 +419,48 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 </style><link rel="stylesheet" href="/assets/sportenvo-shell.css?v=20260926-header2">
 <link rel="stylesheet" href="/assets/sportenvo-content-v3.css?v=20260925-v3a">
 <link rel="stylesheet" href="/assets/sportenvo-conversion-v7.css?v=20260925-v7a">
+
+<style id="project-configurator-css">
+.project-configurator{padding:0 0 44px;background:#f5f7f9}
+.project-configurator-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;background:#fff;border:1px solid #dce4eb;border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(7,17,31,.07)}
+.project-configurator-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;padding:30px 32px 24px;border-bottom:1px solid #edf1f4}
+.project-configurator-head h2{margin:4px 0 10px;font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.04em;color:#07111f}
+.project-configurator-head p{margin:0;max-width:780px;color:#687689;line-height:1.7}
+.configurator-badge{flex:0 0 auto;border:1px solid #b9def4;background:#eff9ff;color:#0a6f9f;padding:9px 12px;border-radius:999px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.configurator-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #edf1f4}
+.config-fieldset{min-width:0;margin:0;padding:24px 28px;border:0;border-right:1px solid #edf1f4;border-bottom:1px solid #edf1f4}
+.config-fieldset:nth-child(2n){border-right:0}
+.config-fieldset:nth-last-child(-n+2){border-bottom:0}
+.config-fieldset legend{padding:0;margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.11em;color:#07111f}
+.config-options{display:flex;flex-wrap:wrap;gap:8px}
+.config-options button{appearance:none;border:1px solid #d6e0e7;background:#fff;color:#31404d;border-radius:999px;padding:9px 13px;font:inherit;font-size:12px;font-weight:760;line-height:1.25;cursor:pointer;transition:.16s ease}
+.config-options button:hover{border-color:#18a8f7;color:#087bb7}
+.config-options button[aria-pressed="true"]{border-color:#07111f;background:#07111f;color:#fff}
+.config-options button.recommend-option{border-color:#9dcce7;background:#f3fbff;color:#0b6d9c}
+.config-options button.recommend-option[aria-pressed="true"]{background:#0d7fb5;border-color:#0d7fb5;color:#fff}
+.configurator-result{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;padding:26px 30px;background:#07111f;color:#fff}
+.configurator-result-copy>span{display:block;color:#79dcff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
+.configurator-result-copy h3{margin:0 0 10px;font-size:24px;line-height:1.15}
+.configurator-result-copy p{margin:0;color:#b5c6d2;line-height:1.65;font-size:13px;max-width:660px}
+.configurator-brief{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);border-radius:12px;padding:14px}
+.configurator-brief-head{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:8px}
+.configurator-brief-head strong{font-size:12px}
+.configurator-brief-head button{border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;border-radius:8px;padding:7px 9px;font:inherit;font-size:11px;cursor:pointer}
+.configurator-brief pre{margin:0;white-space:pre-wrap;font-family:inherit;color:#c9d7e0;font-size:12px;line-height:1.65}
+.configurator-actions{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:2px}
+.configurator-actions .btn{background:#18a8f7;color:#04121e;border-radius:10px}
+.configurator-actions>a:not(.btn){color:#b5c6d2;font-size:13px;text-underline-offset:4px}
+@media(max-width:820px){
+  .project-configurator-inner{width:min(100% - 28px,1180px)}
+  .project-configurator-head{display:block;padding:24px 20px}
+  .configurator-badge{display:inline-block;margin-top:16px}
+  .configurator-grid{grid-template-columns:1fr}
+  .config-fieldset,.config-fieldset:nth-child(2n),.config-fieldset:nth-last-child(-n+2){border-right:0;border-bottom:1px solid #edf1f4;padding:20px}
+  .config-fieldset:last-child{border-bottom:0}
+  .configurator-result{grid-template-columns:1fr;padding:22px 20px}
+}
+</style>
+
 </head>
 <body class="shell-v2 conversion-v7">
 <header class="site-header" data-header>
@@ -448,6 +490,115 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 </header>
 
 <main class="quote-main">
+
+<section class="project-configurator" data-project-configurator="20260926" aria-labelledby="projectConfiguratorTitle">
+  <div class="project-configurator-inner">
+    <div class="project-configurator-head">
+      <div>
+        <p class="eyebrow">Project Configurator</p>
+        <h2 id="projectConfiguratorTitle">Not sure which court system you need?</h2>
+        <p>Start with the project conditions. SPORTENVO will use the venue, site, foundation and weather requirements to narrow the right court-system direction before quotation.</p>
+      </div>
+      <div class="configurator-badge">No final model required</div>
+    </div>
+
+    <div class="configurator-grid">
+      <fieldset class="config-fieldset" data-config-key="venue">
+        <legend>1 · Venue Type</legend>
+        <div class="config-options">
+          <button type="button" data-value="Padel Club">Padel Club</button>
+          <button type="button" data-value="Hotel / Resort">Hotel / Resort</button>
+          <button type="button" data-value="Sports Center">Sports Center</button>
+          <button type="button" data-value="Commercial Development">Commercial Development</button>
+          <button type="button" data-value="Rooftop">Rooftop</button>
+          <button type="button" data-value="Temporary / Event">Temporary / Event</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="quantity">
+        <legend>2 · Court Quantity</legend>
+        <div class="config-options compact">
+          <button type="button" data-value="1">1</button>
+          <button type="button" data-value="2–4">2–4</button>
+          <button type="button" data-value="5–10">5–10</button>
+          <button type="button" data-value="10+">10+</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="site">
+        <legend>3 · Site Condition</legend>
+        <div class="config-options">
+          <button type="button" data-value="Standard Outdoor">Standard Outdoor</button>
+          <button type="button" data-value="Indoor">Indoor</button>
+          <button type="button" data-value="Coastal / High Wind">Coastal / High Wind</button>
+          <button type="button" data-value="Rooftop">Rooftop</button>
+          <button type="button" data-value="Leased / Relocatable">Leased / Relocatable</button>
+          <button type="button" data-value="Not Sure">Not Sure</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="court">
+        <legend>4 · Court Preference</legend>
+        <div class="config-options">
+          <button type="button" class="recommend-option" data-value="Not Sure — Recommend a Solution">Not Sure — Recommend a Solution</button>
+          <button type="button" data-value="Panoramic Padel Court">Panoramic</button>
+          <button type="button" data-value="Super Panoramic Padel Court">Super Panoramic</button>
+          <button type="button" data-value="Classic Padel Court">Classic</button>
+          <button type="button" data-value="Mobile Padel Court">Mobile</button>
+          <button type="button" data-value="Padel Court with Electric Tent">Electric Tent</button>
+          <button type="button" data-value="Padel Court with Roof">Roof</button>
+          <button type="button" data-value="Anti-Hurricane Padel Court — FORCE-HX Series">Anti-Hurricane · FORCE-HX</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="foundation">
+        <legend>5 · Foundation</legend>
+        <div class="config-options">
+          <button type="button" data-value="Existing Concrete">Existing Concrete</button>
+          <button type="button" data-value="Need Foundation">Need Foundation</button>
+          <button type="button" data-value="Modular Foundation">Modular Foundation</button>
+          <button type="button" data-value="Not Sure">Not Sure</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="weather">
+        <legend>6 · Weather Protection</legend>
+        <div class="config-options">
+          <button type="button" data-value="Open Air">Open Air</button>
+          <button type="button" data-value="Electric Tent">Electric Tent</button>
+          <button type="button" data-value="Fixed Roof">Fixed Roof</button>
+          <button type="button" data-value="Retractable Roof">Retractable Roof</button>
+          <button type="button" data-value="Not Sure">Not Sure</button>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="configurator-result" aria-live="polite">
+      <div class="configurator-result-copy">
+        <span>Preliminary system direction</span>
+        <h3 data-config-result-title>Start with “Not Sure — Recommend a Solution”.</h3>
+        <p data-config-result-text>Choose what you already know. This step does not submit your enquiry and does not replace project-specific engineering review.</p>
+      </div>
+      <div class="configurator-brief">
+        <div class="configurator-brief-head">
+          <strong>Your Project Brief</strong>
+          <button type="button" data-copy-brief>Copy brief</button>
+        </div>
+        <pre data-config-brief>Venue: Not selected
+Court quantity: Not selected
+Site condition: Not selected
+Court preference: Not Sure — Recommend a Solution
+Foundation: Not selected
+Weather protection: Not selected</pre>
+      </div>
+      <div class="configurator-actions">
+        <a class="btn dark" href="#projectQuoteForm" data-config-continue>Continue to Project Form ↗</a>
+        <a href="solutions.html">Compare project solutions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
   <div class="wrap quote-layout" style="grid-template-columns:minmax(0,1fr);max-width:900px">
 <div class="quote-card quote-form" id="projectQuoteForm" style="min-width:0;width:100%">
 <div class="quote-card-head">
@@ -816,5 +967,156 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 
 
 <script src="/assets/sportenvo-shell.js?v=20260926-shell5" defer></script>
+
+<script id="project-configurator-js">
+(function(){
+  var root=document.querySelector('[data-project-configurator]');
+  if(!root) return;
+  var state={
+    venue:"",
+    quantity:"",
+    site:"",
+    court:"Not Sure — Recommend a Solution",
+    foundation:"",
+    weather:""
+  };
+  var labels={
+    venue:"Venue",
+    quantity:"Court quantity",
+    site:"Site condition",
+    court:"Court preference",
+    foundation:"Foundation",
+    weather:"Weather protection"
+  };
+
+  function setPressed(group,value){
+    group.querySelectorAll('button[data-value]').forEach(function(btn){
+      btn.setAttribute('aria-pressed',btn.getAttribute('data-value')===value?'true':'false');
+    });
+  }
+
+  function direction(){
+    var court=state.court;
+    var title="";
+    var notes=[];
+
+    if(court && court.indexOf("Not Sure")!==0){
+      title="Selected direction: "+court;
+      notes.push("We will verify whether this system matches the actual venue, site and structural conditions before quotation.");
+    }else if(state.weather==="Electric Tent"){
+      title="Start with Padel Court with Electric Tent.";
+      notes.push("Review operating mode, wind conditions, drainage, controls and support interfaces.");
+    }else if(state.weather==="Fixed Roof" || state.weather==="Retractable Roof"){
+      title="Start with Padel Court with Roof.";
+      notes.push("Clear height, span, wind, drainage, roof reactions and foundation interfaces should be reviewed together.");
+    }else if(state.site==="Coastal / High Wind"){
+      title="Start with Anti-Hurricane Padel Court — FORCE-HX Series.";
+      notes.push("Final suitability depends on the exact project location, local wind basis, anchors, foundation load path and local engineering requirements.");
+    }else if(state.site==="Leased / Relocatable" || state.foundation==="Modular Foundation" || state.venue==="Temporary / Event"){
+      title="Start with Mobile Padel Court + Modular Foundation review.";
+      notes.push("Ground capacity, level, drainage, anchoring, access and future relocation should be checked before confirming the system.");
+    }else if(state.site==="Indoor"){
+      title="Compare Panoramic and Super Panoramic systems.";
+      notes.push("The final choice should follow venue positioning, visibility, clear height, lighting, foundation and commercial budget.");
+    }else if(state.venue==="Hotel / Resort"){
+      title="Start with Panoramic / Super Panoramic comparison.";
+      notes.push("Guest experience, landscape integration, noise context, climate, corrosion exposure and weather protection should be reviewed with the court selection.");
+    }else if(state.venue==="Rooftop" || state.site==="Rooftop"){
+      title="Start with a site-specific rooftop court review.";
+      notes.push("Building structure, anchoring zones, drainage, lifting access and elevated wind exposure must be checked before choosing the final court model.");
+    }else{
+      title="Start with Panoramic as the baseline commercial comparison.";
+      notes.push("SPORTENVO can then compare Classic, Super Panoramic, Mobile, Roof or FORCE-HX against the actual project conditions.");
+    }
+
+    if(state.foundation==="Need Foundation"){
+      notes.push("Foundation strategy still needs to be confirmed from the ground / structural condition.");
+    }else if(state.foundation==="Existing Concrete"){
+      notes.push("Existing concrete should still be checked for dimensions, level, drainage, condition and anchor suitability.");
+    }
+    if(state.quantity==="5–10" || state.quantity==="10+"){
+      notes.push("Multi-court projects should be planned as a venue layout, not as repeated single courts.");
+    }
+    return {title:title,text:notes.join(" ")};
+  }
+
+  function brief(){
+    return [
+      "Venue: "+(state.venue||"Not selected"),
+      "Court quantity: "+(state.quantity||"Not selected"),
+      "Site condition: "+(state.site||"Not selected"),
+      "Court preference: "+(state.court||"Not Sure — Recommend a Solution"),
+      "Foundation: "+(state.foundation||"Not selected"),
+      "Weather protection: "+(state.weather||"Not selected")
+    ].join("\n");
+  }
+
+  function render(){
+    var d=direction();
+    var title=root.querySelector('[data-config-result-title]');
+    var text=root.querySelector('[data-config-result-text]');
+    var pre=root.querySelector('[data-config-brief]');
+    if(title) title.textContent=d.title;
+    if(text) text.textContent=d.text;
+    if(pre) pre.textContent=brief();
+    try{localStorage.setItem("sportenvo_project_configurator",JSON.stringify(state));}catch(e){}
+  }
+
+  root.querySelectorAll('[data-config-key]').forEach(function(group){
+    var key=group.getAttribute('data-config-key');
+    group.querySelectorAll('button[data-value]').forEach(function(btn){
+      if(key==="court" && btn.getAttribute('data-value')===state.court){
+        btn.setAttribute('aria-pressed','true');
+      }else{
+        btn.setAttribute('aria-pressed','false');
+      }
+      btn.addEventListener('click',function(){
+        state[key]=btn.getAttribute('data-value')||"";
+        setPressed(group,state[key]);
+        render();
+        if(typeof window.gtag==="function"){
+          window.gtag("event","project_configurator_select",{config_key:key,config_value:state[key]});
+        }
+      });
+    });
+  });
+
+  try{
+    var saved=JSON.parse(localStorage.getItem("sportenvo_project_configurator")||"null");
+    if(saved && typeof saved==="object"){
+      Object.keys(state).forEach(function(k){if(typeof saved[k]==="string") state[k]=saved[k];});
+      root.querySelectorAll('[data-config-key]').forEach(function(group){
+        var key=group.getAttribute('data-config-key');
+        setPressed(group,state[key]);
+      });
+    }
+  }catch(e){}
+
+  var copy=root.querySelector('[data-copy-brief]');
+  if(copy){
+    copy.addEventListener('click',function(){
+      var value=brief();
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(value).then(function(){
+          copy.textContent="Copied";
+          window.setTimeout(function(){copy.textContent="Copy brief";},1500);
+        }).catch(function(){});
+      }
+    });
+  }
+
+  var cont=root.querySelector('[data-config-continue]');
+  if(cont){
+    cont.addEventListener('click',function(){
+      if(typeof window.gtag==="function"){
+        window.gtag("event","project_configurator_continue",{project_direction:direction().title});
+      }
+    });
+  }
+
+  render();
+})();
+</script>
+
 </body>
 </html>
