@@ -344,7 +344,7 @@
 }
 .procurement-path-steps{
   display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-template-columns:repeat(8,minmax(0,1fr));
 }
 .procurement-path-steps a{
   min-width:0;
@@ -384,9 +384,9 @@
 @media(max-width:1100px){
   .procurement-path-wrap{grid-template-columns:1fr;width:calc(100% - 56px)}
   .procurement-path-intro{border-right:0;border-bottom:1px solid var(--kg-line);padding-left:0}
-  .procurement-path-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .procurement-path-steps a:nth-child(3){border-right:0}
-  .procurement-path-steps a:nth-child(-n+3){border-bottom:1px solid var(--kg-line)}
+  .procurement-path-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .procurement-path-steps a:nth-child(4n){border-right:0}
+  .procurement-path-steps a:nth-child(-n+4){border-bottom:1px solid var(--kg-line)}
 }
 @media(max-width:760px){
   .buyer-guide-path{grid-template-columns:1fr}
