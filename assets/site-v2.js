@@ -47,7 +47,7 @@ const existingWhatsApp = document.querySelector(".whatsapp");
 const contactActions = document.createElement("div");
 contactActions.className = "floating-contact-actions";
 contactActions.setAttribute("role", "group");
-contactActions.setAttribute("aria-label", "Contact SPORTENVO on WhatsApp");
+contactActions.setAttribute("aria-label", "SPORTENVO project enquiry options");
 
 const whatsappLink = existingWhatsApp || document.createElement("a");
 whatsappLink.className = "whatsapp floating-whatsapp";
@@ -59,10 +59,10 @@ whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" h
 
 const quoteLink = document.createElement("a");
 quoteLink.className = "floating-quote";
-quoteLink.href = whatsappHref;
-quoteLink.target = "_blank";
-quoteLink.rel = "noopener";
-quoteLink.innerHTML = 'Get a Free Quote <span aria-hidden="true">&#8594;</span>';
+quoteLink.href = "/start-project.html?source=floating-project-cta#projectConfiguratorTitle";
+quoteLink.removeAttribute("target");
+quoteLink.removeAttribute("rel");
+quoteLink.innerHTML = 'Start Project <span aria-hidden="true">&#8594;</span>';
 
 contactActions.append(whatsappLink, quoteLink);
 document.body.appendChild(contactActions);
