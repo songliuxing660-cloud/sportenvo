@@ -144,7 +144,7 @@ footer{background:#06101c;color:#c6d4de;padding:62px 0 28px}.foot{display:grid;g
 /* Consistent headings and a visible mobile enquiry route. */
 .section-title,.cta .section-title{font-size:clamp(28px,3.3vw,44px);line-height:1.12}
 nav.breadcrumbs{position:static;background:none;backdrop-filter:none;border:0;z-index:auto;font-size:12px;line-height:1.5;margin-bottom:20px}
-#projectQuoteForm,[id^="zf_div_"]{scroll-margin-top:94px}
+#projectInquiryForm,[id^="zf_div_"]{scroll-margin-top:94px}
 .mobile-contact-dock{display:none}
 .site-nav .mobile-toggle{min-width:44px;min-height:44px}
 .site-nav .mobile-toggle span{display:block;width:20px;height:2px;margin:4px auto;background:currentColor;border-radius:2px}
@@ -535,7 +535,7 @@ Foundation: Not selected
 Weather protection: Not selected</pre>
       </div>
       <div class="configurator-actions">
-        <a class="btn dark" href="#projectQuoteForm" data-config-continue>Continue to Project Form ↗</a>
+        <a class="btn dark" href="#projectInquiryForm" data-config-continue>Continue to Project Form ↗</a>
         <a href="solutions.html">Compare project solutions</a><a href="padel-court-rfq-checklist.html">Build an RFQ checklist</a>
       </div>
     </div>
@@ -543,7 +543,7 @@ Weather protection: Not selected</pre>
 </section>
 
   <div class="wrap quote-layout" style="grid-template-columns:minmax(0,1fr);max-width:900px">
-<div class="quote-card quote-form" id="projectQuoteForm" style="min-width:0;width:100%">
+<div class="quote-card quote-form" id="projectInquiryForm" style="min-width:0;width:100%">
 <div class="quote-card-head">
         <div class="mini">Project Brief</div>
         <h2>Tell us what you want to build.</h2>
@@ -701,7 +701,7 @@ Weather protection: Not selected</pre>
 })();
   }
   function scheduleZoho(){
-    if(window.location.hash==="#projectQuoteForm"){
+    if(window.location.hash==="#projectInquiryForm"){
       mountZohoForm();
       return;
     }
@@ -713,7 +713,7 @@ Weather protection: Not selected</pre>
     scheduleZoho();
   }
   window.addEventListener("hashchange",function(){
-    if(window.location.hash==="#projectQuoteForm") mountZohoForm();
+    if(window.location.hash==="#projectInquiryForm") mountZohoForm();
   });
 })();
 </script>
