@@ -1,0 +1,28 @@
+name: Site Consistency Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "assets/**"
+      - "scripts/check-site-consistency.mjs"
+      - ".github/workflows/site-consistency.yml"
+  pull_request:
+    paths:
+      - "*.html"
+      - "assets/**"
+      - "scripts/check-site-consistency.mjs"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check canonical, meta, H1 and navigation consistency
+        run: node scripts/check-site-consistency.mjs
