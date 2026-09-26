@@ -28,15 +28,17 @@ Short descriptor: **Manufacturer + Project Support**
 
 ## Numeric Claims Status
 
-The following figures are currently published on SPORTENVO-owned pages. Treat them as **company-reported claims**, not independent third-party verification. Before repeating them on LinkedIn, YouTube, directories or PR, confirm the internal source record and keep the wording consistent.
+Do **not** publish or reuse company-scale numbers unless the current supporting record is available and has been checked. During the 2026-09-27 evidence cleanup, unsupported scale figures were removed from the public About page instead of being repeated as marketing claims.
 
-| Claim | Current status | External-use rule |
+| Claim previously used | Current public-use status | Rule |
 | --- | --- | --- |
-| 10+ Years Export Experience | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; describe as company-reported where context requires |
-| 50+ Export Markets | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; do not silently change between "markets" and "countries" |
-| 5,000+ Cooperative Clients | Published on SPORTENVO-owned pages | Reuse only after internal source confirmation; avoid implying independently audited customer counts |
+| 10+ Years Export Experience | Not approved for public reuse yet | Reintroduce only after a current supporting company record is supplied and checked |
+| 10,000 m² Factory Area | Removed from the public About page | Reintroduce only after a current supporting facility record is supplied and checked |
+| 50+ Export Markets | Removed from the public About page | Reintroduce only after a current supporting export record is supplied and checked |
+| 100+ Factory Employees | Removed from the public About page | Reintroduce only after a current supporting staffing record is supplied and checked |
+| 5,000+ Cooperative Clients | Removed from the public About page | Reintroduce only after a current supporting customer / transaction record is supplied and checked |
 
-If internal evidence cannot be confirmed, remove the number from new third-party profiles rather than creating additional copies of an uncertain claim.
+Until supporting evidence is available, use non-numeric descriptions such as **real manufacturing evidence**, **international project support**, **project references**, and **order-specific documentation** rather than substituting new estimates.
 
 ## Approved Descriptions
 
