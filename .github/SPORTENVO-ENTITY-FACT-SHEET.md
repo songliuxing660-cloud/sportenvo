@@ -66,11 +66,19 @@ SPORTENVO provides commercial padel court systems and project solutions for club
 
 SPORTENVO shares practical videos about planning commercial padel court projects. Topics include court-system selection, foundations, roofs, high-wind requirements, technical drawings, manufacturing, packing, delivery and installation guidance. Explore SPORTENVO commercial padel court systems and real project references at https://sportenvo.com/.
 
-### First YouTube video
+### Priority YouTube video
 
-Title: How a Commercial Padel Court Project Is Planned
+Title: **Padel Court Roof Systems: Fixed vs Retractable for Commercial Projects**
 
-Structure: Site review -> Court system -> Foundation -> Roof -> Technical drawings -> Manufacturing -> Delivery -> Installation guidance
+Official channel: https://www.youtube.com/@sportenvopadel
+
+Recommended description:
+
+SPORTENVO explains how fixed and retractable padel court roof systems differ for commercial projects. Compare weather protection, clear playing height, span, wind and structural loads, foundation interfaces, drainage, lighting, operating needs and project budget. Final roof and foundation requirements are project-specific and should be coordinated with local engineering and approvals.
+
+Reference page: https://sportenvo.com/roof.html
+
+Recommended structure: Buyer question -> Fixed roof -> Retractable roof -> Site interfaces -> Wind / drainage / clear height -> Project-specific limitation -> Roof guide / project CTA
 
 ## Claims Guardrails
 
@@ -83,4 +91,9 @@ Structure: Site review -> Court system -> Foundation -> Roof -> Technical drawin
 
 ## Official External Profiles
 
-No verified public LinkedIn Company Page or YouTube channel URL was found during the 2026-09-26 review. Keep website Organization Schema free of `sameAs` entries until the official profiles are created or confirmed and publicly accessible.
+| Platform | Official URL | Status |
+| --- | --- | --- |
+| YouTube | https://www.youtube.com/@sportenvopadel | Confirmed official on 2026-09-26 |
+| LinkedIn | Not yet confirmed | Do not add to `sameAs` until the official public URL is confirmed |
+
+Website Organization Schema may include the confirmed YouTube URL in `sameAs`. Keep unconfirmed social profiles out of `sameAs`.
