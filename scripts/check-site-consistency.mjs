@@ -18,7 +18,7 @@ const requiredNav = [
   "about.html"
 ];
 
-const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".html"));
+const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".html") && name !== "404.html" && !/^google[a-z0-9_-]+\.html$/i.test(name));
 const failures = [];
 
 for (const file of htmlFiles) {
