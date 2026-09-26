@@ -11,21 +11,45 @@
     },params||{}));
   }
   function leadContext(){
-    let started=0,sourcePage='',sourceTitle='',sourceCta='';
+    let started=0,sourcePage='',sourceTitle='',sourceCta='',sourceTag='',utmSource='',utmMedium='',utmCampaign='';
     try{
       started=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
       sourcePage=localStorage.getItem('sportenvo_lead_source_page')||'';
       sourceTitle=localStorage.getItem('sportenvo_lead_source_title')||'';
       sourceCta=localStorage.getItem('sportenvo_lead_source_cta')||'';
+      sourceTag=localStorage.getItem('sportenvo_lead_source_tag')||'';
+      utmSource=localStorage.getItem('sportenvo_lead_utm_source')||'';
+      utmMedium=localStorage.getItem('sportenvo_lead_utm_medium')||'';
+      utmCampaign=localStorage.getItem('sportenvo_lead_utm_campaign')||'';
     }catch(e){}
-    return {started,sourcePage,sourceTitle,sourceCta};
+    return {started,sourcePage,sourceTitle,sourceCta,sourceTag,utmSource,utmMedium,utmCampaign};
   }
   function recentLead(ctx){
     return !!(ctx.started && Date.now()-ctx.started<2*60*60*1000);
   }
 
   if(isStart){
-    send('start_project_view',{form_name:'SPORTENVO Project Inquiry'});
+    const entryParams=new URLSearchParams(location.search);
+    const entrySource=(entryParams.get('source')||'').trim().slice(0,100);
+    const utmSource=(entryParams.get('utm_source')||'').trim().slice(0,100);
+    const utmMedium=(entryParams.get('utm_medium')||'').trim().slice(0,100);
+    const utmCampaign=(entryParams.get('utm_campaign')||'').trim().slice(0,140);
+    try{
+      if(entrySource) localStorage.setItem('sportenvo_lead_source_tag',entrySource);
+      if(utmSource) localStorage.setItem('sportenvo_lead_utm_source',utmSource);
+      if(utmMedium) localStorage.setItem('sportenvo_lead_utm_medium',utmMedium);
+      if(utmCampaign) localStorage.setItem('sportenvo_lead_utm_campaign',utmCampaign);
+    }catch(e){}
+    const ctx=leadContext();
+    send('start_project_view',{
+      form_name:'SPORTENVO Project Inquiry',
+      lead_source_tag:ctx.sourceTag||entrySource,
+      lead_source_page:ctx.sourcePage,
+      lead_source_cta:ctx.sourceCta,
+      utm_source:ctx.utmSource||utmSource,
+      utm_medium:ctx.utmMedium||utmMedium,
+      utm_campaign:ctx.utmCampaign||utmCampaign
+    });
 
     window.addEventListener('message',function(event){
       if(event.origin!=='https://forms.zohopublic.com') return;
@@ -91,6 +115,10 @@
       lead_source_page:ctx.sourcePage,
       lead_source_title:ctx.sourceTitle,
       lead_source_cta:ctx.sourceCta,
+      lead_source_tag:ctx.sourceTag,
+      utm_source:ctx.utmSource,
+      utm_medium:ctx.utmMedium,
+      utm_campaign:ctx.utmCampaign,
       conversion_confirmed:confirmed||viaParam||fromZoho
     });
 
@@ -104,7 +132,11 @@
         form_name:'SPORTENVO Project Inquiry',
         lead_source_page:ctx.sourcePage,
         lead_source_title:ctx.sourceTitle,
-        lead_source_cta:ctx.sourceCta
+        lead_source_cta:ctx.sourceCta,
+        lead_source_tag:ctx.sourceTag,
+        utm_source:ctx.utmSource,
+        utm_medium:ctx.utmMedium,
+        utm_campaign:ctx.utmCampaign
       };
       send('project_form_submit',params);
       send('generate_lead',Object.assign({currency:'USD',value:0},params));
