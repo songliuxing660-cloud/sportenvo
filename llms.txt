@@ -1,0 +1,105 @@
+# SPORTENVO
+
+> Commercial padel court systems for clubs, hotels, resorts, sports facilities, contractors, distributors and international commercial projects.
+
+Website: https://sportenvo.com/
+Project enquiries: sales@sportenvo.com
+Primary language: English
+Business focus: B2B commercial padel court projects
+
+## Core Pages
+
+- Home: https://sportenvo.com/
+- Court Systems: https://sportenvo.com/courts.html
+- Solutions: https://sportenvo.com/solutions.html
+- Projects: https://sportenvo.com/projects.html
+- Insights / Buyer Guides: https://sportenvo.com/insights.html
+- Engineering & Manufacturing: https://sportenvo.com/engineering.html
+- Quality & Documentation: https://sportenvo.com/quality.html
+- About SPORTENVO: https://sportenvo.com/about.html
+- Start a Project: https://sportenvo.com/start-project.html
+
+## Official Product Series
+
+1. Panoramic Padel Court
+   https://sportenvo.com/panoramic.html
+2. Super Panoramic Padel Court
+   https://sportenvo.com/super-panoramic.html
+3. Classic Padel Court
+   https://sportenvo.com/classic-padel-court.html
+4. Mobile Padel Court
+   https://sportenvo.com/mobile.html
+5. Padel Court with Electric Tent
+   https://sportenvo.com/electric-tent-padel-court.html
+6. Padel Court with Roof
+   https://sportenvo.com/roof.html
+7. Anti Hurricane Padel Court / FORCE-HX
+   https://sportenvo.com/force-hx.html
+8. Padel Court Modular Foundation Base
+   https://sportenvo.com/modular-foundation.html
+
+## Commercial Buyer Solutions
+
+- Commercial Padel Clubs:
+  https://sportenvo.com/commercial-padel-club.html
+- Hotels & Resorts:
+  https://sportenvo.com/hotel-resort-padel-court.html
+- Contractors & Distributors:
+  https://sportenvo.com/padel-court-distributor.html
+
+## Buyer Guides
+
+- Padel Court Cost:
+  https://sportenvo.com/how-much-does-a-padel-court-cost.html
+- Padel Court Dimensions & Site Planning:
+  https://sportenvo.com/padel-court-dimensions.html
+- How to Choose a Padel Court Manufacturer:
+  https://sportenvo.com/how-to-choose-a-padel-court-manufacturer.html
+- Concrete vs Modular Foundation:
+  https://sportenvo.com/modular-foundation-guide.html
+- Padel Court Roof Planning:
+  https://sportenvo.com/padel-court-roof-guide.html
+- High-Wind Padel Court Planning:
+  https://sportenvo.com/high-wind-padel-court-guide.html
+- Indoor vs Outdoor Padel Courts:
+  https://sportenvo.com/indoor-vs-outdoor-padel-courts.html
+- Padel Court Drainage:
+  https://sportenvo.com/padel-court-drainage-guide.html
+- Padel Court Lighting:
+  https://sportenvo.com/padel-court-lighting-guide.html
+- Padel Court Noise Planning:
+  https://sportenvo.com/padel-court-noise-planning.html
+
+## Selected Project References
+
+- Kuala Lumpur rooftop commercial project:
+  https://sportenvo.com/project-kuala-lumpur.html
+- Moldova indoor multi-court venue:
+  https://sportenvo.com/project-moldova.html
+- Costa Rica covered courts:
+  https://sportenvo.com/project-costa-rica-covered-padel-courts.html
+- Guatemala covered panoramic court:
+  https://sportenvo.com/project-guatemala-covered-padel-court.html
+- Harwich UK portable padel court:
+  https://sportenvo.com/project-harwich-uk-portable-padel-court.html
+- Meyyafushi Maldives overwater padel court:
+  https://sportenvo.com/project-meyyafushi-maldives-overwater-padel-court.html
+
+## Technical Positioning
+
+SPORTENVO content separates:
+- product configuration from site-specific engineering;
+- court supply from local civil works and installation responsibilities;
+- reference specifications from final project specifications;
+- completed project photography from concept or planning material.
+
+Final structural design, foundations, anchors, roof reactions, high-wind suitability and local approvals depend on the actual project location and site conditions.
+
+## Official Channel
+
+- YouTube: https://www.youtube.com/@sportenvopadel
+
+## Crawling
+
+- Sitemap: https://sportenvo.com/sitemap.xml
+- Robots: https://sportenvo.com/robots.txt
