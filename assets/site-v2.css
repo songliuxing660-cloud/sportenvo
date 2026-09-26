@@ -953,3 +953,37 @@ h3 { font-size: 24px; line-height: 1.15; }
     padding: 24px 20px;
   }
 }
+
+
+/* Conversion CTA pair 20260927 */
+.cta-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+.cta-band .cta-actions .button{margin-top:0}
+.cta-band .cta-actions .button-ghost{
+  background:transparent;
+  border-color:rgba(243,241,236,.44);
+  color:var(--white);
+}
+.cta-band .cta-actions .button-ghost:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(243,241,236,.72);
+  color:var(--white);
+}
+.cta-helper{
+  display:block;
+  max-width:720px;
+  margin:14px auto 0;
+  color:rgba(183,197,206,.86);
+  font-size:12px;
+  line-height:1.6;
+}
+@media(max-width:620px){
+  .cta-actions{display:grid;grid-template-columns:1fr;width:min(100%,420px);margin-left:auto;margin-right:auto}
+  .cta-actions .button{width:100%;justify-content:space-between}
+}
