@@ -908,3 +908,48 @@ h3 { font-size: 24px; line-height: 1.15; }
   .spec-table th,
   .spec-table td { padding: 14px 16px; }
 }
+
+
+/* Product fit routing 20260927 */
+.product-fit .feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.product-fit .feature-grid article {
+  min-height: 0;
+  padding: 32px;
+}
+.product-fit .feature-grid h3 {
+  margin-top: 26px;
+  margin-bottom: 18px;
+}
+.product-fit .feature-grid ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+.product-fit .feature-grid li {
+  padding: 7px 0;
+  line-height: 1.55;
+}
+.product-fit .feature-grid a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: rgba(24,168,247,.45);
+  text-underline-offset: 3px;
+}
+.product-fit .feature-grid a:hover {
+  color: var(--signal);
+}
+.product-fit .procurement-note a {
+  color: var(--navy);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .product-fit .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-fit .feature-grid article {
+    padding: 24px 20px;
+  }
+}
