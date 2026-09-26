@@ -61,7 +61,7 @@ function copyEstimatorToForm(){
 
 document.getElementById('useConfig')?.addEventListener('click',()=>{
   copyEstimatorToForm();
-  const form=document.getElementById('projectQuoteForm');
+  const form=document.getElementById('projectInquiryForm');
   if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
 });
 
