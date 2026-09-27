@@ -987,3 +987,21 @@ h3 { font-size: 24px; line-height: 1.15; }
   .cta-actions{display:grid;grid-template-columns:1fr;width:min(100%,420px);margin-left:auto;margin-right:auto}
   .cta-actions .button{width:100%;justify-content:space-between}
 }
+
+
+/* CRO QUICK START 20260927 */
+.project-quick-start{max-width:none;background:#f3f6f8;border-bottom:1px solid var(--line)}
+.project-quick-start-inner{width:min(var(--max),100%);margin:0 auto;padding:34px var(--pad);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,.8fr);gap:44px;align-items:center}
+.project-quick-copy h2{margin:0 0 10px;font-size:clamp(28px,3vw,42px);line-height:1.02}
+.project-quick-copy>p:not(.eyebrow){margin:0;max-width:760px;color:var(--muted);font-size:16px;line-height:1.65}
+.project-scope-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.project-scope-inline span{padding:7px 10px;border:1px solid #cfd9df;background:#fff;color:#334653;font-size:11px;font-weight:800;letter-spacing:.02em}
+.project-quick-actions{padding-left:34px;border-left:1px solid #cfd9df}
+.project-quick-label{margin:0 0 8px;color:var(--muted);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
+.project-quick-fields{display:flex;flex-wrap:wrap;gap:7px 16px;margin:0 0 16px;color:var(--ink);font-size:14px}
+.project-quick-fields strong{position:relative;padding-left:13px}
+.project-quick-fields strong:before{content:"";position:absolute;left:0;top:.56em;width:5px;height:5px;background:var(--signal);border-radius:50%}
+.project-quick-actions .button{width:100%;justify-content:space-between}
+.project-quick-secondary{display:inline-block;margin-top:12px;color:var(--muted);font-size:13px;font-weight:750;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.project-quick-start-inner{grid-template-columns:1fr;gap:26px;padding-top:30px;padding-bottom:30px}.project-quick-actions{padding-left:0;padding-top:24px;border-left:0;border-top:1px solid #cfd9df}}
+@media(max-width:620px){.project-quick-start-inner{padding-left:22px;padding-right:22px}.project-scope-inline span{font-size:10px}.project-quick-actions .button{min-height:52px}}
