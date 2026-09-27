@@ -498,6 +498,21 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 }
 </style>
 
+
+<style id="direct-inquiry-gateway-css">
+.direct-inquiry-gateway{background:#eef3f6;padding:32px 0 36px;border-bottom:1px solid #dce4eb}
+.direct-inquiry-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:34px;align-items:center;background:#fff;border:1px solid #dce4eb;border-radius:18px;padding:28px 30px;box-shadow:0 14px 36px rgba(7,17,31,.055)}
+.direct-inquiry-copy h2{margin:5px 0 10px;font-size:clamp(28px,3.4vw,44px);line-height:1.04;letter-spacing:-.035em;color:#07111f}
+.direct-inquiry-copy>p:not(.eyebrow){margin:0;max-width:720px;color:#687689;line-height:1.7}
+.direct-inquiry-steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.direct-inquiry-steps span{padding:8px 10px;border:1px solid #d7e0e6;border-radius:999px;background:#f8fafb;color:#32424f;font-size:12px;font-weight:800}
+.direct-inquiry-actions{padding-left:28px;border-left:1px solid #dce4eb}
+.direct-inquiry-actions .btn{width:100%;justify-content:space-between}
+.direct-inquiry-actions p{margin:12px 0 0;color:#7b8994;font-size:12px;line-height:1.55}
+.direct-inquiry-actions a.secondary{display:inline-block;margin-top:12px;color:#526371;font-size:13px;font-weight:800;text-underline-offset:4px}
+@media(max-width:820px){.direct-inquiry-inner{grid-template-columns:1fr}.direct-inquiry-actions{padding-left:0;padding-top:22px;border-left:0;border-top:1px solid #dce4eb}}
+@media(max-width:620px){.direct-inquiry-gateway{padding:22px 0}.direct-inquiry-inner{width:calc(100% - 28px);padding:22px;border-radius:14px}}
+</style>
 </head>
 <body class="shell-v2 conversion-v7">
 <header class="site-header" data-header>
@@ -528,13 +543,29 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 
 <main class="quote-main">
 
+<section class="direct-inquiry-gateway" id="direct-project-inquiry" aria-labelledby="directInquiryTitle">
+  <div class="direct-inquiry-inner">
+    <div class="direct-inquiry-copy">
+      <p class="eyebrow">Fastest Route to a Proposal</p>
+      <h2 id="directInquiryTitle">Already planning a real project? Go straight to the inquiry form.</h2>
+      <p>You do not need a final court specification. Start with the three basics below and our team can review the court, foundation and weather-protection direction with you.</p>
+      <div class="direct-inquiry-steps"><span>Country / City</span><span>Court Quantity</span><span>Email</span></div>
+    </div>
+    <div class="direct-inquiry-actions">
+      <a class="btn dark" href="/index.html?source=start-project-direct#formal-project-inquiry" data-quote-cta="start-project-direct">Open Project Inquiry ↗</a>
+      <p>The detailed configurator below is optional and is most useful if you are still comparing court systems.</p>
+      <a class="secondary" href="#projectConfiguratorTitle">I need help choosing a system ↓</a>
+    </div>
+  </div>
+</section>
+
 <section class="project-configurator" data-project-configurator="20260927-wa1" aria-labelledby="projectConfiguratorTitle">
   <div class="project-configurator-inner">
     <div class="project-configurator-head">
       <div>
         <p class="eyebrow">Project Configurator</p>
         <h2 id="projectConfiguratorTitle">Not sure which court system you need?</h2>
-        <p>Complete the 10 project inputs below. SPORTENVO will use the venue, site, foundation and weather requirements to narrow the right court-system direction. When the brief is complete, an instant WhatsApp option will appear below.</p>
+        <p>Use the detailed configurator below only if you still need help choosing the system. SPORTENVO will use the venue, site, foundation and weather requirements to narrow the right court-system direction.</p>
       </div>
       <div class="configurator-badge">No final model required</div>
     </div>
