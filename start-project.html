@@ -406,13 +406,16 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .configurator-actions{grid-column:1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:18px}
 .configurator-actions .btn{background:#18a8f7;color:#04121e;border-radius:10px}
 .configurator-actions>a:not(.btn){color:#b5c6d2;font-size:13px;text-underline-offset:4px}
-.project-whatsapp-card{width:100%;margin:22px 0 0;padding:22px 24px;border:1px solid rgba(37,211,102,.32);border-radius:18px;background:#0c1515;color:#fff;box-shadow:none;transition:opacity .24s ease,transform .24s ease}
-.project-whatsapp-card[hidden]{display:none}
+.project-whatsapp-card{width:100%;margin:22px 0 0;padding:22px 24px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:#0c1515;color:#fff;box-shadow:none;transition:border-color .24s ease,background .24s ease,opacity .24s ease,transform .24s ease}
+.project-whatsapp-card.is-ready{border-color:rgba(37,211,102,.42);background:#0c1515}
+.project-whatsapp-card.is-pending{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.035)}
 .project-whatsapp-kicker{margin:0 0 8px;color:#25d366;font-size:12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
 .project-whatsapp-card h3{margin:0 0 8px;font-size:20px;line-height:1.15;letter-spacing:-.03em}
 .project-whatsapp-card>p:not(.project-whatsapp-kicker){margin:0;color:#b8c4c0;font-size:14px;line-height:1.7;max-width:650px}
 .project-whatsapp-action{display:flex;align-items:center;justify-content:center;width:100%;margin-top:18px;min-height:52px;padding:14px 18px;border-radius:12px;background:#25d366;color:#06240f!important;text-decoration:none;font-weight:900;font-size:16px;box-shadow:0 10px 24px rgba(37,211,102,.12);transition:.18s ease}
-.project-whatsapp-action:hover{transform:translateY(-2px);background:#2ee073}
+.project-whatsapp-card.is-ready .project-whatsapp-action:hover{transform:translateY(-2px);background:#2ee073}
+.project-whatsapp-card.is-pending .project-whatsapp-action{background:#24313a;color:#93a2ac!important;box-shadow:none;cursor:not-allowed;pointer-events:none}
+.project-whatsapp-card.is-pending .project-whatsapp-dot{background:#73838d;box-shadow:0 0 0 4px rgba(115,131,141,.12)}
 .project-whatsapp-meta{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-top:12px;color:#8f9e9a;font-size:12px}
 .project-whatsapp-dot{width:9px;height:9px;border-radius:50%;background:#25d366;box-shadow:0 0 0 4px rgba(37,211,102,.12)}
 .project-whatsapp-note{display:block;margin-top:10px;text-align:left;color:#6f817c;font-size:11px}
@@ -688,13 +691,13 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
         <h3 data-config-result-title>Start with “Not Sure — Recommend a Solution”.</h3>
         <p data-config-result-text>Choose what you already know. This step does not submit your enquiry and does not replace project-specific engineering review.</p>
 
-        <aside class="project-whatsapp-card" data-project-whatsapp hidden aria-live="polite">
+        <aside class="project-whatsapp-card is-pending" data-project-whatsapp aria-live="polite">
           <p class="project-whatsapp-kicker">💬 Prefer Instant Chat?</p>
-          <h3>Your project brief is ready to send.</h3>
-          <p>No need to type the requirements again. Click below and your completed SPORTENVO Project Brief will be pre-filled in WhatsApp — just review it and tap Send.</p>
-          <a class="project-whatsapp-action" data-project-whatsapp-link href="https://wa.me/8613128265916" target="_blank" rel="noopener">→ Chat on WhatsApp</a>
-          <div class="project-whatsapp-meta"><span class="project-whatsapp-dot" aria-hidden="true"></span><span>Project brief pre-filled automatically</span></div>
-          <small class="project-whatsapp-note">Available after all 10 configurator sections are completed.</small>
+          <h3 data-project-whatsapp-title>Complete your project brief to unlock instant chat.</h3>
+          <p data-project-whatsapp-body>Finish the project details above and SPORTENVO will pre-fill the full Project Brief in WhatsApp for you.</p>
+          <a class="project-whatsapp-action" data-project-whatsapp-link href="#" aria-disabled="true">→ Complete Project Details First</a>
+          <div class="project-whatsapp-meta"><span class="project-whatsapp-dot" aria-hidden="true"></span><span data-project-whatsapp-meta>Project brief not complete yet</span></div>
+          <small class="project-whatsapp-note" data-project-whatsapp-note>Complete the remaining configurator sections above.</small>
         </aside>
       </div>
       <div class="configurator-brief">
@@ -1052,6 +1055,21 @@ Target timeline: Not provided</pre>
     );
   }
 
+  function whatsappMissingSections(){
+    return [
+      !!state.venue,
+      !!state.quantity,
+      !!(state.location.trim() && state.dimensions.trim()),
+      !!state.site,
+      !!state.court,
+      !!state.foundation,
+      !!state.weather,
+      !!state.stage,
+      !!state.installation,
+      !!state.timeline.trim()
+    ].filter(function(done){return !done;}).length;
+  }
+
   function whatsappMessage(){
     var d=direction();
     return [
@@ -1076,13 +1094,42 @@ Target timeline: Not provided</pre>
 
     var waCard=root.querySelector('[data-project-whatsapp]');
     var waLink=root.querySelector('[data-project-whatsapp-link]');
+    var waTitle=root.querySelector('[data-project-whatsapp-title]');
+    var waBody=root.querySelector('[data-project-whatsapp-body]');
+    var waMeta=root.querySelector('[data-project-whatsapp-meta]');
+    var waNote=root.querySelector('[data-project-whatsapp-note]');
     var complete=whatsappReady();
+    var missing=whatsappMissingSections();
+
     if(waCard){
-      waCard.hidden=!complete;
+      waCard.classList.toggle("is-ready",complete);
+      waCard.classList.toggle("is-pending",!complete);
     }
-    if(waLink){
-      waLink.href="https://wa.me/8613128265916?text="+encodeURIComponent(whatsappMessage());
-      waLink.setAttribute("aria-disabled",complete?"false":"true");
+
+    if(complete){
+      if(waTitle) waTitle.textContent="Your project brief is ready to send.";
+      if(waBody) waBody.textContent="No need to type the requirements again. Click below and your completed SPORTENVO Project Brief will be pre-filled in WhatsApp — just review it and tap Send.";
+      if(waMeta) waMeta.textContent="Project brief pre-filled automatically";
+      if(waNote) waNote.textContent="All 10 configurator sections are complete.";
+      if(waLink){
+        waLink.href="https://wa.me/8613128265916?text="+encodeURIComponent(whatsappMessage());
+        waLink.textContent="→ Chat on WhatsApp";
+        waLink.setAttribute("target","_blank");
+        waLink.setAttribute("rel","noopener");
+        waLink.setAttribute("aria-disabled","false");
+      }
+    }else{
+      if(waTitle) waTitle.textContent="Complete your project brief to unlock instant chat.";
+      if(waBody) waBody.textContent="Finish the project details above and SPORTENVO will pre-fill the full Project Brief in WhatsApp for you.";
+      if(waMeta) waMeta.textContent=missing+" project section"+(missing===1?"":"s")+" remaining";
+      if(waNote) waNote.textContent="Complete the remaining configurator sections above.";
+      if(waLink){
+        waLink.href="#";
+        waLink.textContent="→ Complete Project Details First";
+        waLink.removeAttribute("target");
+        waLink.removeAttribute("rel");
+        waLink.setAttribute("aria-disabled","true");
+      }
     }
 
     try{localStorage.setItem("sportenvo_project_configurator",JSON.stringify(state));}catch(e){}
