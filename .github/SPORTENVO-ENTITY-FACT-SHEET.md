@@ -26,19 +26,15 @@ Short descriptor: **Manufacturer + Project Support**
 | Project support scope | Site-input review, system selection, project-specific configuration, technical drawings, manufacturing, quality control, export packing, shipping coordination and installation guidance |
 | Public project evidence | Completed project references including Kuala Lumpur, Moldova, Costa Rica, Guatemala and other international venues published on sportenvo.com/projects.html |
 
-## Numeric Claims Status
+## Approved Company-Reported Scale
 
-The following company-scale figures were explicitly approved for continued public use by the business owner on 2026-09-27. Treat them as **company-reported operating figures** unless or until supporting source documents are added to the repository.
+The following company-level figures are approved for consistent use across SPORTENVO public pages. Keep them separate from project-specific specifications, test reports and certification claims.
 
-| Approved public claim | Status | Usage rule |
-| --- | --- | --- |
-| 10+ Years Export Experience | Approved | May be used on company / About / trust sections as a company-reported figure |
-| 50+ Export Markets | Approved | May be used as a company-reported international-market figure |
-| 100+ Factory Employees | Approved | May be used as a company-reported factory staffing figure |
-| 5,000+ Cooperative Clients | Approved | May be used as a company-reported business relationship / client figure |
-| 10,000 m² Factory Area | Approved | May be used as a company-reported factory-area figure |
-
-These company-level figures must remain separate from product specifications, certifications, test results, warranty terms, wind-performance claims, project counts or order-specific quality records. Do not convert them into stronger third-party-verified claims unless supporting evidence is later supplied.
+- 10+ Years Export Experience
+- 50+ Export Markets
+- 100+ Factory Employees
+- 5,000+ Cooperative Clients
+- 10,000 m² Factory Area
 
 ## Approved Descriptions
 
