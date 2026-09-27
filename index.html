@@ -95,6 +95,39 @@
 }
 </script>
 
+
+<style id="home-formal-inquiry-css">
+.home-formal-inquiry{padding:88px 0;background:#f3f1eb;border-top:1px solid #e2ded5}
+.home-formal-inquiry-inner{width:min(1220px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,.78fr) minmax(560px,1.22fr);gap:56px;align-items:start}
+.home-formal-copy{padding:24px 0}
+.home-formal-copy h2{margin:8px 0 18px;font-size:clamp(38px,4.6vw,68px);line-height:.98;letter-spacing:-.05em;color:#07111f}
+.home-formal-copy>p{margin:0 0 28px;max-width:520px;color:#61707e;font-size:16px;line-height:1.75}
+.home-formal-points{display:grid;gap:0;border-top:1px solid #d8d5ce}
+.home-formal-points div{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid #d8d5ce}
+.home-formal-points span{font-size:11px;font-weight:900;color:#1a86bd}
+.home-formal-points strong{font-size:14px;color:#07111f}
+.home-formal-note{display:block;margin-top:20px;color:#7b858d;font-size:12px;line-height:1.6}
+.home-formal-form{position:relative;min-height:620px;background:#fff;border:1px solid #d9dde1;border-radius:16px;overflow:hidden;box-shadow:0 18px 48px rgba(7,17,31,.08)}
+.home-formal-form-head{padding:22px 24px 18px;border-bottom:1px solid #edf0f2;background:#fbfcfd}
+.home-formal-form-head span{display:block;margin-bottom:5px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#118fcf}
+.home-formal-form-head strong{font-size:20px;letter-spacing:-.02em;color:#07111f}
+.home-formal-loading{padding:28px;color:#687689;font-size:14px}
+.home-formal-fallback{display:none;padding:24px;border-top:1px solid #edf0f2;background:#fff8ed;color:#536274;font-size:13px}
+.home-formal-fallback.is-visible{display:block}
+.home-formal-fallback a{font-weight:800;color:#07111f;text-underline-offset:4px}
+.home-formal-form iframe{display:block;width:100%!important;border:0!important}
+@media(max-width:980px){
+  .home-formal-inquiry-inner{grid-template-columns:1fr;gap:30px}
+  .home-formal-form{min-height:620px}
+}
+@media(max-width:620px){
+  .home-formal-inquiry{padding:60px 0}
+  .home-formal-inquiry-inner{width:calc(100% - 28px)}
+  .home-formal-copy h2{font-size:38px}
+  .home-formal-form{border-radius:12px}
+  .home-formal-form-head{padding:18px}
+}
+</style>
 </head>
 <body class="home-v6">
   
@@ -209,7 +242,34 @@
     <a class="home-guide-card" href="how-to-choose-a-padel-court-manufacturer.html"><span>03 · Supplier Due Diligence</span><h3>How to Choose a Padel Court Manufacturer</h3><p>Compare steel, glass, engineering, packing, logistics, installation support and warranty on the same basis.</p><b>Read Buyer Guide +</b></a>
   </div>
   <div class="home-guide-all"><a class="button button-dark" href="insights.html">Explore All Buyer Guides <span aria-hidden="true">+</span></a></div>
-</section><section class="cta-band"><p class="eyebrow">Start with your site</p><h2>Build a coordinated court plan.</h2><p>Share your country, court count, venue type and site conditions. If you are already comparing suppliers, build one standardized RFQ first.</p><div class="cta-actions"><a class="button button-accent" href="start-project.html?source=homepage-cta#projectConfiguratorTitle">Start Project Configurator <span aria-hidden="true">+</span></a><a class="button button-ghost" href="padel-court-rfq-checklist.html?source=homepage-cta">Build RFQ Checklist <span aria-hidden="true">+</span></a></div><small class="cta-helper">Not sure which court, foundation or roof system you need? Start with the project conditions instead of a model name.</small></section></main>
+</section><section class="cta-band"><p class="eyebrow">Start with your site</p><h2>Build a coordinated court plan.</h2><p>Share your country, court count, venue type and site conditions. If you are already comparing suppliers, build one standardized RFQ first.</p><div class="cta-actions"><a class="button button-accent" href="start-project.html?source=homepage-cta#projectConfiguratorTitle">Start Project Configurator <span aria-hidden="true">+</span></a><a class="button button-ghost" href="padel-court-rfq-checklist.html?source=homepage-cta">Build RFQ Checklist <span aria-hidden="true">+</span></a></div><small class="cta-helper">Not sure which court, foundation or roof system you need? Start with the project conditions instead of a model name.</small></section>
+<section class="home-formal-inquiry" id="formal-project-inquiry" aria-labelledby="homeFormalInquiryTitle">
+  <div class="home-formal-inquiry-inner">
+    <div class="home-formal-copy">
+      <p class="eyebrow">Formal Project Inquiry</p>
+      <h2 id="homeFormalInquiryTitle">Ready for a project-specific proposal?</h2>
+      <p>Share the company and project details needed for a formal technical and commercial review. This route is best when your project has moved beyond initial system selection.</p>
+      <div class="home-formal-points">
+        <div><span>01</span><strong>Project scope &amp; court quantity</strong></div>
+        <div><span>02</span><strong>Site, foundation &amp; weather requirements</strong></div>
+        <div><span>03</span><strong>Technical and commercial proposal review</strong></div>
+      </div>
+      <small class="home-formal-note">Still comparing court systems? Use the <a href="start-project.html?source=homepage-form#projectConfiguratorTitle">Project Configurator</a> first.</small>
+    </div>
+
+    <div class="home-formal-form" data-home-zoho-form>
+      <div class="home-formal-form-head"><span>SPORTENVO</span><strong>Project Inquiry</strong></div>
+      <div class="home-formal-loading" role="status" aria-live="polite">Project form will load when you reach this section.</div>
+      <div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI"></div>
+      <div class="home-formal-fallback">
+        Having trouble loading the form?
+        <a href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">Open it in a new tab</a>
+        or <a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">email us</a>.
+      </div>
+    </div>
+  </div>
+</section>
+</main>
   
   <footer class="site-footer">
     <div class="footer-intro">
@@ -226,6 +286,113 @@
     <div class="footer-base"><span>&copy; 2026 SPORTENVO</span><span>Commercial Padel Court Systems</span></div>
   </footer>
   <a class="whatsapp" href="https://wa.me/8613128265916?text=Hi%2C%20I%27m%20interested%20in%20a%20padel%20court%20project." aria-label="Chat with SPORTENVO on WhatsApp">WA</a>
-  <script src="assets/site-v2.js?v=20260927-cro15" defer></script>
+  
+<script id="home-zoho-lazy-loader">
+(function(){
+  'use strict';
+  var shell=document.querySelector('[data-home-zoho-form]');
+  var mount=document.getElementById('zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
+  if(!shell||!mount) return;
+  var loading=shell.querySelector('.home-formal-loading');
+  var fallback=shell.querySelector('.home-formal-fallback');
+  var mounted=false,ready=false,delayTimer=null,frame=null;
+  var formId='XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI';
+
+  function send(name,params){
+    if(typeof window.gtag==='function'){
+      window.gtag('event',name,Object.assign({
+        form_name:'SPORTENVO Project Inquiry',
+        form_location:'homepage_bottom'
+      },params||{}));
+    }
+  }
+
+  function rememberLead(){
+    try{
+      localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
+      localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
+      localStorage.setItem('sportenvo_lead_source_title',document.title);
+      localStorage.setItem('sportenvo_lead_source_cta','Homepage Formal Inquiry');
+      localStorage.setItem('sportenvo_lead_source_tag','homepage-formal-inquiry');
+    }catch(e){}
+  }
+
+  function mountForm(){
+    if(mounted) return;
+    mounted=true;
+    rememberLead();
+    if(loading) loading.textContent='Loading secure project form…';
+
+    frame=document.createElement('iframe');
+    frame.src='https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/'+formId+'?zf_rszfm=1&referrername='+encodeURIComponent(window.location.href);
+    frame.style.height='1421px';
+    frame.style.width='100%';
+    frame.style.border='none';
+    frame.style.transition='height .35s ease';
+    frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
+    frame.setAttribute('title','SPORTENVO Project Inquiry');
+    frame.addEventListener('load',function(){
+      send('project_form_view');
+    },{once:true});
+    mount.appendChild(frame);
+
+    delayTimer=window.setTimeout(function(){
+      if(ready) return;
+      if(loading) loading.textContent='The project form is taking longer than expected to load.';
+      if(fallback) fallback.classList.add('is-visible');
+    },15000);
+  }
+
+  window.addEventListener('message',function(event){
+    if(!frame||event.source!==frame.contentWindow||event.origin!=='https://forms.zohopublic.com') return;
+
+    if(typeof event.data==='string'){
+      var parts=event.data.split('|');
+      var height=Number(parts[1]);
+      if(parts[0]===formId && (parts.length===2||parts.length===3) && Number.isFinite(height) && height>0){
+        ready=true;
+        clearTimeout(delayTimer);
+        if(loading) loading.style.display='none';
+        if(fallback) fallback.classList.remove('is-visible');
+        frame.style.height=(Math.floor(height)+15)+'px';
+        send('project_form_embed_ready');
+      }
+
+      var lower=event.data.toLowerCase();
+      if(lower.indexOf('zf_submitform')!==-1 || lower.indexOf('submit form')!==-1){
+        try{sessionStorage.setItem('sportenvo_form_submit_confirmed','1');}catch(e){}
+        send('project_form_submit');
+        send('generate_lead',{currency:'USD',value:0});
+        window.setTimeout(function(){window.location.href='/thank-you.html?submitted=1';},150);
+      }
+    }else if(event.data && typeof event.data==='object'){
+      var eventName=String(event.data.event_name||event.data.eventName||event.data.event||event.data.zf_event||event.data.zfEvent||'').toLowerCase();
+      if(eventName.indexOf('zf_submitform')!==-1){
+        try{sessionStorage.setItem('sportenvo_form_submit_confirmed','1');}catch(e){}
+        send('project_form_submit');
+        send('generate_lead',{currency:'USD',value:0});
+        window.setTimeout(function(){window.location.href='/thank-you.html?submitted=1';},150);
+      }
+    }
+  },false);
+
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          send('home_formal_inquiry_view');
+          mountForm();
+          observer.disconnect();
+        }
+      });
+    },{rootMargin:'600px 0px'});
+    observer.observe(shell);
+  }else{
+    window.addEventListener('load',mountForm,{once:true});
+  }
+})();
+</script>
+
+<script src="assets/site-v2.js?v=20260927-cro15" defer></script>
 </body>
 </html>
