@@ -115,6 +115,15 @@ document.addEventListener("click", (event) => {
     ...attribution
   };
 
+  if (destination.origin === window.location.origin && destination.hash === "#formal-project-inquiry") {
+    rememberLeadIntent(visibleText);
+    trackEvent("request_quote_click", {
+      ...params,
+      quote_location: "formal-project-inquiry"
+    });
+    return;
+  }
+
   if (destination.origin === window.location.origin && path.endsWith("/padel-court-rfq-checklist.html")) {
     trackEvent("rfq_tool_click", params);
     return;
