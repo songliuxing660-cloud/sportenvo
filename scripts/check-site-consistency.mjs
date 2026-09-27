@@ -52,17 +52,36 @@ const forbiddenPublicPatterns = [
   [/5,000\+ Cooperative Clients/gi, "unverified cooperative-client metric"]
 ];
 
-function resolveInternalHtml(fromFile, rawHref) {
-  if (!rawHref) return null;
-  const href = rawHref.trim();
+function cleanInternalRef(rawRef) {
+  if (!rawRef) return null;
+  const ref = rawRef.trim();
   if (
-    href.startsWith("#") ||
-    /^(?:mailto:|tel:|javascript:|data:)/i.test(href) ||
-    /^https?:\/\//i.test(href) ||
-    href.startsWith("//")
+    ref.startsWith("#") ||
+    /^(?:mailto:|tel:|javascript:|data:|blob:)/i.test(ref) ||
+    /^https?:\/\//i.test(ref) ||
+    ref.startsWith("//")
   ) return null;
+  const clean = ref.split("#")[0].split("?")[0].trim();
+  return clean || null;
+}
 
-  const clean = href.split("#")[0].split("?")[0];
+function resolveInternalAsset(fromFile, rawRef) {
+  const clean = cleanInternalRef(rawRef);
+  if (!clean || clean === "/" || clean.endsWith("/")) return null;
+
+  const ext = path.posix.extname(clean).toLowerCase();
+  if (!ext || ext === ".html" || ext === ".htm") return null;
+
+  const target = clean.startsWith("/")
+    ? path.posix.normalize(clean.slice(1))
+    : path.posix.normalize(path.posix.join(path.posix.dirname(fromFile), clean));
+
+  if (!target || target.startsWith("../")) return null;
+  return target;
+}
+
+function resolveInternalHtml(fromFile, rawHref) {
+  const clean = cleanInternalRef(rawHref);
   if (!clean) return null;
 
   if (clean === "/") return "index.html";
@@ -123,6 +142,31 @@ for (const file of htmlFiles) {
       failures.push([file, `broken internal link -> ${target}`]);
     }
   }
+
+  const seenAssets = new Set();
+  const rawAssetRefs = [];
+
+  for (const match of html.matchAll(/(?:src|poster)=["']([^"']+)["']/gi)) {
+    rawAssetRefs.push(match[1]);
+  }
+  for (const match of html.matchAll(/href=["']([^"']+)["']/gi)) {
+    rawAssetRefs.push(match[1]);
+  }
+  for (const match of html.matchAll(/srcset=["']([^"']+)["']/gi)) {
+    for (const candidate of match[1].split(",")) {
+      const ref = candidate.trim().split(/\s+/)[0];
+      if (ref) rawAssetRefs.push(ref);
+    }
+  }
+
+  for (const rawRef of rawAssetRefs) {
+    const target = resolveInternalAsset(file, rawRef);
+    if (!target || seenAssets.has(target)) continue;
+    seenAssets.add(target);
+    if (!fs.existsSync(path.join(root, ...target.split("/")))) {
+      failures.push([file, `missing internal asset -> ${target}`]);
+    }
+  }
 }
 
 if (failures.length) {
@@ -131,5 +175,5 @@ if (failures.length) {
   console.error(`\n${failures.length} issue(s) found across ${htmlFiles.length} HTML files.\n`);
   process.exitCode = 1;
 } else {
-  console.log(`SPORTENVO consistency check passed for ${htmlFiles.length} HTML files, including nested pages and internal HTML links.`);
+  console.log(`SPORTENVO consistency check passed for ${htmlFiles.length} HTML files, including nested pages, internal HTML links and local asset references.`);
 }
