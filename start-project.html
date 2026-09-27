@@ -416,6 +416,12 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .project-whatsapp-meta{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-top:12px;color:#8f9e9a;font-size:12px}
 .project-whatsapp-dot{width:9px;height:9px;border-radius:50%;background:#25d366;box-shadow:0 0 0 4px rgba(37,211,102,.12)}
 .project-whatsapp-note{display:block;margin-top:10px;text-align:left;color:#6f817c;font-size:11px}
+.formal-inquiry-bridge{padding:26px 0 72px;background:#f5f7f9}
+.formal-inquiry-bridge-card{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:26px 28px;border:1px solid #dce4eb;border-radius:18px;background:#fff}
+.formal-inquiry-bridge-card h2{margin:4px 0 8px;font-size:26px;letter-spacing:-.03em}
+.formal-inquiry-bridge-card p{margin:0;color:#687689;max-width:680px}
+.formal-inquiry-bridge-card .btn{flex:0 0 auto}
+@media(max-width:820px){.formal-inquiry-bridge-card{align-items:flex-start;flex-direction:column}.formal-inquiry-bridge-card .btn{width:100%}}
 @media(max-width:820px){
   .project-configurator-inner{width:min(100% - 28px,1180px)}
   .project-configurator-head{display:block;padding:24px 20px}
@@ -616,169 +622,25 @@ Installation plan: Not selected
 Target timeline: Not provided</pre>
       </div>
       <div class="configurator-actions">
-        <a class="btn dark" href="#projectInquiryForm" data-config-continue>Submit Formal Project Inquiry ↓</a>
+        <a class="btn dark" href="/contact.html?source=project-configurator" data-config-continue>Open Formal Project Inquiry ↗</a>
         <a href="solutions.html">Compare project solutions</a><a href="padel-court-rfq-checklist.html">Build an RFQ checklist</a>
       </div>
     </div>
   </div>
 </section>
 
-  <div class="wrap quote-layout" style="grid-template-columns:minmax(0,1fr);max-width:900px">
-<div class="quote-card quote-form" id="projectInquiryForm" style="min-width:0;width:100%">
-<div class="quote-card-head">
-        <div class="mini">Formal Project Inquiry</div>
-        <h2>Prefer a formal project proposal?</h2>
-        <p>Submit your project details and our team will review the technical and commercial scope. If you already completed the configurator above, you can copy your Project Brief into the form.</p>
+  <section class="formal-inquiry-bridge" aria-labelledby="formalInquiryBridgeTitle">
+  <div class="wrap">
+    <div class="formal-inquiry-bridge-card">
+      <div>
+        <p class="eyebrow">Formal Project Inquiry</p>
+        <h2 id="formalInquiryBridgeTitle">Need a formal proposal?</h2>
+        <p>Use the dedicated inquiry page for company details and the formal project form. Your configurator choices stay saved in this browser.</p>
       </div>
-
-<div class="inquiry-help" id="inquiryHelp"><p class="inquiry-loading" role="status" aria-live="polite">Loading the inquiry form…</p><p class="inquiry-alternative">Prefer another way to send your project?</p><div class="inquiry-help-actions"><a class="btn dark" href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">Open Form in New Tab ↗</a><a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">Email sales@sportenvo.com</a><button type="button" class="inquiry-retry" hidden>Retry Embedded Form</button></div><noscript><p>Open the form in a new tab or email us to send your enquiry.</p></noscript></div><div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI">
-</div>
-<script src="assets/inquiry-status.js?v=20260927-fallback2status" defer></script>
-<script type="text/javascript">
-(function(){
-  var mounted=false;
-  function mountZohoForm(){
-    if(mounted) return;
-    mounted=true;
-    (function() {
-	try{
-		var f = document.createElement("iframe");
-		var ifrmSrc = 'https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1';
-        try{
-			if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
-				for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
-				    var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
-				    utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
-				    var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
-				    if ( typeof utmVal !== "undefined" ) {
-				      if ( utmVal != "" ) {
-				        if(ifrmSrc.indexOf('?') > 0){
-				             ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
-				        }else{
-				            ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
-				        }
-				      }
-				    }
-				}
-			}
-			if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
-				for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
-			        var utmPm = ZFLead.utmPNameArr[ prmIdx ];
-			        var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
-			        if ( typeof utmVal !== "undefined" ) {
-			          if ( utmVal != "" ){
-			            if(ifrmSrc.indexOf('?') > 0){
-			              ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;//No I18N
-			            }else{
-			              ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;//No I18N
-			            }
-			          }
-			        }
-			      }
-			}
-			if (!((new RegExp("[?&]referrername=")).test(ifrmSrc))) {
-                var rfr = window.location.href;
-                try {
-                    rfr = window.self !== window.top ?
-                        window.top.location.href :
-                        (/^https?:\/\/[\w\.-]+\.[a-zA-Z]{2,}/i.test(rfr) ? rfr : "");
-                } catch (e) {}
-                if (rfr && rfr !== "") {
-                    if (rfr.length > 1800) {
-                        var queryIndex = rfr.indexOf('?');
-                        if (queryIndex > -1) {
-                            rfr = rfr.substring(0, queryIndex);
-                        }
-                        if (rfr.length > 1800) {
-                            rfr = rfr.substring(0, 1800);
-                        }
-                    }
-                    ifrmSrc += ((ifrmSrc.indexOf('?') > 0) ? '&' : '?') + 'referrername=' + encodeURIComponent(rfr);
-                }
-            }
-		}catch(e){}
-		f.src = ifrmSrc;
-		f.style.border="none";
-		f.style.height="1421px";
-		f.style.width="99%";
-		f.style.transition="all 0.5s ease";
-		f.setAttribute("aria-label", 'SPORTENVO Project Inquiry');
-        f.addEventListener("load", function(){
-            try{
-                if(typeof window.sportenvoRememberLeadIntent==="function"){
-                    window.sportenvoRememberLeadIntent("",true);
-                }else{
-                    var existingSource=localStorage.getItem("sportenvo_lead_source_page")||"";
-                    var existingStarted=parseInt(localStorage.getItem("sportenvo_lead_started_at")||"0",10);
-                    var existingRecent=existingStarted&&Date.now()-existingStarted<2*60*60*1000;
-                    if(!existingSource||!existingRecent){
-                      localStorage.setItem("sportenvo_lead_started_at",String(Date.now()));
-                      localStorage.setItem("sportenvo_lead_source_page",window.location.pathname+window.location.search);
-                      localStorage.setItem("sportenvo_lead_source_title",document.title);
-                    }
-                }
-            }catch(e){}
-            if(typeof window.gtag==="function"){
-                window.gtag("event","project_form_view",{
-                    form_name:"SPORTENVO Project Inquiry",
-                    page_location:window.location.href,
-                    page_title:document.title
-                });
-            }
-        },{once:true});
-		var d = document.getElementById("zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI");
-		d.appendChild(f);
-		window.addEventListener('message', function (){
-			var evntData = event.data;
-			if( evntData && evntData.constructor == String ){
-				var zf_ifrm_data = evntData.split("|");
-				if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
-					var zf_perma = zf_ifrm_data[0];
-					var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
-					var iframe = document.getElementById("zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI").getElementsByTagName("iframe")[0];
-					if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
-						var prevIframeHeight = iframe.style.height;
-						var zf_tout = false;
-						if( zf_ifrm_data.length == 3 ) {
-						    iframe.scrollIntoView();
-						    zf_tout = true;
-						}
-						if ( prevIframeHeight != zf_ifrm_ht_nw ) {
-							if( zf_tout ) {
-							    setTimeout(function(){
-							        iframe.style.height = zf_ifrm_ht_nw;
-							    },500);
-							} else {
-							    iframe.style.height = zf_ifrm_ht_nw;
-							}
-						}
-					}
-				}
-			}
-		}, false);
-    }catch(e){}
-})();
-  }
-  function scheduleZoho(){
-    if(window.location.hash==="#projectInquiryForm"){
-      mountZohoForm();
-      return;
-    }
-    window.setTimeout(mountZohoForm,1800);
-  }
-  if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",scheduleZoho,{once:true});
-  }else{
-    scheduleZoho();
-  }
-  window.addEventListener("hashchange",function(){
-    if(window.location.hash==="#projectInquiryForm") mountZohoForm();
-  });
-})();
-</script>
-
-</div>
+      <a class="btn dark" href="/contact.html?source=project-configurator">Open Formal Inquiry ↗</a>
+    </div>
   </div>
+</section>
 </main>
 
 <section class="quote-proof">
