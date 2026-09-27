@@ -1,0 +1,94 @@
+name: IndexNow Notify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Submit updated URLs to IndexNow
+        env:
+          INDEXNOW_KEY: e4dd47094ff34da4b267c81f6f1bc9f6
+          SITE_HOST: sportenvo.com
+          SITE_ROOT: https://sportenvo.com
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request, urllib.error
+          import xml.etree.ElementTree as ET
+
+          key = os.environ["INDEXNOW_KEY"]
+          host = os.environ["SITE_HOST"]
+          root = os.environ["SITE_ROOT"].rstrip("/")
+          key_location = f"{root}/{key}.txt"
+
+          def sitemap_urls():
+              with urllib.request.urlopen(f"{root}/sitemap.xml", timeout=30) as r:
+                  xml = r.read()
+              tree = ET.fromstring(xml)
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              return [x.text.strip() for x in tree.findall("sm:url/sm:loc", ns) if x.text]
+
+          urls = []
+          event = os.environ.get("GITHUB_EVENT_NAME", "")
+          if event == "push":
+              try:
+                  before = subprocess.check_output(
+                      ["git", "rev-parse", "HEAD^"], text=True
+                  ).strip()
+                  changed = subprocess.check_output(
+                      ["git", "diff", "--name-only", before, "HEAD"], text=True
+                  ).splitlines()
+                  for path in changed:
+                      if not path.endswith(".html"):
+                          continue
+                      if path == "index.html":
+                          url = root + "/"
+                      else:
+                          url = root + "/" + path
+                      urls.append(url)
+              except Exception as exc:
+                  print("Changed-file detection failed:", exc)
+
+          # On manual runs, or when a push contains no HTML page changes
+          # (including the initial workflow-install commit), submit the sitemap set.
+          if event == "workflow_dispatch" or not urls:
+              urls = sitemap_urls()
+
+          # IndexNow accepts up to 10,000 URLs per POST; keep this site batch compact.
+          urls = list(dict.fromkeys(urls))[:100]
+          payload = {
+              "host": host,
+              "key": key,
+              "keyLocation": key_location,
+              "urlList": urls,
+          }
+
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow response:", r.status)
+                  print("Submitted URLs:", len(urls))
+                  for u in urls:
+                      print(u)
+          except urllib.error.HTTPError as e:
+              body = e.read().decode("utf-8", "replace")
+              print("IndexNow HTTP error:", e.code, body)
+              # 202 means accepted with validation pending and is not an error for IndexNow.
+              if e.code != 202:
+                  raise
+          PY
