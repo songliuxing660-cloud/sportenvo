@@ -21,7 +21,7 @@
   if(!frame||event.source!==frame.contentWindow||event.origin!=='https://forms.zohopublic.com'||typeof event.data!=='string')return;
   const parts=event.data.split('|'),height=Number(parts[1]);
   if(parts[0]!==formId||![2,3].includes(parts.length)||!Number.isFinite(height)||height<=0)return;
-  ready=true;clearTimeout(timer);mount.hidden=false;help.dataset.state='ready';status.hidden=true;retry.hidden=true;
+  ready=true;clearTimeout(timer);mount.hidden=false;help.dataset.state='ready';status.hidden=true;retry.hidden=true;\n  if(!mount.dataset.analyticsReady){mount.dataset.analyticsReady='1';document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}
   // Also handle resize in browsers that do not expose a global window.event.
   frame.style.height=(Math.floor(height)+15)+'px';
  });
