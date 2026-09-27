@@ -28,17 +28,17 @@ Short descriptor: **Manufacturer + Project Support**
 
 ## Numeric Claims Status
 
-Do **not** publish or reuse company-scale numbers unless the current supporting record is available and has been checked. During the 2026-09-27 evidence cleanup, unsupported scale figures were removed from the public About page instead of being repeated as marketing claims.
+The following company-scale figures were explicitly approved for continued public use by the business owner on 2026-09-27. Treat them as **company-reported operating figures** unless or until supporting source documents are added to the repository.
 
-| Claim previously used | Current public-use status | Rule |
+| Approved public claim | Status | Usage rule |
 | --- | --- | --- |
-| 10+ Years Export Experience | Not approved for public reuse yet | Reintroduce only after a current supporting company record is supplied and checked |
-| 10,000 m² Factory Area | Removed from the public About page | Reintroduce only after a current supporting facility record is supplied and checked |
-| 50+ Export Markets | Removed from the public About page | Reintroduce only after a current supporting export record is supplied and checked |
-| 100+ Factory Employees | Removed from the public About page | Reintroduce only after a current supporting staffing record is supplied and checked |
-| 5,000+ Cooperative Clients | Removed from the public About page | Reintroduce only after a current supporting customer / transaction record is supplied and checked |
+| 10+ Years Export Experience | Approved | May be used on company / About / trust sections as a company-reported figure |
+| 50+ Export Markets | Approved | May be used as a company-reported international-market figure |
+| 100+ Factory Employees | Approved | May be used as a company-reported factory staffing figure |
+| 5,000+ Cooperative Clients | Approved | May be used as a company-reported business relationship / client figure |
+| 10,000 m² Factory Area | Approved | May be used as a company-reported factory-area figure |
 
-Until supporting evidence is available, use non-numeric descriptions such as **real manufacturing evidence**, **international project support**, **project references**, and **order-specific documentation** rather than substituting new estimates.
+These company-level figures must remain separate from product specifications, certifications, test results, warranty terms, wind-performance claims, project counts or order-specific quality records. Do not convert them into stronger third-party-verified claims unless supporting evidence is later supplied.
 
 ## Approved Descriptions
 
