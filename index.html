@@ -310,12 +310,19 @@
   }
 
   function rememberLead(){
+    /* sportenvo_preserve_incoming_lead_v1 */
     try{
-      localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
-      localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
-      localStorage.setItem('sportenvo_lead_source_title',document.title);
-      localStorage.setItem('sportenvo_lead_source_cta','Homepage Formal Inquiry');
-      localStorage.setItem('sportenvo_lead_source_tag','homepage-formal-inquiry');
+      var params=new URLSearchParams(window.location.search);
+      var incomingSource=(params.get('source')||'').trim().slice(0,100);
+      var existingStarted=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
+      var hasRecentSource=!!(existingStarted && Date.now()-existingStarted<2*60*60*1000 && localStorage.getItem('sportenvo_lead_source_page'));
+      if(!hasRecentSource){
+        localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
+        localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
+        localStorage.setItem('sportenvo_lead_source_title',document.title);
+        localStorage.setItem('sportenvo_lead_source_cta','Homepage Formal Inquiry');
+      }
+      localStorage.setItem('sportenvo_lead_source_tag',incomingSource||localStorage.getItem('sportenvo_lead_source_tag')||'homepage-formal-inquiry');
     }catch(e){}
   }
 
@@ -395,6 +402,6 @@
 })();
 </script>
 
-<script src="assets/site-v2.js?v=20260927-cro15" defer></script>
+<script src="assets/site-v2.js?v=20260927-cro16" defer></script>
 </body>
 </html>
