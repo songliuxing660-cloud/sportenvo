@@ -105,6 +105,12 @@ updateResult();
       page_title:document.title
     };
 
+    if(destination.origin===window.location.origin&&destination.hash==='#formal-project-inquiry'){
+      rememberLeadIntent(visibleText);
+      window.gtag('event','request_quote_click',Object.assign({},params,{quote_location:'formal-project-inquiry'}));
+      return;
+    }
+
     if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
       rememberLeadIntent(visibleText);
       window.gtag('event','start_project_click',params);
