@@ -38,6 +38,49 @@ function walkHtml(dir, base = "") {
 const htmlFiles = walkHtml(root).sort();
 const htmlSet = new Set(htmlFiles);
 const failures = [];
+const validatedImageAssets = new Map();
+
+function hasValidImageSignature(filePath) {
+  const ext = path.posix.extname(filePath).toLowerCase();
+  if (![".webp", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".avif"].includes(ext)) return true;
+
+  const full = path.join(root, ...filePath.split("/"));
+  let buf;
+  try {
+    buf = fs.readFileSync(full);
+  } catch {
+    return false;
+  }
+  if (!buf.length) return false;
+
+  if (ext === ".webp") {
+    return buf.length >= 12 &&
+      buf.toString("ascii", 0, 4) === "RIFF" &&
+      buf.toString("ascii", 8, 12) === "WEBP";
+  }
+  if (ext === ".jpg" || ext === ".jpeg") {
+    return buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff;
+  }
+  if (ext === ".png") {
+    const sig = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+    return buf.length >= 8 && sig.every((b, i) => buf[i] === b);
+  }
+  if (ext === ".gif") {
+    const head = buf.toString("ascii", 0, 6);
+    return head === "GIF87a" || head === "GIF89a";
+  }
+  if (ext === ".svg") {
+    const head = buf.toString("utf8", 0, Math.min(buf.length, 512)).replace(/^\uFEFF/, "").trimStart();
+    return head.startsWith("<svg") || (head.startsWith("<?xml") && head.includes("<svg"));
+  }
+  if (ext === ".avif") {
+    if (buf.length < 16) return false;
+    const box = buf.toString("ascii", 4, 12);
+    const brands = buf.toString("ascii", 8, Math.min(buf.length, 64));
+    return box === "ftypavif" || brands.includes("avif") || brands.includes("avis");
+  }
+  return true;
+}
 
 const forbiddenPublicPatterns = [
   [/\bAnti Hurricane\b/g, "legacy FORCE-HX naming"],
@@ -158,8 +201,20 @@ for (const file of htmlFiles) {
     const target = resolveInternalAsset(file, rawRef);
     if (!target || seenAssets.has(target)) continue;
     seenAssets.add(target);
-    if (!fs.existsSync(path.join(root, ...target.split("/")))) {
+    const targetPath = path.join(root, ...target.split("/"));
+    if (!fs.existsSync(targetPath)) {
       failures.push([file, `missing internal asset -> ${target}`]);
+      continue;
+    }
+
+    const ext = path.posix.extname(target).toLowerCase();
+    if ([".webp", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".avif"].includes(ext)) {
+      let valid = validatedImageAssets.get(target);
+      if (valid === undefined) {
+        valid = hasValidImageSignature(target);
+        validatedImageAssets.set(target, valid);
+      }
+      if (!valid) failures.push([file, `invalid image file -> ${target}`]);
     }
   }
 }
@@ -170,5 +225,5 @@ if (failures.length) {
   console.error(`\n${failures.length} issue(s) found across ${htmlFiles.length} HTML files.\n`);
   process.exitCode = 1;
 } else {
-  console.log(`SPORTENVO consistency check passed for ${htmlFiles.length} HTML files, including nested pages, internal HTML links and local asset references.`);
+  console.log(`SPORTENVO consistency check passed for ${htmlFiles.length} HTML files, including nested pages, internal HTML links, local asset references and ${validatedImageAssets.size} referenced image file signatures.`);
 }
