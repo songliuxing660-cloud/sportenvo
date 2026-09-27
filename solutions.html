@@ -36,16 +36,23 @@
 
   <style id="solutions-hero-banner">
     .solutions-hero{
+      width:100%;
+      max-width:none!important;
       min-height:640px;
+      margin:0!important;
+      padding:100px max(var(--pad),calc((100vw - var(--max))/2 + var(--pad))) 86px!important;
       display:flex;
       align-items:center;
+      box-sizing:border-box;
       color:#fff;
       background:
-        linear-gradient(90deg,rgba(5,14,24,.86) 0%,rgba(5,14,24,.70) 38%,rgba(5,14,24,.30) 68%,rgba(5,14,24,.12) 100%),
+        linear-gradient(90deg,rgba(5,14,24,.84) 0%,rgba(5,14,24,.67) 38%,rgba(5,14,24,.28) 68%,rgba(5,14,24,.10) 100%),
         url("/assets/images/solutions/solutions-commercial-night-v2.webp") center 52%/cover no-repeat;
     }
     .solutions-hero .page-hero-copy{
+      width:100%;
       max-width:900px;
+      margin:0;
     }
     .solutions-hero .eyebrow,
     .solutions-hero h1{
@@ -61,12 +68,14 @@
     @media(max-width:900px){
       .solutions-hero{
         min-height:560px;
+        padding:78px 28px 68px!important;
         background-position:60% center;
       }
     }
     @media(max-width:620px){
       .solutions-hero{
         min-height:520px;
+        padding:66px 20px 58px!important;
         background:
           linear-gradient(90deg,rgba(5,14,24,.88),rgba(5,14,24,.58)),
           url("/assets/images/solutions/solutions-commercial-night-v2.webp") 58% center/cover no-repeat;
