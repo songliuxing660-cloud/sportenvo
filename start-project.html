@@ -444,6 +444,58 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
     padding-bottom:10px!important;
   }
 }
+
+/* Commercial project FAQ — wide B2B two-column layout */
+.project-faq-section{
+  padding:64px 0!important;
+  background:#fff;
+}
+.project-faq-wrap{
+  width:min(1180px,calc(100% - 40px))!important;
+  margin:0 auto!important;
+}
+.project-faq-title{
+  max-width:none!important;
+  margin:0 0 34px!important;
+  font-size:clamp(32px,3.2vw,46px)!important;
+  line-height:1.04!important;
+  text-align:left!important;
+}
+.project-faq-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  column-gap:56px!important;
+  row-gap:0!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.project-faq-item{
+  padding:22px 0 24px!important;
+  border-bottom:1px solid #dce4eb!important;
+  text-align:left!important;
+}
+.project-faq-item h3{
+  margin:0 0 10px!important;
+  font-size:17px!important;
+  line-height:1.35!important;
+  font-weight:800!important;
+  color:#07111f!important;
+  text-align:left!important;
+}
+.project-faq-item p{
+  margin:0!important;
+  font-size:14px!important;
+  line-height:1.72!important;
+  color:#687689!important;
+  text-align:left!important;
+}
+@media(max-width:820px){
+  .project-faq-section{padding:48px 0!important}
+  .project-faq-wrap{width:calc(100% - 32px)!important}
+  .project-faq-grid{grid-template-columns:1fr!important}
+  .project-faq-title{margin-bottom:22px!important;font-size:32px!important}
+}
 </style>
 
 </head>
@@ -765,47 +817,47 @@ Target timeline: Not provided</pre>
 </section>
 
 <!-- AEO FAQ -->
-<section style="padding:72px 0;background:#fff">
-  <div class="wrap">
-    <h2 class="section-title" style="max-width:760px;margin-bottom:48px">Commercial Padel Project FAQ</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:32px;max-width:1100px">
+<section class="project-faq-section">
+  <div class="project-faq-wrap">
+    <h2 class="section-title project-faq-title">Commercial Padel Project FAQ</h2>
+    <div class="project-faq-grid">
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">How much space is required for a padel court?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">A standard padel court playing area is 10 × 20 m. The 20 × 10 m figure describes the internal playing court only. A commercial site needs additional room for the structure, entrances, circulation, maintenance, drainage, lighting and supporting facilities. There is no reliable universal total-site dimension; final clearances should be established through a coordinated project layout and local requirements. See our <a href="padel-court-dimensions.html" style="color:#18a8f7;font-weight:700">padel court dimensions guide</a> for full planning specifications.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">What information is needed for a padel court quotation?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">A commercial padel court quotation typically requires: project country and destination port, number of courts, court type, site dimensions, indoor or outdoor installation, existing foundation condition, roof requirements, target installation timeline, and ideally site photos or drawings. The more detail provided, the more accurate the proposal. Use the inquiry form above to start.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">Does a padel court need a concrete foundation?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">Most standard padel courts are installed on an existing concrete or paved base. If a suitable concrete base already exists on site, the court can typically be installed directly. If no suitable base exists, a new concrete foundation or a <a href="modular-foundation.html" style="color:#18a8f7;font-weight:700">modular steel foundation</a> can be considered depending on site conditions, project type and local soil requirements.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">Can a padel court use a modular steel foundation?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">Yes. SPORTENVO offers a <a href="modular-foundation.html" style="color:#18a8f7;font-weight:700">modular steel foundation system</a> for projects where reducing permanent civil work is a priority — such as leased sites, temporary venues or sites with specific ground conditions. The modular foundation supports standard court installation and allows future relocation. Foundation selection should be confirmed based on site conditions and local structural requirements.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">How long does a commercial padel court project take?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">Project timeline depends on scope, destination, foundation type, customs clearance and installation resources. Manufacturing and shipping for a standard single-court project typically requires several weeks. Multi-court or complex projects with engineering reviews, customs processing and on-site installation take longer. A project-specific timeline is provided after reviewing the project brief and destination details. See our <a href="insights.html" style="color:#18a8f7;font-weight:700">project planning guides</a> for more detail.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">Can a roof be added to a padel court?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">Yes. SPORTENVO provides fixed and retractable <a href="roof.html" style="color:#18a8f7;font-weight:700">padel court roof systems</a> for commercial projects. A roof system requires structural review to ensure compatibility with the court system, wind loads and local building requirements. Roof type selection depends on venue type, climate, budget and operational priorities. Roof solutions can be included as part of a complete project package.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">What type of padel court is suitable for coastal or high-wind areas?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">The <a href="force-hx.html" style="color:#18a8f7;font-weight:700">Anti-Hurricane Padel Court — FORCE-HX Series</a> is SPORTENVO’s reinforced high-wind configuration for coastal and exposed project environments. The documented reference configuration includes a 200 × 200 × 6 mm main structure and 12 mm tempered glass, with a published design target of 136.8 MPH. This does not replace project-specific review of local wind criteria, anchors, foundations, site exposure and approvals.</p>
       </div>
 
-      <div style="border-bottom:1px solid #dce4eb;padding-bottom:24px">
+      <div class="project-faq-item">
         <h3 style="font-size:16px;font-weight:800;margin:0 0 10px;color:#07111f">Can SPORTENVO provide technical drawings and installation support?</h3>
         <p style="font-size:14px;line-height:1.7;color:#687689;margin:0">Yes. SPORTENVO provides technical drawings, <a href="engineering.html" style="color:#18a8f7;font-weight:700">engineering documentation</a> and project support as part of commercial project packages. The scope of support depends on project size and requirements. Submit a project brief through the planning form above to receive a proposal that includes documentation and support options relevant to your project. <a href="quality.html" style="color:#18a8f7;font-weight:700">Quality and certification</a> details are available on request.</p>
       </div>
