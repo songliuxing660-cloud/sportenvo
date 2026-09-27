@@ -10,3 +10,11 @@
 .inquiry-help[data-state="delayed"]{background:#fff8ed;border-color:#e6cba1}
 .inquiry-help a:focus-visible,.inquiry-help button:focus-visible{outline:3px solid #118fcf;outline-offset:4px}
 @media(max-width:620px){.inquiry-help{padding:20px}.inquiry-help-actions{align-items:flex-start;flex-direction:column;gap:14px}}
+
+.inquiry-help[data-state="loading"] .inquiry-alternative,
+.inquiry-help[data-state="loading"] .inquiry-help-actions,
+.inquiry-help[data-state="ready"] .inquiry-alternative,
+.inquiry-help[data-state="ready"] .inquiry-help-actions{display:none}
+.inquiry-help[data-state="ready"]{display:none}
+.inquiry-help[data-state="delayed"] .inquiry-alternative{display:block}
+.inquiry-help[data-state="delayed"] .inquiry-help-actions{display:flex}
