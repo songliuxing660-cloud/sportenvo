@@ -181,7 +181,7 @@
 <article class="rfq-card"><span>Price Comparison</span><h3><a href="cheap-padel-courts-buyer-guide.html">Cheap Padel Courts: What Buyers Should Check</a></h3><p>Understand why quotations differ before deciding whether the saving is genuine or simply a different scope.</p></article>
 <article class="rfq-card"><span>Supplier Due Diligence</span><h3><a href="how-to-choose-a-padel-court-manufacturer.html">How to Choose a Padel Court Manufacturer</a></h3><p>Verify specifications, evidence, packing, installation support and warranty responsibilities.</p></article>
 <article class="rfq-card"><span>Shipping</span><h3><a href="padel-court-shipping-guide.html">Padel Court Shipping Guide</a></h3><p>Normalize freight terms, packing, destination handling and site-delivery scope.</p></article>
-<article class="rfq-card"><span>Project Brief</span><h3><a href="start-project.html?source=rfq-checklist#projectConfiguratorTitle">SPORTENVO Project Configurator</a></h3><p>Turn the RFQ inputs into a project-specific court, foundation and weather-protection discussion.</p></article>
+<article class="rfq-card"><span>Project Brief</span><h3><a href="start-project.html?source=rfq-checklist#projectConfiguratorTitle">SPORTENVO Project Configurator</a></h3><p>Carry your RFQ location, site dimensions, court, foundation, weather-protection, installation and timeline inputs into the Project Configurator.</p></article>
 </div>
 </div></section>
 
@@ -286,7 +286,17 @@
   if(cont) cont.addEventListener('click',function(){
     try{
       localStorage.setItem('sportenvo_project_configurator',JSON.stringify({
-        venue:state.venue||'',quantity:state.quantity||'',site:state.site||'',court:state.court||'Not Sure — Recommend a Solution',foundation:state.foundation||'',weather:state.weather||''
+        venue:state.venue||'',
+        quantity:state.quantity||'',
+        site:state.site||'',
+        court:state.court||'Not Sure — Recommend a Solution',
+        foundation:state.foundation||'',
+        weather:state.weather||'',
+        location:state.location||'',
+        dimensions:state.dimensions||'',
+        installation:state.installation||'',
+        timeline:state.timeline||'',
+        stage:'Quotation / Procurement'
       }));
     }catch(e){}
     if(typeof window.gtag==='function') window.gtag('event','rfq_builder_continue');
