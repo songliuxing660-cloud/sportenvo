@@ -381,6 +381,11 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .config-options button[aria-pressed="true"]{border-color:#07111f;background:#07111f;color:#fff}
 .config-options button.recommend-option{border-color:#9dcce7;background:#f3fbff;color:#0b6d9c}
 .config-options button.recommend-option[aria-pressed="true"]{background:#0d7fb5;border-color:#0d7fb5;color:#fff}
+.config-input-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.config-input-grid label{display:grid;gap:6px;color:#687689;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.config-input-grid input{width:100%;min-height:42px;padding:10px 12px;border:1px solid #d6e0e7;border-radius:9px;background:#fff;color:#07111f;font:inherit;font-size:13px;outline:none}
+.config-input-grid input:focus{border-color:#18a8f7;box-shadow:0 0 0 3px rgba(24,168,247,.11)}
+.config-input-grid input::placeholder{color:#9aabb7}
 .configurator-result{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;padding:26px 30px;background:#07111f;color:#fff}
 .configurator-result-copy>span{display:block;color:#79dcff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
 .configurator-result-copy h3{margin:0 0 10px;font-size:24px;line-height:1.15}
@@ -468,8 +473,20 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
         </div>
       </fieldset>
 
+      <fieldset class="config-fieldset" data-config-input-group>
+        <legend>3 · Project Location &amp; Site Size</legend>
+        <div class="config-input-grid">
+          <label>Country / City
+            <input type="text" data-config-input="location" autocomplete="country-name" placeholder="e.g. Madrid, Spain">
+          </label>
+          <label>Available Site Dimensions
+            <input type="text" data-config-input="dimensions" inputmode="text" placeholder="e.g. 45 × 30 m or drawing available">
+          </label>
+        </div>
+      </fieldset>
+
       <fieldset class="config-fieldset" data-config-key="site">
-        <legend>3 · Site Condition</legend>
+        <legend>4 · Site Condition</legend>
         <div class="config-options">
           <button type="button" data-value="Standard Outdoor">Standard Outdoor</button>
           <button type="button" data-value="Indoor">Indoor</button>
@@ -481,7 +498,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       </fieldset>
 
       <fieldset class="config-fieldset" data-config-key="court">
-        <legend>4 · Court Preference</legend>
+        <legend>5 · Court Preference</legend>
         <div class="config-options">
           <button type="button" class="recommend-option" data-value="Not Sure — Recommend a Solution">Not Sure — Recommend a Solution</button>
           <button type="button" data-value="Panoramic Padel Court">Panoramic</button>
@@ -495,7 +512,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       </fieldset>
 
       <fieldset class="config-fieldset" data-config-key="foundation">
-        <legend>5 · Foundation</legend>
+        <legend>6 · Foundation</legend>
         <div class="config-options">
           <button type="button" data-value="Existing Concrete">Existing Concrete</button>
           <button type="button" data-value="Need Foundation">Need Foundation</button>
@@ -505,13 +522,42 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       </fieldset>
 
       <fieldset class="config-fieldset" data-config-key="weather">
-        <legend>6 · Weather Protection</legend>
+        <legend>7 · Weather Protection</legend>
         <div class="config-options">
           <button type="button" data-value="Open Air">Open Air</button>
           <button type="button" data-value="Electric Tent">Electric Tent</button>
           <button type="button" data-value="Fixed Roof">Fixed Roof</button>
           <button type="button" data-value="Retractable Roof">Retractable Roof</button>
           <button type="button" data-value="Not Sure">Not Sure</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="stage">
+        <legend>8 · Project Stage</legend>
+        <div class="config-options">
+          <button type="button" data-value="Feasibility / Planning">Feasibility / Planning</button>
+          <button type="button" data-value="Budgeting">Budgeting</button>
+          <button type="button" data-value="Quotation / Procurement">Quotation / Procurement</button>
+          <button type="button" data-value="Ready to Order">Ready to Order</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-key="installation">
+        <legend>9 · Installation Plan</legend>
+        <div class="config-options">
+          <button type="button" data-value="Local Installer">Local Installer</button>
+          <button type="button" data-value="Need Installation Guidance">Need Installation Guidance</button>
+          <button type="button" data-value="Need Support Options">Need Support Options</button>
+          <button type="button" data-value="Not Sure">Not Sure</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-fieldset" data-config-input-group>
+        <legend>10 · Target Timeline</legend>
+        <div class="config-input-grid">
+          <label>Target Opening / Installation
+            <input type="text" data-config-input="timeline" placeholder="e.g. Q1 2027 / within 3 months">
+          </label>
         </div>
       </fieldset>
     </div>
@@ -527,15 +573,20 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
           <strong>Your Project Brief</strong>
           <button type="button" data-copy-brief>Copy brief</button>
         </div>
-        <pre data-config-brief>Venue: Not selected
+        <pre data-config-brief>Project location: Not provided
+Venue: Not selected
 Court quantity: Not selected
+Available site dimensions: Not provided
 Site condition: Not selected
 Court preference: Not Sure — Recommend a Solution
 Foundation: Not selected
-Weather protection: Not selected</pre>
+Weather protection: Not selected
+Project stage: Not selected
+Installation plan: Not selected
+Target timeline: Not provided</pre>
       </div>
       <div class="configurator-actions">
-        <a class="btn dark" href="#projectInquiryForm" data-config-continue>Continue to Project Form ↗</a>
+        <a class="btn dark" href="#projectInquiryForm" data-config-continue>Continue to Project Inquiry ↗</a>
         <a href="solutions.html">Compare project solutions</a><a href="padel-court-rfq-checklist.html">Build an RFQ checklist</a>
       </div>
     </div>
@@ -547,7 +598,7 @@ Weather protection: Not selected</pre>
 <div class="quote-card-head">
         <div class="mini">Project Brief</div>
         <h2>Tell us what you want to build.</h2>
-        <p>Only the information needed to qualify a commercial project. Partial information is fine — you do not need to choose the final court model before submitting.</p>
+        <p>Only the information needed to qualify a commercial project. Partial information is fine. Use the configurator above first, then copy the generated Project Brief into the inquiry form if useful.</p>
       </div>
       <section class="qualification-summary" aria-label="Project information checklist">
   <div class="qualification-intro">
@@ -941,7 +992,12 @@ Weather protection: Not selected</pre>
     site:"",
     court:"Not Sure — Recommend a Solution",
     foundation:"",
-    weather:""
+    weather:"",
+    location:"",
+    dimensions:"",
+    stage:"",
+    installation:"",
+    timeline:""
   };
   var labels={
     venue:"Venue",
@@ -949,7 +1005,12 @@ Weather protection: Not selected</pre>
     site:"Site condition",
     court:"Court preference",
     foundation:"Foundation",
-    weather:"Weather protection"
+    weather:"Weather protection",
+    location:"Project location",
+    dimensions:"Site dimensions",
+    stage:"Project stage",
+    installation:"Installation plan",
+    timeline:"Target timeline"
   };
 
   function setPressed(group,value){
@@ -1000,6 +1061,12 @@ Weather protection: Not selected</pre>
     if(state.quantity==="5–10" || state.quantity==="10+"){
       notes.push("Multi-court projects should be planned as a venue layout, not as repeated single courts.");
     }
+    if(state.stage==="Quotation / Procurement" || state.stage==="Ready to Order"){
+      notes.push("The next review should separate supplied equipment, freight, local works, installation responsibility and exclusions in writing.");
+    }
+    if(state.installation==="Need Installation Guidance" || state.installation==="Need Support Options"){
+      notes.push("Installation documentation and support scope should be confirmed before shipment.");
+    }
     return {title:title,text:notes.join(" ")};
   }
 
@@ -1008,9 +1075,17 @@ Weather protection: Not selected</pre>
       "Venue: "+(state.venue||"Not selected"),
       "Court quantity: "+(state.quantity||"Not selected"),
       "Site condition: "+(state.site||"Not selected"),
+      "Project location: "+(state.location||"Not provided"),
+      "Venue: "+(state.venue||"Not selected"),
+      "Court quantity: "+(state.quantity||"Not selected"),
+      "Available site dimensions: "+(state.dimensions||"Not provided"),
+      "Site condition: "+(state.site||"Not selected"),
       "Court preference: "+(state.court||"Not Sure — Recommend a Solution"),
       "Foundation: "+(state.foundation||"Not selected"),
-      "Weather protection: "+(state.weather||"Not selected")
+      "Weather protection: "+(state.weather||"Not selected"),
+      "Project stage: "+(state.stage||"Not selected"),
+      "Installation plan: "+(state.installation||"Not selected"),
+      "Target timeline: "+(state.timeline||"Not provided")
     ].join("\n");
   }
 
@@ -1044,6 +1119,19 @@ Weather protection: Not selected</pre>
     });
   });
 
+  root.querySelectorAll('[data-config-input]').forEach(function(input){
+    var key=input.getAttribute('data-config-input');
+    input.addEventListener('input',function(){
+      state[key]=(input.value||"").trim();
+      render();
+    });
+    input.addEventListener('change',function(){
+      if(typeof window.gtag==="function" && state[key]){
+        window.gtag("event","project_configurator_input",{config_key:key});
+      }
+    });
+  });
+
   try{
     var saved=JSON.parse(localStorage.getItem("sportenvo_project_configurator")||"null");
     if(saved && typeof saved==="object"){
@@ -1051,6 +1139,10 @@ Weather protection: Not selected</pre>
       root.querySelectorAll('[data-config-key]').forEach(function(group){
         var key=group.getAttribute('data-config-key');
         setPressed(group,state[key]);
+      });
+      root.querySelectorAll('[data-config-input]').forEach(function(input){
+        var key=input.getAttribute('data-config-input');
+        input.value=state[key]||"";
       });
     }
   }catch(e){}
