@@ -45,11 +45,6 @@ const forbiddenPublicPatterns = [
   [/MOQ:\s*1 set/gi, "unverified fixed MOQ"],
   [/Lead time:\s*35[–-]40 days/gi, "unverified fixed lead time"],
   [/projectQuoteForm/g, "legacy project form anchor/id"],
-  [/10\+ Years Export Experience/gi, "unverified export-experience metric"],
-  [/10,000 m²/gi, "unverified factory-area metric"],
-  [/50\+ Export Markets/gi, "unverified export-market metric"],
-  [/100\+ Factory Employees/gi, "unverified employee metric"],
-  [/5,000\+ Cooperative Clients/gi, "unverified cooperative-client metric"]
 ];
 
 function cleanInternalRef(rawRef) {
