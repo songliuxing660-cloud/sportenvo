@@ -414,7 +414,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .project-whatsapp-card>p:not(.project-whatsapp-kicker){margin:0;color:#b8c4c0;font-size:14px;line-height:1.7;max-width:650px}
 .project-whatsapp-action{display:flex;align-items:center;justify-content:center;width:100%;margin-top:18px;min-height:52px;padding:14px 18px;border-radius:12px;background:#25d366;color:#06240f!important;text-decoration:none;font-weight:900;font-size:16px;box-shadow:0 10px 24px rgba(37,211,102,.12);transition:.18s ease}
 .project-whatsapp-card.is-ready .project-whatsapp-action:hover{transform:translateY(-2px);background:#2ee073}
-.project-whatsapp-card.is-pending .project-whatsapp-action{background:#24313a;color:#93a2ac!important;box-shadow:none;cursor:not-allowed;pointer-events:none}
+.project-whatsapp-card.is-pending .project-whatsapp-action{background:#1f3943;color:#d7e3e8!important;box-shadow:none;cursor:pointer;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:rgba(37,211,102,.18)}
 .project-whatsapp-card.is-pending .project-whatsapp-dot{background:#73838d;box-shadow:0 0 0 4px rgba(115,131,141,.12)}
 .project-whatsapp-meta{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-top:12px;color:#8f9e9a;font-size:12px}
 .project-whatsapp-dot{width:9px;height:9px;border-radius:50%;background:#25d366;box-shadow:0 0 0 4px rgba(37,211,102,.12)}
@@ -695,7 +695,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
           <p class="project-whatsapp-kicker">💬 Prefer Instant Chat?</p>
           <h3 data-project-whatsapp-title>Complete your project brief to unlock instant chat.</h3>
           <p data-project-whatsapp-body>Finish the project details above and SPORTENVO will pre-fill the full Project Brief in WhatsApp for you.</p>
-          <a class="project-whatsapp-action" data-project-whatsapp-link href="#" aria-disabled="true">→ Complete Project Details First</a>
+          <a class="project-whatsapp-action" data-project-whatsapp-link href="https://wa.me/8613128265916">→ Chat on WhatsApp with Current Brief</a>
           <div class="project-whatsapp-meta"><span class="project-whatsapp-dot" aria-hidden="true"></span><span data-project-whatsapp-meta>Project brief not complete yet</span></div>
           <small class="project-whatsapp-note" data-project-whatsapp-note>Complete the remaining configurator sections above.</small>
         </aside>
@@ -1114,21 +1114,21 @@ Target timeline: Not provided</pre>
       if(waLink){
         waLink.href="https://wa.me/8613128265916?text="+encodeURIComponent(whatsappMessage());
         waLink.textContent="→ Chat on WhatsApp";
-        waLink.setAttribute("target","_blank");
-        waLink.setAttribute("rel","noopener");
+        waLink.removeAttribute("target");
+        waLink.removeAttribute("rel");
         waLink.setAttribute("aria-disabled","false");
       }
     }else{
-      if(waTitle) waTitle.textContent="Complete your project brief to unlock instant chat.";
-      if(waBody) waBody.textContent="Finish the project details above and SPORTENVO will pre-fill the full Project Brief in WhatsApp for you.";
+      if(waTitle) waTitle.textContent="Send your current project brief now.";
+      if(waBody) waBody.textContent="You can contact SPORTENVO now with the details already entered, or complete the remaining project sections first.";
       if(waMeta) waMeta.textContent=missing+" project section"+(missing===1?"":"s")+" remaining";
-      if(waNote) waNote.textContent="Complete the remaining configurator sections above.";
+      if(waNote) waNote.textContent="WhatsApp will include the information currently available in your Project Brief.";
       if(waLink){
-        waLink.href="#";
-        waLink.textContent="→ Complete Project Details First";
+        waLink.href="https://wa.me/8613128265916?text="+encodeURIComponent(whatsappMessage());
+        waLink.textContent="→ Chat on WhatsApp with Current Brief";
         waLink.removeAttribute("target");
         waLink.removeAttribute("rel");
-        waLink.setAttribute("aria-disabled","true");
+        waLink.setAttribute("aria-disabled","false");
       }
     }
 
