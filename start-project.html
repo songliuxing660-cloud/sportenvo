@@ -359,6 +359,13 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .inquiry-help[data-state="delayed"]{background:#fff8ed;border-color:#e6cba1}
 .inquiry-help a:focus-visible,.inquiry-help button:focus-visible{outline:3px solid #118fcf;outline-offset:4px}
 @media(max-width:620px){.inquiry-help{padding:20px}.inquiry-help-actions{align-items:flex-start;flex-direction:column;gap:14px}}
+.inquiry-help[data-state="loading"] .inquiry-alternative,
+.inquiry-help[data-state="loading"] .inquiry-help-actions,
+.inquiry-help[data-state="ready"] .inquiry-alternative,
+.inquiry-help[data-state="ready"] .inquiry-help-actions{display:none}
+.inquiry-help[data-state="ready"]{display:none}
+.inquiry-help[data-state="delayed"] .inquiry-alternative{display:block}
+.inquiry-help[data-state="delayed"] .inquiry-help-actions{display:flex}
 </style><link rel="stylesheet" href="/assets/sportenvo-shell.css?v=20260926-header2">
 <link rel="stylesheet" href="/assets/sportenvo-content-v3.css?v=20260925-v3a">
 <link rel="stylesheet" href="/assets/sportenvo-conversion-v7.css?v=20260925-v7a">
@@ -626,7 +633,7 @@ Target timeline: Not provided</pre>
 
 <div class="inquiry-help" id="inquiryHelp"><p class="inquiry-loading" role="status" aria-live="polite">Loading the inquiry form…</p><p class="inquiry-alternative">Prefer another way to send your project?</p><div class="inquiry-help-actions"><a class="btn dark" href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">Open Form in New Tab ↗</a><a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">Email sales@sportenvo.com</a><button type="button" class="inquiry-retry" hidden>Retry Embedded Form</button></div><noscript><p>Open the form in a new tab or email us to send your enquiry.</p></noscript></div><div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI">
 </div>
-<script src="assets/inquiry-status.js?v=20260927-ga4astatus" defer></script>
+<script src="assets/inquiry-status.js?v=20260927-fallback2status" defer></script>
 <script type="text/javascript">
 (function(){
   var mounted=false;
