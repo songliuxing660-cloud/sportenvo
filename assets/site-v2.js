@@ -1,3 +1,14 @@
+
+// Remove the retired homepage CTA even if an older cached index.html is served.
+(function removeRetiredHomepageCta(){
+  if (!/^(?:\/|\/index\.html)$/.test(window.location.pathname)) return;
+  document.querySelectorAll(".cta-band").forEach((section) => {
+    const heading = section.querySelector("h2");
+    if (heading && heading.textContent.trim() === "Build a coordinated court plan.") {
+      section.remove();
+    }
+  });
+})();
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("#primary-nav");
 const menuButton = document.querySelector(".menu-toggle");
