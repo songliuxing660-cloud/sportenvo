@@ -7,6 +7,17 @@ Project enquiries: sales@sportenvo.com
 Primary language: English
 Business focus: B2B commercial padel court projects
 
+## Company-Reported Operating Scale
+
+The following are SPORTENVO company-reported business figures:
+- 10+ Years Export Experience
+- 50+ Export Markets
+- 100+ Factory Employees
+- 5,000+ Cooperative Clients
+- 10,000 m² Factory Area
+
+These figures describe company operating scale. They are separate from product specifications, certification scope, project-specific engineering, test results, warranty terms and order-specific quality records.
+
 ## Core Pages
 
 - Home: https://sportenvo.com/
@@ -15,7 +26,7 @@ Business focus: B2B commercial padel court projects
 - Projects: https://sportenvo.com/projects.html
 - Insights / Buyer Guides: https://sportenvo.com/insights.html
 - Engineering & Manufacturing: https://sportenvo.com/engineering.html
-- Quality & Documentation: https://sportenvo.com/quality.html
+- Quality & Compliance: https://sportenvo.com/quality.html
 - About SPORTENVO: https://sportenvo.com/about.html
 - Start a Project: https://sportenvo.com/start-project.html
 
