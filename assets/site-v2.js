@@ -1,12 +1,29 @@
-/* Microsoft Clarity */
+/* Microsoft Clarity — delayed so analytics never competes with the LCP render. */
 (function(){
-  if(window.__sportenvoClarityLoaded) return;
-  window.__sportenvoClarityLoaded=true;
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window,document,"clarity","script","yox5h5cf9z");
+  if(window.__sportenvoClarityArmed) return;
+  window.__sportenvoClarityArmed=true;
+
+  var timer;
+  function loadClarity(){
+    if(window.__sportenvoClarityLoaded) return;
+    window.__sportenvoClarityLoaded=true;
+    if(timer) window.clearTimeout(timer);
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","yox5h5cf9z");
+  }
+
+  ["pointerdown","touchstart","keydown","scroll"].forEach(function(type){
+    window.addEventListener(type,loadClarity,{once:true,passive:true});
+  });
+
+  function scheduleFallback(){
+    timer=window.setTimeout(loadClarity,6000);
+  }
+  if(document.readyState==="complete") scheduleFallback();
+  else window.addEventListener("load",scheduleFallback,{once:true});
 })();
 
 
