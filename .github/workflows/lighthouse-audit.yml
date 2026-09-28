@@ -4,6 +4,10 @@ on:
   push:
     paths:
       - '.github/workflows/lighthouse-audit.yml'
+      - 'index.html'
+      - 'assets/site-v2.css'
+      - 'assets/sportenvo-home-v6.css'
+      - 'assets/site-v2.js'
   workflow_dispatch:
 
 jobs:
