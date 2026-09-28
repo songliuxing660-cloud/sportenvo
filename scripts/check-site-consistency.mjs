@@ -3,6 +3,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const canonicalProductNames = [
+  "Panoramic Padel Court",
+  "Super Panoramic Padel Court",
+  "Classic Padel Court",
+  "Mobile Padel Court",
+  "Padel Court with Electric Tent",
+  "Padel Court with Roof",
+  "Anti-Hurricane Padel Court — FORCE-HX Series",
+  "Modular Foundation Base"
+];
+
 const requiredNav = [
   "panoramic.html",
   "super-panoramic.html",
@@ -34,6 +45,9 @@ function walkHtml(dir, base = "") {
   }
   return out;
 }
+
+const canonicalIdentityFiles = ["index.html", "about.html"];
+const deprecatedOfficialProductLabels = ["Padel Court Modular Foundation Base"];
 
 const htmlFiles = walkHtml(root).sort();
 const htmlSet = new Set(htmlFiles);
@@ -134,6 +148,16 @@ function resolveInternalHtml(fromFile, rawHref) {
   return clean.startsWith("/")
     ? path.posix.normalize(clean.slice(1))
     : path.posix.normalize(path.posix.join(path.posix.dirname(fromFile), clean));
+}
+
+for (const identityFile of canonicalIdentityFiles) {
+  const identity = fs.readFileSync(path.join(root, identityFile), "utf8");
+  for (const productName of canonicalProductNames) {
+    if (!identity.includes(productName)) failures.push([identityFile, `canonical product name missing -> ${productName}`]);
+  }
+  for (const deprecatedLabel of deprecatedOfficialProductLabels) {
+    if (identity.includes(deprecatedLabel)) failures.push([identityFile, `deprecated official product naming -> ${deprecatedLabel}`]);
+  }
 }
 
 for (const file of htmlFiles) {
