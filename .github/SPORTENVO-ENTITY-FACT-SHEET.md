@@ -1,6 +1,6 @@
 # SPORTENVO Entity Fact Sheet
 
-Version: 2026-09-26
+Version: 2026-09-28
 
 Use this document as the single source of truth for the website, LinkedIn, YouTube, project directories, press references and partner profiles. Do not add a `sameAs` URL until the profile is official, public and uses the facts below.
 
@@ -95,3 +95,11 @@ Recommended structure: Buyer question -> Fixed roof -> Retractable roof -> Site 
 | LinkedIn | Not yet confirmed | Do not add to `sameAs` until the official public URL is confirmed |
 
 Website Organization Schema may include the confirmed YouTube URL in `sameAs`. Keep unconfirmed social profiles out of `sameAs`.
+
+## Website Entity Implementation Status
+
+- Homepage Organization schema: aligned to the canonical SPORTENVO entity definition.
+- About Organization schema: aligned on 2026-09-28 with the same canonical description, area served, product knowledge and confirmed official YouTube profile.
+- sameAs: YouTube only until another official public profile is confirmed.
+- About page duplicate company-scale block: removed on 2026-09-28 so the five approved company-reported figures appear once.
+- Do not add LinkedIn or directory URLs to schema until the public profile URL is verified.
