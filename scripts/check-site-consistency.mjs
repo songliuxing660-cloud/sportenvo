@@ -14,6 +14,17 @@ const canonicalProductNames = [
   "Modular Foundation Base"
 ];
 
+const commercialSnapshotPages = [
+  "panoramic.html",
+  "super-panoramic.html",
+  "classic-padel-court.html",
+  "mobile.html",
+  "electric-tent-padel-court.html",
+  "roof.html",
+  "force-hx.html",
+  "modular-foundation.html"
+];
+
 const requiredNav = [
   "panoramic.html",
   "super-panoramic.html",
@@ -157,6 +168,16 @@ for (const identityFile of canonicalIdentityFiles) {
   }
   for (const deprecatedLabel of deprecatedOfficialProductLabels) {
     if (identity.includes(deprecatedLabel)) failures.push([identityFile, `deprecated official product naming -> ${deprecatedLabel}`]);
+  }
+}
+
+for (const snapshotFile of commercialSnapshotPages) {
+  const snapshotHtml = fs.readFileSync(path.join(root, snapshotFile), "utf8");
+  if (!snapshotHtml.includes('Commercial Snapshot')) {
+    failures.push([snapshotFile, "missing Commercial Snapshot"]);
+  }
+  if (!snapshotHtml.includes('data-commercial-snapshot=')) {
+    failures.push([snapshotFile, "missing Commercial Snapshot data marker"]);
   }
 }
 
