@@ -46,13 +46,14 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preload" as="image" href="assets/images/sportenvo-home-hero-1280.webp" imagesrcset="assets/images/sportenvo-home-hero-640.webp 640w, assets/images/sportenvo-home-hero-960.webp 960w, assets/images/sportenvo-home-hero-1280.webp 1280w, assets/images/home-hero.webp 1916w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/sportenvo-home-hero-960.webp" media="(max-width:760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/sportenvo-home-hero-1280.webp" media="(min-width:761px)" fetchpriority="high">
   <link rel="stylesheet" href="assets/site-v2.css?v=20260927-cro14">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://sportenvo.com/#webpage","name":"Padel Court Manufacturer & Commercial Systems | SPORTENVO","description":"Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.","url":"https://sportenvo.com/","isPartOf":{"@id":"https://sportenvo.com/#website"},"about":{"@id":"https://sportenvo.com/#organization"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://sportenvo.com/#organization","name":"SPORTENVO","url":"https://sportenvo.com/","logo":{"@type":"ImageObject","url":"https://sportenvo.com/assets/sportenvo-header-logo.png","width":720,"height":240},"email":"sales@sportenvo.com","description":"SPORTENVO provides commercial padel court systems, foundation systems, weather protection and project support for clubs, resorts, sports facilities, contractors, distributors and commercial developments.","areaServed":"Worldwide","sameAs":["https://www.youtube.com/@sportenvopadel"],"knowsAbout":["Panoramic Padel Court","Super Panoramic Padel Court","Classic Padel Court","Mobile Padel Court","Padel Court with Electric Tent","Padel Court with Roof","Anti-Hurricane Padel Court — FORCE-HX Series","Padel Court Modular Foundation Base","Commercial Padel Court Projects"]},{"@type":"WebSite","@id":"https://sportenvo.com/#website","url":"https://sportenvo.com/","name":"SPORTENVO","publisher":{"@id":"https://sportenvo.com/#organization"},"inLanguage":"en"}]}</script>
   
   
-<link rel="stylesheet" href="/assets/sportenvo-home-v6.css?v=20260926-hero12">
+<link rel="stylesheet" href="/assets/sportenvo-home-v6.css?v=20260928-perf1">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -135,7 +136,7 @@
   
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-header>
-    <a class="header-brand" href="index.html" aria-label="SPORTENVO home"><img src="assets/sportenvo-header-logo.png" alt="" width="720" height="240"></a>
+    <a class="header-brand" href="index.html" aria-label="SPORTENVO home"><img src="assets/sportenvo-header-logo.png" alt="SPORTENVO" width="720" height="240" fetchpriority="low" decoding="async"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><b>Menu</b></button>
     <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
       <details class="nav-dropdown">
@@ -170,7 +171,11 @@
   </header>
   <main id="main">
 <section class="home-hero">
-  <img src="assets/images/home-hero.webp" srcset="assets/images/sportenvo-home-hero-640.webp 640w, assets/images/sportenvo-home-hero-960.webp 960w, assets/images/sportenvo-home-hero-1280.webp 1280w, assets/images/home-hero.webp 1916w" sizes="100vw" alt="Commercial multi-court padel club with blue courts and a central clubhouse" width="1916" height="821" fetchpriority="high" loading="eager" decoding="async">
+  <picture class="home-hero-media">
+    <source media="(max-width:760px)" srcset="assets/images/sportenvo-home-hero-960.webp">
+    <source media="(max-width:1400px)" srcset="assets/images/sportenvo-home-hero-1280.webp">
+    <img src="assets/images/home-hero.webp" alt="Commercial multi-court padel club with blue courts and a central clubhouse" width="1916" height="821" fetchpriority="high" loading="eager" decoding="async">
+  </picture>
   <div class="hero-overlay"></div>
   <div class="hero-copy">
     <p class="eyebrow">Commercial Padel Court Systems · Manufacturer + Project Support</p>
