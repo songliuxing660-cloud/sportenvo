@@ -19,6 +19,19 @@ SPORTENVO — Commercial Padel Court Systems & Project Solutions.
 Contact:
 sales@sportenvo.com
 
+
+## Current publishing priorities
+
+Use this order for new authority-building videos and channel references:
+
+1. Super Panoramic Padel Court
+2. Roof Systems
+3. FORCE-HX
+4. Modular Foundation
+5. Commercial Projects
+
+Do not default every video, description or channel reference to Panoramic Padel Court. Panoramic, Classic, Mobile and Electric Tent remain official products, but they are secondary unless the specific video is about that system.
+
 ## Publishing principle
 
 Use real SPORTENVO court, factory, installation and project footage. Avoid generic AI visuals, unrelated stock clips and exaggerated weather scenes. The goal is to answer a buyer question clearly, then show real technical or project evidence.
