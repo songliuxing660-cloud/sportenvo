@@ -32,8 +32,10 @@ jobs:
           key_location = f"{root}/{key}.txt"
 
           def sitemap_urls():
-              with urllib.request.urlopen(f"{root}/sitemap.xml", timeout=30) as r:
-                  xml = r.read()
+              # Read the checked-out sitemap first so IndexNow does not depend on
+              # the production CDN being updated or publicly fetchable at this moment.
+              with open("sitemap.xml", "rb") as f:
+                  xml = f.read()
               tree = ET.fromstring(xml)
               ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
               return [x.text.strip() for x in tree.findall("sm:url/sm:loc", ns) if x.text]
