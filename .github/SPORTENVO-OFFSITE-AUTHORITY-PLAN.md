@@ -17,7 +17,7 @@ Do not pursue bulk directory links, paid link farms, PBNs, or generic press-rele
 - YouTube: https://www.youtube.com/@sportenvopadel
 - Email: sales@sportenvo.com
 - Core audiences: clubs, resorts, sports facilities, developers, contractors, distributors
-- Official product series: Panoramic Padel Court; Super Panoramic Padel Court; Classic Padel Court; Padel Court with Electric Tent; Padel Court with Roof; Anti-Hurricane Padel Court — FORCE-HX Series; Padel Court Modular Foundation Base; Mobile Padel Court
+- Official product series: Panoramic Padel Court; Super Panoramic Padel Court; Classic Padel Court; Padel Court with Electric Tent; Padel Court with Roof; Anti-Hurricane Padel Court — FORCE-HX Series; Modular Foundation Base; Mobile Padel Court
 
 ## Priority editorial targets
 
