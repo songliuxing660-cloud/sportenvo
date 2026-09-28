@@ -71,7 +71,7 @@ Commercial Padel Court Systems & Project Solutions | Manufacturer + Project Supp
 
 ### LinkedIn overview
 
-SPORTENVO provides commercial padel court systems and project solutions for clubs, resorts, sports facilities, developers, contractors and distributors worldwide. We support projects from court-system selection and technical drawings through manufacturing, export packing, shipping coordination and installation guidance. Product systems include Panoramic Padel Court, Super Panoramic Padel Court, Classic Padel Court, Padel Court with Electric Tent, Padel Court with Roof, Anti-Hurricane Padel Court — FORCE-HX Series, Padel Court Modular Foundation Base and Mobile Padel Court. Project references and technical guides: https://sportenvo.com/
+SPORTENVO provides commercial padel court systems and project solutions for clubs, resorts, sports facilities, developers, contractors and distributors worldwide. We support projects from court-system selection and technical drawings through manufacturing, export packing, shipping coordination and installation guidance. Product systems include Panoramic Padel Court, Super Panoramic Padel Court, Classic Padel Court, Padel Court with Electric Tent, Padel Court with Roof, Anti-Hurricane Padel Court — FORCE-HX Series, Modular Foundation Base and Mobile Padel Court. Project references and technical guides: https://sportenvo.com/
 
 ### YouTube channel description
 
