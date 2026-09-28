@@ -1,6 +1,6 @@
 # SPORTENVO Entity Fact Sheet
 
-Version: 2026-09-28
+Version: 2026-09-29
 
 Use this document as the single source of truth for the website, LinkedIn, YouTube, project directories, press references and partner profiles. Do not add a `sameAs` URL until the profile is official, public and uses the facts below.
 
@@ -17,6 +17,7 @@ Short descriptor: **Commercial Padel Court Brand + Project Support**
 | Entity type | Brand |
 | Brand name | SPORTENVO |
 | Official website | https://sportenvo.com/ |
+| Media / reference kit | https://sportenvo.com/media-kit.html |
 | Main category | Commercial padel court systems and project solutions |
 | Business role | Commercial padel court brand for product systems, technical guidance, project references and international B2B enquiries |
 | Contact | sales@sportenvo.com |
@@ -92,6 +93,21 @@ Reference page: https://sportenvo.com/roof.html
 
 Recommended structure: Buyer question -> Fixed roof -> Retractable roof -> Site interfaces -> Wind / drainage / clear height -> Project-specific limitation -> Roof guide / project CTA
 
+## External Venue Verification
+
+PADEL.CNX in Chiang Mai is the current strongest externally cross-checkable venue reference.
+
+External sources that verify venue-level facts:
+- Official venue: https://www.padelcnx.com/
+- Playtomic: https://playtomic.com/clubs/padel-cnx
+- Global Padel Hub: https://globalpadelhub.com/club/padelcnx
+- Chiang Mai Citylife: https://www.chiangmaicitylife.com/citynews/general/launching-padel-club-chiang-mai/
+
+These sources verify the venue, court count / format and operating context where stated. They do **not** independently verify SPORTENVO's project supply scope unless a source explicitly says so.
+
+SPORTENVO project page:
+https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
+
 ## Claims Guardrails
 
 - Do not describe SPORTENVO as a local installer in every country.
@@ -115,5 +131,6 @@ Website Brand Schema may include the confirmed YouTube URL in `sameAs`. Keep unc
 - Homepage Brand schema: aligned to the canonical SPORTENVO entity definition on 2026-09-28.
 - About Brand schema: aligned on 2026-09-28 with the canonical brand definition and confirmed official YouTube profile.
 - sameAs: YouTube only until another official public profile is confirmed.
+- Media kit: https://sportenvo.com/media-kit.html
 - About page duplicate company-scale block: removed on 2026-09-28 so the five approved company-reported figures appear once.
 - Do not add LinkedIn or directory URLs to schema until the public profile URL is verified.
