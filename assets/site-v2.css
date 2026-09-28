@@ -1005,3 +1005,61 @@ h3 { font-size: 24px; line-height: 1.15; }
 .project-quick-secondary{display:inline-block;margin-top:12px;color:var(--muted);font-size:13px;font-weight:750;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.project-quick-start-inner{grid-template-columns:1fr;gap:26px;padding-top:30px;padding-bottom:30px}.project-quick-actions{padding-left:0;padding-top:24px;border-left:0;border-top:1px solid #cfd9df}}
 @media(max-width:620px){.project-quick-start-inner{padding-left:22px;padding-right:22px}.project-scope-inline span{font-size:10px}.project-quick-actions .button{min-height:52px}}
+
+
+/* Commercial Snapshot 20260929 */
+.commercial-snapshot{
+  background:#f3f6f8;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.commercial-snapshot .section-heading{max-width:900px}
+.commercial-snapshot .spec-table-wrap{
+  max-width:1120px;
+  box-shadow:0 14px 34px rgba(7,19,30,.05);
+}
+.commercial-snapshot .spec-table th{width:24%}
+.commercial-snapshot .spec-table td a{
+  color:var(--navy);
+  font-weight:800;
+  text-underline-offset:4px;
+}
+.commercial-snapshot .spec-table td a:hover{color:var(--signal)}
+.commercial-snapshot .cta-actions{
+  max-width:1120px;
+  justify-content:flex-start;
+}
+@media(max-width:760px){
+  .commercial-snapshot .spec-table{
+    min-width:0;
+    display:block;
+  }
+  .commercial-snapshot .spec-table tbody,
+  .commercial-snapshot .spec-table tr,
+  .commercial-snapshot .spec-table th,
+  .commercial-snapshot .spec-table td{
+    display:block;
+    width:100%;
+  }
+  .commercial-snapshot .spec-table tr{
+    border-bottom:1px solid var(--line);
+  }
+  .commercial-snapshot .spec-table tr:last-child{border-bottom:0}
+  .commercial-snapshot .spec-table th{
+    border-bottom:0;
+    padding:14px 16px 6px;
+  }
+  .commercial-snapshot .spec-table td{
+    padding:0 16px 16px;
+    border-bottom:0;
+  }
+  .commercial-snapshot .cta-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+  }
+  .commercial-snapshot .cta-actions .button{
+    width:100%;
+    justify-content:space-between;
+  }
+}
