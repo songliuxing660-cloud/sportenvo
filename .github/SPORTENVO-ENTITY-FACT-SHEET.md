@@ -8,16 +8,17 @@ Use this document as the single source of truth for the website, LinkedIn, YouTu
 
 **SPORTENVO — Commercial Padel Court Systems & Project Solutions**
 
-Short descriptor: **Manufacturer + Project Support**
+Short descriptor: **Commercial Padel Court Brand + Project Support**
 
 ## Core Facts
 
 | Field | Approved value |
 | --- | --- |
+| Entity type | Brand |
 | Brand name | SPORTENVO |
 | Official website | https://sportenvo.com/ |
 | Main category | Commercial padel court systems and project solutions |
-| Business role | Manufacturer and project support partner |
+| Business role | Commercial padel court brand for product systems, technical guidance, project references and international B2B enquiries |
 | Contact | sales@sportenvo.com |
 | Market scope | International commercial projects |
 | Target buyers | Padel clubs, hotels and resorts, sports facilities, commercial developers, contractors and distributors |
@@ -32,16 +33,16 @@ Short descriptor: **Manufacturer + Project Support**
 Use these five themes as the default priority for brand descriptions, YouTube publishing, SEO clusters, GEO/AEO references and third-party profiles. Do not automatically lead with Panoramic Padel Court.
 
 1. Super Panoramic Padel Court
-2. Roof Systems
-3. FORCE-HX
-4. Modular Foundation
-5. Commercial Projects
+2. Padel Court with Roof
+3. Anti-Hurricane Padel Court — FORCE-HX Series
+4. Modular Foundation Base
+5. Project References
 
 The full website product menu remains authoritative and should continue to show all official systems exactly as published in the Courts navigation. The priority list above controls emphasis, not product deletion.
 
-## Approved Company-Reported Scale
+## Reported Operating Scale Behind SPORTENVO
 
-The following company-level figures are approved for consistent use across SPORTENVO public pages. Keep them separate from project-specific specifications, test reports and certification claims.
+The following figures are reported operating figures from the manufacturing and export operation behind the SPORTENVO brand. They are not legal-entity claims about SPORTENVO itself. Keep them separate from project-specific specifications, test reports and certification claims.
 
 - 10+ Years Export Experience
 - 50+ Export Markets
@@ -57,17 +58,17 @@ SPORTENVO provides commercial padel court systems and project solutions for club
 
 ### Short profile
 
-SPORTENVO is a commercial padel court manufacturer and project support partner. Public-facing brand communication should prioritize Super Panoramic Padel Court, Roof Systems, FORCE-HX, Modular Foundation and Commercial Projects, while the official website menu continues to present the complete SPORTENVO court-system range.
+SPORTENVO is a commercial padel court brand for international B2B project enquiries, product-system selection, technical guidance and project references. Public-facing communication should use the official product names exactly as listed in the website Courts navigation.
 
 ### Full profile
 
-SPORTENVO provides commercial padel court systems and project solutions for clubs, resorts, sports facilities, commercial developers, contractors and distributors. Brand communication prioritizes Super Panoramic Padel Court, Roof Systems, FORCE-HX, Modular Foundation and Commercial Projects. The website Courts menu remains the source of truth for the complete official product range. The company coordinates system selection, project-specific configuration, technical drawings, manufacturing, quality control, export packing, shipping and installation guidance. Final structural, foundation and installation requirements remain project-specific and subject to local engineering and approval requirements.
+SPORTENVO is the public-facing commercial padel court brand used to present product systems, technical guidance, project references and international B2B enquiries. The website Courts menu remains the source of truth for the complete official product range. Project support may include system selection, project-specific configuration, technical drawings, manufacturing coordination, quality control, export packing, shipping coordination and installation guidance. Final structural, foundation and installation requirements remain project-specific and subject to local engineering and approval requirements.
 
 ## Platform Profile Copy
 
 ### LinkedIn tagline
 
-Commercial Padel Court Systems & Project Solutions | Manufacturer + Project Support
+Commercial Padel Court Systems & Project Solutions | Brand + Project Support
 
 ### LinkedIn overview
 
@@ -79,7 +80,7 @@ SPORTENVO shares practical videos about planning commercial padel court projects
 
 ### Priority YouTube video
 
-Title: **Padel Court Roof Systems: Fixed vs Retractable for Commercial Projects**
+Title: **Padel Court with Roof: Fixed vs Retractable for Commercial Projects**
 
 Official channel: https://www.youtube.com/@sportenvopadel
 
@@ -105,14 +106,14 @@ Recommended structure: Buyer question -> Fixed roof -> Retractable roof -> Site 
 | Platform | Official URL | Status |
 | --- | --- | --- |
 | YouTube | https://www.youtube.com/@sportenvopadel | Confirmed official on 2026-09-26 |
-| LinkedIn | Not yet confirmed | Do not add to `sameAs` until the official public URL is confirmed |
+| LinkedIn | Not in use | No company page; do not add to `sameAs` |
 
-Website Organization Schema may include the confirmed YouTube URL in `sameAs`. Keep unconfirmed social profiles out of `sameAs`.
+Website Brand Schema may include the confirmed YouTube URL in `sameAs`. Keep unconfirmed social profiles out of `sameAs`.
 
 ## Website Entity Implementation Status
 
-- Homepage Organization schema: aligned to the canonical SPORTENVO entity definition.
-- About Organization schema: aligned on 2026-09-28 with the same canonical description, area served, product knowledge and confirmed official YouTube profile.
+- Homepage Brand schema: aligned to the canonical SPORTENVO entity definition on 2026-09-28.
+- About Brand schema: aligned on 2026-09-28 with the canonical brand definition and confirmed official YouTube profile.
 - sameAs: YouTube only until another official public profile is confirmed.
 - About page duplicate company-scale block: removed on 2026-09-28 so the five approved company-reported figures appear once.
 - Do not add LinkedIn or directory URLs to schema until the public profile URL is verified.
