@@ -20,8 +20,8 @@
         document.head.appendChild(s);
       }
       function armAnalytics(){
-        timer=window.setTimeout(loadAnalytics,2500);
-        ['pointerdown','keydown','touchstart'].forEach(function(type){
+        timer=window.setTimeout(loadAnalytics,6000);
+        ['pointerdown','keydown','touchstart','scroll'].forEach(function(type){
           window.addEventListener(type,loadAnalytics,{once:true,passive:true});
         });
       }
