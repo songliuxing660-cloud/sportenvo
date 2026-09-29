@@ -79,6 +79,14 @@ SPORTENVO provides commercial padel court systems and project solutions for club
 
 SPORTENVO shares practical videos about planning commercial padel court projects. Topics include court-system selection, foundations, roofs, high-wind requirements, technical drawings, manufacturing, packing, delivery and installation guidance. Explore SPORTENVO commercial padel court systems and real project references at https://sportenvo.com/.
 
+### Medium profile
+
+Official profile: https://medium.com/@sportenvo
+
+Publishing role: buyer-oriented educational articles about commercial padel project planning, procurement, foundations, weather protection, installation coordination and technical documentation. Keep Medium articles educational and distinct from website buyer guides rather than copying full website pages verbatim.
+
+First published article: https://medium.com/@sportenvo/commercial-padel-court-project-checklist-10-things-developers-should-confirm-before-ordering-a973e44fb6c3
+
 ### Priority YouTube video
 
 Title: **Padel Court with Roof: Fixed vs Retractable for Commercial Projects**
@@ -122,15 +130,16 @@ https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
 | Platform | Official URL | Status |
 | --- | --- | --- |
 | YouTube | https://www.youtube.com/@sportenvopadel | Confirmed official on 2026-09-26 |
+| Medium | https://medium.com/@sportenvo | Confirmed official on 2026-09-29 |
 | LinkedIn | Not in use | No company page; do not add to `sameAs` |
 
-Website Brand Schema may include the confirmed YouTube URL in `sameAs`. Keep unconfirmed social profiles out of `sameAs`.
+Website Brand Schema may include the confirmed YouTube and Medium URLs in `sameAs`. Keep unconfirmed social profiles and directory listings out of `sameAs`.
 
 ## Website Entity Implementation Status
 
 - Homepage Brand schema: aligned to the canonical SPORTENVO entity definition on 2026-09-28.
-- About Brand schema: aligned on 2026-09-28 with the canonical brand definition and confirmed official YouTube profile.
-- sameAs: YouTube only until another official public profile is confirmed.
+- About Brand schema: aligned with the canonical brand definition and confirmed official YouTube + Medium profiles on 2026-09-29.
+- sameAs: confirmed official YouTube and Medium profiles.
 - Media kit: https://sportenvo.com/media-kit.html
 - About page duplicate company-scale block: removed on 2026-09-28 so the five approved company-reported figures appear once.
 - Do not add LinkedIn or directory URLs to schema until the public profile URL is verified.
