@@ -15,9 +15,11 @@ on:
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
+      - "scripts/test-crawl-policy.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
+      - "llms.txt"
       - ".github/workflows/site-consistency.yml"
   pull_request:
     paths:
@@ -32,9 +34,11 @@ on:
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
+      - "scripts/test-crawl-policy.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
+      - "llms.txt"
 
 jobs:
   audit:
@@ -50,6 +54,8 @@ jobs:
         run: node scripts/check-site-consistency.mjs
       - name: Check sitemap, metadata, structured data and crawl depth
         run: node scripts/audit-search.mjs --strict
+      - name: Check sitemap XML, public snippets and AI crawl permissions
+        run: python3 scripts/test-crawl-policy.py
       - name: Check enquiry attribution and confirmed conversions
         run: node --test scripts/test-lead-tracking.mjs
       - name: Check product preferences through the RFQ buyer path
