@@ -11,10 +11,11 @@ permissions:
 jobs:
   notify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Submit updated URLs to IndexNow
         env:
@@ -23,7 +24,9 @@ jobs:
           SITE_ROOT: https://sportenvo.com
         run: |
           python3 - <<'PY'
-          import json, os, subprocess, urllib.request, urllib.error
+          import json, os, subprocess, urllib.request, urllib.error, time
+          from concurrent.futures import ThreadPoolExecutor
+          from pathlib import Path
           import xml.etree.ElementTree as ET
 
           key = os.environ["INDEXNOW_KEY"]
@@ -41,12 +44,12 @@ jobs:
               return [x.text.strip() for x in tree.findall("sm:url/sm:loc", ns) if x.text]
 
           urls = []
+          eligible = set(sitemap_urls())
           event = os.environ.get("GITHUB_EVENT_NAME", "")
           if event == "push":
-              try:
-                  before = subprocess.check_output(
-                      ["git", "rev-parse", "HEAD^"], text=True
-                  ).strip()
+              with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
+                  before = json.load(f).get("before", "")
+              if before and set(before) != {"0"}:
                   changed = subprocess.check_output(
                       ["git", "diff", "--name-only", before, "HEAD"], text=True
                   ).splitlines()
@@ -55,19 +58,57 @@ jobs:
                           continue
                       if path == "index.html":
                           url = root + "/"
+                      elif path.endswith("/index.html"):
+                          url = root + "/" + path[:-len("index.html")]
                       else:
                           url = root + "/" + path
-                      urls.append(url)
-              except Exception as exc:
-                  print("Changed-file detection failed:", exc)
+                      if url in eligible:
+                          urls.append(url)
+              else:
+                  urls = list(eligible)
 
-          # On manual runs, or when a push contains no HTML page changes
-          # (including the initial workflow-install commit), submit the sitemap set.
-          if event == "workflow_dispatch" or not urls:
-              urls = sitemap_urls()
+          if event == "workflow_dispatch":
+              urls = list(eligible)
+          if not urls:
+              print("No indexable HTML changes; skipping IndexNow.")
+              raise SystemExit(0)
 
           # IndexNow accepts up to 10,000 URLs per POST; keep this site batch compact.
-          urls = list(dict.fromkeys(urls))[:100]
+          urls = sorted(set(urls))
+          if len(urls) > 10000:
+              raise RuntimeError("Split the submission into batches of at most 10,000 URLs.")
+
+          def normalized(body):
+              return body.decode("utf-8-sig").replace("\r\n", "\n").strip()
+
+          def ready(url):
+              local_path = url[len(root):].lstrip("/") or "index.html"
+              if local_path.endswith("/"):
+                  local_path += "index.html"
+              try:
+                  req = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
+                  with urllib.request.urlopen(req, timeout=15) as r:
+                      body = r.read()
+                  return normalized(body) == normalized(Path(local_path).read_bytes())
+              except (OSError, UnicodeError):
+                  return False
+
+          # Main-branch notifications can start before GitHub Pages deployment finishes.
+          pending = list(urls)
+          deadline = time.monotonic() + 300
+          while pending:
+              with ThreadPoolExecutor(max_workers=4) as pool:
+                  results = list(pool.map(ready, pending))
+              pending = [url for url, published in zip(pending, results) if not published]
+              if not pending:
+                  break
+              if time.monotonic() >= deadline:
+                  raise RuntimeError(f"Production is not serving {len(pending)} updated pages yet; no notification sent.")
+              print(f"Waiting for deployment: {len(pending)} page(s).")
+              time.sleep(10)
+          with urllib.request.urlopen(key_location, timeout=15) as r:
+              if r.read().decode("utf-8").strip() != key:
+                  raise RuntimeError("Production IndexNow key file does not match.")
           payload = {
               "host": host,
               "key": key,
@@ -83,7 +124,8 @@ jobs:
           )
           try:
               with urllib.request.urlopen(req, timeout=30) as r:
-                  print("IndexNow response:", r.status)
+                  print("IndexNow notification response:", r.status)
+                  print("Notification accepted; indexing is decided separately by each search engine.")
                   print("Submitted URLs:", len(urls))
                   for u in urls:
                       print(u)

@@ -7,12 +7,20 @@ on:
       - "*.html"
       - "assets/**"
       - "scripts/check-site-consistency.mjs"
+      - "scripts/audit-search.mjs"
+      - "scripts/test-lead-tracking.mjs"
+      - "sitemap.xml"
+      - "robots.txt"
       - ".github/workflows/site-consistency.yml"
   pull_request:
     paths:
       - "*.html"
       - "assets/**"
       - "scripts/check-site-consistency.mjs"
+      - "scripts/audit-search.mjs"
+      - "scripts/test-lead-tracking.mjs"
+      - "sitemap.xml"
+      - "robots.txt"
 
 jobs:
   audit:
@@ -26,3 +34,7 @@ jobs:
           node-version: "20"
       - name: Check canonical, meta, H1 and navigation consistency
         run: node scripts/check-site-consistency.mjs
+      - name: Check sitemap, metadata, structured data and crawl depth
+        run: node scripts/audit-search.mjs --strict
+      - name: Check enquiry attribution and confirmed conversions
+        run: node --test scripts/test-lead-tracking.mjs

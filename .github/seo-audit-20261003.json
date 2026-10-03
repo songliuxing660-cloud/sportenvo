@@ -1,0 +1,1095 @@
+{
+  "generatedAt": "2026-10-03T06:46:16.014Z",
+  "site": "https://sportenvo.com",
+  "scope": "Local publishable HTML; this does not measure Google/Bing indexing or traffic.",
+  "summary": {
+    "htmlPages": 74,
+    "indexablePages": 65,
+    "sitemapUrls": 65,
+    "failures": 0,
+    "warnings": 0
+  },
+  "failures": [],
+  "warnings": [],
+  "pages": [
+    {
+      "file": "404.html",
+      "url": "https://sportenvo.com/404.html",
+      "canonical": "https://sportenvo.com/404.html",
+      "noindex": true,
+      "title": "Page Not Found | SPORTENVO",
+      "description": "The requested SPORTENVO page could not be found.",
+      "schemas": [
+        "WebPage"
+      ],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "about.html",
+      "url": "https://sportenvo.com/about.html",
+      "canonical": "https://sportenvo.com/about.html",
+      "noindex": false,
+      "title": "About SPORTENVO | Commercial Padel Project Partner",
+      "description": "About SPORTENVO: commercial padel court systems, real manufacturing evidence, engineering coordination, project documentation and international project support.",
+      "schemas": [
+        "BreadcrumbList",
+        "Brand",
+        "AboutPage"
+      ],
+      "depth": 1,
+      "internalLinks": 25
+    },
+    {
+      "file": "cheap-padel-courts-buyer-guide.html",
+      "url": "https://sportenvo.com/cheap-padel-courts-buyer-guide.html",
+      "canonical": "https://sportenvo.com/cheap-padel-courts-buyer-guide.html",
+      "noindex": false,
+      "title": "Cheap Padel Courts: Buyer Checklist | SPORTENVO",
+      "description": "Compare low-cost padel courts by steel, glass, turf, corrosion protection, packing, freight, installation scope, warranty and supplier evidence.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 30
+    },
+    {
+      "file": "classic-padel-court.html",
+      "url": "https://sportenvo.com/classic-padel-court.html",
+      "canonical": "https://sportenvo.com/classic-padel-court.html",
+      "noindex": false,
+      "title": "Classic Padel Court for Clubs & Sports Facilities | SPORTENVO",
+      "description": "Traditional padel court system designed for durability, practical operation and commercial sports facilities. Review applications, project considerations and coordinated system options.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 25
+    },
+    {
+      "file": "commercial-padel-club.html",
+      "url": "https://sportenvo.com/commercial-padel-club.html",
+      "canonical": "https://sportenvo.com/commercial-padel-club.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Systems for Clubs | SPORTENVO",
+      "description": "Plan a commercial padel club around court count, site layout, foundations, roof, delivery and expansion. Review systems, projects and buyer guides.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 25
+    },
+    {
+      "file": "commercial-padel-court.html",
+      "url": "https://sportenvo.com/commercial-padel-court.html",
+      "canonical": "https://sportenvo.com/commercial-padel-court.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Manufacturer & Project Systems | SPORTENVO",
+      "description": "Commercial padel court systems for clubs, resorts, hotels and sports facilities. Compare court types, foundation, roof, high-wind options, project support and supplier scope.",
+      "schemas": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 26
+    },
+    {
+      "file": "configurator.html",
+      "url": "https://sportenvo.com/configurator.html",
+      "canonical": "https://sportenvo.com/configurator.html",
+      "noindex": true,
+      "title": "Find Your Padel Court | SPORTENVO",
+      "description": "Interactive selector for choosing a padel court, foundation and roof solution.",
+      "schemas": [
+        "Organization"
+      ],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "contact.html",
+      "url": "https://sportenvo.com/contact.html",
+      "canonical": "https://sportenvo.com/contact.html",
+      "noindex": true,
+      "title": "Start Your Padel Project | SPORTENVO",
+      "description": "Request a commercial padel court project proposal from SPORTENVO.",
+      "schemas": [
+        "Organization"
+      ],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "convert-tennis-court-to-padel.html",
+      "url": "https://sportenvo.com/convert-tennis-court-to-padel.html",
+      "canonical": "https://sportenvo.com/convert-tennis-court-to-padel.html",
+      "noindex": false,
+      "title": "Convert a Tennis Court to Padel: Site &amp; Foundation Guide | SPORTENVO",
+      "description": "Can you convert a tennis court into padel courts? Review site dimensions, existing base, drainage, anchoring, access, lighting, noise and local approvals before ordering.",
+      "schemas": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 28
+    },
+    {
+      "file": "courts.html",
+      "url": "https://sportenvo.com/courts.html",
+      "canonical": "https://sportenvo.com/courts.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Systems for Projects | SPORTENVO",
+      "description": "Compare eight SPORTENVO commercial padel systems: Panoramic, Super Panoramic, Classic, Mobile, Electric Tent, Roof, FORCE-HX and Modular Foundation.",
+      "schemas": [
+        "CollectionPage",
+        "ItemList"
+      ],
+      "depth": 1,
+      "internalLinks": 24
+    },
+    {
+      "file": "electric-tent-padel-court.html",
+      "url": "https://sportenvo.com/electric-tent-padel-court.html",
+      "canonical": "https://sportenvo.com/electric-tent-padel-court.html",
+      "noindex": false,
+      "title": "Padel Court with Electric Tent | SPORTENVO",
+      "description": "Commercial padel court with electric retractable weather protection. Compare open/closed use, wind, drainage, structure, foundations and roof alternatives.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 25
+    },
+    {
+      "file": "elevated-padel-court-foundation.html",
+      "url": "https://sportenvo.com/elevated-padel-court-foundation.html",
+      "canonical": "https://sportenvo.com/elevated-padel-court-foundation.html",
+      "noindex": false,
+      "title": "Elevated Padel Court Foundation | Modular Systems | SPORTENVO",
+      "description": "Explore elevated modular foundations for padel courts. Compare site requirements, foundation options and project scope. Request a site assessment from SPORTENVO.",
+      "schemas": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 30
+    },
+    {
+      "file": "engineering.html",
+      "url": "https://sportenvo.com/engineering.html",
+      "canonical": "https://sportenvo.com/engineering.html",
+      "noindex": false,
+      "title": "Engineering & Manufacturing | SPORTENVO",
+      "description": "SPORTENVO engineering and manufacturing support for commercial padel projects, with real steel fabrication evidence, site inputs, foundations, roof interfaces, logistics and installation planning.",
+      "schemas": [
+        "BreadcrumbList",
+        "WebPage"
+      ],
+      "depth": 1,
+      "internalLinks": 25
+    },
+    {
+      "file": "force-hx.html",
+      "url": "https://sportenvo.com/force-hx.html",
+      "canonical": "https://sportenvo.com/force-hx.html",
+      "noindex": false,
+      "title": "Anti-Hurricane Padel Court — FORCE-HX Series | SPORTENVO",
+      "description": "Anti-Hurricane Padel Court — FORCE-HX Series for coastal and high-wind commercial projects, with reinforced structure and project-specific wind, anchoring and foundation review.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "VideoObject",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 26
+    },
+    {
+      "file": "good-padel-court-specifications.html",
+      "url": "https://sportenvo.com/good-padel-court-specifications.html",
+      "canonical": "https://sportenvo.com/good-padel-court-specifications.html",
+      "noindex": false,
+      "title": "Good Padel Court Specifications: Buyer Checklist | SPORTENVO",
+      "description": "Commercial padel court checklist for foundation, steel, 12mm glass, turf, lighting, drainage, wind engineering, installation and maintenance.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 31
+    },
+    {
+      "file": "high-wind-padel-court-guide.html",
+      "url": "https://sportenvo.com/high-wind-padel-court-guide.html",
+      "canonical": "https://sportenvo.com/high-wind-padel-court-guide.html",
+      "noindex": false,
+      "title": "High-Wind Padel Court Engineering Guide 2026 | SPORTENVO",
+      "description": "High-wind padel court engineering guide for coastal, hurricane and typhoon regions covering structure, glass, anchoring, foundations, corrosion, roofs and site review.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 32
+    },
+    {
+      "file": "hotel-resort-padel-court.html",
+      "url": "https://sportenvo.com/hotel-resort-padel-court.html",
+      "canonical": "https://sportenvo.com/hotel-resort-padel-court.html",
+      "noindex": false,
+      "title": "Padel Courts for Hotels & Resorts | SPORTENVO",
+      "description": "Commercial padel court systems for hotels and resorts, coordinated around guest experience, landscape, climate and operating hours.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 21
+    },
+    {
+      "file": "how-many-padel-courts-club.html",
+      "url": "https://sportenvo.com/how-many-padel-courts-club.html",
+      "canonical": "https://sportenvo.com/how-many-padel-courts-club.html",
+      "noindex": false,
+      "title": "How Many Padel Courts Does a Club Need? | SPORTENVO",
+      "description": "Compare 2, 4, 6 and 8+ court club formats by demand, coaching, events, site size, staffing, covered hours, expansion and investment risk.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 28
+    },
+    {
+      "file": "how-much-does-a-padel-court-cost.html",
+      "url": "https://sportenvo.com/how-much-does-a-padel-court-cost.html",
+      "canonical": "https://sportenvo.com/how-much-does-a-padel-court-cost.html",
+      "noindex": false,
+      "title": "Padel Court Cost 2026: Commercial Price Guide | SPORTENVO",
+      "description": "2026 padel court cost guide covering court systems, foundations, freight, installation, roofs and multi-court commercial project budgets.",
+      "schemas": [
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 38
+    },
+    {
+      "file": "how-to-build-a-padel-club.html",
+      "url": "https://sportenvo.com/how-to-build-a-padel-club.html",
+      "canonical": "https://sportenvo.com/how-to-build-a-padel-club.html",
+      "noindex": false,
+      "title": "How to Build a Padel Club in 2026 | SPORTENVO",
+      "description": "Plan a commercial padel club from site selection and court count to foundations, roofs, logistics, installation and future expansion.",
+      "schemas": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 39
+    },
+    {
+      "file": "how-to-choose-a-padel-court-manufacturer.html",
+      "url": "https://sportenvo.com/how-to-choose-a-padel-court-manufacturer.html",
+      "canonical": "https://sportenvo.com/how-to-choose-a-padel-court-manufacturer.html",
+      "noindex": false,
+      "title": "How to Choose a Padel Court Manufacturer | SPORTENVO",
+      "description": "Compare padel court manufacturers by steel, glass, turf, lighting, engineering, quality control, packing, logistics and installation support.",
+      "schemas": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 35
+    },
+    {
+      "file": "index.html",
+      "url": "https://sportenvo.com/",
+      "canonical": "https://sportenvo.com/",
+      "noindex": false,
+      "title": "Padel Court Manufacturer & Commercial Systems | SPORTENVO",
+      "description": "Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.",
+      "schemas": [
+        "WebPage",
+        "Brand",
+        "WebSite",
+        "ItemList",
+        "ItemList",
+        "ItemList"
+      ],
+      "depth": 0,
+      "internalLinks": 30
+    },
+    {
+      "file": "indoor-vs-outdoor-padel-courts.html",
+      "url": "https://sportenvo.com/indoor-vs-outdoor-padel-courts.html",
+      "canonical": "https://sportenvo.com/indoor-vs-outdoor-padel-courts.html",
+      "noindex": false,
+      "title": "Indoor vs Outdoor Padel Courts: 2026 Guide | SPORTENVO",
+      "description": "Compare indoor, outdoor and covered padel courts by weather protection, cost, utilisation, lighting, ventilation and commercial club requirements.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 26
+    },
+    {
+      "file": "insights.html",
+      "url": "https://sportenvo.com/insights.html",
+      "canonical": "https://sportenvo.com/insights.html",
+      "noindex": false,
+      "title": "Padel Court Insights &amp; Project Guides | SPORTENVO",
+      "description": "Practical padel court guides covering project cost, dimensions, court selection, modular foundations, roof systems and high-wind planning.",
+      "schemas": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 46
+    },
+    {
+      "file": "is-7m-high-enough-for-indoor-padel.html",
+      "url": "https://sportenvo.com/is-7m-high-enough-for-indoor-padel.html",
+      "canonical": "https://sportenvo.com/is-7m-high-enough-for-indoor-padel.html",
+      "noindex": false,
+      "title": "Is 7m High Enough for an Indoor Padel Court? | SPORTENVO",
+      "description": "Is a 7 m ceiling enough for indoor padel? Compare the 6 m FIP minimum, 8 m recommendation for new facilities, beams, lights, lob play and club planning.",
+      "schemas": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 25
+    },
+    {
+      "file": "markets/germany.html",
+      "url": "https://sportenvo.com/markets/germany.html",
+      "canonical": "https://sportenvo.com/markets/germany.html",
+      "noindex": true,
+      "title": "Padel Courts in Germany | SPORTENVO",
+      "description": "Commercial padel club development, modular foundation options and indoor / outdoor court systems for German projects.",
+      "schemas": [],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "markets/netherlands.html",
+      "url": "https://sportenvo.com/markets/netherlands.html",
+      "canonical": "https://sportenvo.com/markets/netherlands.html",
+      "noindex": true,
+      "title": "Padel Courts in Netherlands | SPORTENVO",
+      "description": "Padel court systems for Dutch clubs, contractors and sports developers, with modular foundation and roof options.",
+      "schemas": [],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "markets/uk.html",
+      "url": "https://sportenvo.com/markets/uk.html",
+      "canonical": "https://sportenvo.com/markets/uk.html",
+      "noindex": true,
+      "title": "Padel Courts in United Kingdom | SPORTENVO",
+      "description": "Padel court solutions for UK commercial clubs, indoor venues, sports centers and project developers.",
+      "schemas": [],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "media-kit.html",
+      "url": "https://sportenvo.com/media-kit.html",
+      "canonical": "https://sportenvo.com/media-kit.html",
+      "noindex": false,
+      "title": "SPORTENVO Media & Project Reference Kit | Commercial Padel Court Systems",
+      "description": "Official SPORTENVO media and project reference kit with approved brand description, commercial padel court product names, project references, technical topics and official channels.",
+      "schemas": [
+        "BreadcrumbList",
+        "WebPage"
+      ],
+      "depth": 2,
+      "internalLinks": 22
+    },
+    {
+      "file": "mobile-vs-fixed-padel-court.html",
+      "url": "https://sportenvo.com/mobile-vs-fixed-padel-court.html",
+      "canonical": "https://sportenvo.com/mobile-vs-fixed-padel-court.html",
+      "noindex": false,
+      "title": "Mobile vs Fixed Padel Court: Which Fits Your Project? | SPORTENVO",
+      "description": "Compare mobile and fixed padel court systems for leased sites, permanent clubs, foundations, drainage, anchoring, relocation, installation and project scope.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 29
+    },
+    {
+      "file": "mobile.html",
+      "url": "https://sportenvo.com/mobile.html",
+      "canonical": "https://sportenvo.com/mobile.html",
+      "noindex": false,
+      "title": "Mobile Padel Court Manufacturer | Portable | SPORTENVO",
+      "description": "Mobile padel court manufacturer for portable and relocatable projects. Compare modular foundation, anchoring, drainage, packing and installation support.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 26
+    },
+    {
+      "file": "modular-foundation-guide.html",
+      "url": "https://sportenvo.com/modular-foundation-guide.html",
+      "canonical": "https://sportenvo.com/modular-foundation-guide.html",
+      "noindex": false,
+      "title": "Padel Court Foundation Guide 2026 | Concrete vs Modular | SPORTENVO",
+      "description": "Padel court foundation planning guide comparing concrete vs modular steel systems, porous bases, rainy-climate drainage, leveling, anchoring, wind and roof loads.",
+      "schemas": [
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 32
+    },
+    {
+      "file": "modular-foundation.html",
+      "url": "https://sportenvo.com/modular-foundation.html",
+      "canonical": "https://sportenvo.com/modular-foundation.html",
+      "noindex": false,
+      "title": "Modular Foundation Base for Padel Courts | SPORTENVO",
+      "description": "Modular Foundation Base for commercial padel courts, leased sites and relocatable projects. Review steel-base specifications, leveling, anchoring, drainage and project engineering.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "VideoObject",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 27
+    },
+    {
+      "file": "outdoor-padel-court-without-roof.html",
+      "url": "https://sportenvo.com/outdoor-padel-court-without-roof.html",
+      "canonical": "https://sportenvo.com/outdoor-padel-court-without-roof.html",
+      "noindex": false,
+      "title": "Outdoor Padel Court Without a Roof: Is It Worth It? | SPORTENVO",
+      "description": "Should an outdoor padel court have a roof? Compare rain, wind, sun, drainage, playable hours, revenue risk, canopy cost and when uncovered courts still make sense.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 25
+    },
+    {
+      "file": "padel-club-business-plan.html",
+      "url": "https://sportenvo.com/padel-club-business-plan.html",
+      "canonical": "https://sportenvo.com/padel-club-business-plan.html",
+      "noindex": false,
+      "title": "Padel Club Business Plan: 15 Checks | SPORTENVO",
+      "description": "Plan a padel club with 15 checks covering demand, site, lease, approvals, court count, CAPEX, OPEX, pricing, weather strategy and supplier scope.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 34
+    },
+    {
+      "file": "padel-club-profitability.html",
+      "url": "https://sportenvo.com/padel-club-profitability.html",
+      "canonical": "https://sportenvo.com/padel-club-profitability.html",
+      "noindex": false,
+      "title": "Padel Club Profitability: Revenue & ROI Model | SPORTENVO",
+      "description": "Model padel club revenue, occupancy, pricing, coaching, operating costs, maintenance, covered hours and investment risk with a practical ROI framework.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 29
+    },
+    {
+      "file": "padel-club-site-selection.html",
+      "url": "https://sportenvo.com/padel-club-site-selection.html",
+      "canonical": "https://sportenvo.com/padel-club-site-selection.html",
+      "noindex": false,
+      "title": "Padel Club Site Selection Guide | SPORTENVO",
+      "description": "Compare warehouse, outdoor land and rooftop sites for a padel club by rent, clear height, planning, foundations, drainage, wind, parking, access and expansion.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 31
+    },
+    {
+      "file": "padel-court-dimensions.html",
+      "url": "https://sportenvo.com/padel-court-dimensions.html",
+      "canonical": "https://sportenvo.com/padel-court-dimensions.html",
+      "noindex": false,
+      "title": "Padel Court Dimensions: 20×10m / 65.6×32.8ft | SPORTENVO",
+      "description": "Padel court dimensions are 20 × 10 m (65.6 × 32.8 ft). Check FIP clear height, multi-court site space, roof, drainage and commercial project planning.",
+      "schemas": [
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 35
+    },
+    {
+      "file": "padel-court-distributor.html",
+      "url": "https://sportenvo.com/padel-court-distributor.html",
+      "canonical": "https://sportenvo.com/padel-court-distributor.html",
+      "noindex": false,
+      "title": "Padel Court Supply for Dealers & Contractors | SPORTENVO",
+      "description": "Padel court manufacturing and project support for sports contractors, facility builders and regional distribution partners.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 23
+    },
+    {
+      "file": "padel-court-drainage-guide.html",
+      "url": "https://sportenvo.com/padel-court-drainage-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-drainage-guide.html",
+      "noindex": false,
+      "title": "Padel Court Drainage: Keep Outdoor Courts Playable | SPORTENVO",
+      "description": "Plan padel court drainage correctly: porous base, perimeter drains, falls, turf sand, roof runoff and checks for outdoor courts that stay wet after rain.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 29
+    },
+    {
+      "file": "padel-court-glass-guide.html",
+      "url": "https://sportenvo.com/padel-court-glass-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-glass-guide.html",
+      "noindex": false,
+      "title": "Padel Court Glass Guide: 12mm Tempered Glass & EN 12150 | SPORTENVO",
+      "description": "Padel court glass buyer guide covering 10mm vs 12mm tempered glass, EN 12150, glass breakage, edge damage, fixings, clearances, installation stress, safety inspection and maintenance.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 27
+    },
+    {
+      "file": "padel-court-installation-guide.html",
+      "url": "https://sportenvo.com/padel-court-installation-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-installation-guide.html",
+      "noindex": false,
+      "title": "Padel Court Installation Guide: Site to Handover | SPORTENVO",
+      "description": "Plan a commercial padel court installation from site readiness and foundation checks to unloading, structure, glass, turf, lighting, QC and project handover.",
+      "schemas": [
+        "BreadcrumbList",
+        "TechArticle",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 36
+    },
+    {
+      "file": "padel-court-lighting-guide.html",
+      "url": "https://sportenvo.com/padel-court-lighting-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-lighting-guide.html",
+      "noindex": false,
+      "title": "Padel Court Lighting Guide: Lux, LED &amp; Glare | SPORTENVO",
+      "description": "Plan padel court lighting for visibility without glare: lux, uniformity, vertical light, LED optics, mounting position, roof shadows and light spill.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 25
+    },
+    {
+      "file": "padel-court-maintenance-guide.html",
+      "url": "https://sportenvo.com/padel-court-maintenance-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-maintenance-guide.html",
+      "noindex": false,
+      "title": "Padel Court Maintenance: Schedule, Costs & Replacement Planning | SPORTENVO",
+      "description": "Commercial padel court maintenance guide covering turf brushing and sand, glass and steel inspections, drainage, lighting, cleaning, resurfacing, maintenance costs and replacement planning.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 29
+    },
+    {
+      "file": "padel-court-noise-planning.html",
+      "url": "https://sportenvo.com/padel-court-noise-planning.html",
+      "canonical": "https://sportenvo.com/padel-court-noise-planning.html",
+      "noindex": false,
+      "title": "Padel Court Noise &amp; Planning Permission Guide | SPORTENVO",
+      "description": "Plan for padel court noise before approval: acoustic assessment, site layout, hours, barriers, court details, lighting and neighbour-sensitive design.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 25
+    },
+    {
+      "file": "padel-court-rfq-checklist.html",
+      "url": "https://sportenvo.com/padel-court-rfq-checklist.html",
+      "canonical": "https://sportenvo.com/padel-court-rfq-checklist.html",
+      "noindex": false,
+      "title": "Padel Court RFQ Checklist &amp; Supplier Comparison | SPORTENVO",
+      "description": "Build a commercial padel court RFQ, compare supplier quotations line by line, check exclusions, shipping, installation, foundation and roof scope, then continue to a project brief.",
+      "schemas": [
+        "BreadcrumbList",
+        "TechArticle",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 29
+    },
+    {
+      "file": "padel-court-roof-cost.html",
+      "url": "https://sportenvo.com/padel-court-roof-cost.html",
+      "canonical": "https://sportenvo.com/padel-court-roof-cost.html",
+      "noindex": false,
+      "title": "Padel Court Roof Cost 2026: Fixed vs Retractable | SPORTENVO",
+      "description": "Padel court roof cost guide for 2026. Compare fixed roofs, retractable roofs and electric tent systems, plus foundation, wind, drainage, freight and installation costs.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 27
+    },
+    {
+      "file": "padel-court-roof-guide.html",
+      "url": "https://sportenvo.com/padel-court-roof-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-roof-guide.html",
+      "noindex": false,
+      "title": "Padel Court Roof Planning Guide 2026 | Fixed vs Retractable | SPORTENVO",
+      "description": "Plan a commercial padel court roof: fixed vs retractable systems, clear height, wind, drainage, foundation loads, multi-court layouts and quotation inputs.",
+      "schemas": [
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 33
+    },
+    {
+      "file": "padel-court-shipping-guide.html",
+      "url": "https://sportenvo.com/padel-court-shipping-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-shipping-guide.html",
+      "noindex": false,
+      "title": "Padel Court Shipping & Delivery Guide | SPORTENVO",
+      "description": "Plan padel court export packing, freight, customs documents, unloading, damage checks and site delivery for commercial projects.",
+      "schemas": [
+        "BreadcrumbList",
+        "TechArticle",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 28
+    },
+    {
+      "file": "padel-court-turf-guide.html",
+      "url": "https://sportenvo.com/padel-court-turf-guide.html",
+      "canonical": "https://sportenvo.com/padel-court-turf-guide.html",
+      "noindex": false,
+      "title": "Padel Court Turf: 12mm, Sand & Maintenance | SPORTENVO",
+      "description": "How to compare padel court turf: 10mm vs 12mm pile height, yarn structure, Dtex, silica sand, drainage, ball response and commercial maintenance.",
+      "schemas": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 27
+    },
+    {
+      "file": "padel-courts/portable-padel-court/index.html",
+      "url": "https://sportenvo.com/padel-courts/portable-padel-court/",
+      "canonical": "https://sportenvo.com/padel-courts/portable-padel-court/",
+      "noindex": true,
+      "title": "Portable Padel Court | Modular Mobile Court Manufacturer | Sportenvo",
+      "description": "Portable padel court with modular steel foundation for clubs, resorts and commercial sports facilities. Reduced civil work, flexible installation, professional court system and factory-direct project support.",
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "depth": null,
+      "internalLinks": 18
+    },
+    {
+      "file": "panoramic-vs-super-panoramic.html",
+      "url": "https://sportenvo.com/panoramic-vs-super-panoramic.html",
+      "canonical": "https://sportenvo.com/panoramic-vs-super-panoramic.html",
+      "noindex": false,
+      "title": "Panoramic vs Super Panoramic Padel Court Comparison 2026 | SPORTENVO",
+      "description": "Panoramic vs Super Panoramic Padel Court comparison guide covering structural concept, sightlines, venue positioning, indoor/outdoor use, foundation and project requirements.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article",
+        "FAQPage"
+      ],
+      "depth": 2,
+      "internalLinks": 24
+    },
+    {
+      "file": "panoramic.html",
+      "url": "https://sportenvo.com/panoramic.html",
+      "canonical": "https://sportenvo.com/panoramic.html",
+      "noindex": false,
+      "title": "Panoramic Padel Court Manufacturer & Supplier | SPORTENVO",
+      "description": "Panoramic padel court manufacturer and project supplier for clubs, resorts and commercial venues, with 12 mm glass, steel structure, drawings and installation support.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 28
+    },
+    {
+      "file": "project-buenos-aires-argentina-padel-club.html",
+      "url": "https://sportenvo.com/project-buenos-aires-argentina-padel-club.html",
+      "canonical": "https://sportenvo.com/project-buenos-aires-argentina-padel-club.html",
+      "noindex": false,
+      "title": "Five-Court Padel Club Project in Buenos Aires, Argentina | SPORTENVO",
+      "description": "Company project reference for Conecta Padel in Quilmes, Buenos Aires: five panoramic padel courts with a 4 indoor + 1 outdoor operating layout.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "project-chiang-mai-thailand-covered-padel-club.html",
+      "url": "https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html",
+      "canonical": "https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html",
+      "noindex": false,
+      "title": "Covered Padel Club Project in Chiang Mai, Thailand | SPORTENVO",
+      "description": "Company project reference for PADEL.CNX in Chiang Mai, Thailand: four panoramic padel courts with black turf, straight-arm LED lighting and a large steel roof for tropical conditions.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 19
+    },
+    {
+      "file": "project-costa-rica-covered-padel-courts.html",
+      "url": "https://sportenvo.com/project-costa-rica-covered-padel-courts.html",
+      "canonical": "https://sportenvo.com/project-costa-rica-covered-padel-courts.html",
+      "noindex": false,
+      "title": "Covered Padel Court Project in Costa Rica | SPORTENVO",
+      "description": "Explore a real covered two-court panoramic padel project in Costa Rica through completed project photography of the venue, roof structure, courts and lighting.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 1,
+      "internalLinks": 21
+    },
+    {
+      "file": "project-dominican-republic-resort-padel-courts.html",
+      "url": "https://sportenvo.com/project-dominican-republic-resort-padel-courts.html",
+      "canonical": "https://sportenvo.com/project-dominican-republic-resort-padel-courts.html",
+      "noindex": false,
+      "title": "Racket Club Padel Courts in Las Terrenas, Dominican Republic | SPORTENVO",
+      "description": "Company project reference for Esperanza Racket Club in Las Terrenas, Dominican Republic, featuring two padel courts within Esperanza Residence alongside tennis, training and social facilities.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "project-ghana-seaside-hotel-padel-courts.html",
+      "url": "https://sportenvo.com/project-ghana-seaside-hotel-padel-courts.html",
+      "canonical": "https://sportenvo.com/project-ghana-seaside-hotel-padel-courts.html",
+      "noindex": false,
+      "title": "Seaside Hotel Padel Court Project in Ghana | SPORTENVO",
+      "description": "Company project reference for a seaside hospitality project at Till's Beach Resort in Gomoa Fetteh, Ghana. The resort's current public website lists two padel courts.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 19
+    },
+    {
+      "file": "project-guatemala-covered-padel-court.html",
+      "url": "https://sportenvo.com/project-guatemala-covered-padel-court.html",
+      "canonical": "https://sportenvo.com/project-guatemala-covered-padel-court.html",
+      "noindex": false,
+      "title": "Covered Panoramic Padel Court Project in Guatemala | SPORTENVO",
+      "description": "Explore a real covered panoramic padel court project in Guatemala. SPORTENVO supplied the court system, roof, turf and lighting, and provided installation guidance with the local team.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 24
+    },
+    {
+      "file": "project-harwich-uk-portable-padel-court.html",
+      "url": "https://sportenvo.com/project-harwich-uk-portable-padel-court.html",
+      "canonical": "https://sportenvo.com/project-harwich-uk-portable-padel-court.html",
+      "noindex": false,
+      "title": "Portable Padel Court Project in Harwich, UK | SPORTENVO",
+      "description": "Company project reference for a relocatable portable padel court installed at a private property in Harwich, Essex, UK without a traditional permanent concrete foundation.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 19
+    },
+    {
+      "file": "project-kuala-lumpur.html",
+      "url": "https://sportenvo.com/project-kuala-lumpur.html",
+      "canonical": "https://sportenvo.com/project-kuala-lumpur.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Project in Kuala Lumpur | SPORTENVO",
+      "description": "Explore a SPORTENVO commercial padel court project in Kuala Lumpur, Malaysia, including project requirements, court solution, planning considerations and selected project details.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 1,
+      "internalLinks": 24
+    },
+    {
+      "file": "project-meyyafushi-maldives-overwater-padel-court.html",
+      "url": "https://sportenvo.com/project-meyyafushi-maldives-overwater-padel-court.html",
+      "canonical": "https://sportenvo.com/project-meyyafushi-maldives-overwater-padel-court.html",
+      "noindex": false,
+      "title": "Overwater Padel Court Project in Meyyafushi, Maldives | SPORTENVO",
+      "description": "Company project reference for an overwater Classic padel court in Meyyafushi, Maldives, built on an offshore platform in a high-salinity marine environment.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "project-moldova.html",
+      "url": "https://sportenvo.com/project-moldova.html",
+      "canonical": "https://sportenvo.com/project-moldova.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Project in Moldova | SPORTENVO",
+      "description": "Explore a SPORTENVO commercial padel court project in Moldova, including indoor multi-court installation, venue integration, spectator areas and complete project support.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 1,
+      "internalLinks": 24
+    },
+    {
+      "file": "project-moscow-indoor-padel-club.html",
+      "url": "https://sportenvo.com/project-moscow-indoor-padel-club.html",
+      "canonical": "https://sportenvo.com/project-moscow-indoor-padel-club.html",
+      "noindex": false,
+      "title": "Seven-Court Indoor Padel Club Project in Moscow | SPORTENVO",
+      "description": "Company project reference for a seven-court indoor commercial padel club in Moscow with Super Panoramic, Panoramic and Single court configurations.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "project-stanwell-uk-padel-club.html",
+      "url": "https://sportenvo.com/project-stanwell-uk-padel-club.html",
+      "canonical": "https://sportenvo.com/project-stanwell-uk-padel-club.html",
+      "noindex": false,
+      "title": "Covered & Outdoor Padel Club in Stanwell, UK | SPORTENVO",
+      "description": "Company project reference for Padel Boutique in Stanwell, UK. Current public venue listings show three courts in operation: one outdoor and two covered; the company archive records a broader development scope.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "project-yogyakarta-indoor-padel-club.html",
+      "url": "https://sportenvo.com/project-yogyakarta-indoor-padel-club.html",
+      "canonical": "https://sportenvo.com/project-yogyakarta-indoor-padel-club.html",
+      "noindex": false,
+      "title": "Premium Indoor Padel Club Project in Yogyakarta | SPORTENVO",
+      "description": "Company project reference for The Circles Club in Yogyakarta, Indonesia, featuring four Super Panoramic courts in a premium indoor padel, café and wellness venue.",
+      "schemas": [
+        "BreadcrumbList",
+        "Article"
+      ],
+      "depth": 2,
+      "internalLinks": 18
+    },
+    {
+      "file": "projects.html",
+      "url": "https://sportenvo.com/projects.html",
+      "canonical": "https://sportenvo.com/projects.html",
+      "noindex": false,
+      "title": "Commercial Padel Court Projects | SPORTENVO",
+      "description": "Explore SPORTENVO commercial padel court references for clubs, resorts, covered venues and demanding site conditions.",
+      "schemas": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 32
+    },
+    {
+      "file": "quality.html",
+      "url": "https://sportenvo.com/quality.html",
+      "canonical": "https://sportenvo.com/quality.html",
+      "noindex": false,
+      "title": "Padel Court Project Evidence Center | Quality & Documentation | SPORTENVO",
+      "description": "SPORTENVO Project Evidence Center for commercial padel court buyers: manufacturing photos, technical specifications, QC checkpoints, packing evidence, drawings, documentation and completed project references.",
+      "schemas": [
+        "BreadcrumbList",
+        "WebPage",
+        "ItemList"
+      ],
+      "depth": 1,
+      "internalLinks": 33
+    },
+    {
+      "file": "resources.html",
+      "url": "https://sportenvo.com/resources.html",
+      "canonical": "https://sportenvo.com/resources.html",
+      "noindex": true,
+      "title": "Padel Court Buyer Resources & Planning Guides | SPORTENVO",
+      "description": "SPORTENVO buyer resources for padel court cost, dimensions, foundations, court selection, roof planning and commercial club development.",
+      "schemas": [
+        "BreadcrumbList",
+        "CollectionPage"
+      ],
+      "depth": null,
+      "internalLinks": 29
+    },
+    {
+      "file": "roof.html",
+      "url": "https://sportenvo.com/roof.html",
+      "canonical": "https://sportenvo.com/roof.html",
+      "noindex": false,
+      "title": "Aluminum Alloy Padel Court Roof Manufacturer | SPORTENVO",
+      "description": "Commercial padel court roof manufacturer and project supplier. Fixed and aluminum-alloy retractable systems with coordinated court, foundation and engineering support.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "VideoObject",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 29
+    },
+    {
+      "file": "solutions.html",
+      "url": "https://sportenvo.com/solutions.html",
+      "canonical": "https://sportenvo.com/solutions.html",
+      "noindex": false,
+      "title": "Padel Court Project Solutions | SPORTENVO",
+      "description": "Match SPORTENVO padel systems to clubs, resorts, contractors, temporary sites, covered venues and high-wind projects, including foundations and roofs.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 20
+    },
+    {
+      "file": "start-project.html",
+      "url": "https://sportenvo.com/start-project.html",
+      "canonical": "https://sportenvo.com/start-project.html",
+      "noindex": false,
+      "title": "Padel Court Project Planning &amp; Proposal | SPORTENVO",
+      "description": "Plan a commercial padel project with SPORTENVO. Use the project configurator to define venue, court quantity, site condition, foundation and weather protection, or choose Not Sure for a recommended system direction.",
+      "schemas": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "depth": 1,
+      "internalLinks": 23
+    },
+    {
+      "file": "super-panoramic.html",
+      "url": "https://sportenvo.com/super-panoramic.html",
+      "canonical": "https://sportenvo.com/super-panoramic.html",
+      "noindex": false,
+      "title": "Super Panoramic Padel Court Manufacturer | SPORTENVO",
+      "description": "Super Panoramic Padel Court manufacturer and project supplier for premium clubs, indoor venues and showcase courts. Compare open-view structure, 12 mm glass, foundation, drawings and installation support.",
+      "schemas": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "depth": 1,
+      "internalLinks": 24
+    },
+    {
+      "file": "thank-you.html",
+      "url": "https://sportenvo.com/thank-you.html",
+      "noindex": true,
+      "title": "Project Inquiry Received | SPORTENVO",
+      "description": "Your SPORTENVO commercial padel project inquiry has been received.",
+      "schemas": [],
+      "depth": null,
+      "internalLinks": 18
+    }
+  ]
+}

@@ -68,18 +68,7 @@ document.addEventListener("click", (event) => {
   });
 });
 
-const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
-const currentParams = new URLSearchParams(window.location.search);
-const attribution = {};
-
-for (const key of attributionKeys) {
-  let storedValue = "";
-  try { storedValue = sessionStorage.getItem(`sportenvo_${key}`) || ""; } catch {}
-  const value = currentParams.get(key) || storedValue;
-  if (!value) continue;
-  attribution[key] = value;
-  try { sessionStorage.setItem(`sportenvo_${key}`, value); } catch {}
-}
+const attribution = window.sportenvoAttribution?.getContext() || {};
 
 const whatsappHref = "https://wa.me/8613128265916?text=Hi%2C%20I%27m%20interested%20in%20a%20padel%20court%20project.";
 const existingWhatsApp = document.querySelector(".whatsapp");
@@ -115,7 +104,11 @@ function trackEvent(eventName, parameters = {}) {
   window.dataLayer.push({ event: eventName, ...parameters });
 }
 
-function rememberLeadIntent(ctaText = "") {
+function rememberLeadIntent(ctaText = "", preserveExisting = false) {
+  if (window.sportenvoAttribution) {
+    window.sportenvoAttribution.rememberLeadIntent(ctaText, preserveExisting);
+    return;
+  }
   try {
     localStorage.setItem("sportenvo_lead_started_at", String(Date.now()));
     localStorage.setItem("sportenvo_lead_source_page", window.location.pathname + window.location.search);
@@ -126,7 +119,7 @@ function rememberLeadIntent(ctaText = "") {
 window.sportenvoRememberLeadIntent = rememberLeadIntent;
 
 document.addEventListener("click", (event) => {
-  const link = event.target.closest("a[href]");
+  const link = event.target instanceof Element ? event.target.closest("a[href]") : event.target?.parentElement?.closest("a[href]");
   if (!link) return;
   const rawHref = link.getAttribute("href") || "";
   let destination;
@@ -179,6 +172,15 @@ document.addEventListener("click", (event) => {
   if (destination.protocol === "mailto:" && /sales@sportenvo\.com/i.test(destination.href)) {
     rememberLeadIntent(visibleText);
     trackEvent("contact_email_click", params);
+    return;
+  }
+  if (destination.protocol === "tel:") {
+    rememberLeadIntent(visibleText);
+    trackEvent("contact_phone_click", params);
+    return;
+  }
+  if (link.hasAttribute("download") || /\.pdf$/i.test(destination.pathname)) {
+    trackEvent("resource_download", params);
   }
 });
 
