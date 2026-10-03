@@ -12,6 +12,8 @@ on:
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-indexnow.py"
+      - "scripts/sync-buyer-content.py"
+      - "scripts/test-buyer-content.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
@@ -26,6 +28,8 @@ on:
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-indexnow.py"
+      - "scripts/sync-buyer-content.py"
+      - "scripts/test-buyer-content.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
@@ -48,3 +52,7 @@ jobs:
         run: node --test scripts/test-lead-tracking.mjs
       - name: Check deployment fingerprints through edge transformations
         run: python3 scripts/test-indexnow.py
+      - name: Check visible buyer answers and approved brand entity
+        run: |
+          python3 scripts/sync-buyer-content.py
+          python3 scripts/test-buyer-content.py
