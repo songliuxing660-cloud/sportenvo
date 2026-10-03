@@ -16,6 +16,7 @@ on:
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
+      - "scripts/test-keyword-intent.py"
       - "scripts/test-crawl-policy.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
@@ -36,6 +37,7 @@ on:
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
+      - "scripts/test-keyword-intent.py"
       - "scripts/test-crawl-policy.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
@@ -70,3 +72,5 @@ jobs:
         run: |
           python3 scripts/sync-buyer-content.py
           python3 scripts/test-buyer-content.py
+      - name: Check distinct catalog, solution and procurement search intents
+        run: python3 scripts/test-keyword-intent.py
