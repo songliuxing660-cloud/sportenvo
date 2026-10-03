@@ -12,6 +12,33 @@ sync_page = module["sync_page"]
 
 
 class BuyerContentTests(unittest.TestCase):
+    def test_dimensions_two_court_area_is_not_a_total_site_requirement(self):
+        root = Path(__file__).resolve().parents[1]
+        document = Document((root / "padel-court-dimensions.html").read_text(encoding="utf-8"))
+        section = next(node for node in document.root.find("section") if node.attrs.get("id") == "quick-reference")
+        row = next(node for node in section.find("tr") if module["clean"](node.text()).startswith("2 courts"))
+        cells = list(row.find("td"))
+        self.assertIn("400 m", cells[1].text())
+        self.assertIn(f"{round(400 / 0.3048 ** 2):,}", cells[1].text())
+        self.assertIn("not the total site area", cells[2].text())
+        links = {node.attrs.get("href") for node in section.find("a")}
+        self.assertTrue({"mobile.html", "panoramic.html", "modular-foundation.html"}.issubset(links))
+
+    def test_roof_comparison_keeps_project_specific_limits(self):
+        root = Path(__file__).resolve().parents[1]
+        document = Document((root / "roof.html").read_text(encoding="utf-8"))
+        section = next(node for node in document.root.find("section") if node.attrs.get("id") == "roof-system-comparison")
+        table = next(section.find("table"))
+        headings = [module["clean"](node.text()) for node in next(table.find("thead")).find("th")]
+        self.assertEqual(headings, ["Buyer checkpoint", "Fixed roof", "Aluminum-alloy retractable roof"])
+        rows = list(next(table.find("tbody")).find("tr"))
+        self.assertEqual(len(rows), 4)
+        self.assertTrue(all(len(list(row.find("td"))) == 2 for row in rows))
+        text = module["clean"](section.text())
+        self.assertIn("final suitability is confirmed for the actual venue", text)
+        self.assertIn("does not establish a universal wind rating", text)
+        self.assertIn("foundation reactions", text)
+
     def test_visible_answers_keep_link_text_and_decode_entities(self):
         html = '<section class="geo-faq"><details><summary>Roof &amp; foundation?</summary><p>Read <a href="roof.html">the roof guide</a> before <strong>ordering</strong>.</p></details></section>'
         entity = faq_entities(Document(html))[0]
