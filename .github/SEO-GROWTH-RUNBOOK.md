@@ -9,7 +9,7 @@
 - Preserved original landing page and five UTM fields across navigation; identified AI referrers only when the browser supplies a recognized external hostname.
 - Deduplicated confirmed Zoho submissions. A thank-you URL parameter alone does not count as an enquiry.
 - Added read-only search checks and attribution tests to pull-request CI.
-- Updated IndexNow to notify only indexable changed pages after their production HTML is published.
+- Updated IndexNow to notify only indexable changed pages after their production source fingerprints are published, tolerating Cloudflare email/analytics transformations.
 
 Passing a technical audit does not establish Google indexing, ranking, visits or AI citations. IndexNow acceptance is a notification, not an indexing guarantee, and is not a Google submission.
 
@@ -21,10 +21,11 @@ Run from the website repository:
 node scripts/check-site-consistency.mjs
 node scripts/audit-search.mjs --strict
 node --test scripts/test-lead-tracking.mjs
+python3 scripts/test-indexnow.py
 node scripts/sync-search-metadata.mjs
 ```
 
-The last command previews pending metadata updates. Use `--write` only after checking content and actual image selections. Update sitemap lastmod only for pages that really changed. Reports in this directory describe checked-out files, not live search engine coverage.
+The last command previews pending metadata and source fingerprint updates. After an HTML edit, run it with `--write` to refresh the deployment fingerprint, after checking content and actual image selections. Update sitemap lastmod only for pages that really changed. Reports in this directory describe checked-out files, not live search engine coverage.
 
 ## Google account handoff
 

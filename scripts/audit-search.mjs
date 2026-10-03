@@ -1,5 +1,6 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { contentFingerprint } from "./content-fingerprint.mjs";
 
 const root = process.cwd();
 const site = "https://sportenvo.com";
@@ -34,6 +35,8 @@ const canonicals = new Map();
 for (const file of await walk(root)) {
   const html = await readFile(path.join(root, file), "utf8");
   const meta = [...html.matchAll(/<meta\b[^>]*>/gi)].map((match) => attributes(match[0]));
+  const fingerprint = meta.filter((tag) => tag.name === "sportenvo-content-sha256");
+  if (fingerprint.length !== 1 || fingerprint[0].content !== contentFingerprint(html)) failures.push(`${file}: stale content fingerprint; run node scripts/sync-search-metadata.mjs --write`);
   const links = [...html.matchAll(/<link\b[^>]*>/gi)].map((match) => attributes(match[0]));
   const canonical = links.filter((link) => link.rel === "canonical");
   const noindex = meta.some((tag) => /^(robots|googlebot)$/i.test(tag.name || "") && /\bnoindex\b/i.test(tag.content || ""));

@@ -8,7 +8,11 @@ on:
       - "assets/**"
       - "scripts/check-site-consistency.mjs"
       - "scripts/audit-search.mjs"
+      - "scripts/content-fingerprint.mjs"
+      - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-indexnow.py"
+      - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
       - ".github/workflows/site-consistency.yml"
@@ -18,7 +22,11 @@ on:
       - "assets/**"
       - "scripts/check-site-consistency.mjs"
       - "scripts/audit-search.mjs"
+      - "scripts/content-fingerprint.mjs"
+      - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-indexnow.py"
+      - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
 
@@ -38,3 +46,5 @@ jobs:
         run: node scripts/audit-search.mjs --strict
       - name: Check enquiry attribution and confirmed conversions
         run: node --test scripts/test-lead-tracking.mjs
+      - name: Check deployment fingerprints through edge transformations
+        run: python3 scripts/test-indexnow.py
