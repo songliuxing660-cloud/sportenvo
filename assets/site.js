@@ -104,6 +104,10 @@ updateResult();
 // Anonymous GA4 enquiry funnel events for commercial project leads.
 (function(){
   const rememberLeadIntent=(ctaText='',preserveExisting=false)=>{
+    if(window.sportenvoAttribution){
+      window.sportenvoAttribution.rememberLeadIntent(ctaText,preserveExisting);
+      return;
+    }
     try{
       const existingPage=localStorage.getItem('sportenvo_lead_source_page')||'';
       const existingStarted=parseInt(localStorage.getItem('sportenvo_lead_started_at')||'0',10);
@@ -132,6 +136,7 @@ updateResult();
       page_location:window.location.href,
       page_title:document.title
     };
+    Object.assign(params,window.sportenvoAttribution?.getContext()||{});
 
     if(destination.origin===window.location.origin&&destination.hash==='#formal-project-inquiry'){
       rememberLeadIntent(visibleText);
@@ -161,6 +166,15 @@ updateResult();
     if(destination.protocol==='mailto:'&&/sales@sportenvo\.com/i.test(destination.href)){
       rememberLeadIntent(visibleText);
       window.gtag('event','contact_email_click',params);
+      return;
+    }
+    if(destination.protocol==='tel:'){
+      rememberLeadIntent(visibleText);
+      window.gtag('event','contact_phone_click',params);
+      return;
+    }
+    if(link.hasAttribute('download')||/\.pdf$/i.test(destination.pathname)){
+      window.gtag('event','resource_download',params);
       return;
     }
 
@@ -219,6 +233,7 @@ updateResult();
       utm_medium:utmMedium,
       utm_campaign:utmCampaign
     };
+    Object.assign(params,window.sportenvoAttribution?.getContext()||{});
 
     if(meta&&typeof meta==='object'){
       if(meta.form_alias) params.form_alias=String(meta.form_alias).slice(0,100);
@@ -227,7 +242,7 @@ updateResult();
 
     if(typeof window.gtag==='function'){
       window.gtag('event','project_form_submit',params);
-      window.gtag('event','generate_lead',{
+      window.gtag('event','generate_lead',Object.assign({
         currency:'USD',
         value:0,
         form_name:params.form_name,
@@ -238,7 +253,7 @@ updateResult();
         utm_source:utmSource,
         utm_medium:utmMedium,
         utm_campaign:utmCampaign
-      });
+      },params));
     }
 
     document.dispatchEvent(new CustomEvent('sportenvo:lead-submitted',{detail:params}));

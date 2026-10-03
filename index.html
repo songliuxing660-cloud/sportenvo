@@ -35,7 +35,7 @@
   <link rel="alternate" hreflang="en" href="https://sportenvo.com/">
   <link rel="alternate" hreflang="x-default" href="https://sportenvo.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Padel Court Manufacturer & Commercial Systems | SPORTENVO">
+  <meta property="og:title" content="Padel Court Manufacturer &amp; Commercial Systems | SPORTENVO">
   <meta property="og:description" content="Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.">
   <meta property="og:url" content="https://sportenvo.com/">
   <meta property="og:image" content="https://sportenvo.com/assets/images/home-hero.webp">
@@ -165,6 +165,9 @@
 }
 
 </style>
+<meta name="twitter:title" content="Padel Court Manufacturer &amp; Commercial Systems | SPORTENVO">
+<meta name="twitter:description" content="Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.">
+<meta name="twitter:image" content="https://sportenvo.com/assets/images/home-hero.webp">
 </head>
 <body class="home-v6">
   
@@ -402,7 +405,7 @@
   if(!shell||!mount) return;
   var loading=shell.querySelector('.home-formal-loading');
   var fallback=shell.querySelector('.home-formal-fallback');
-  var mounted=false,ready=false,delayTimer=null,frame=null;
+  var mounted=false,ready=false,delayTimer=null,frame=null,submitted=false;
   var formId='XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI';
 
   function send(name,params){
@@ -410,7 +413,7 @@
       window.gtag('event',name,Object.assign({
         form_name:'SPORTENVO Project Inquiry',
         form_location:'homepage_bottom'
-      },params||{}));
+      },params||{},window.sportenvoAttribution?.getContext()||{}));
     }
   }
 
@@ -423,7 +426,7 @@
       var hasRecentSource=!!(existingStarted && Date.now()-existingStarted<2*60*60*1000 && localStorage.getItem('sportenvo_lead_source_page'));
       if(!hasRecentSource){
         localStorage.setItem('sportenvo_lead_started_at',String(Date.now()));
-        localStorage.setItem('sportenvo_lead_source_page',window.location.pathname+window.location.search);
+        localStorage.setItem('sportenvo_lead_source_page',window.location.pathname);
         localStorage.setItem('sportenvo_lead_source_title',document.title);
         localStorage.setItem('sportenvo_lead_source_cta','Homepage Formal Inquiry');
       }
@@ -438,7 +441,14 @@
     if(loading) loading.textContent='Loading secure project form…';
 
     frame=document.createElement('iframe');
-    frame.src='https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/'+formId+'?zf_rszfm=1&referrername='+encodeURIComponent(window.location.href);
+    var formUrl=new URL('https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/'+formId);
+    formUrl.searchParams.set('zf_rszfm','1');
+    formUrl.searchParams.set('referrername',window.location.origin+window.location.pathname);
+    var attribution=window.sportenvoAttribution?.getContext()||{};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(key){
+      if(attribution[key]) formUrl.searchParams.set(key,attribution[key]);
+    });
+    frame.src=formUrl.href;
     frame.style.height='1421px';
     frame.style.width='100%';
     frame.style.border='none';
@@ -455,6 +465,26 @@
       if(loading) loading.textContent='The project form is taking longer than expected to load.';
       if(fallback) fallback.classList.add('is-visible');
     },15000);
+  }
+
+  function confirmSubmit(){
+    if(submitted) return;
+    submitted=true;
+    var started='';
+    var parameters={};
+    try{
+      started=localStorage.getItem('sportenvo_lead_started_at')||String(Math.floor(Date.now()/60000));
+      var dedupeKey='sportenvo_zoho_submit_'+started;
+      if(sessionStorage.getItem(dedupeKey)==='1') return;
+      sessionStorage.setItem(dedupeKey,'1');
+      sessionStorage.setItem('sportenvo_form_submit_confirmed','1');
+      ['page','title','cta','tag'].forEach(function(key){
+        parameters['lead_source_'+key]=localStorage.getItem('sportenvo_lead_source_'+key)||'';
+      });
+    }catch(e){}
+    send('project_form_submit',parameters);
+    send('generate_lead',Object.assign({currency:'USD',value:0},parameters));
+    window.setTimeout(function(){window.location.href='/thank-you.html?submitted=1';},150);
   }
 
   window.addEventListener('message',function(event){
@@ -474,18 +504,12 @@
 
       var lower=event.data.toLowerCase();
       if(lower.indexOf('zf_submitform')!==-1 || lower.indexOf('submit form')!==-1){
-        try{sessionStorage.setItem('sportenvo_form_submit_confirmed','1');}catch(e){}
-        send('project_form_submit');
-        send('generate_lead',{currency:'USD',value:0});
-        window.setTimeout(function(){window.location.href='/thank-you.html?submitted=1';},150);
+        confirmSubmit();
       }
     }else if(event.data && typeof event.data==='object'){
       var eventName=String(event.data.event_name||event.data.eventName||event.data.event||event.data.zf_event||event.data.zfEvent||'').toLowerCase();
       if(eventName.indexOf('zf_submitform')!==-1){
-        try{sessionStorage.setItem('sportenvo_form_submit_confirmed','1');}catch(e){}
-        send('project_form_submit');
-        send('generate_lead',{currency:'USD',value:0});
-        window.setTimeout(function(){window.location.href='/thank-you.html?submitted=1';},150);
+        confirmSubmit();
       }
     }
   },false);
@@ -507,6 +531,7 @@
 })();
 </script>
 
-<script src="assets/site-v2.js?v=20260928-perf2" defer></script>
+<script src="/assets/lead-attribution.js?v=20261003"></script>
+<script src="assets/site-v2.js?v=20261003-growth1" defer></script>
 </body>
 </html>

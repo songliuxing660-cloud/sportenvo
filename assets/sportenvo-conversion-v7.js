@@ -8,7 +8,7 @@
     window.gtag('event',name,Object.assign({
       page_location:location.href,
       page_title:document.title
-    },params||{}));
+    },params||{},window.sportenvoAttribution?.getContext()||{}));
   }
   function leadContext(){
     let started=0,sourcePage='',sourceTitle='',sourceCta='',sourceTag='',utmSource='',utmMedium='',utmCampaign='';
@@ -67,7 +67,7 @@
       if(event.origin!=='https://forms.zohopublic.com') return;
       const mount=document.getElementById('zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
       const frame=mount&&mount.querySelector('iframe');
-      if(frame&&event.source!==frame.contentWindow) return;
+      if(!frame||event.source!==frame.contentWindow) return;
 
       let payload=event.data;
       let textPayload='';
@@ -161,7 +161,6 @@
     const ctx=leadContext();
     let confirmed=false;
     try{confirmed=sessionStorage.getItem('sportenvo_form_submit_confirmed')==='1';}catch(e){}
-    const viaParam=new URLSearchParams(location.search).get('submitted')==='1';
     const fromZoho=/^https:\/\/forms\.zohopublic\.com\//i.test(document.referrer||'');
     const recent=recentLead(ctx);
     const dedupeKey='sportenvo_thankyou_conversion_'+String(ctx.started||'direct');
@@ -177,7 +176,7 @@
       utm_source:ctx.utmSource,
       utm_medium:ctx.utmMedium,
       utm_campaign:ctx.utmCampaign,
-      conversion_confirmed:confirmed||viaParam||fromZoho
+      conversion_confirmed:confirmed||fromZoho
     });
 
     let submitAlreadyTracked=false;
@@ -185,7 +184,7 @@
       submitAlreadyTracked=sessionStorage.getItem('sportenvo_zoho_submit_'+String(ctx.started||Math.floor(Date.now()/60000)))==='1';
     }catch(e){}
 
-    if(recent && (confirmed||viaParam||fromZoho) && !already && !submitAlreadyTracked){
+    if(recent && (confirmed||fromZoho) && !already && !submitAlreadyTracked){
       const params={
         form_name:'SPORTENVO Project Inquiry',
         lead_source_page:ctx.sourcePage,
