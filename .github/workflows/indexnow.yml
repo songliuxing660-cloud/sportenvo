@@ -65,6 +65,8 @@ jobs:
                           url = root + "/" + path
                       if url in eligible:
                           urls.append(url)
+                  if ".github/workflows/indexnow.yml" in changed:
+                      urls = list(eligible)
               else:
                   urls = list(eligible)
 
@@ -126,7 +128,8 @@ jobs:
                   raise RuntimeError(f"Production is not serving {len(pending)} updated pages yet; no notification sent.")
               print(f"Waiting for deployment: {len(pending)} page(s).")
               time.sleep(10)
-          with urllib.request.urlopen(key_location, timeout=15) as r:
+          key_request = urllib.request.Request(key_location, headers={"User-Agent": "SPORTENVO-Deployment-Check/1.0"})
+          with urllib.request.urlopen(key_request, timeout=15) as r:
               if r.read().decode("utf-8").strip() != key:
                   raise RuntimeError("Production IndexNow key file does not match.")
           payload = {
@@ -139,7 +142,7 @@ jobs:
           req = urllib.request.Request(
               "https://api.indexnow.org/indexnow",
               data=json.dumps(payload).encode("utf-8"),
-              headers={"Content-Type": "application/json; charset=utf-8"},
+              headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": "SPORTENVO-IndexNow/1.0"},
               method="POST",
           )
           try:
