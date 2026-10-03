@@ -5,10 +5,10 @@
     "super-panoramic": ["Super Panoramic Padel Court", "Super Panoramic Padel Court"],
     classic: ["Classic Padel Court", "Classic Padel Court"],
     mobile: ["Mobile Padel Court", "Portable / Mobile Padel Court"],
-    "electric-tent": ["Padel Court with Electric Tent", ""],
+    "electric-tent": ["Padel Court with Electric Tent", "Padel Court with Electric Tent"],
     roof: ["Padel Court with Roof", "Padel Court with Roof / Cover"],
-    "force-hx": ["Anti-Hurricane Padel Court \u2014 FORCE-HX Series", ""],
-    "modular-foundation": ["Modular Foundation Base", ""]
+    "force-hx": ["Anti-Hurricane Padel Court \u2014 FORCE-HX Series", "Anti-Hurricane Padel Court \u2014 FORCE-HX Series"],
+    "modular-foundation": ["Modular Foundation Base", "Modular Foundation Base"]
   };
   const labels = {
     court: "Court preference", quantity: "Court quantity", location: "Project location",
@@ -42,6 +42,7 @@
     if (/^[1-9]\d{0,2}$/.test(state.quantity || "")) url.searchParams.set("Number", state.quantity);
     const match = Object.values(products).find(([title]) => title === state.court);
     if (match?.[1]) url.searchParams.set("Dropdown", match[1]);
+    else if (state.court === "Not Sure \u2014 Recommend a Solution") url.searchParams.set("Dropdown", state.court);
     return url;
   }
   window.sportenvoInquiry = { capture, prefill, preference: Object.hasOwn(products, product) ? state.court : "" };

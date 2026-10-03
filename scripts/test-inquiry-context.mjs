@@ -10,12 +10,18 @@ function visit(query = "", session = new Map()) {
   vm.runInNewContext(script, sandbox);
   return { api: window.sportenvoInquiry, session, url: () => window.sportenvoInquiry.prefill(new URL("https://forms.zohopublic.com/form")) };
 }
-test("eight explicit product choices preserve identity without inventing Zoho options", () => {
-  for (const [slug, dropdown] of Object.entries({ panoramic: "Panoramic Padel Court", "super-panoramic": "Super Panoramic Padel Court", classic: "Classic Padel Court", mobile: "Portable / Mobile Padel Court", roof: "Padel Court with Roof / Cover", "electric-tent": null, "force-hx": null, "modular-foundation": null })) {
+test("eight explicit product choices match verified public Zoho options", () => {
+  for (const [slug, dropdown] of Object.entries({ panoramic: "Panoramic Padel Court", "super-panoramic": "Super Panoramic Padel Court", classic: "Classic Padel Court", mobile: "Portable / Mobile Padel Court", roof: "Padel Court with Roof / Cover", "electric-tent": "Padel Court with Electric Tent", "force-hx": "Anti-Hurricane Padel Court \u2014 FORCE-HX Series", "modular-foundation": "Modular Foundation Base" })) {
     const page = visit("?product=" + slug);
     assert.ok(page.url().searchParams.get("MultiLine").includes(page.api.preference));
     assert.equal(page.url().searchParams.get("Dropdown"), dropdown);
   }
+});
+test("an undecided configurator buyer keeps the verified recommendation option", () => {
+  const config = visit();
+  config.api.capture({ court: "Not Sure \u2014 Recommend a Solution" });
+  const home = visit("?source=start-project-configurator", config.session);
+  assert.equal(home.url().searchParams.get("Dropdown"), "Not Sure \u2014 Recommend a Solution");
 });
 test("explicit handoff preserves current project details but no arbitrary personal fields", () => {
   const config = visit();
