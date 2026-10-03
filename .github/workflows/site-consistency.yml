@@ -11,6 +11,7 @@ on:
       - "scripts/content-fingerprint.mjs"
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-rfq-context.mjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -27,6 +28,7 @@ on:
       - "scripts/content-fingerprint.mjs"
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-rfq-context.mjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -50,6 +52,8 @@ jobs:
         run: node scripts/audit-search.mjs --strict
       - name: Check enquiry attribution and confirmed conversions
         run: node --test scripts/test-lead-tracking.mjs
+      - name: Check product preferences through the RFQ buyer path
+        run: node --test scripts/test-rfq-context.mjs
       - name: Check deployment fingerprints through edge transformations
         run: python3 scripts/test-indexnow.py
       - name: Check visible buyer answers and approved brand entity
