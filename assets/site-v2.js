@@ -91,9 +91,27 @@ quoteLink.href = "/start-project.html?source=floating-project-cta#projectConfigu
 quoteLink.removeAttribute("target");
 quoteLink.removeAttribute("rel");
 quoteLink.innerHTML = 'Start Project <span aria-hidden="true">&#8594;</span>';
+const quoteProducts = {
+  "/panoramic.html": "panoramic", "/super-panoramic.html": "super-panoramic",
+  "/classic-padel-court.html": "classic", "/mobile.html": "mobile",
+  "/electric-tent-padel-court.html": "electric-tent", "/roof.html": "roof",
+  "/force-hx.html": "force-hx", "/modular-foundation.html": "modular-foundation"
+};
+const quoteProduct = quoteProducts[window.location.pathname];
+if (quoteProduct) {
+  quoteLink.href = "/index.html?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
+  quoteLink.innerHTML = 'Get Project Quote <span aria-hidden="true">&#8594;</span>';
+}
 
 contactActions.append(whatsappLink, quoteLink);
 document.body.appendChild(contactActions);
+const inquirySection = document.getElementById("formal-project-inquiry");
+if (inquirySection && "IntersectionObserver" in window) {
+  const quoteObserver = new IntersectionObserver(entries => {
+    quoteLink.style.display = entries[0].isIntersecting ? "none" : "";
+  });
+  quoteObserver.observe(inquirySection);
+}
 
 function trackEvent(eventName, parameters = {}) {
   if (typeof window.gtag === "function") {

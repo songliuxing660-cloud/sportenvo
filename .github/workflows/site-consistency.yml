@@ -12,6 +12,7 @@ on:
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-rfq-context.mjs"
+      - "scripts/test-inquiry-context.mjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -31,6 +32,7 @@ on:
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-rfq-context.mjs"
+      - "scripts/test-inquiry-context.mjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -60,6 +62,8 @@ jobs:
         run: node --test scripts/test-lead-tracking.mjs
       - name: Check product preferences through the RFQ buyer path
         run: node --test scripts/test-rfq-context.mjs
+      - name: Check product and project details reaching the inquiry form
+        run: node --test scripts/test-inquiry-context.mjs
       - name: Check deployment fingerprints through edge transformations
         run: python3 scripts/test-indexnow.py
       - name: Check visible buyer answers and approved brand entity
