@@ -60,7 +60,7 @@ test('ordinary entry retains the existing undecided court default', () => {
 });
 
 test('product links apply court preference without assuming weather or foundation', () => {
-  for (const [preset, title] of [['super-panoramic', 'Super Panoramic Padel Court'], ['roof', 'Padel Court with Roof']]) {
+  for (const [preset, title] of [['super-panoramic', 'Super Panoramic Padel Court'], ['roof', 'Padel Court with Roof'], ['mobile', 'Mobile Padel Court']]) {
     const view = setup('?rfq_court=' + preset);
     assert.ok(view.output.textContent.includes('Court preference: ' + title));
     assert.equal(view.button('court', title).attrs['aria-pressed'], 'true');
@@ -105,11 +105,12 @@ test('prefill and editable brief still work when local storage is unavailable', 
   assert.doesNotThrow(() => view.next.handlers.click());
 });
 
-test('all three product pages link to the builder with the intended context', () => {
+test('all four product pages link to the builder with the intended context', () => {
   for (const [file, key, value] of [
     ['super-panoramic.html', 'rfq_court', 'super-panoramic'],
     ['roof.html', 'rfq_court', 'roof'],
     ['modular-foundation.html', 'rfq_foundation', 'modular'],
+    ['mobile.html', 'rfq_court', 'mobile'],
   ]) {
     const page = readFileSync(new URL('../' + file, import.meta.url), 'utf8');
     const links = [...page.matchAll(/href="(padel-court-rfq-checklist\.html[^"]*)"/g)]
