@@ -100,17 +100,22 @@
 <style id="home-formal-inquiry-css">
 .home-v6 .home-guides.section-pad{padding-bottom:52px}
 .home-v6 .home-guide-all{margin-bottom:0}
-.home-formal-inquiry{padding:44px 0 50px;background:#f3f1eb;border-top:1px solid #e2ded5;content-visibility:visible;contain-intrinsic-size:none}
+.home-formal-inquiry{padding:44px 0 50px;background:#f3f1eb;border-top:1px solid #e2ded5;content-visibility:visible;contain-intrinsic-size:none;scroll-margin-top:120px}
 .home-formal-inquiry-inner{width:min(1220px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,.78fr) minmax(560px,1.22fr);gap:42px;align-items:start}
 .home-formal-copy{padding:0}
-.home-formal-copy h2{margin:8px 0 14px;font-size:clamp(38px,4.6vw,68px);line-height:.98;letter-spacing:-.05em;color:#07111f}
+.home-formal-copy h2{margin:8px 0 14px;font-size:36px;line-height:1.12;letter-spacing:0;color:#07111f}
 .home-formal-copy>p{margin:0 0 22px;max-width:520px;color:#61707e;font-size:16px;line-height:1.75}
 .home-formal-points{display:grid;gap:0;border-top:1px solid #d8d5ce}
 .home-formal-points div{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #d8d5ce}
 .home-formal-points span{font-size:11px;font-weight:900;color:#1a86bd}
 .home-formal-points strong{font-size:14px;color:#07111f}
 .home-formal-note{display:block;margin-top:16px;color:#7b858d;font-size:12px;line-height:1.6}
-.home-formal-form{position:relative;min-height:620px;background:#fff;border:1px solid #d9dde1;border-radius:16px;overflow:hidden;box-shadow:0 18px 48px rgba(7,17,31,.08)}
+.home-formal-context{margin-top:20px;padding:16px 0;border-top:1px solid #d8d5ce;border-bottom:1px solid #d8d5ce}
+.home-formal-context strong{font-size:14px;color:#07111f}
+.home-formal-context pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:14px;line-height:1.65;color:#536274;margin:10px 0 0}
+.home-formal-proof{margin-top:22px;font-size:14px;line-height:1.65;color:#536274}
+.home-formal-proof a{color:#07111f;text-underline-offset:4px;font-weight:700}
+.home-formal-form{position:relative;min-height:620px;background:#fff;border:1px solid #d9dde1;border-radius:8px;overflow:hidden;box-shadow:0 18px 48px rgba(7,17,31,.08)}
 .home-formal-form-head{padding:22px 24px 18px;border-bottom:1px solid #edf0f2;background:#fbfcfd}
 .home-formal-form-head span{display:block;margin-bottom:5px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#118fcf}
 .home-formal-form-head strong{font-size:20px;letter-spacing:-.02em;color:#07111f}
@@ -120,14 +125,22 @@
 .home-formal-fallback a{font-weight:800;color:#07111f;text-underline-offset:4px}
 .home-formal-form iframe{display:block;width:100%!important;border:0!important}
 @media(max-width:980px){
-  .home-formal-inquiry-inner{grid-template-columns:1fr;gap:30px}
-  .home-formal-form{min-height:620px}
+  .home-formal-inquiry-inner{grid-template-columns:1fr;gap:14px}
+  .home-formal-copy{display:contents}
+  .home-formal-copy>.eyebrow{grid-row:1;margin:0}
+  .home-formal-copy>h2{grid-row:2;margin:0}
+  .home-formal-copy>p:not(.eyebrow){grid-row:3;margin:0}
+  .home-formal-context{grid-row:4;margin:0;padding:12px 0}
+  .home-formal-form{grid-row:5;min-height:620px}
+  .home-formal-points{grid-row:6}
+  .home-formal-proof{grid-row:7;margin:0}
+  .home-formal-note{grid-row:8;margin:0}
 }
 @media(max-width:620px){
   .home-formal-inquiry{padding:34px 0 40px}
   .home-formal-inquiry-inner{width:calc(100% - 28px)}
-  .home-formal-copy h2{font-size:38px}
-  .home-formal-form{border-radius:12px}
+  .home-formal-copy h2{font-size:30px}
+  .home-formal-form{border-radius:8px}
   .home-formal-form-head{padding:18px}
 }
 
@@ -168,7 +181,7 @@
 <meta name="twitter:title" content="Padel Court Manufacturer &amp; Commercial Systems | SPORTENVO">
 <meta name="twitter:description" content="Commercial padel court systems, modular foundation systems, weather protection and project support for clubs, resorts and sports facilities.">
 <meta name="twitter:image" content="https://sportenvo.com/assets/images/home-hero.webp">
-<meta name="sportenvo-content-sha256" content="dcc8fb36f7b88e6d036df9e5a6ce9adfcb960992684f8c4d261267569e7c0e31">
+<meta name="sportenvo-content-sha256" content="80ce1fe0695bf77fb3e17816c6a1a9632b3150a82e56585a7c48755740f89377">
 </head>
 <body class="home-v6">
   
@@ -358,13 +371,15 @@
   <div class="home-formal-inquiry-inner">
     <div class="home-formal-copy">
       <p class="eyebrow">Formal Project Inquiry</p>
-      <h2 id="homeFormalInquiryTitle">Ready for a formal proposal?</h2>
-      <p>Send the core project details. We will review the court system, site requirements and commercial scope before preparing the next-step proposal.</p>
+      <h2 id="homeFormalInquiryTitle">Get a quote for your padel project.</h2>
+      <p>Start with your location, preferred system and court quantity. Site drawings and a final specification are not needed to begin the conversation.</p>
       <div class="home-formal-points">
-        <div><span>01</span><strong>Country, venue &amp; court quantity</strong></div>
-        <div><span>02</span><strong>Site, foundation &amp; roof requirements</strong></div>
-        <div><span>03</span><strong>Technical review &amp; quotation scope</strong></div>
+        <div><span>01</span><strong>Review your site and preferred court system</strong></div>
+        <div><span>02</span><strong>Clarify foundation, roof and installation responsibilities</strong></div>
+        <div><span>03</span><strong>Define quotation scope and information still needed</strong></div>
       </div>
+      <div class="home-formal-context" data-inquiry-context hidden><strong>Your project preference</strong><pre data-inquiry-summary></pre></div>
+      <div class="home-formal-proof"><strong>Real project references</strong><br><a href="projects.html" data-inquiry-evidence>View completed SPORTENVO projects</a></div>
       <small class="home-formal-note"><strong>Not ready for a formal RFQ?</strong> <a href="start-project.html?source=homepage-form#projectConfiguratorTitle">Use Project Configurator</a> · <a href="padel-court-rfq-checklist.html?source=homepage-form">Build RFQ Checklist</a></small>
     </div>
 
@@ -398,6 +413,7 @@
   </footer>
   <a class="whatsapp" href="https://wa.me/8613128265916?text=Hi%2C%20I%27m%20interested%20in%20a%20padel%20court%20project." aria-label="Chat with SPORTENVO on WhatsApp">WA</a>
   
+<script src="assets/inquiry-context.js?v=20261003-inquiry1"></script>
 <script id="home-zoho-lazy-loader">
 (function(){
   'use strict';
@@ -449,7 +465,11 @@
     ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(key){
       if(attribution[key]) formUrl.searchParams.set(key,attribution[key]);
     });
+    if(window.sportenvoInquiry) window.sportenvoInquiry.prefill(formUrl);
+    var directLink=fallback?.querySelector?.('a[href^="https://forms.zohopublic.com/"]');
+    if(directLink) directLink.href=formUrl.href;
     frame.src=formUrl.href;
+    frame.referrerPolicy='origin';
     frame.style.height='1421px';
     frame.style.width='100%';
     frame.style.border='none';
@@ -457,13 +477,14 @@
     frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
     frame.setAttribute('title','SPORTENVO Project Inquiry');
     frame.addEventListener('load',function(){
+      if(loading) loading.style.display='none';
       send('project_form_view');
     },{once:true});
     mount.appendChild(frame);
 
     delayTimer=window.setTimeout(function(){
       if(ready) return;
-      if(loading) loading.textContent='The project form is taking longer than expected to load.';
+      if(loading){loading.style.display='block';loading.textContent='The project form is taking longer than expected to load.';}
       if(fallback) fallback.classList.add('is-visible');
     },15000);
   }
@@ -479,6 +500,7 @@
       if(sessionStorage.getItem(dedupeKey)==='1') return;
       sessionStorage.setItem(dedupeKey,'1');
       sessionStorage.setItem('sportenvo_form_submit_confirmed','1');
+      sessionStorage.removeItem('sportenvo_inquiry_context');
       ['page','title','cta','tag'].forEach(function(key){
         parameters['lead_source_'+key]=localStorage.getItem('sportenvo_lead_source_'+key)||'';
       });
