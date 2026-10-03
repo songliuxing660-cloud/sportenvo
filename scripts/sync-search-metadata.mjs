@@ -1,5 +1,6 @@
 import { readFile, writeFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
+import { contentFingerprint, withoutFingerprint } from "./content-fingerprint.mjs";
 
 const site = "https://sportenvo.com";
 const write = process.argv.includes("--write");
@@ -25,7 +26,8 @@ async function walk(dir, prefix = "") {
 
 for (const file of await walk(process.cwd())) {
   const original = await readFile(file, "utf8");
-  let html = original;
+  const lineEnding = original.includes("\r\n") ? "\r\n" : "\n";
+  let html = withoutFingerprint(original);
   if (file === "insights.html") {
     html = html.replace("<h1>Clear decisions.<br>Better project briefs.</h1>", "<h1>Padel court guides.<br>Better project decisions.</h1>");
     const guideLinks = new Map();
@@ -89,6 +91,7 @@ for (const file of await walk(process.cwd())) {
     html = html.replace(/<script\b[^>]*src=["'][^"']*assets\/site(?:-v2)?\.js[^"']*["'][^>]*>/i, (tag) => `<script src="/assets/lead-attribution.js?v=20261003"></script>\n${tag}`);
   }
   html = html.replace(/(assets\/(?:site(?:-v2)?|sportenvo-conversion-v7)\.js)\?[^"'\s>]+/g, "$1?v=20261003-growth1");
+  html = html.replace(/<\/head>/i, `<meta name="sportenvo-content-sha256" content="${contentFingerprint(html)}">${lineEnding}</head>`);
   if (html === original) continue;
   modified.push(file);
   if (write) await writeFile(file, html);
