@@ -99,7 +99,7 @@ const quoteProducts = {
 };
 const quoteProduct = quoteProducts[window.location.pathname];
 if (quoteProduct) {
-  quoteLink.href = "/index.html?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
+  quoteLink.href = "https://sportenvo.com/?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
   quoteLink.innerHTML = 'Get Project Quote <span aria-hidden="true">&#8594;</span>';
 }
 

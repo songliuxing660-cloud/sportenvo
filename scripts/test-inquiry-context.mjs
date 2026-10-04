@@ -4,7 +4,7 @@ import vm from "node:vm";
 import { readFileSync } from "node:fs";
 const script = readFileSync(new URL("../assets/inquiry-context.js", import.meta.url), "utf8");
 function visit(query = "", session = new Map()) {
-  const window = { location: new URL("https://sportenvo.com/index.html" + query) };
+  const window = { location: new URL("https://sportenvo.com/" + query) };
   const sandbox = { window, document: { querySelector: () => null }, URL, URLSearchParams, Date,
     sessionStorage: { getItem: k => session.get(k), setItem: (k, v) => session.set(k, v) } };
   vm.runInNewContext(script, sandbox);
@@ -58,7 +58,7 @@ test("all product primary quote links target the form with their product", () =>
     assert.ok(links.length >= 3, file);
     for (const [, href] of links) {
       const url = new URL(href.replaceAll("&amp;", "&"), "https://sportenvo.com");
-      assert.equal(url.pathname, "/index.html"); assert.equal(url.hash, "#formal-project-inquiry"); assert.equal(url.searchParams.get("product"), slug);
+      assert.equal(url.pathname, "/"); assert.equal(url.hash, "#formal-project-inquiry"); assert.equal(url.searchParams.get("product"), slug);
     }
   }
 });
