@@ -20,6 +20,9 @@ on:
       - "scripts/sync-guide-content.py"
       - "scripts/test-guide-evidence.py"
       - "scripts/test-crawl-policy.py"
+      - "scripts/audit-technical-seo.py"
+      - "scripts/sync-home-links.py"
+      - "scripts/test-technical-seo.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
@@ -43,6 +46,9 @@ on:
       - "scripts/sync-guide-content.py"
       - "scripts/test-guide-evidence.py"
       - "scripts/test-crawl-policy.py"
+      - "scripts/audit-technical-seo.py"
+      - "scripts/sync-home-links.py"
+      - "scripts/test-technical-seo.py"
       - ".github/workflows/indexnow.yml"
       - "sitemap.xml"
       - "robots.txt"
@@ -64,6 +70,10 @@ jobs:
         run: node scripts/audit-search.mjs --strict
       - name: Check sitemap XML, public snippets and AI crawl permissions
         run: python3 scripts/test-crawl-policy.py
+      - name: Check homepage normalization, contextual links and protected Hero
+        run: |
+          python3 scripts/audit-technical-seo.py --strict
+          python3 scripts/test-technical-seo.py
       - name: Check enquiry attribution and confirmed conversions
         run: node --test scripts/test-lead-tracking.mjs
       - name: Check product preferences through the RFQ buyer path
