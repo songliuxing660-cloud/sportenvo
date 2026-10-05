@@ -340,6 +340,17 @@
   .home-v6 .home-guide-card:last-child{grid-column:1/-1}
 }
 @media(max-width:760px){
+  /* LCP-safe mobile hero: keep the premium look without delaying the first hero paint. */
+  .home-v6 .home-hero-media img{transform:none}
+  .home-v6 .hero-actions .button-ghost{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+    background:rgba(7,19,30,.34);
+  }
+  .home-v6 .hero-scope{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
   .home-v6 .home-hero{min-height:760px;align-items:flex-end}
   .home-v6 .hero-copy{
     width:auto;
