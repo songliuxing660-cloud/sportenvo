@@ -504,17 +504,31 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 
 <style id="direct-inquiry-gateway-css">
 .direct-inquiry-gateway{background:#eef3f6;padding:32px 0 36px;border-bottom:1px solid #dce4eb}
-.direct-inquiry-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:34px;align-items:center;background:#fff;border:1px solid #dce4eb;border-radius:18px;padding:28px 30px;box-shadow:0 14px 36px rgba(7,17,31,.055)}
+.direct-inquiry-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:34px;align-items:center;background:#fff;border:1px solid #dce4eb;border-radius:18px;padding:28px 30px;box-shadow:0 14px 36px rgba(7,17,31,.055)}
 .direct-inquiry-copy h2{margin:5px 0 10px;font-size:clamp(28px,3.4vw,44px);line-height:1.04;letter-spacing:-.035em;color:#07111f}
 .direct-inquiry-copy>p:not(.eyebrow){margin:0;max-width:720px;color:#687689;line-height:1.7}
 .direct-inquiry-steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .direct-inquiry-steps span{padding:8px 10px;border:1px solid #d7e0e6;border-radius:999px;background:#f8fafb;color:#32424f;font-size:12px;font-weight:800}
 .direct-inquiry-actions{padding-left:28px;border-left:1px solid #dce4eb}
-.direct-inquiry-actions .btn{width:100%;justify-content:space-between}
-.direct-inquiry-actions p{margin:12px 0 0;color:#7b8994;font-size:12px;line-height:1.55}
+.direct-inquiry-actions .btn{width:100%;justify-content:center;margin-bottom:10px}
+.direct-inquiry-actions .wa-now{background:#25d366;color:#06240f}
+.direct-inquiry-actions .wa-now:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(37,211,102,.22)}
+.direct-inquiry-actions p{margin:10px 0 0;color:#7b8994;font-size:12px;line-height:1.55}
 .direct-inquiry-actions a.secondary{display:inline-block;margin-top:12px;color:#526371;font-size:13px;font-weight:800;text-underline-offset:4px}
+.formal-inquiry-section{padding:38px 0 44px;background:#fff;scroll-margin-top:92px}
+.formal-inquiry-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,.62fr) minmax(560px,1.38fr);gap:32px;align-items:start}
+.formal-inquiry-copy{padding:26px 0}
+.formal-inquiry-copy h2{margin:5px 0 12px;font-size:clamp(28px,3.5vw,46px);line-height:1.05;letter-spacing:-.04em}
+.formal-inquiry-copy p{color:#687689;line-height:1.7}
+.formal-inquiry-proof{display:grid;gap:8px;margin-top:18px;color:#32424f;font-size:13px;font-weight:800}
+.formal-inquiry-form{min-width:0;background:#f8fafb;border:1px solid #dce4eb;border-radius:18px;padding:18px;box-shadow:0 14px 36px rgba(7,17,31,.05)}
+.formal-inquiry-loading{padding:18px;color:#687689;font-size:13px}
+.formal-inquiry-form iframe{display:block;width:100%!important;border:0!important}
+.formal-inquiry-fallback{margin:10px 0 0;font-size:12px;color:#687689}
+.formal-inquiry-fallback a{font-weight:800;text-underline-offset:3px}
+@media(max-width:900px){.formal-inquiry-inner{grid-template-columns:1fr}.formal-inquiry-copy{padding-bottom:0}}
 @media(max-width:820px){.direct-inquiry-inner{grid-template-columns:1fr}.direct-inquiry-actions{padding-left:0;padding-top:22px;border-left:0;border-top:1px solid #dce4eb}}
-@media(max-width:620px){.direct-inquiry-gateway{padding:22px 0}.direct-inquiry-inner{width:calc(100% - 28px);padding:22px;border-radius:14px}}
+@media(max-width:620px){.direct-inquiry-gateway{padding:22px 0}.direct-inquiry-inner,.formal-inquiry-inner{width:calc(100% - 28px)}.direct-inquiry-inner{padding:22px;border-radius:14px}.formal-inquiry-section{padding:28px 0 34px}.formal-inquiry-form{padding:12px}}
 </style>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Padel Court Project Planning &amp; Proposal | SPORTENVO">
@@ -525,7 +539,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 <meta name="twitter:title" content="Padel Court Project Planning &amp; Proposal | SPORTENVO">
 <meta name="twitter:description" content="Plan a commercial padel project with SPORTENVO. Use the project configurator to define venue, court quantity, site condition, foundation and weather protection, or choose Not Sure for a recommended system direction.">
 <meta name="twitter:image" content="https://sportenvo.com/assets/images/home-hero.webp">
-<meta name="sportenvo-content-sha256" content="2defda77dd615d44ecfa9b0dbe49440348f43ea2aa77fa8de9ee74a3ebdb5468">
+<meta name="sportenvo-content-sha256" content="436d8adad185478454a726905572adbec7833cd9f9640fd7e991effb4c22478e">
 </head>
 <body class="shell-v2 conversion-v7">
 <header class="site-header" data-header>
@@ -550,7 +564,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
     <div class="eyebrow">Commercial Padel Project Planning</div>
     <h1 class="display">PLAN YOUR<br>PADEL PROJECT.</h1>
     <p>Send your project requirements to our team for a tailored court, foundation, roof and delivery proposal.</p>
-    <p style="max-width:720px;margin-top:18px;font-size:15px;line-height:1.7;opacity:.85">SPORTENVO supports commercial padel court projects for clubs, resorts, sports facilities and developments worldwide. Project planning covers court selection, site evaluation, foundation requirements, roof options, technical drawings, manufacturing, shipping and installation support. Complete the inquiry form below to request a tailored project proposal.</p>
+    <p style="max-width:720px;margin-top:18px;font-size:15px;line-height:1.7;opacity:.85">SPORTENVO supports commercial padel court projects for clubs, resorts, sports facilities and developments worldwide. Project planning covers court selection, site evaluation, foundation requirements, roof options, technical drawings, manufacturing, shipping and installation support. Choose the fastest contact route below. If you already know the project location and approximate court quantity, contact SPORTENVO now; the detailed configurator is optional.</p>
   </div>
 </header>
 
@@ -560,19 +574,40 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
   <div class="direct-inquiry-inner">
     <div class="direct-inquiry-copy">
       <p class="eyebrow">Fastest Route to a Proposal</p>
-      <h2 id="directInquiryTitle">Already planning a real project? Go straight to the inquiry form.</h2>
-      <p>You do not need a final court specification. Start with the three basics below and our team can review the court, foundation and weather-protection direction with you.</p>
-      <div class="direct-inquiry-steps"><span>Country / City</span><span>Court Quantity</span><span>Email</span></div>
+      <h2 id="directInquiryTitle">Ready to discuss a real project? Contact us now.</h2>
+      <p>You do not need to complete the detailed configurator first. Share what you already know and add technical details later as the project develops.</p>
+      <div class="direct-inquiry-steps"><span>Country / City</span><span>Court Quantity</span><span>Project Type</span><span>Email / WhatsApp</span></div>
     </div>
     <div class="direct-inquiry-actions">
-      <a class="btn dark" href="https://sportenvo.com/?source=start-project-direct#formal-project-inquiry" data-quote-cta="start-project-direct">Open Project Inquiry ↗</a>
-      <p>The detailed configurator below is optional and is most useful if you are still comparing court systems.</p>
+      <a class="btn wa-now" href="https://wa.me/8613128265916?text=Hello%20SPORTENVO%2C%20I%20am%20planning%20a%20commercial%20padel%20court%20project.%20Please%20help%20me%20review%20the%20suitable%20court%20system%2C%20foundation%20%2F%20roof%20options%20and%20quotation%20scope." target="_blank" rel="noopener" data-quote-cta="start-project-whatsapp">Chat on WhatsApp Now →</a>
+      <a class="btn dark" href="#formal-project-inquiry" data-quote-cta="start-project-direct">Open Formal Project Inquiry ↓</a>
+      <p>No final court model is required. The detailed configurator is optional and is only for buyers who still need help comparing systems.</p>
       <a class="secondary" href="#projectConfiguratorTitle">I need help choosing a system ↓</a>
     </div>
   </div>
 </section>
 
-<section class="project-configurator" data-project-configurator="20260927-wa1" aria-labelledby="projectConfiguratorTitle">
+<section class="formal-inquiry-section" id="formal-project-inquiry" aria-labelledby="formalInquiryTitle">
+  <div class="formal-inquiry-inner">
+    <div class="formal-inquiry-copy">
+      <p class="eyebrow">Formal Project Inquiry</p>
+      <h2 id="formalInquiryTitle">Send the project details here.</h2>
+      <p>Use the secure project form for a quotation or project review. Start with the information you already have; drawings, site photos and detailed engineering inputs can follow later.</p>
+      <div class="formal-inquiry-proof">
+        <span>✓ Commercial clubs, resorts and sports facilities</span>
+        <span>✓ Court + foundation + roof coordination</span>
+        <span>✓ Technical drawings and project support</span>
+      </div>
+    </div>
+    <div class="formal-inquiry-form" data-start-zoho-form>
+      <div class="formal-inquiry-loading" role="status" aria-live="polite">Loading secure project form…</div>
+      <div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI"></div>
+      <p class="formal-inquiry-fallback">If the embedded form does not load, <a href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">open the inquiry form in a new tab</a> or <a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">email sales@sportenvo.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="project-configurator" data-project-configurator="20261007-conversion1" aria-labelledby="projectConfiguratorTitle">
   <div class="project-configurator-inner">
     <div class="project-configurator-head">
       <div>
@@ -703,11 +738,11 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 
         <aside class="project-whatsapp-card is-pending" data-project-whatsapp aria-live="polite">
           <p class="project-whatsapp-kicker">💬 Prefer Instant Chat?</p>
-          <h3 data-project-whatsapp-title>Complete your project brief to unlock instant chat.</h3>
-          <p data-project-whatsapp-body>Finish the project details above and SPORTENVO will pre-fill the full Project Brief in WhatsApp for you.</p>
+          <h3 data-project-whatsapp-title>Chat now with the project details you already have.</h3>
+          <p data-project-whatsapp-body>You can contact SPORTENVO at any time. The details already entered will be added to your WhatsApp message automatically.</p>
           <a class="project-whatsapp-action" data-project-whatsapp-link href="https://wa.me/8613128265916">→ Chat on WhatsApp with Current Brief</a>
-          <div class="project-whatsapp-meta"><span class="project-whatsapp-dot" aria-hidden="true"></span><span data-project-whatsapp-meta>Project brief not complete yet</span></div>
-          <small class="project-whatsapp-note" data-project-whatsapp-note>Complete the remaining configurator sections above.</small>
+          <div class="project-whatsapp-meta"><span class="project-whatsapp-dot" aria-hidden="true"></span><span data-project-whatsapp-meta>WhatsApp available now</span></div>
+          <small class="project-whatsapp-note" data-project-whatsapp-note>Complete more sections only if you want a more detailed pre-filled brief.</small>
         </aside>
       </div>
       <div class="configurator-brief">
@@ -728,7 +763,7 @@ Installation plan: Not selected
 Target timeline: Not provided</pre>
       </div>
       <div class="configurator-actions">
-      <a class="btn dark" href="https://sportenvo.com/?source=start-project-configurator#formal-project-inquiry" data-config-continue>Get Project Quote ↗</a>
+      <a class="btn dark" href="start-project.html?source=start-project-configurator#formal-project-inquiry" data-config-continue>Get Project Quote ↗</a>
         <a href="solutions.html">Compare project solutions</a><a href="padel-court-rfq-checklist.html">Build an RFQ checklist</a>
       </div>
     </div>
@@ -947,6 +982,61 @@ Target timeline: Not provided</pre>
 <script src="/assets/sportenvo-shell.js?v=20260926-shell5" defer></script>
 
 <script src="assets/inquiry-context.js?v=20261003-inquiry2"></script>
+<script id="start-project-zoho-loader">
+(function(){
+  'use strict';
+  var shell=document.querySelector('[data-start-zoho-form]');
+  var mount=document.getElementById('zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
+  if(!shell||!mount) return;
+  var loading=shell.querySelector('.formal-inquiry-loading');
+  var mounted=false,frame=null;
+  function mountForm(){
+    if(mounted) return;
+    mounted=true;
+    var formUrl=new URL('https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
+    formUrl.searchParams.set('zf_rszfm','1');
+    formUrl.searchParams.set('referrername',window.location.origin+window.location.pathname);
+    var attribution=window.sportenvoAttribution?.getContext?.()||{};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(key){
+      if(attribution[key]) formUrl.searchParams.set(key,attribution[key]);
+    });
+    if(window.sportenvoInquiry) window.sportenvoInquiry.prefill(formUrl);
+    var fallback=shell.querySelector('.formal-inquiry-fallback a[href^="https://forms.zohopublic.com/"]');
+    if(fallback) fallback.href=formUrl.href;
+    frame=document.createElement('iframe');
+    frame.src=formUrl.href;
+    frame.referrerPolicy='origin';
+    frame.style.height='1421px';
+    frame.style.width='100%';
+    frame.style.border='none';
+    frame.style.transition='height .35s ease';
+    frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
+    frame.setAttribute('title','SPORTENVO Project Inquiry');
+    frame.addEventListener('load',function(){
+      if(loading) loading.style.display='none';
+      try{document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}catch(e){}
+    },{once:true});
+    mount.appendChild(frame);
+  }
+  window.addEventListener('message',function(event){
+    if(!frame||event.source!==frame.contentWindow||event.origin!=='https://forms.zohopublic.com'||typeof event.data!=='string') return;
+    var parts=event.data.split('|');
+    var height=Number(parts[1]);
+    if(parts[0]==='XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI'&&(parts.length===2||parts.length===3)&&Number.isFinite(height)&&height>0){
+      frame.style.height=(Math.floor(height)+15)+'px';
+    }
+  },false);
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
+      if(entries.some(function(entry){return entry.isIntersecting;})){mountForm();observer.disconnect();}
+    },{rootMargin:'600px 0px'});
+    observer.observe(shell);
+  }else{
+    mountForm();
+  }
+  if(location.hash==='#formal-project-inquiry') mountForm();
+})();
+</script>
 <script id="project-configurator-js">
 (function(){
   var root=document.querySelector('[data-project-configurator]');
