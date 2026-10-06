@@ -511,8 +511,8 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 .direct-inquiry-steps span{padding:8px 10px;border:1px solid #d7e0e6;border-radius:999px;background:#f8fafb;color:#32424f;font-size:12px;font-weight:800}
 .direct-inquiry-actions{padding-left:28px;border-left:1px solid #dce4eb}
 .direct-inquiry-actions .btn{width:100%;justify-content:center;margin-bottom:10px}
-.direct-inquiry-actions .wa-now{background:#25d366;color:#06240f}
-.direct-inquiry-actions .wa-now:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(37,211,102,.22)}
+.direct-inquiry-actions .wa-now{background:#fff;color:#147a43;border-color:#a9dfbf}
+.direct-inquiry-actions .wa-now:hover{transform:translateY(-2px);background:#f4fbf7;box-shadow:0 8px 20px rgba(37,211,102,.12)}
 .direct-inquiry-actions p{margin:10px 0 0;color:#7b8994;font-size:12px;line-height:1.55}
 .direct-inquiry-actions a.secondary{display:inline-block;margin-top:12px;color:#526371;font-size:13px;font-weight:800;text-underline-offset:4px}
 .formal-inquiry-section{padding:38px 0 44px;background:#fff;scroll-margin-top:92px}
@@ -529,6 +529,17 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 @media(max-width:900px){.formal-inquiry-inner{grid-template-columns:1fr}.formal-inquiry-copy{padding-bottom:0}}
 @media(max-width:820px){.direct-inquiry-inner{grid-template-columns:1fr}.direct-inquiry-actions{padding-left:0;padding-top:22px;border-left:0;border-top:1px solid #dce4eb}}
 @media(max-width:620px){.direct-inquiry-gateway{padding:22px 0}.direct-inquiry-inner,.formal-inquiry-inner{width:calc(100% - 28px)}.direct-inquiry-inner{padding:22px;border-radius:14px}.formal-inquiry-section{padding:28px 0 34px}.formal-inquiry-form{padding:12px}}
+
+.configurator-disclosure{width:min(1180px,calc(100% - 40px));margin:0 auto 44px;border:1px solid #dce4eb;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 10px 28px rgba(7,17,31,.045)}
+.configurator-disclosure>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 26px;cursor:pointer;color:#07111f;font-weight:900;font-size:17px}
+.configurator-disclosure>summary::-webkit-details-marker{display:none}
+.configurator-disclosure>summary span{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#687689;border:1px solid #dce4eb;border-radius:999px;padding:6px 9px;white-space:nowrap}
+.configurator-disclosure>summary:after{content:"+";font-size:24px;font-weight:500;color:#687689;margin-left:auto}
+.configurator-disclosure[open]>summary:after{content:"−"}
+.configurator-disclosure[open]>summary{border-bottom:1px solid #edf1f4}
+.configurator-disclosure .project-configurator{padding:0;background:#f5f7f9}
+.configurator-disclosure .project-configurator-inner{width:100%;border:0;border-radius:0;box-shadow:none}
+@media(max-width:620px){.configurator-disclosure{width:calc(100% - 28px);margin-bottom:34px}.configurator-disclosure>summary{padding:18px;font-size:15px;gap:12px}.configurator-disclosure>summary span{font-size:9px}}
 </style>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Padel Court Project Planning &amp; Proposal | SPORTENVO">
@@ -539,7 +550,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
 <meta name="twitter:title" content="Padel Court Project Planning &amp; Proposal | SPORTENVO">
 <meta name="twitter:description" content="Plan a commercial padel project with SPORTENVO. Use the project configurator to define venue, court quantity, site condition, foundation and weather protection, or choose Not Sure for a recommended system direction.">
 <meta name="twitter:image" content="https://sportenvo.com/assets/images/home-hero.webp">
-<meta name="sportenvo-content-sha256" content="436d8adad185478454a726905572adbec7833cd9f9640fd7e991effb4c22478e">
+<meta name="sportenvo-content-sha256" content="eda838478c060540842e809c6a6cc6aab151de4fd11f913b4a1502463220332b">
 </head>
 <body class="shell-v2 conversion-v7">
 <header class="site-header" data-header>
@@ -579,10 +590,9 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       <div class="direct-inquiry-steps"><span>Country / City</span><span>Court Quantity</span><span>Project Type</span><span>Email / WhatsApp</span></div>
     </div>
     <div class="direct-inquiry-actions">
-      <a class="btn wa-now" href="https://wa.me/8613128265916?text=Hello%20SPORTENVO%2C%20I%20am%20planning%20a%20commercial%20padel%20court%20project.%20Please%20help%20me%20review%20the%20suitable%20court%20system%2C%20foundation%20%2F%20roof%20options%20and%20quotation%20scope." target="_blank" rel="noopener" data-quote-cta="start-project-whatsapp">Chat on WhatsApp Now →</a>
-      <a class="btn dark" href="#formal-project-inquiry" data-quote-cta="start-project-direct">Open Formal Project Inquiry ↓</a>
-      <p>No final court model is required. The detailed configurator is optional and is only for buyers who still need help comparing systems.</p>
-      <a class="secondary" href="#projectConfiguratorTitle">I need help choosing a system ↓</a>
+      <a class="btn dark" href="#formal-project-inquiry" data-quote-cta="start-project-direct">Get Project Quote ↓</a>
+      <a class="btn wa-now" href="https://wa.me/8613128265916?text=Hello%20SPORTENVO%2C%20I%20am%20planning%20a%20commercial%20padel%20court%20project.%20Please%20help%20me%20review%20the%20suitable%20court%20system%2C%20foundation%20%2F%20roof%20options%20and%20quotation%20scope." target="_blank" rel="noopener" data-quote-cta="start-project-whatsapp">Chat on WhatsApp →</a>
+      <p>Get a formal project review through the quote form, or use WhatsApp for a quick conversation. The system configurator is available below only if you need it.</p>
     </div>
   </div>
 </section>
@@ -607,12 +617,14 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
   </div>
 </section>
 
-<section class="project-configurator" data-project-configurator="20261007-conversion1" aria-labelledby="projectConfiguratorTitle">
+<details class="configurator-disclosure" data-configurator-disclosure>
+  <summary id="projectConfiguratorTitle">Not sure which system? Use Project Configurator <span>Optional</span></summary>
+<section class="project-configurator" data-project-configurator="20261007-conversion2" aria-labelledby="projectConfiguratorPanelTitle">
   <div class="project-configurator-inner">
     <div class="project-configurator-head">
       <div>
         <p class="eyebrow">Project Configurator</p>
-        <h2 id="projectConfiguratorTitle">Not sure which court system you need?</h2>
+        <h2 id="projectConfiguratorPanelTitle">Not sure which court system you need?</h2>
         <p>Use the detailed configurator below only if you still need help choosing the system. SPORTENVO will use the venue, site, foundation and weather requirements to narrow the right court-system direction.</p>
       </div>
       <div class="configurator-badge">No final model required</div>
@@ -769,6 +781,7 @@ Target timeline: Not provided</pre>
     </div>
   </div>
 </section>
+</details>
 </main>
 
 <section class="quote-proof">
