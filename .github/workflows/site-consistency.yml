@@ -13,6 +13,7 @@ on:
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
+      - "scripts/test-club-planning.cjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -39,6 +40,7 @@ on:
       - "scripts/test-lead-tracking.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
+      - "scripts/test-club-planning.cjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
       - "scripts/test-buyer-content.py"
@@ -80,6 +82,8 @@ jobs:
         run: node --test scripts/test-rfq-context.mjs
       - name: Check product and project details reaching the inquiry form
         run: node --test scripts/test-inquiry-context.mjs
+      - name: Check club planning calculations and invalid inputs
+        run: node --test scripts/test-club-planning.cjs
       - name: Check deployment fingerprints through edge transformations
         run: python3 scripts/test-indexnow.py
       - name: Check visible buyer answers and approved brand entity

@@ -1,0 +1,14 @@
+.buyer-guide-v5 .article-main .club-planning{margin:32px 0;padding:24px;border:1px solid #d4e1eb;border-radius:16px;background:#f2f8fc;scroll-margin-top:110px}
+.buyer-guide-v5 .article-main .club-planning h2{margin:0 0 16px}
+.club-planning form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.club-planning label{display:block;font-size:15px;font-weight:700;color:#071526}
+.club-planning label span{display:block;margin-top:5px;font-size:13px;font-weight:400;line-height:1.5;color:#4c5d6b}
+.club-planning input{box-sizing:border-box;display:block;width:100%;min-height:44px;margin-top:8px;padding:10px;border:1px solid #8b9fab;border-radius:6px;background:#fff;color:#071526;font:inherit}
+.club-planning input:focus-visible,.club-planning button:focus-visible{outline:3px solid #0879c2;outline-offset:3px}
+.club-planning-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px}
+.club-planning button{min-height:44px;padding:12px 18px;border:1px solid #071526;border-radius:6px;background:#071526;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.club-planning button[type=reset]{background:#fff;color:#071526}
+.club-planning-result{margin-top:18px;padding:16px;background:#fff;border-radius:8px;overflow-wrap:anywhere;overflow-x:auto}
+.club-planning-result table{min-width:400px;width:100%}
+.club-planning-result p{margin-bottom:0}
+@media(max-width:620px){.buyer-guide-v5 .article-main .club-planning{padding:18px}.club-planning form{grid-template-columns:1fr}.club-planning-result{padding:12px}}
