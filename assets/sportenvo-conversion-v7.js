@@ -161,7 +161,6 @@
     const ctx=leadContext();
     let confirmed=false;
     try{confirmed=sessionStorage.getItem('sportenvo_form_submit_confirmed')==='1';}catch(e){}
-    const fromZoho=/^https:\/\/forms\.zohopublic\.com\//i.test(document.referrer||'');
     const recent=recentLead(ctx);
     const dedupeKey='sportenvo_thankyou_conversion_'+String(ctx.started||'direct');
     let already=false;
@@ -176,7 +175,7 @@
       utm_source:ctx.utmSource,
       utm_medium:ctx.utmMedium,
       utm_campaign:ctx.utmCampaign,
-      conversion_confirmed:confirmed||fromZoho
+      conversion_confirmed:confirmed
     });
 
     let submitAlreadyTracked=false;
@@ -184,7 +183,8 @@
       submitAlreadyTracked=sessionStorage.getItem('sportenvo_zoho_submit_'+String(ctx.started||Math.floor(Date.now()/60000)))==='1';
     }catch(e){}
 
-    if(recent && (confirmed||fromZoho) && !already && !submitAlreadyTracked){
+    // Referrers identify navigation sources, not successful submissions.
+    if(recent && confirmed && !already && !submitAlreadyTracked){
       const params={
         form_name:'SPORTENVO Project Inquiry',
         lead_source_page:ctx.sourcePage,
