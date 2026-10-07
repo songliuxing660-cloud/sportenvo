@@ -90,7 +90,8 @@ for (const file of await walk(process.cwd())) {
   if (/src=["'][^"']*assets\/site(?:-v2)?\.js/.test(html) && !html.includes("/assets/lead-attribution.js")) {
     html = html.replace(/<script\b[^>]*src=["'][^"']*assets\/site(?:-v2)?\.js[^"']*["'][^>]*>/i, (tag) => `<script src="/assets/lead-attribution.js?v=20261003"></script>\n${tag}`);
   }
-  html = html.replace(/(assets\/(?:site(?:-v2)?|sportenvo-conversion-v7)\.js)\?[^"'\s>]+/g, "$1?v=20261003-growth1");
+  html = html.replace(/(assets\/site(?:-v2)?\.js)\?[^"'\s>]+/g, "$1?v=20261003-growth1");
+  html = html.replace(/(assets\/sportenvo-conversion-v7\.js)\?[^"'\s>]+/g, "$1?v=20261007-confirmed1");
   html = html.replace(/<\/head>/i, `<meta name="sportenvo-content-sha256" content="${contentFingerprint(html)}">${lineEnding}</head>`);
   if (html === original) continue;
   modified.push(file);

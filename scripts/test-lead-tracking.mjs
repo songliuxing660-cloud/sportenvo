@@ -90,6 +90,26 @@ test("submitted query parameter alone never becomes a confirmed lead", () => {
   assert.equal(current.events.find((event) => event[1] === "thank_you_view")[2].conversion_confirmed, false);
 });
 
+test("a Zoho referrer alone is not proof of a successful form submission", () => {
+  const current = visit("https://sportenvo.com/thank-you.html", undefined, undefined, "https://forms.zohopublic.com/form/example");
+  current.local.setItem("sportenvo_lead_started_at", String(Date.now()));
+  current.run(conversionScript);
+  assert.equal(current.events.filter((event) => event[1] === "generate_lead").length, 0);
+  assert.equal(current.events.find((event) => event[1] === "thank_you_view")[2].conversion_confirmed, false);
+});
+
+test("a confirmed submission counts once across thank-you reloads", () => {
+  const current = visit("https://sportenvo.com/thank-you.html?submitted=1");
+  current.local.setItem("sportenvo_lead_started_at", String(Date.now()));
+  current.session.setItem("sportenvo_form_submit_confirmed", "1");
+  current.run(conversionScript);
+  assert.equal(current.events.filter((event) => event[1] === "project_form_submit").length, 1);
+  assert.equal(current.events.filter((event) => event[1] === "generate_lead").length, 1);
+  const reload = visit("https://sportenvo.com/thank-you.html?submitted=1", current.local, current.session);
+  reload.run(conversionScript);
+  assert.equal(reload.events.filter((event) => event[1] === "generate_lead").length, 0);
+});
+
 test("homepage submission deduplicates repeated callbacks and the following thank-you visit", () => {
   const current = visit("https://sportenvo.com/?utm_source=youtube&utm_campaign=roof");
   const loading = { style: {}, textContent: "" };
