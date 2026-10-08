@@ -96,7 +96,7 @@ updateResult();
     <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="Chat with SPORTENVO">
       <img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">
     </a>
-    <a class="floating-quote" href="/start-project.html?source=floating-project-cta#projectConfiguratorTitle">Start Project <span aria-hidden="true">&#8594;</span></a>`;
+    <a class="floating-quote" href="/start-project.html?source=floating-project-cta#formal-project-inquiry">Start Project <span aria-hidden="true">&#8594;</span></a>`;
   document.body.appendChild(actions);
 })();
 

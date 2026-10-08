@@ -47,7 +47,7 @@
 
   function getContext() {
     const { updatedAt, ...parameters } = context;
-    return { ...parameters };
+    return { ...parameters, traffic_audience: window.sportenvoTrafficAudience || "external" };
   }
 
   function rememberLeadIntent(ctaText = "", preserveExisting = false) {
