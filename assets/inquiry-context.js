@@ -23,6 +23,13 @@
     try { sessionStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), state: sanitize(state) })); } catch (_) {}
   }
   const query = new URLSearchParams(window.location.search);
+  function revealConfigurator() {
+    if (window.location.hash !== "#projectConfiguratorTitle") return;
+    const disclosure = document.querySelector("[data-configurator-disclosure]");
+    if (disclosure) disclosure.open = true;
+  }
+  revealConfigurator();
+  window.addEventListener?.("hashchange", revealConfigurator);
   const product = query.get("product");
   let state = {};
   // Only a deliberate configurator handoff can restore a recent project brief.

@@ -11,6 +11,7 @@ on:
       - "scripts/content-fingerprint.mjs"
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-traffic-context.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
       - "scripts/test-club-planning.cjs"
@@ -38,6 +39,7 @@ on:
       - "scripts/content-fingerprint.mjs"
       - "scripts/sync-search-metadata.mjs"
       - "scripts/test-lead-tracking.mjs"
+      - "scripts/test-traffic-context.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
       - "scripts/test-club-planning.cjs"
@@ -78,6 +80,8 @@ jobs:
           python3 scripts/test-technical-seo.py
       - name: Check enquiry attribution and confirmed conversions
         run: node --test scripts/test-lead-tracking.mjs
+      - name: Check reversible QA traffic labels across quote journeys
+        run: node --test scripts/test-traffic-context.mjs
       - name: Check product preferences through the RFQ buyer path
         run: node --test scripts/test-rfq-context.mjs
       - name: Check product and project details reaching the inquiry form

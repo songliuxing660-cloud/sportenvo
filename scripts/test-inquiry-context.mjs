@@ -3,6 +3,16 @@ import assert from "node:assert/strict";
 import vm from "node:vm";
 import { readFileSync } from "node:fs";
 const script = readFileSync(new URL("../assets/inquiry-context.js", import.meta.url), "utf8");
+test("deliberate configurator links reveal the optional tool on entry and hash navigation", () => {
+  const disclosure = { open: false };
+  const listeners = {};
+  const window = { location: new URL("https://sportenvo.com/start-project.html#projectConfiguratorTitle"), addEventListener: (name, fn) => { listeners[name] = fn; } };
+  vm.runInNewContext(script, { window, document: { querySelector: selector => selector === "[data-configurator-disclosure]" ? disclosure : null }, URL, URLSearchParams, Date, sessionStorage: { getItem: () => null } });
+  assert.equal(disclosure.open, true);
+  disclosure.open = false;
+  window.location.hash = "#formal-project-inquiry"; listeners.hashchange(); assert.equal(disclosure.open, false);
+  window.location.hash = "#projectConfiguratorTitle"; listeners.hashchange(); assert.equal(disclosure.open, true);
+});
 function visit(query = "", session = new Map()) {
   const window = { location: new URL("https://sportenvo.com/" + query) };
   const sandbox = { window, document: { querySelector: () => null }, URL, URLSearchParams, Date,
