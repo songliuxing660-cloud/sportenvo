@@ -240,3 +240,15 @@ The user screenshot confirms **Current encryption mode: Full**, with **Automatic
 The user's Cloudflare **SSL/TLS → Edge Certificates** screenshot shows **Always Use HTTPS = ON** (blue enabled toggle) and message **"This setting was last changed a few seconds ago"**. Previous Cloudflare screenshots confirm SSL/TLS encryption mode **Full**, Universal SSL **Active**, HSTS **OFF**. **Actual toggle change was performed by the user in Cloudflare, not by the assistant.**
 
 **Verification still pending:** after the toggle, an external web reader of `http://sportenvo.com/` shows canonical `https://sportenvo.com/` (it may follow redirects automatically; not evidence of raw status). Shell curl from this environment fails on DNS resolution for `sportenvo.com` (local tool limitation, not a claim about the site). Ask user to run `curl.exe -I http://sportenvo.com/` on local Windows; expected `HTTP/1.1 301` or `HTTP/2 301`, `Location: https://sportenvo.com/`. Then `curl.exe -I https://sportenvo.com/` should serve 200. If 301 is confirmed and no redirect loop, compare Bing HTTP/HTTPS index statuses after normal processing and do not repeatedly submit indexing requests. **Bing recrawl and eventual HTTPS indexing are not guaranteed by this toggle.**
+
+## Verified permanent HTTP → HTTPS redirect — 2026-10-14 (user Windows CMD screenshot)
+
+User ran **`curl.exe -I http://sportenvo.com/`** locally after turning on Cloudflare **Always Use HTTPS**. Command output explicitly verifies:
+
+```http
+HTTP/1.1 301 Moved Permanently
+Location: https://sportenvo.com/
+Server: cloudflare
+```
+
+The HTTP-to-HTTPS permanent redirect is **confirmed**, not merely expected, and its target is the preferred canonical HTTPS homepage. This resolves the concrete HTTP 200 / protocol-normalization configuration weakness present earlier. **Important distinction:** it does not yet prove Bing has updated its stored indexed URLs, that the HTTPS target responds 200 from the user's network, or that AI citations/impressions will grow. The next check requested is **`curl.exe -I https://sportenvo.com/`** to confirm HTTPS response 200; afterward, monitor Bing's HTTPS URL Inspection/Site Explorer at a reasonable interval rather than repeatedly resubmitting indexing. Keep homepage Hero, Title and H1 unchanged.
