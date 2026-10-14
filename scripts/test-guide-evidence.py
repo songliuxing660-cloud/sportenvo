@@ -1,6 +1,8 @@
 import importlib.util
 import json
 import unittest
+from datetime import date
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,9 +33,18 @@ class GuideEvidenceTests(unittest.TestCase):
                 canonicals = [node.attrs["href"] for node in document.root.find("link") if node.attrs.get("rel") == "canonical"]
                 self.assertEqual(canonicals, ["https://sportenvo.com/" + name])
                 self.assertEqual(len(list(document.root.find("h1"))), 1)
-                self.assertIn('"dateModified":"2026-10-04"', html)
+                namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+                sitemap = ET.parse(ROOT / "sitemap.xml")
+                dates = {
+                    item.find("sm:loc", namespace).text: item.find("sm:lastmod", namespace).text
+                    for item in sitemap.findall("sm:url", namespace)
+                }
+                modified = dates["https://sportenvo.com/" + name]
+                parsed = date.fromisoformat(modified)
+                self.assertIn('"dateModified":"' + modified + '"', html)
+                visible_date = f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
+                self.assertIn(visible_date, html)
                 self.assertIn('data-guide-evidence="20261004"', html)
-                self.assertIn("October 4, 2026", html)
                 self.assertNotIn("organizationanization", html)
 
     def test_cost_numbers_are_labeled_historical_regional_not_global_quotes(self):
