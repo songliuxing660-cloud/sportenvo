@@ -1,8 +1,24 @@
 # SPORTENVO — Bing AI Performance / Topics baseline
 
 **Baseline date:** 2026-10-14  
-**Data state:** PRIVATE METRICS NOT AVAILABLE. An attempt through the connected GSC Wizard returned `payment_required`. This does **not** mean SPORTENVO has 0 citations or an indexing issue.  
+**Data state (updated from user-provided Bing Webmaster screenshot on 2026-10-14):** Verified property `sportenvo.com`, AI Performance (Beta), **6M** selected, **Total Citations = 0**, **Avg. Cited Pages = 0**. The graph visible in the screenshot spans **October 1–11**, not visibly the full six months. **Topics, Grounding Queries, individual cited URLs and Opportunity Queries remain unverified**, as they are below the visible area or absent in the screenshot. GSC Wizard access independently returned `payment_required`; this is a data-connector limitation, not an indexing diagnosis.  
 **Release context:** Microsoft announced the Bing Webmaster Tools *Topics Portfolio (Beta)* on 2026-10-13. A Topics tab may be absent if the site has insufficient activity or the feature has not appeared for that property.
+
+## Verified 6-month view snapshot (user screenshot, 2026-10-14)
+
+| Field | Screenshot reading | Verification status |
+| --- | --- | --- |
+| Selected property | sportenvo.com | Verified from Bing UI |
+| Dashboard | AI Performance (Beta) | Verified from Bing UI |
+| Selected interval | 6M | Verified from highlighted interval button |
+| Total Citations | **0** | Verified UI value, not inferred |
+| Avg. Cited Pages | **0** | Verified UI value, not inferred |
+| Visible chart dates | 01 Oct–11 Oct | Visible subset only; reporting horizon/completeness unclear |
+| Topic Size / Sites Cited / Topic Citations | Unavailable | Need Topics table or export |
+| Grounding Queries / Opportunity Queries | Unavailable | Need Topics table or export |
+| Cited URLs | Unavailable | Need lower section or export |
+
+**Interpretation:** Bing's UI currently reports zero AI citations for this property in the selected 6M view; this does *not* establish zero Google indexing, Bing organic indexing, or zero citations in other AI products. A 6M selection displaying only October chart labels merits checking individual 1M/2M/3M tabs and whether the property gained reporting coverage only recently.
 
 ## Dashboard verification
 
@@ -15,7 +31,7 @@
 
 ## Five topic baseline rows
 
-> No numerical Bing AI Performance figures were readable on 2026-10-14. The rows below are **proposed audit themes**, not confirmed Bing topic classifications.
+> Dashboard-level 6M numbers **were** verified as zero through a Bing UI screenshot. Per-topic and 1M/2M/3M figures **have not been provided**; they remain unknown. The rows below are **proposed audit themes**, not confirmed Bing topic classifications.
 
 | Audit theme | 1 month | 2 months | 3 months | Primary existing page | Supporting guide |
 | --- | --- | --- | --- | --- | --- |
