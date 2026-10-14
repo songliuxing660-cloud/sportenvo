@@ -191,3 +191,18 @@ User screenshot URL Inspection **Bing Index** input **`http://sportenvo.com/`** 
 **Redirect verification incomplete:** Public text-retrieval of `http://sportenvo.com/` resolves to the HTTPS homepage content, but that retrieval does not expose the origin/edge HTTP status code. Direct CLI DNS resolution in the current runtime was unavailable, so a verified 301/308 Location cannot be claimed. Request Bing **Live URL** for `http://sportenvo.com/` to inspect redirect status and target (Bing Live URL does not automatically follow redirects). If not returning a permanent HTTP→HTTPS redirect, evaluate Cloudflare → SSL/TLS → Edge Certificates → Always Use HTTPS, which is available on free plans; first review redirect loops and existing rules. Reference: https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/ and https://www.bing.com/webmasters/help/URL-Inspection-55a30305
 
 **Decision:** Don't claim Cloudflare is misconfigured yet; verify HTTP Live URL and HTTPS live test status alongside the cached records. Once 301/308 is confirmed, wait for recrawl and optionally escalate inconsistent indexing to Bing support with evidence. Do not touch homepage Hero, Title/H1, or repeatedly submit unchanged pages for indexing.
+
+## HTTP homepage Live URL test (2026-10-14, 10:09 as shown on user screenshot)
+
+**Exact URL entered:** `http://sportenvo.com/` (HTTP).
+
+- **Live URL**: green **URL can be indexed by Bing**.
+- **SEO/GEO issues:** one notice, **Alt attribute for images is missing**, **1 instance found**.
+- **Markup types found:** **2**.
+- Compared to cached HTTP **Bing Index** record (3 issues: long title, duplicate description, 5 missing alts), the live snapshot does not report long title or duplicate meta description. The single remaining alt notice may originate from dynamic/other markup; the current GitHub `index.html` source has `alt` attributes on all 14 literal `<img>` elements.
+- The summary DOES NOT display the HTTP response status or `Location` header. A green indexable outcome is **not** proof that `http://sportenvo.com/` returns a **301/308 permanent redirect** to `https://sportenvo.com/`. Do not declare redirect verified.
+- An external public text-fetch of `http://sportenvo.com/` resolved to canonical `https://sportenvo.com/` content, but that service follows redirects and does not expose the initial HTTP response code. Direct CLI HTTP header testing from this session was prevented by local DNS resolution failure and does not establish any defect in the public site.
+
+**Next step (requires Bing dashboard):** click **View Tested page** under the HTTP Live URL result and look for any HTTP response details, final URL/redirect location, or fetched HTML canonical. If the UI omits response headers, use an independent redirect-header checker or Cloudflare dashboard to confirm `http://sportenvo.com/` → `https://sportenvo.com/` with 301 or 308 and no loop. Compare the exact URL with the HTML document Bing tested. If correct, address Bing's stale indexing/mixed-scheme status via indexed vs uncrawled monitoring or support, NOT speculative edits.
+
+**No page edits / Cloudflare rule edits / indexing re-submissions performed** based on this screenshot.
