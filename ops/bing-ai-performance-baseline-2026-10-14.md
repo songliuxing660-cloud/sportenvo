@@ -146,3 +146,26 @@ Bing help: https://www.bing.com/webmasters/help/search-performance-c680da36 and 
 - This is a **successful real-time eligibility test**, **not** a change in the stored **Bing Index** status. The earlier stored status was “Discovered but not crawled” with an anomalous first-discovery date of 01 Jan 2006.
 - **Interpretation:** The screenshot does not support a present blanket Bingbot access failure; do not change Cloudflare firewall, robots or site code without evidence. The current blocker is Bing's stored crawl/index processing status, which may lag the live test. Do not mark the homepage indexed until the **Bing Index** tab actually changes.
 - **Next steps:** (1) In Bing Webmaster Tools review **Sitemaps** for last read/errors, and **Site Explorer** for indexed/discovered URL breakdown. (2) Run the **same Bing Index + Live URL comparison** on `https://sportenvo.com/roof.html` and, if needed, `https://sportenvo.com/force-hx.html` to determine whether the problem affects only the homepage or multiple URLs. (3) If pages remain discovered-not-crawled despite successful live tests and healthy sitemap, preserve screenshots and contact Bing Webmaster support for a stale index-state review. (4) Recheck Bing Index status and Search Performance after processing; no repeated indexing requests absent actual page updates.
+
+## Site Explorer screenshot — 2026-10-14 (user provided)
+
+**Report:** Bing Webmaster Tools → Site Explorer → dropdown **Indexed URLs**, property `sportenvo.com`, folder information **Last 6 months**.
+
+- Folder-level URLs: **6**.
+- Crawl information summary: **Indexed 4**, **Error 0**, **Warning 0**, **Excluded 2**.
+- Indexed-filter visible rows: `/` (root), `/insights.html`, `/modular-foundation-guide.html`. The screenshot does **not** show all four indexed URLs; do not infer the fourth.
+- **Root `/`** is selected with **Indexed** status, **last crawled 2026-09-14**, **discovered 2026-09-14**, **HTTP 200**, document size **11.7KB**, **Is Https: false** in the details panel.
+- `/insights.html`: last crawled **2026-10-06**, HTTP **200**.
+- `/modular-foundation-guide.html`: last crawled **2026-10-01**, HTTP **200**.
+- No Bing clicks or impressions appear as populated values in the screenshot. This is consistent with the earlier Search Performance screenshot reporting 0; indexing is not equivalent to getting search impressions.
+
+**New finding: the cached Bing UI states conflict.** Bing URL Inspection → Bing Index for specifically `https://sportenvo.com/` said **Discovered but not crawled**, with impossible-looking discovery date 2006-01-01. Its Live URL test passed. Bing Site Explorer instead shows root `/` **Indexed**, last crawled 2026-09-14. Since **Is Https: false** appears on that Site Explorer root detail, this could reflect a non-HTTPS/legacy variant or inconsistent cached reports; *do not assume an HTTP/HTTPS canonicalization defect until the exact indexed URL variant and server redirects are inspected.*
+
+**Next actions, read-only and free:**
+1. In Site Explorer click the selected root's **Inspect URL**; check the *exact URL* opened and compare to `https://sportenvo.com/`. Determine whether this record is `http://sportenvo.com/` or `https://sportenvo.com/`.
+2. Change Site Explorer dropdown from **Indexed URLs** to **Excluded URLs**, inspect both excluded URL paths and reasons. This may expose canonical, redirects, weak content or other exclusions.
+3. Review Bing **Sitemaps** for submitted URLs, latest processing and errors; note mismatch between 67 URLs in the site-published sitemap and 6 URLs in the Site Explorer view (different measurement scopes and report coverage, so not directly comparable).
+4. Confirm HTTP → HTTPS and www/non-www redirects with an actual HTTP header tool or Cloudflare dashboard, once available. Public text retrieval and Github file contents do not prove redirect chain or Bingbot's exact URL choice.
+5. If exact matching URL versions still have incompatible Bing Index vs Site Explorer status, consider Bing support with both screenshots. Do **not** repeatedly submit indexing requests or mass-change titles and content on this basis.
+
+Bing's Site Explorer documentation defines indexed/excluded counts: https://blogs.bing.com/webmaster/2020/10/Site-explorer-SEO-explore-your-site/
