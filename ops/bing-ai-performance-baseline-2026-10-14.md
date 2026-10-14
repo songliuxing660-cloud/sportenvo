@@ -135,3 +135,14 @@ Bing help: https://www.bing.com/webmasters/help/search-performance-c680da36 and 
 - Live URL **DNS/5xx/timeout:** investigate authoritative DNS, edge/origin health and any redirect loops. Re-run live tests after fixes.
 
 **Change control:** No website code/CSS/Title/H1/Hero edits and no repeated indexing submissions pending this diagnostic result.
+
+## Homepage Live URL test — 2026-10-14 at 09:42 local (user screenshot)
+
+- Tested URL: `https://sportenvo.com/`.
+- Bing Webmaster Tools → URL Inspection → **Live URL** reports **“URL can be indexed by Bing”** (green success).
+- Subtitle: “It can appear on Bing Search results given it passes quality checks and gets indexed by Bing.”
+- **“No SEO/GEO issues found”** (green success).
+- **“2 Markup types found”**; the specific types are collapsed and not visible in this screenshot.
+- This is a **successful real-time eligibility test**, **not** a change in the stored **Bing Index** status. The earlier stored status was “Discovered but not crawled” with an anomalous first-discovery date of 01 Jan 2006.
+- **Interpretation:** The screenshot does not support a present blanket Bingbot access failure; do not change Cloudflare firewall, robots or site code without evidence. The current blocker is Bing's stored crawl/index processing status, which may lag the live test. Do not mark the homepage indexed until the **Bing Index** tab actually changes.
+- **Next steps:** (1) In Bing Webmaster Tools review **Sitemaps** for last read/errors, and **Site Explorer** for indexed/discovered URL breakdown. (2) Run the **same Bing Index + Live URL comparison** on `https://sportenvo.com/roof.html` and, if needed, `https://sportenvo.com/force-hx.html` to determine whether the problem affects only the homepage or multiple URLs. (3) If pages remain discovered-not-crawled despite successful live tests and healthy sitemap, preserve screenshots and contact Bing Webmaster support for a stale index-state review. (4) Recheck Bing Index status and Search Performance after processing; no repeated indexing requests absent actual page updates.
