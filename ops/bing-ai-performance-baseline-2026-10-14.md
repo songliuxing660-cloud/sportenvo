@@ -86,3 +86,27 @@ User screenshots of the logged-in Bing Webmaster Tools AI Performance dashboard 
 - **No edits to product pages, Title/H1, homepage Hero or index submissions** triggered by the zero citation count alone.
 
 Microsoft official documentation: https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c
+
+## Bing Search Performance screenshot, 2026-10-14
+
+Verified from user-provided screenshot of Bing Webmaster Tools:
+
+| Signal | Value | Notes |
+|---|---|---|
+| Property | `sportenvo.com` | correct property visible |
+| Date preset | **12 M** | selected/highlighted |
+| Search source dropdown | **All** | selected |
+| Total Clicks | **0** | as displayed |
+| Total Impressions | **0** | as displayed |
+| Avg. CTR | **0%** | as displayed |
+| Chart dates visible | Oct 01–11, 2026 | despite 12M selection; date-range completeness unclear |
+| Keywords table | column header visible, rows outside screenshot | keyword count cannot be inferred |
+| Average Position | not displayed in summary | not inferable for zero impressions |
+
+**Important:** Search Performance zero is a separate signal from the zero Bing AI citations. It does **not** independently confirm `not indexed`. Bing's help says Search Performance collection can start only when a site is added to Webmaster Tools, with no backdated data; the selected range can therefore exceed the historical data in the property.
+
+**Read-only source-code cross-check (GitHub main, 2026-10-14):** `robots.txt` contains `User-agent: *` / `Allow: /` / Sitemap link. `sitemap.xml` contains **67 unique canonical-domain loc entries**, includes homepage and all five priority commercial pages. Home `index.html` canonical points to `https://sportenvo.com/`, with no `noindex` found. `indexnow-key.txt` is present. This checks repository files, not Bingbot's live HTTP fetch or Bing index.
+
+**Priority next check:** Bing Webmaster Tools → URL Inspection for `https://sportenvo.com/` (record Indexed/Discovered/Crawled/status or reason for exclusion), then one `https://sportenvo.com/roof.html`. Review **Search Performance → source dropdown → Crawl and Indexing**, if present, for Indexed Pages, Crawl Requests, Crawl Errors. Check Site Explorer/Sitemaps status as supporting evidence. Do not alter SEO content/robot directives or resubmit indexing without a verified defect.
+
+Bing help: https://www.bing.com/webmasters/help/search-performance-c680da36 and https://www.bing.com/webmasters/help/URL-Inspection-55a30305
