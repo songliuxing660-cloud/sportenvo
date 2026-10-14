@@ -252,3 +252,17 @@ Server: cloudflare
 ```
 
 The HTTP-to-HTTPS permanent redirect is **confirmed**, not merely expected, and its target is the preferred canonical HTTPS homepage. This resolves the concrete HTTP 200 / protocol-normalization configuration weakness present earlier. **Important distinction:** it does not yet prove Bing has updated its stored indexed URLs, that the HTTPS target responds 200 from the user's network, or that AI citations/impressions will grow. The next check requested is **`curl.exe -I https://sportenvo.com/`** to confirm HTTPS response 200; afterward, monitor Bing's HTTPS URL Inspection/Site Explorer at a reasonable interval rather than repeatedly resubmitting indexing. Keep homepage Hero, Title and H1 unchanged.
+
+## Final HTTPS destination validation (user Windows CMD screenshot, 2026-10-14)
+
+User ran `curl.exe -I https://sportenvo.com/`. The returned headers confirm:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Server: cloudflare
+```
+
+Together with the **separately verified `curl.exe -I http://sportenvo.com/` → `HTTP/1.1 301 Moved Permanently`, `Location: https://sportenvo.com/`**, this proves a clean root-page canonical transport chain **HTTP 301 → HTTPS 200** from the user's Windows host, after enabling Cloudflare Always Use HTTPS. Server response headers also include GitHub/Fastly origin-related metadata; no error or loop is visible.
+
+**Action status:** HTTP→HTTPS configuration fix is complete and validated for the root URL. No further Cloudflare changes required for this issue. This verification does **not** prove Bing's stored HTTPS index record has changed, that other path variants redirect correctly, or that the domain will get AI citations. Follow-up read-only checks: Bing URL Inspection **Bing Index** for `https://sportenvo.com/` around 2026-10-21 and perhaps one week later; Bing **Site Explorer** indexed vs excluded and HTTPS labels; Bing Search Performance/AI Performance as directional measures. If canonical HTTPS remains "Discovered but not crawled" long after 301 and live tests pass, contact Bing Webmaster support with both URL Inspection records and before/after redirect evidence. Avoid repeated Request Indexing and no mass Title/H1 changes.
