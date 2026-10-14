@@ -110,3 +110,28 @@ Verified from user-provided screenshot of Bing Webmaster Tools:
 **Priority next check:** Bing Webmaster Tools → URL Inspection for `https://sportenvo.com/` (record Indexed/Discovered/Crawled/status or reason for exclusion), then one `https://sportenvo.com/roof.html`. Review **Search Performance → source dropdown → Crawl and Indexing**, if present, for Indexed Pages, Crawl Requests, Crawl Errors. Check Site Explorer/Sitemaps status as supporting evidence. Do not alter SEO content/robot directives or resubmit indexing without a verified defect.
 
 Bing help: https://www.bing.com/webmasters/help/search-performance-c680da36 and https://www.bing.com/webmasters/help/URL-Inspection-55a30305
+
+## Bing URL Inspection — homepage snapshot, 2026-10-14
+
+**User-provided screenshot, Bing Index tab:** inspected URL `https://sportenvo.com/`.
+
+- Index status: **Discovered but not crawled**.
+- Consequence shown in Bing UI: **URL cannot appear on Bing**.
+- Discover stage: ✓; displayed discovery date: **01 Jan 2006** (historically anomalous, cannot be treated as an accurate first-discovery date).
+- Crawl stage: ✕, message: **The inspected URL was discovered but has not been crawled yet**.
+- Index stage: empty/pending.
+- Bing UI advice: review robots, keep sitemap updated and request indexing.
+- **This is a Bing Index record, not a live crawl result.** Do not infer actual Bingbot HTTP status, server denial, Cloudflare block, or a domain-wide ban from this screenshot.
+
+**Independent checks:** a public text-crawling retrieval could read the current `https://sportenvo.com/` homepage on 2026-10-14, but this is not equivalent to a real Bingbot fetch. Published GitHub source contains open `robots.txt`, canonical homepage and sitemap with 67 URLs; no obvious `noindex` in homepage source. Runtime Cloudflare settings and responses to verified Bingbot not yet tested.
+
+**Suspicious 2006 date:** Another Bing Webmaster Tools user described `01 Jan 2006` plus `Discovered but not crawled` with a successful Live URL test, in a Microsoft Tech Community discussion dated 2026-10-06. This is anecdotal evidence of a possible stale/error state, not proof of the same defect on SPORTENVO. https://techcommunity.microsoft.com/discussions/microsoftsearch/bing-webmaster-tools-stuck--stale-dns-error-from-jan-2006/4562482
+
+**P0 next diagnostic:** In Bing URL Inspection for the same `https://sportenvo.com/`, click **Live URL** and run the live test; record HTTP/page fetch, crawl allowed, indexability, any DNS/redirect/block messages. Microsoft describes this as a live Bingbot fetch: https://www.bing.com/webmasters/help/URL-Inspection-55a30305
+
+**Decision tree:**
+- Live URL **200 / fetch success / allowed:** record difference between live and stored index states; sample `https://sportenvo.com/roof.html`; check Site Explorer and sitemap status; if widespread and persistent, contact Bing Webmaster support with screenshots, rather than repeatedly requesting indexing.
+- Live URL **403/429/challenge:** inspect Cloudflare Security → Events filtered for verified search bots/Bingbot; correct the specific rule that is blocking verified crawler access, without disabling all protections.
+- Live URL **DNS/5xx/timeout:** investigate authoritative DNS, edge/origin health and any redirect loops. Re-run live tests after fixes.
+
+**Change control:** No website code/CSS/Title/H1/Hero edits and no repeated indexing submissions pending this diagnostic result.
