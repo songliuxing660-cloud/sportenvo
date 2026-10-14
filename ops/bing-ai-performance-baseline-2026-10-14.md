@@ -220,3 +220,11 @@ User opened **View Tested page** for the HTTP Live URL test, with the **HTML** t
 **Required acceptance test:** a fresh **no-follow** request to `http://sportenvo.com/` should return **301** (or suitable permanent **308**) plus `Location: https://sportenvo.com/`; the HTTPS destination should serve **200**, without redirect loops. Follow up also on `http://sportenvo.com/mobile.html`. Review Bing Index vs Live URL after Bing's next normal processing interval. The current workspace CLI could not resolve domain DNS and therefore independently confirm neither code nor redirect. No Cloudflare setting change has been executed from this chat.
 
 Official Cloudflare instructions: https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/
+
+## Cloudflare Edge Certificates screenshots (user-provided, 2026-10-14)
+
+- **Always Use HTTPS = OFF** (toggle gray). This provides a concrete explanation for why Bing Live URL on the HTTP homepage received HTTP 200, though an independent no-follow response check is still the best validation.
+- **Universal SSL = Active** for sportenvo.com and *.sportenvo.com, backup issued.
+- **Automatic HTTPS Rewrites = ON**; this only rewrites embedded HTTP resource/link references and does not enforce an HTTP→HTTPS site-wide redirect.
+- **TLS 1.3 = ON**; **HSTS = OFF** (leave off while investigating); **Minimum TLS Version = TLS 1.0 default** (separate security hygiene item, not the indexing blocker).
+- **Next:** Verify SSL/TLS **Overview encryption mode**, site redirect rules, and any origin redirect behavior, to avoid loops, then enable Cloudflare **Always Use HTTPS** if safe, on the existing free plan. Ensure **HTTP returns 301 (or 308) with Location: https://sportenvo.com/** and **HTTPS returns 200**. Verify no loops for / and /mobile.html and check both Bing index URL variants after a crawl interval. Do not claim setting already changed: the assistant currently has read-only screenshots and GitHub write access, no Cloudflare account write connector. Do not use Advanced Certificate Manager or HSTS as the remedy.
