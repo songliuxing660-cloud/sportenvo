@@ -69,3 +69,20 @@ For each checkpoint compare the **same lookback window**, topic-level SPORTENVO 
 - https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/
 - https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c
 - https://github.com/songliuxing660-cloud/sportenvo
+
+## Second Bing screenshot review (2026-10-14)
+
+User screenshots of the logged-in Bing Webmaster Tools AI Performance dashboard directly confirm:
+
+- **Custom range:** 2026-04-14 through 2026-10-13.
+- **Total Citations:** 0; **Avg. Cited Pages:** 0.
+- **List By → Grounding Queries:** `No data available`, **0 rows**.
+- **Visible table columns:** Grounding Query, Intent, Topic, Citations, Citation Share; none contain a row.
+- **Topics Portfolio:** No separate Topics Portfolio tab is visible in the supplied screenshots; beta availability for this property **not established**.
+- **Pages tab:** visible but not yet selected in a screenshot; page-level list therefore still unverified.
+- **Chart:** days 2026-10-01 to 2026-10-11 displayed; historical chart completeness cannot be established from these screenshots.
+- **Interpretation:** This is Bing's **reported, aggregated/sample AI citation visibility**, not a complete census of all AI products, not a Google citation measure and not a Bing organic indexing diagnostic. The official Bing documentation says sparse citations may produce no grounding queries, without implying a penalty or exclusion.
+- **Next required private-account check:** **Search Performance** last 3 months for organic impressions/clicks and **URL Inspection** of `/`, `/roof.html`, `/force-hx.html`, `/modular-foundation.html`, `/super-panoramic.html` and `/commercial-padel-club.html`. Capture screenshots/exports before any technical changes.
+- **No edits to product pages, Title/H1, homepage Hero or index submissions** triggered by the zero citation count alone.
+
+Microsoft official documentation: https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c
