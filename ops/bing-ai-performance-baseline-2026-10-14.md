@@ -169,3 +169,15 @@ Bing help: https://www.bing.com/webmasters/help/search-performance-c680da36 and 
 5. If exact matching URL versions still have incompatible Bing Index vs Site Explorer status, consider Bing support with both screenshots. Do **not** repeatedly submit indexing requests or mass-change titles and content on this basis.
 
 Bing's Site Explorer documentation defines indexed/excluded counts: https://blogs.bing.com/webmaster/2020/10/Site-explorer-SEO-explore-your-site/
+
+## Site Explorer not-yet-crawled evidence — 2026-10-14
+
+**User screenshot:** Selected filter: `URLs selected not yet crawled`. Two URLs: `/` (root) and `/mobile.html`. Selected root reports **Excluded**, `Is Https: true`, no last-crawled date and no HTTP code.
+
+**Contrast with previous Indexed URLs screenshot:** root `/` reported **Indexed**, **Is Https: false**, **Last crawled 2026-09-14**, **HTTP 200**.
+
+**Hypothesis requiring confirmation:** Bing has distinct HTTP- and HTTPS-labeled root records; HTTP root is indexed and HTTPS root is not crawled. This would reconcile the index and inspection discrepancy. It does not establish a broken server redirect without checking the exact URL and HTTP status/Location.
+
+**Next verification:** select excluded root and click `Inspect URL` to see precise scheme; inspect both `http://sportenvo.com/` and `https://sportenvo.com/` in Bing Webmaster Tools if possible; verify HTTP→HTTPS 301/308 through an actual response-header checker or Cloudflare redirect settings before editing. Inspect `/mobile.html` with Bing Index vs Live URL. Review Bing Sitemaps processed status. Do not repeat indexing submissions or edit page SEO before diagnosis.
+
+**Scope caveat:** Site Explorer's 6 reported URLs are not the complete published sitemap of 67 URLs.
