@@ -90,7 +90,7 @@ quoteLink.className = "floating-quote";
 quoteLink.href = "/start-project.html?source=floating-project-cta#projectConfiguratorTitle";
 quoteLink.removeAttribute("target");
 quoteLink.removeAttribute("rel");
-quoteLink.innerHTML = 'Start Project <span aria-hidden="true">&#8594;</span>';
+quoteLink.innerHTML = 'Start Your Project <span aria-hidden="true">&#8594;</span>';
 const quoteProducts = {
   "/panoramic.html": "panoramic", "/super-panoramic.html": "super-panoramic",
   "/classic-padel-court.html": "classic", "/mobile.html": "mobile",
