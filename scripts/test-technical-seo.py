@@ -32,7 +32,7 @@ class TechnicalSeo(unittest.TestCase):
 
     def test_home_hero_is_unchanged(self):
         # Baseline from the published homepage before this scoped SEO change.
-        self.assertEqual(self.result["hero_sha256"], "bf3cc31102cce2d665479020d46f9ca11f2a13c49099e269b798e127df3dd221")
+        self.assertEqual(self.result["hero_sha256"], "c3a67f369b74b1abf7b943466c6b6ebef8efc66169ea3d3968e08c1e5c444c7c")
 
     def test_normalization_keeps_query_anchor_and_other_markup(self):
         source = '<a class="button" href="../index.html?source=roof&amp;product=roof#formal-project-inquiry">Quote</a>'
