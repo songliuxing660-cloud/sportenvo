@@ -1,0 +1,147 @@
+name: Temporary scale strip and figures update (delete before merge)
+
+on:
+  push:
+    branches: [home-scale-strip]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Apply figures update and homepage strip with byte-preserving edits
+        run: |
+          python3 - <<'PY'
+          CRLF = bytes([13, 10])
+          LF = bytes([10])
+
+          def replace_once(b, old, new):
+              n = b.count(old)
+              assert n == 1, "expected exactly one %r, found %d" % (old, n)
+              return b.replace(old, new)
+
+          def edit(path, fn):
+              b = open(path, "rb").read()
+              b2 = fn(b)
+              assert b2 != b, "no change in " + path
+              open(path, "wb").write(b2)
+              print("updated", path)
+
+          # 1. 50+ export markets becomes 100+ in every public place it appears
+          box_old = b"<b>50+</b><span>Export Markets</span>"
+          box_new = b"<b>100+</b><span>Export Markets</span>"
+          edit("about.html", lambda b: replace_once(b, box_old, box_new))
+          edit("media-kit.html", lambda b: replace_once(b, box_old, box_new))
+          edit("llms.txt", lambda b: replace_once(b, b"- 50+ Export Markets", b"- 100+ Export Markets"))
+
+          def fact_sheet(b):
+              eol = CRLF if CRLF in b else LF
+              b = replace_once(b, b"Version: 2026-09-29", b"Version: 2026-10-14")
+              b = replace_once(b, b"- 50+ Export Markets", b"- 100+ Export Markets")
+              assert b.count(b"Factory Area") == 1
+              i = b.index(b"Factory Area")
+              j = b.index(eol, i) + len(eol)
+              line = b"- 30-40 Days Typical Production Lead Time (order confirmation to completed production, confirmed per project)"
+              b = b[:j] + line + eol + b[j:]
+              anchor = b"- Do not publish unverified office addresses, social profiles, certifications or partner relationships."
+              assert b.count(anchor) == 1
+              k = b.index(anchor) + len(anchor)
+              rule = b"- Do not describe the 30-40 day lead time as delivery, shipping or installation time. It covers order confirmation to completed production only."
+              b = b[:k] + eol + rule + b[k:]
+              if not b.endswith(eol):
+                  b += eol
+              b += b"- Homepage operating scale strip added on 2026-10-14 (100+ export markets, 5,000+ cooperative clients, 30-40 days production lead time) with the reported-figures qualifier." + eol
+              return b
+          edit(".github/SPORTENVO-ENTITY-FACT-SHEET.md", fact_sheet)
+
+          # 2. homepage strip right after the hero section (hero bytes untouched)
+          import re
+          def home(b):
+              m = re.search(b'<section[^>]*class="home-hero"', b)
+              assert m, "hero not found"
+              end = b.index(b"</section>", m.start()) + len(b"</section>")
+              eol = CRLF if b[end:end+2] == CRLF else LF
+              pos = end + len(eol)
+              assert b[pos:pos+2] == b"  ", "unexpected indentation after hero"
+              lines = [
+                  '  <div class="home-scale-strip" role="group" aria-label="Reported operating scale">',
+                  '    <div class="home-scale-inner">',
+                  '      <div class="home-scale-item"><b>100+</b><span>Export Markets</span></div>',
+                  '      <div class="home-scale-item"><b>5,000+</b><span>Cooperative Clients</span></div>',
+                  '      <div class="home-scale-item"><b>30&ndash;40 Days</b><span>Typical Production Lead Time</span></div>',
+                  '    </div>',
+                  '    <p class="home-scale-note">Reported operating figures from the manufacturing and export operation behind SPORTENVO. Production lead time runs from order confirmation to completed production and is confirmed for each project.</p>',
+                  '  </div>',
+              ]
+              block = b"".join(l.encode() + eol for l in lines)
+              b = b[:pos] + block + b[pos:]
+              old = b"sportenvo-home-v6.css?v=20261005-lcp2"
+              assert b.count(old) == 2, "expected 2 stylesheet references, found %d" % b.count(old)
+              b = b.replace(old, b"sportenvo-home-v6.css?v=20261014-scale1")
+              assert b.count(b"20261014-scale1") == 2
+              return b
+          edit("index.html", home)
+
+          # 3. styles for the strip, appended to the homepage stylesheet
+          css = """
+          /* Home reported operating scale strip 2026-10-14 */
+          .home-v6 .home-scale-strip{background:var(--hv6-navy-soft);color:#fff;padding:34px 0 26px}
+          .home-v6 .home-scale-inner{width:min(1180px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 32px}
+          .home-v6 .home-scale-item{display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--hv6-cta);padding-left:16px}
+          .home-v6 .home-scale-item b{font-size:clamp(28px,3.2vw,40px);line-height:1.05;font-weight:700;letter-spacing:-.01em}
+          .home-v6 .home-scale-item span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--hv6-steel)}
+          .home-v6 .home-scale-note{width:min(1180px,calc(100% - 48px));margin:22px auto 0;font-size:12px;line-height:1.55;color:#9fb0bc}
+          @media(max-width:760px){
+          .home-v6 .home-scale-inner{grid-template-columns:1fr}
+          .home-v6 .home-scale-item b{font-size:30px}
+          }
+          """
+          css = "\n".join(l.strip() for l in css.split("\n"))
+          p = "assets/sportenvo-home-v6.css"
+          b = open(p, "rb").read()
+          eol = CRLF if CRLF in b else LF
+          if not b.endswith(eol):
+              b += eol
+          open(p, "wb").write(b + css.encode().replace(LF, eol))
+          print("updated", p)
+          PY
+      - name: Refresh content fingerprints
+        run: node scripts/sync-search-metadata.mjs --write
+      - name: Change summary
+        run: |
+          git diff --stat | tail -8
+          git diff --numstat
+      - name: Run site checks
+        run: |
+          set -e
+          node scripts/check-site-consistency.mjs
+          node scripts/audit-search.mjs --strict
+          python3 scripts/test-crawl-policy.py
+          python3 scripts/audit-technical-seo.py --strict
+          python3 scripts/test-technical-seo.py
+          node --test scripts/test-lead-tracking.mjs
+          node --test scripts/test-traffic-context.mjs
+          node --test scripts/test-rfq-context.mjs
+          node --test scripts/test-inquiry-context.mjs
+          node --test scripts/test-club-planning.cjs
+          python3 scripts/test-indexnow.py
+          python3 scripts/sync-buyer-content.py
+          python3 scripts/test-buyer-content.py
+          python3 scripts/test-keyword-intent.py
+          python3 scripts/sync-guide-content.py
+          python3 scripts/test-guide-evidence.py
+      - name: Commit and push result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u
+          git commit -m "Homepage operating scale strip; export markets 50+ becomes 100+" -m "Adds a reported operating scale strip below the hero (100+ export markets, 5,000+ cooperative clients, 30-40 days typical production lead time) with the reported-figures qualifier. Updates the fact sheet, About page, media kit and llms.txt to 100+ export markets. Fingerprints refreshed."
+          git push
