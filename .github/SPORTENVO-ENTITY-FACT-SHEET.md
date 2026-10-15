@@ -1,6 +1,6 @@
 # SPORTENVO Entity Fact Sheet
 
-Version: 2026-09-29
+Version: 2026-10-14
 
 Use this document as the single source of truth for the website, LinkedIn, YouTube, project directories, press references and partner profiles. Do not add a `sameAs` URL until the profile is official, public and uses the facts below.
 
@@ -46,12 +46,13 @@ The full website product menu remains authoritative and should continue to show 
 The following figures are reported operating figures from the manufacturing and export operation behind the SPORTENVO brand. They are not legal-entity claims about SPORTENVO itself. Keep them separate from project-specific specifications, test reports and certification claims.
 
 - 10+ Years Export Experience
-- 50+ Export Markets
+- 100+ Export Markets
 - 100+ Factory Employees
 - 5,000+ Cooperative Clients
 - 10,000 m² Factory Area
 
 ## Approved Descriptions
+- 30-40 Days Typical Production Lead Time (order confirmation to completed production, confirmed per project)
 
 ### One line
 
@@ -124,6 +125,7 @@ https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
 - Do not state a universal wind rating, roof specification or foundation solution for every site.
 - Do not claim local code approval without project-specific engineering review.
 - Do not publish unverified office addresses, social profiles, certifications or partner relationships.
+- Do not describe the 30-40 day lead time as delivery, shipping or installation time. It covers order confirmation to completed production only.
 
 ## Official External Profiles
 
@@ -143,3 +145,5 @@ Website Brand Schema may include the confirmed YouTube and Medium URLs in `sameA
 - Media kit: https://sportenvo.com/media-kit.html
 - About page duplicate company-scale block: removed on 2026-09-28 so the five approved company-reported figures appear once.
 - Do not add LinkedIn or directory URLs to schema until the public profile URL is verified.
+
+- Homepage operating scale strip added on 2026-10-14 (100+ export markets, 5,000+ cooperative clients, 30-40 days production lead time) with the reported-figures qualifier.

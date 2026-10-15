@@ -467,3 +467,15 @@ color:#fff;
 .home-v6 .hero-copy .eyebrow{font-size:11px}
 .home-v6 .hero-scope b{font-size:13px}
 }
+
+/* Home reported operating scale strip 2026-10-14 */
+.home-v6 .home-scale-strip{background:var(--hv6-navy-soft);color:#fff;padding:34px 0 26px}
+.home-v6 .home-scale-inner{width:min(1180px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 32px}
+.home-v6 .home-scale-item{display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--hv6-cta);padding-left:16px}
+.home-v6 .home-scale-item b{font-size:clamp(28px,3.2vw,40px);line-height:1.05;font-weight:700;letter-spacing:-.01em}
+.home-v6 .home-scale-item span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--hv6-steel)}
+.home-v6 .home-scale-note{width:min(1180px,calc(100% - 48px));margin:22px auto 0;font-size:12px;line-height:1.55;color:#9fb0bc}
+@media(max-width:760px){
+.home-v6 .home-scale-inner{grid-template-columns:1fr}
+.home-v6 .home-scale-item b{font-size:30px}
+}
