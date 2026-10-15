@@ -56,12 +56,24 @@ jobs:
           print("pages bumped:", changed)
           assert changed > 0, "no page loads site-v2.js with a version"
           PY
+      - name: Record the intentional hero hash change
+        run: |
+          grep -rl "bf3cc31102cce2d665479020d46f9ca11f2a13c49099e269b798e127df3dd221" . --exclude-dir=.git --exclude-dir=.github
+          python3 - <<'PY'
+          OLD = b"bf3cc31102cce2d665479020d46f9ca11f2a13c49099e269b798e127df3dd221"
+          NEW = b"c3a67f369b74b1abf7b943466c6b6ebef8efc66169ea3d3968e08c1e5c444c7c"
+          f = "scripts/test-technical-seo.py"
+          d = open(f, "rb").read()
+          assert d.count(OLD) == 1, "expected exactly one hero hash in " + f
+          open(f, "wb").write(d.replace(OLD, NEW))
+          print("hero hash in", f, "updated")
+          PY
       - name: Refresh content fingerprints
         run: node scripts/sync-search-metadata.mjs --write
       - name: Change summary
         run: |
           git diff --stat | tail -5
-          git diff --numstat index.html assets/site-v2.js
+          git diff --numstat index.html assets/site-v2.js scripts/test-technical-seo.py
       - name: Run site checks
         run: |
           set -e
@@ -86,5 +98,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -u
-          git commit -m "Unify primary CTA label to Start Your Project" -m "Hero button and floating button now read Start Your Project, matching header and footer. site-v2.js version bumped on pages that load it. Fingerprints refreshed."
+          git commit -m "Unify primary CTA label to Start Your Project" -m "Hero button and floating button now read Start Your Project, matching header and footer. site-v2.js version bumped on pages that load it. Fingerprints refreshed. The protected hero hash in scripts/test-technical-seo.py is updated on purpose because the hero button text changed."
           git push
