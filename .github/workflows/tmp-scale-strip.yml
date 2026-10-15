@@ -20,6 +20,7 @@ jobs:
       - name: Apply figures update and homepage strip with byte-preserving edits
         run: |
           python3 - <<'PY'
+          import re
           CRLF = bytes([13, 10])
           LF = bytes([10])
 
@@ -63,23 +64,22 @@ jobs:
           edit(".github/SPORTENVO-ENTITY-FACT-SHEET.md", fact_sheet)
 
           # 2. homepage strip right after the hero section (hero bytes untouched)
-          import re
           def home(b):
               m = re.search(b'<section[^>]*class="home-hero"', b)
               assert m, "hero not found"
               end = b.index(b"</section>", m.start()) + len(b"</section>")
               eol = CRLF if b[end:end+2] == CRLF else LF
               pos = end + len(eol)
-              assert b[pos:pos+2] == b"  ", "unexpected indentation after hero"
+              assert b[pos:pos+len(b'<section class="section-pad" id="court-systems">')] == b'<section class="section-pad" id="court-systems">', "court systems section does not follow the hero"
               lines = [
-                  '  <div class="home-scale-strip" role="group" aria-label="Reported operating scale">',
-                  '    <div class="home-scale-inner">',
-                  '      <div class="home-scale-item"><b>100+</b><span>Export Markets</span></div>',
-                  '      <div class="home-scale-item"><b>5,000+</b><span>Cooperative Clients</span></div>',
-                  '      <div class="home-scale-item"><b>30&ndash;40 Days</b><span>Typical Production Lead Time</span></div>',
-                  '    </div>',
-                  '    <p class="home-scale-note">Reported operating figures from the manufacturing and export operation behind SPORTENVO. Production lead time runs from order confirmation to completed production and is confirmed for each project.</p>',
+                  '<div class="home-scale-strip" role="group" aria-label="Reported operating scale">',
+                  '  <div class="home-scale-inner">',
+                  '    <div class="home-scale-item"><b>100+</b><span>Export Markets</span></div>',
+                  '    <div class="home-scale-item"><b>5,000+</b><span>Cooperative Clients</span></div>',
+                  '    <div class="home-scale-item"><b>30&ndash;40 Days</b><span>Typical Production Lead Time</span></div>',
                   '  </div>',
+                  '  <p class="home-scale-note">Reported operating figures from the manufacturing and export operation behind SPORTENVO. Production lead time runs from order confirmation to completed production and is confirmed for each project.</p>',
+                  '</div>',
               ]
               block = b"".join(l.encode() + eol for l in lines)
               b = b[:pos] + block + b[pos:]
