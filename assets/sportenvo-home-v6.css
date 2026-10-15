@@ -432,3 +432,38 @@
 @media(max-width:760px){
   .home-solution-actions{align-items:flex-start;gap:16px}
 }
+
+/* Home V7 readability and action hierarchy 2026-10-14 */
+.home-v6{
+--hv6-muted:#535c64;
+--hv6-steel-dark:#4d6372;
+--hv6-cta:#0b6fa8;
+--hv6-cta-hover:#095a88;
+}
+.home-v6 .button-accent{
+background:var(--hv6-cta);
+border-color:var(--hv6-cta);
+color:#fff;
+}
+.home-v6 .button-accent:hover,
+.home-v6 .button-accent:focus-visible{
+background:var(--hv6-cta-hover);
+border-color:var(--hv6-cta-hover);
+color:#fff;
+}
+.home-v6 .section-heading>p:last-child,
+.home-v6 .logic-grid p{color:var(--hv6-muted)}
+.home-v6 .hero-copy .eyebrow{font-size:12px}
+.home-v6 .hero-scope span{font-size:11px}
+.home-v6 .hero-scope b{font-size:14px}
+.home-v6 .hero-scope small{font-size:12px}
+.home-v6 .product-top{font-size:12px}
+.home-v6 .proof-points span{font-size:12px}
+.home-v6 .home-project-card b{font-size:12px}
+.home-v6 .home-guide-card>span{font-size:12px}
+.home-v6 .home-guide-card b{font-size:12px}
+.home-v6 .footer-grid h2{font-size:12px}
+@media(max-width:760px){
+.home-v6 .hero-copy .eyebrow{font-size:11px}
+.home-v6 .hero-scope b{font-size:13px}
+}
