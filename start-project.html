@@ -1007,6 +1007,9 @@ Target timeline: Not provided</pre>
   function mountForm(){
     if(mounted) return;
     mounted=true;
+    // Visitors arriving directly from search or AI still need a lead source for conversion attribution.
+    // Preserve an earlier product/guide CTA when the user came through another SPORTENVO page.
+    window.sportenvoAttribution?.rememberLeadIntent?.('Start Project Formal Inquiry', true);
     var formUrl=new URL('https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
     formUrl.searchParams.set('zf_rszfm','1');
     formUrl.searchParams.set('referrername',window.location.origin+window.location.pathname);
