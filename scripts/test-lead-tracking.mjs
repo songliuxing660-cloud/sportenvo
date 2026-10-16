@@ -147,3 +147,32 @@ test("unmatched Zoho messages cannot confirm an enquiry without its embedded fra
   current.listeners.get("message")[0]({ origin: "https://forms.zohopublic.com", source: {}, data: "zf_submitform" });
   assert.equal(current.session.getItem("sportenvo_form_submit_confirmed"), null);
 });
+
+
+test("direct Start Project form visit records lead context before mounting Zoho", () => {
+  const current = visit("https://sportenvo.com/start-project.html?utm_source=google&utm_medium=organic");
+  const html = readFileSync(new URL("../start-project.html", import.meta.url), "utf8");
+  const startScript = html.match(/<script id="start-project-zoho-loader">([\s\S]*?)<\/script>/)[1];
+  const loading = { style: {}, textContent: "" };
+  const shell = { querySelector: () => loading };
+  const mount = { appendChild() {} };
+  current.document.querySelector = () => shell;
+  current.document.getElementById = () => mount;
+  current.document.createElement = () => ({ style: {}, setAttribute() {}, addEventListener() {} });
+  current.sandbox.IntersectionObserver = class {
+    constructor(callback) { this.callback = callback; }
+    observe() { this.callback([{ isIntersecting: true }]); }
+    disconnect() {}
+  };
+  current.window.IntersectionObserver = current.sandbox.IntersectionObserver;
+  current.run(startScript);
+  assert.equal(current.local.getItem("sportenvo_lead_source_page"), "/start-project.html");
+  assert.equal(current.local.getItem("sportenvo_lead_source_cta"), "Start Project Formal Inquiry");
+  assert.ok(Number(current.local.getItem("sportenvo_lead_started_at")) > 0);
+});
+
+test("homepage schedules the standard asynchronous analytics tag without a six-second wait", () => {
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  assert.match(html, /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-2R150CJB3Z"><\/script>/);
+  assert.doesNotMatch(html, /setTimeout\(loadAnalytics,6000\)/);
+});
