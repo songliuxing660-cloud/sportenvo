@@ -1,3 +1,5 @@
+const SV_LANG = (document.documentElement.lang || "en").slice(0, 2);
+const SV_T = (en, map) => (map && map[SV_LANG]) || en;
 /* Microsoft Clarity — delayed so analytics never competes with the LCP render. */
 (function(){
   if(window.__sportenvoClarityArmed) return;
@@ -32,7 +34,7 @@
   if (!/^(?:\/|\/index\.html)$/.test(window.location.pathname)) return;
   document.querySelectorAll(".cta-band").forEach((section) => {
     const heading = section.querySelector("h2");
-    if (heading && heading.textContent.trim() === "Build a coordinated court plan.") {
+    if (heading && heading.textContent.trim() === SV_T("Build a coordinated court plan.",{es:"Cree un plan de pista coordinado."})) {
       section.remove();
     }
   });
@@ -75,14 +77,14 @@ const existingWhatsApp = document.querySelector(".whatsapp");
 const contactActions = document.createElement("div");
 contactActions.className = "floating-contact-actions";
 contactActions.setAttribute("role", "group");
-contactActions.setAttribute("aria-label", "SPORTENVO project enquiry options");
+contactActions.setAttribute("aria-label", SV_T("SPORTENVO project enquiry options",{es:"Opciones de consulta de proyecto de SPORTENVO"}));
 
 const whatsappLink = existingWhatsApp || document.createElement("a");
 whatsappLink.className = "whatsapp floating-whatsapp";
 whatsappLink.href = whatsappHref;
 whatsappLink.target = "_blank";
 whatsappLink.rel = "noopener";
-whatsappLink.setAttribute("aria-label", "Chat with SPORTENVO on WhatsApp");
+whatsappLink.setAttribute("aria-label", SV_T("Chat with SPORTENVO on WhatsApp",{es:"Chatee con SPORTENVO por WhatsApp"}));
 whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">';
 
 const quoteLink = document.createElement("a");
@@ -90,7 +92,7 @@ quoteLink.className = "floating-quote";
 quoteLink.href = "/start-project.html?source=floating-project-cta#projectConfiguratorTitle";
 quoteLink.removeAttribute("target");
 quoteLink.removeAttribute("rel");
-quoteLink.innerHTML = 'Start Your Project <span aria-hidden="true">&#8594;</span>';
+quoteLink.innerHTML = SV_T("Start Your Project",{es:"Inicie su proyecto"})+' <span aria-hidden="true">&#8594;</span>';
 const quoteProducts = {
   "/panoramic.html": "panoramic", "/super-panoramic.html": "super-panoramic",
   "/classic-padel-court.html": "classic", "/mobile.html": "mobile",
@@ -100,7 +102,7 @@ const quoteProducts = {
 const quoteProduct = quoteProducts[window.location.pathname];
 if (quoteProduct) {
   quoteLink.href = "https://sportenvo.com/?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
-  quoteLink.innerHTML = 'Get Project Quote <span aria-hidden="true">&#8594;</span>';
+  quoteLink.innerHTML = SV_T("Get Project Quote",{es:"Solicitar cotización"})+' <span aria-hidden="true">&#8594;</span>';
 }
 
 contactActions.append(whatsappLink, quoteLink);
