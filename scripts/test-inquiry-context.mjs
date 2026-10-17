@@ -68,7 +68,26 @@ test("all product primary quote links target the form with their product", () =>
     assert.ok(links.length >= 3, file);
     for (const [, href] of links) {
       const url = new URL(href.replaceAll("&amp;", "&"), "https://sportenvo.com");
-      assert.equal(url.pathname, "/"); assert.equal(url.hash, "#formal-project-inquiry"); assert.equal(url.searchParams.get("product"), slug);
+      assert.equal(url.pathname, ["roof.html", "modular-foundation.html"].includes(file) ? "/start-project.html" : "/"); assert.equal(url.hash, "#formal-project-inquiry"); assert.equal(url.searchParams.get("product"), slug);
     }
+  }
+});
+
+test("floating product quote follows the primary form route and retains product context", () => {
+  const source = readFileSync(new URL("../assets/site-v2.js", import.meta.url), "utf8");
+  const setup = source.slice(source.indexOf("const quoteProducts ="), source.indexOf("contactActions.append"));
+  for (const [pathname, href, expectedPath, product] of [
+    ["/roof.html", "start-project.html?source=roof-product&product=roof#formal-project-inquiry", "/start-project.html", "roof"],
+    ["/modular-foundation.html", "start-project.html?source=foundation-product&product=modular-foundation#formal-project-inquiry", "/start-project.html", "modular-foundation"],
+    ["/panoramic.html", "https://sportenvo.com/?source=panoramic-product&product=panoramic#formal-project-inquiry", "/", "panoramic"],
+    ["/roof.html", null, "/", "roof"]
+  ]) {
+    const quoteLink = {};
+    vm.runInNewContext(setup, { quoteLink, URL, SV_T: en => en, window: { location: { href: "https://sportenvo.com" + pathname, pathname } }, document: { querySelector: () => href ? {getAttribute: () => href} : null } });
+    const destination = new URL(quoteLink.href);
+    assert.equal(destination.pathname, expectedPath);
+    assert.equal(destination.hash, "#formal-project-inquiry");
+    assert.equal(destination.searchParams.get("product"), product);
+    assert.equal(destination.searchParams.get("source"), "floating-product-cta");
   }
 });
