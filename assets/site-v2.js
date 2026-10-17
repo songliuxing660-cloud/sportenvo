@@ -89,7 +89,7 @@ whatsappLink.innerHTML = '<img src="/assets/whatsapp-delivery.jpg" width="156" h
 
 const quoteLink = document.createElement("a");
 quoteLink.className = "floating-quote";
-quoteLink.href = "/start-project.html?source=floating-project-cta#projectConfiguratorTitle";
+quoteLink.href = "/start-project.html?source=floating-project-cta#formal-project-inquiry";
 quoteLink.removeAttribute("target");
 quoteLink.removeAttribute("rel");
 quoteLink.innerHTML = SV_T("Start Your Project",{es:"Inicie su proyecto"})+' <span aria-hidden="true">&#8594;</span>';
@@ -99,9 +99,9 @@ const quoteProducts = {
   "/electric-tent-padel-court.html": "electric-tent", "/roof.html": "roof",
   "/force-hx.html": "force-hx", "/modular-foundation.html": "modular-foundation"
 };
-const quoteProduct = quoteProducts[window.location.pathname];
+const quoteProduct = quoteProducts[window.location.pathname.replace(/^\/es(?=\/)/, "")];
 if (quoteProduct) {
-  quoteLink.href = "https://sportenvo.com/?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
+  quoteLink.href = "/start-project.html?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
   const primaryQuoteLink = document.querySelector('a[data-quote-cta="product-quick-start"]');
   if (primaryQuoteLink) {
     const formalQuoteUrl = new URL(primaryQuoteLink.getAttribute("href"), window.location.href);
