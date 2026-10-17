@@ -28,8 +28,8 @@ def target(href, url):
     if parsed.netloc != "sportenvo.com" or parsed.scheme not in {"http", "https"}:
         return None
     pathname = unquote(parsed.path)
-    if pathname == "/index.html":
-        pathname = "/"
+    if pathname.endswith("/index.html"):
+        pathname = pathname[: -len("index.html")]
     return SITE.rstrip("/") + pathname
 
 
@@ -43,7 +43,7 @@ def audit(root=ROOT):
             continue
         raw = file.read_text(encoding="utf-8")
         doc = buyer.Document(raw)
-        url = urljoin(SITE, "" if rel == "index.html" else rel)
+        url = urljoin(SITE, re.sub(r"(^|/)index\.html$", r"\1", rel))
         meta = list(doc.root.find("meta"))
         noindex = any(n.attrs.get("name", "").lower() in {"robots", "googlebot"} and "noindex" in n.attrs.get("content", "").lower() for n in meta)
         canonicals = [n.attrs.get("href") for n in doc.root.find("link") if "canonical" in n.attrs.get("rel", "").split()]
