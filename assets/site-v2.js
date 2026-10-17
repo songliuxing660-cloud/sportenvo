@@ -102,6 +102,13 @@ const quoteProducts = {
 const quoteProduct = quoteProducts[window.location.pathname];
 if (quoteProduct) {
   quoteLink.href = "https://sportenvo.com/?source=floating-product-cta&product=" + quoteProduct + "#formal-project-inquiry";
+  const primaryQuoteLink = document.querySelector('a[data-quote-cta="product-quick-start"]');
+  if (primaryQuoteLink) {
+    const formalQuoteUrl = new URL(primaryQuoteLink.getAttribute("href"), window.location.href);
+    formalQuoteUrl.search = "?source=floating-product-cta&product=" + quoteProduct;
+    formalQuoteUrl.hash = "formal-project-inquiry";
+    quoteLink.href = formalQuoteUrl.href;
+  }
   quoteLink.innerHTML = SV_T("Get Project Quote",{es:"Solicitar cotización"})+' <span aria-hidden="true">&#8594;</span>';
 }
 
