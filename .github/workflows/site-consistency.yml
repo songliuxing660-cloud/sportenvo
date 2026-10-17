@@ -14,6 +14,7 @@ on:
       - "scripts/test-traffic-context.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
+      - "scripts/test-inquiry-funnel.mjs"
       - "scripts/test-club-planning.cjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
@@ -42,6 +43,7 @@ on:
       - "scripts/test-traffic-context.mjs"
       - "scripts/test-rfq-context.mjs"
       - "scripts/test-inquiry-context.mjs"
+      - "scripts/test-inquiry-funnel.mjs"
       - "scripts/test-club-planning.cjs"
       - "scripts/test-indexnow.py"
       - "scripts/sync-buyer-content.py"
@@ -79,7 +81,7 @@ jobs:
           python3 scripts/audit-technical-seo.py --strict
           python3 scripts/test-technical-seo.py
       - name: Check enquiry attribution and confirmed conversions
-        run: node --test scripts/test-lead-tracking.mjs
+        run: node --test scripts/test-lead-tracking.mjs scripts/test-inquiry-funnel.mjs
       - name: Check reversible QA traffic labels across quote journeys
         run: node --test scripts/test-traffic-context.mjs
       - name: Check product preferences through the RFQ buyer path

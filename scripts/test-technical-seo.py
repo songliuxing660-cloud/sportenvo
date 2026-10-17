@@ -44,10 +44,10 @@ class TechnicalSeo(unittest.TestCase):
         source = '<a href="https://example.com/index.html">Other</a><a href="roof.html">Roof</a><a href="#main">Skip</a>'
         self.assertEqual(home.HomeLinks(source, audit.SITE + "index.html").updated(), source)
 
-    def test_dynamic_quote_link_uses_root(self):
+    def test_dynamic_quote_link_uses_direct_inquiry(self):
         source = (ROOT / "assets/site-v2.js").read_text(encoding="utf-8")
         self.assertNotIn('quoteLink.href = "/index.html', source)
-        self.assertIn('quoteLink.href = "https://sportenvo.com/?source=floating-product-cta&product="', source)
+        self.assertIn('quoteLink.href = "/start-project.html?source=floating-product-cta&product="', source)
 
     def test_contextual_topic_edges(self):
         edges = {
