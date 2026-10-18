@@ -1,3 +1,5 @@
+var SVJ_LANG = (document.documentElement.lang || "en").slice(0, 2);
+var SVJ_T = function (en, map) { return (map && map[SVJ_LANG]) || en; };
 /* Microsoft Clarity — delayed so analytics never competes with the LCP render. */
 (function(){
   if(window.__sportenvoClarityArmed) return;
@@ -46,7 +48,7 @@ if(siteNav){
 if(toggle&&nav) toggle.addEventListener('click',()=>{
   const open=nav.classList.toggle('open');
   toggle.setAttribute('aria-expanded',String(open));
-  toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+  toggle.setAttribute('aria-label',open?SVJ_T('Close menu',{es:'Cerrar menú'}):SVJ_T('Open menu',{es:'Abrir menú'}));
 });
 document.querySelectorAll('.site-nav .has-dropdown>.nav-main').forEach(link=>{
   link.addEventListener('click',event=>{
@@ -91,12 +93,12 @@ updateResult();
   const actions=document.createElement('div');
   actions.className='floating-contact-actions';
   actions.setAttribute('role','group');
-  actions.setAttribute('aria-label','SPORTENVO project enquiry options');
+  actions.setAttribute('aria-label',SVJ_T('SPORTENVO project enquiry options',{es:'Opciones de consulta de proyecto de SPORTENVO'}));
   actions.innerHTML=`
-    <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="Chat with SPORTENVO">
+    <a class="floating-whatsapp" href="${href}" target="_blank" rel="noopener" aria-label="${SVJ_T("Chat with SPORTENVO",{es:"Chatee con SPORTENVO por WhatsApp"})}">
       <img src="/assets/whatsapp-delivery.jpg" width="156" height="156" alt="">
     </a>
-    <a class="floating-quote" href="/start-project.html?source=floating-project-cta#formal-project-inquiry">Start Project <span aria-hidden="true">&#8594;</span></a>`;
+    <a class="floating-quote" href="/start-project.html?source=floating-project-cta#formal-project-inquiry">${SVJ_T("Start Project",{es:"Inicie su proyecto"})} <span aria-hidden="true">&#8594;</span></a>`;
   document.body.appendChild(actions);
 })();
 
