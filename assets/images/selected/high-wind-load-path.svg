@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">High-wind court load-path planning</title><desc id="desc">Concept diagram showing site exposure, court frame, anchors and foundation. Not a photograph, structural drawing or certification.</desc>
+<defs><pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#d9e2e5" stroke-width="1"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e6874d"/></marker></defs>
+<path fill="#edf1ef" d="M0 0h1400v900H0z"/><path fill="url(#grid)" d="M0 0h1400v900H0z"/>
+<g font-family="Arial,sans-serif" fill="#152d38"><text x="94" y="105" font-size="22" letter-spacing="4">HIGH-WIND SYSTEM PLANNING</text><text x="94" y="166" font-size="48" font-weight="700">One continuous load path.</text></g>
+<g stroke="#273e48" stroke-width="16" fill="none" stroke-linejoin="round"><path d="M435 637V300L907 264V601M435 300L647 412L1112 371V701M647 412V701M907 264L1112 371M435 637L647 749L1112 701L907 601Z"/><path d="M435 423L647 535L1112 494M907 387L1112 494" stroke-width="7"/></g>
+<path d="M435 637L647 749L1112 701L907 601Z" fill="#a5bdc4" fill-opacity=".5"/>
+<g stroke="#6b8996" stroke-width="3" fill="none"><path d="M485 326V661M537 354V688M590 383V718M712 406V738M779 400V732M846 394V725M914 388V718M981 382V712M1046 377V706"/><path d="M442 480L647 590L1106 548M442 535L647 644L1106 603"/></g>
+<g stroke="#e6874d" stroke-width="9" fill="none" marker-end="url(#arrow)"><path d="M122 356H359M122 428H359M122 500H359M752 487V655M1018 519V650"/></g>
+<g fill="#273e48"><path d="M408 631h58v33h-58zM619 735h58v33h-58zM1083 686h58v33h-58zM879 590h58v33h-58z"/><path d="M425 660h9v39h-9zM447 660h9v39h-9zM635 767h9v39h-9zM657 767h9v39h-9zM1100 718h9v39h-9zM1122 718h9v39h-9z"/></g>
+<g font-family="Arial,sans-serif" font-size="22" fill="#152d38"><text x="104" y="308">01 / SITE EXPOSURE</text><text x="943" y="238">02 / FRAME</text><text x="1000" y="817">03 / ANCHORS</text><text x="397" y="817">04 / FOUNDATION</text><text x="94" y="868" font-size="17" fill="#5b7079">CONCEPT ONLY · FINAL CONFIGURATION REQUIRES PROJECT-SPECIFIC ENGINEERING</text></g></svg>
