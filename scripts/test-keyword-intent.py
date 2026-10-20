@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = {
-    "courts.html": "Compare Padel Court Types & Systems",
+    "courts.html": "Padel Courts for Sale: Panoramic, Classic & Mobile",
     "solutions.html": "Commercial Padel Court Solutions by Venue & Site",
     "commercial-padel-court.html": "Commercial Padel Court Procurement & Supply Scope",
 }
