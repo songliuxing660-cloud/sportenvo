@@ -163,6 +163,27 @@ document.addEventListener("click", (event) => {
     ...attribution
   };
 
+  // Cross-page formal quotes are also Start Project visits. Track both intent
+  // and funnel entry, once each, before the generic in-page anchor handler.
+  if (destination.origin === window.location.origin && path.endsWith("/start-project.html")) {
+    rememberLeadIntent(visibleText);
+    const clickParams = {
+      ...params,
+      lead_source_page: window.location.pathname,
+      lead_source_cta: visibleText
+    };
+    const sourceTag = destination.searchParams.get("source");
+    if (sourceTag) clickParams.lead_source_tag = sourceTag.slice(0, 100);
+    if (destination.hash === "#formal-project-inquiry") {
+      trackEvent("request_quote_click", {
+        ...clickParams,
+        quote_location: "formal-project-inquiry"
+      });
+    }
+    trackEvent("start_project_click", clickParams);
+    return;
+  }
+
   if (destination.origin === window.location.origin && destination.hash === "#formal-project-inquiry") {
     rememberLeadIntent(visibleText);
     trackEvent("request_quote_click", {
@@ -174,12 +195,6 @@ document.addEventListener("click", (event) => {
 
   if (destination.origin === window.location.origin && path.endsWith("/padel-court-rfq-checklist.html")) {
     trackEvent("rfq_tool_click", params);
-    return;
-  }
-
-  if (destination.origin === window.location.origin && path.endsWith("/start-project.html")) {
-    rememberLeadIntent(visibleText);
-    trackEvent("start_project_click", params);
     return;
   }
 
