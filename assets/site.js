@@ -140,15 +140,25 @@ updateResult();
     };
     Object.assign(params,window.sportenvoAttribution?.getContext()||{});
 
-    if(destination.origin===window.location.origin&&destination.hash==='#formal-project-inquiry'){
+    // A cross-page formal quote belongs to the Start Project funnel too.
+    if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
       rememberLeadIntent(visibleText);
-      window.gtag('event','request_quote_click',Object.assign({},params,{quote_location:'formal-project-inquiry'}));
+      const clickParams=Object.assign({},params,{
+        lead_source_page:window.location.pathname,
+        lead_source_cta:visibleText
+      });
+      const sourceTag=destination.searchParams.get('source');
+      if(sourceTag) clickParams.lead_source_tag=sourceTag.slice(0,100);
+      if(destination.hash==='#formal-project-inquiry'){
+        window.gtag('event','request_quote_click',Object.assign({},clickParams,{quote_location:'formal-project-inquiry'}));
+      }
+      window.gtag('event','start_project_click',clickParams);
       return;
     }
 
-    if(destination.origin===window.location.origin&&path.endsWith('/start-project.html')){
+    if(destination.origin===window.location.origin&&destination.hash==='#formal-project-inquiry'){
       rememberLeadIntent(visibleText);
-      window.gtag('event','start_project_click',params);
+      window.gtag('event','request_quote_click',Object.assign({},params,{quote_location:'formal-project-inquiry'}));
       return;
     }
 
