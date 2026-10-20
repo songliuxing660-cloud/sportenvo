@@ -73,6 +73,30 @@ test("all product primary quote links target the form with their product", () =>
   }
 });
 
+test("Panoramic and Mobile decision paths keep their source; relocation also selects Mobile in both languages", () => {
+  for (const locale of ["", "es/"]) {
+    for (const product of ["panoramic", "mobile"]) {
+      const html = readFileSync(new URL("../" + locale + product + ".html", import.meta.url), "utf8");
+      const decision = "start-project.html?source=" + product + "-planning-guide#projectConfiguratorTitle";
+      assert.ok(html.includes('href="' + decision + '"'), locale + product + ": missing decision source");
+      const decisionUrl = new URL(decision, "https://sportenvo.com/" + locale + product + ".html");
+      assert.equal(decisionUrl.searchParams.get("source"), product + "-planning-guide");
+      assert.equal(decisionUrl.searchParams.get("product"), null, "undecided buyers must stay free to choose");
+    }
+    const mobileHtml = readFileSync(new URL("../" + locale + "mobile.html", import.meta.url), "utf8");
+    const relocation = [...mobileHtml.matchAll(/href="([^"]*source=mobile-relocation-planning[^"]*)"/g)];
+    assert.equal(relocation.length, 1, locale + "mobile: exactly one relocation CTA");
+    const destination = new URL(relocation[0][1].replaceAll("&amp;", "&"), "https://sportenvo.com/" + locale + "mobile.html");
+    assert.equal(destination.pathname, "/" + locale + "start-project.html");
+    assert.equal(destination.hash, "#projectConfiguratorTitle");
+    assert.equal(destination.searchParams.get("source"), "mobile-relocation-planning");
+    assert.equal(destination.searchParams.get("product"), "mobile");
+    const prefilling = visit(destination.search);
+    assert.equal(prefilling.url().searchParams.get("Dropdown"), "Portable / Mobile Padel Court");
+    assert.match(prefilling.url().searchParams.get("MultiLine"), /Mobile Padel Court/);
+  }
+});
+
 test("floating product quote follows the primary form route and retains product context", () => {
   const source = readFileSync(new URL("../assets/site-v2.js", import.meta.url), "utf8");
   const setup = source.slice(source.indexOf("const quoteProducts ="), source.indexOf("contactActions.append"));
