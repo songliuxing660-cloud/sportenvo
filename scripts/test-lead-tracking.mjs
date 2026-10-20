@@ -176,3 +176,53 @@ test("homepage schedules the standard asynchronous analytics tag without a six-s
   assert.match(html, /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-2R150CJB3Z"><\/script>/);
   assert.doesNotMatch(html, /setTimeout\(loadAnalytics,6000\)/);
 });
+
+
+function clickTrackingFromAsset(asset, pageUrl, href, label = "Get Project Quote") {
+  const src = readFileSync(new URL("../assets/" + asset, import.meta.url), "utf8");
+  const version2 = asset === "site-v2.js";
+  const anchor = version2 ? 'document.addEventListener("click", (event) => {' : "document.addEventListener('click',event=>{";
+  const from = src.indexOf(anchor, src.indexOf(version2 ? "window.sportenvoRememberLeadIntent = rememberLeadIntent" : "window.sportenvoRememberLeadIntent=rememberLeadIntent"));
+  assert.ok(from > 0, asset + ": click handler missing");
+  const to = version2 ? src.indexOf("\nconst projectForm", from) : src.indexOf("  },{capture:true});", from) + "  },{capture:true});".length;
+  assert.ok(to > from, asset + ": click handler end missing");
+  const events = [], remembered = [], handlers = {};
+  const document = { title: "SPORTENVO Court", addEventListener(name, fn) { handlers[name] = fn; } };
+  const window = { location: new URL(pageUrl), gtag(...args) { events.push(args); } };
+  vm.runInNewContext(src.slice(from, to), {
+    document, window, URL, Element: class {},
+    attribution: { utm_source: "google", utm_medium: "organic" },
+    rememberLeadIntent(text) { remembered.push(text); },
+    trackEvent(name, parameters) { events.push(["event", name, parameters]); }
+  });
+  const link = { textContent: label, getAttribute(name) { return name === "href" ? href : null; }, hasAttribute() { return false; } };
+  handlers.click({ target: { parentElement: { closest() { return link; } } } });
+  return { events, remembered };
+}
+
+test("cross-page formal quotes fire the Start Project funnel once with source, page and CTA", () => {
+  for (const asset of ["site-v2.js", "site.js"]) {
+    for (const product of ["mobile", "panoramic"]) {
+      const page = "https://sportenvo.com/" + product + ".html";
+      const href = "/start-project.html?source=" + product + "-product&product=" + product + "#formal-project-inquiry";
+      const result = clickTrackingFromAsset(asset, page, href);
+      assert.deepEqual(result.events.map(event => event[1]), ["request_quote_click", "start_project_click"], asset + " " + product);
+      assert.equal(result.remembered.length, 1);
+      for (const event of result.events) {
+        assert.equal(event[2].lead_source_tag, product + "-product");
+        assert.equal(event[2].lead_source_page, "/" + product + ".html");
+        assert.equal(event[2].lead_source_cta, "Get Project Quote");
+      }
+    }
+  }
+});
+
+test("configurator navigation is one Start Project click; unrelated quote anchors are not", () => {
+  for (const asset of ["site-v2.js", "site.js"]) {
+    const configurator = clickTrackingFromAsset(asset, "https://sportenvo.com/mobile.html", "/start-project.html?source=mobile-planning-guide#projectConfiguratorTitle", "Project Configurator");
+    assert.deepEqual(configurator.events.map(event => event[1]), ["start_project_click"]);
+    assert.equal(configurator.events[0][2].lead_source_tag, "mobile-planning-guide");
+    const localQuote = clickTrackingFromAsset(asset, "https://sportenvo.com/mobile.html", "/mobile.html#formal-project-inquiry");
+    assert.deepEqual(localQuote.events.map(event => event[1]), ["request_quote_click"]);
+  }
+});
