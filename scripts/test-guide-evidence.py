@@ -49,7 +49,8 @@ class GuideEvidenceTests(unittest.TestCase):
 
     def test_cost_numbers_are_labeled_historical_regional_not_global_quotes(self):
         html = self.pages[guide.PAGES[0]]
-        self.assertNotIn("US$", html)
+        self.assertIn("SPORTENVO EXW factory reference prices", html)
+        self.assertIn("USD 9,500", html)
         self.assertNotIn("reviewedBy", html)
         self.assertNotIn("Reviewed by:", html)
         self.assertIn("Historical UK example", html)
