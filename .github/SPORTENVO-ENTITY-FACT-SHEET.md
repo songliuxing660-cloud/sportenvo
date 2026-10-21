@@ -45,6 +45,8 @@ The full website product menu remains authoritative and should continue to show 
 
 The following figures are reported operating figures from the manufacturing and export operation behind the SPORTENVO brand. They are not legal-entity claims about SPORTENVO itself. Keep them separate from project-specific specifications, test reports and certification claims.
 
+- Founded 2010 in Guangzhou, China (owner-confirmed 2026-10-20)
+- CE-certified padel court systems (owner-confirmed 2026-10-20)
 - 10+ Years Export Experience
 - 100+ Export Markets
 - 100+ Factory Employees
