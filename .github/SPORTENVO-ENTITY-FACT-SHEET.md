@@ -54,7 +54,9 @@ The following figures are reported operating figures from the manufacturing and 
 - 10,000 m² Factory Area
 
 ## Approved Descriptions
-- 30-40 Days Typical Production Lead Time (order confirmation to completed production, confirmed per project)
+- 25-30 Days Typical Production Lead Time (order confirmation to completed production, confirmed per project; updated 2026-10-22, previously 30-40 days)
+- About 3 days installation per court (owner-confirmed 2026-10-22)
+- MOQ: 1 court; CE certificate no. GZIN2607001383CM01 (owner-confirmed 2026-10-22)
 
 ### One line
 
@@ -127,7 +129,7 @@ https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
 - Do not state a universal wind rating, roof specification or foundation solution for every site.
 - Do not claim local code approval without project-specific engineering review.
 - Do not publish unverified office addresses, social profiles, certifications or partner relationships.
-- Do not describe the 30-40 day lead time as delivery, shipping or installation time. It covers order confirmation to completed production only.
+- Do not describe the 25-30 day lead time as delivery, shipping or installation time. It covers order confirmation to completed production only.
 
 ## Official External Profiles
 
