@@ -91,5 +91,7 @@ test("English and Spanish inquiry pages only mark verified Zoho resize as ready"
     assert.match(homeLoader, /event\.origin!=='https:\/\/forms\.zohopublic\.com'/);
     assert.match(page, locale ? /Solo son obligatorios el nombre/ : /Only your name, email/);
     assert.match(home, locale ? /Solo son obligatorios el nombre/ : /Only name, email/);
+    assert.match(page, locale ? /tipo de proyecto/ : /project type/);
+    assert.match(home, locale ? /tipo de proyecto/ : /project type/);
   }
 });
