@@ -611,7 +611,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
       <p class="quote-process">1. Comparta su resumen · 2. Revisamos el emplazamiento y el alcance · 3. Confirmamos la cotización</p>
       <p class="eyebrow">Consulta formal de proyecto</p>
       <h2 id="formalInquiryTitle">Cuéntenos qué está planificando.</h2>
-      <p>Empiece por su país, la cantidad de pistas y el sistema que está considerando. Elija «No estoy seguro: recomiéndenme una solución» si necesita ayuda para elegir. Los planos y las fotos del emplazamiento pueden enviarse después de la primera conversación.</p>
+      <p>Solo son obligatorios el nombre, el correo electrónico, el país o región y el tipo de proyecto. La cantidad de pistas, los detalles del emplazamiento y los planos son opcionales y pueden enviarse después. Si necesita ayuda, elija «No estoy seguro: recomiéndenme una solución» cuando esté disponible.</p>
       <div class="inquiry-context-summary" data-inquiry-context="" hidden=""><strong>Su sistema seleccionado</strong><pre data-inquiry-summary=""></pre></div>
 
       <div class="inquiry-reference"><a href="projects.html" data-inquiry-evidence="">Ver proyectos terminados de SPORTENVO</a></div>
@@ -934,7 +934,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
   var mount=document.getElementById('zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
   if(!shell||!mount) return;
   var loading=shell.querySelector('.formal-inquiry-loading');
-  var mounted=false,frame=null;
+  var mounted=false,frame=null,verifiedReady=false;
   function mountForm(){
     if(mounted) return;
     mounted=true;
@@ -960,10 +960,6 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
     frame.style.transition='height .35s ease';
     frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
     frame.setAttribute('title','SPORTENVO Project Inquiry');
-    frame.addEventListener('load',function(){
-      if(loading) loading.style.display='none';
-      try{document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}catch(e){}
-    },{once:true});
     mount.appendChild(frame);
   }
   window.addEventListener('message',function(event){
@@ -972,6 +968,11 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
     var height=Number(parts[1]);
     if(parts[0]==='XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI'&&(parts.length===2||parts.length===3)&&Number.isFinite(height)&&height>0){
       frame.style.height=(Math.floor(height)+15)+'px';
+      if(!verifiedReady){
+        verifiedReady=true;
+        if(loading) loading.style.display='none';
+        try{document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}catch(e){}
+      }
     }
   },false);
   mountForm();
