@@ -515,10 +515,6 @@
     frame.style.transition='height .35s ease';
     frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
     frame.setAttribute('title','SPORTENVO Project Inquiry');
-    frame.addEventListener('load',function(){
-      if(loading) loading.style.display='none';
-      send('project_form_view');
-    },{once:true});
     mount.appendChild(frame);
 
     delayTimer=window.setTimeout(function(){
@@ -556,12 +552,14 @@
       var parts=event.data.split('|');
       var height=Number(parts[1]);
       if(parts[0]===formId && (parts.length===2||parts.length===3) && Number.isFinite(height) && height>0){
-        ready=true;
+        if(!ready){
+          ready=true;
+          send('project_form_embed_ready');
+        }
         clearTimeout(delayTimer);
         if(loading) loading.style.display='none';
         if(fallback) fallback.classList.remove('is-visible');
         frame.style.height=(Math.floor(height)+15)+'px';
-        send('project_form_embed_ready');
       }
 
       var lower=event.data.toLowerCase();
