@@ -338,7 +338,7 @@
     </div>
 
     <div class="home-formal-form" data-home-zoho-form="">
-      <div class="home-formal-form-head"><span>SPORTENVO</span><strong>Consulta de proyecto</strong></div>
+      <div class="home-formal-form-head"><span>SPORTENVO</span><strong>Consulta de proyecto</strong><p style="margin:8px 0 0;color:#687689;font-size:12px;line-height:1.5">Solo son obligatorios el nombre, el correo, el país o región y el tipo de proyecto. El resto es opcional.</p></div>
       <div class="home-formal-loading" role="status" aria-live="polite">El formulario del proyecto se cargará cuando llegue a esta sección.</div>
       <div id="zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI"></div>
       <div class="home-formal-fallback">¿Problemas para cargar el formulario? <a href="https://forms.zohopublic.com/salesspor1/form/SPORTENVOProjectInquiry/formperma/XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI?zf_rszfm=1" target="_blank" rel="noopener">Ábralo en una pestaña nueva</a> o <a href="mailto:sales@sportenvo.com?subject=SPORTENVO%20Project%20Inquiry">escríbanos</a>.</div>
@@ -427,15 +427,11 @@
     frame.style.transition='height .35s ease';
     frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
     frame.setAttribute('title','SPORTENVO Project Inquiry');
-    frame.addEventListener('load',function(){
-      if(loading) loading.style.display='none';
-      send('project_form_view');
-    },{once:true});
     mount.appendChild(frame);
 
     delayTimer=window.setTimeout(function(){
       if(ready) return;
-      if(loading){loading.style.display='block';loading.textContent='The project form is taking longer than expected to load.';}
+      if(loading){loading.style.display='block';loading.textContent='El formulario tarda más de lo esperado en cargarse.';}
       if(fallback) fallback.classList.add('is-visible');
     },15000);
   }
@@ -468,12 +464,14 @@
       var parts=event.data.split('|');
       var height=Number(parts[1]);
       if(parts[0]===formId && (parts.length===2||parts.length===3) && Number.isFinite(height) && height>0){
-        ready=true;
+        if(!ready){
+          ready=true;
+          send('project_form_embed_ready');
+        }
         clearTimeout(delayTimer);
         if(loading) loading.style.display='none';
         if(fallback) fallback.classList.remove('is-visible');
         frame.style.height=(Math.floor(height)+15)+'px';
-        send('project_form_embed_ready');
       }
 
       var lower=event.data.toLowerCase();
