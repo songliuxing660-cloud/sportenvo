@@ -1,6 +1,6 @@
 # SPORTENVO Entity Fact Sheet
 
-Version: 2026-10-14
+Version: 2026-10-24
 
 Use this document as the single source of truth for the website, LinkedIn, YouTube, project directories, press references and partner profiles. Do not add a `sameAs` URL until the profile is official, public and uses the facts below.
 
@@ -14,12 +14,12 @@ Short descriptor: **Commercial Padel Court Brand + Project Support**
 
 | Field | Approved value |
 | --- | --- |
-| Entity type | Brand |
+| Entity type | Brand (not a separately verified legal entity) |
 | Brand name | SPORTENVO |
 | Official website | https://sportenvo.com/ |
 | Media / reference kit | https://sportenvo.com/media-kit.html |
 | Main category | Commercial padel court systems and project solutions |
-| Business role | Commercial padel court brand for product systems, technical guidance, project references and international B2B enquiries |
+| Business role | Commercial padel court brand for product systems, technical guidance, project references and international B2B enquiries; do not identify SPORTENVO Co., Ltd. as its registered operator without verified incorporation details |
 | Contact | sales@sportenvo.com |
 | Market scope | International commercial projects |
 | Target buyers | Padel clubs, hotels and resorts, sports facilities, commercial developers, contractors and distributors |
@@ -128,7 +128,9 @@ https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
 - Do not imply that a modular foundation requires no ground preparation.
 - Do not state a universal wind rating, roof specification or foundation solution for every site.
 - Do not claim local code approval without project-specific engineering review.
-- Do not publish unverified office addresses, social profiles, certifications or partner relationships.
+- Do not publish unverified office addresses, legal names or registration dates for the SPORTENVO brand, social profiles, certifications or partner relationships.
+- The 2010 heritage and reported factory/export scale refer to the supporting manufacturing/export operation, not the establishment of a separately incorporated SPORTENVO company.
+- CE documentation may be described as owner-reported; its validity and coverage must be checked for each supplied model and configuration.
 - Do not describe the 25-30 day lead time as delivery, shipping or installation time. It covers order confirmation to completed production only.
 
 ## Official External Profiles
@@ -137,6 +139,8 @@ https://sportenvo.com/project-chiang-mai-thailand-covered-padel-club.html
 | --- | --- | --- |
 | YouTube | https://www.youtube.com/@sportenvopadel | Confirmed official on 2026-09-26 |
 | Medium | https://medium.com/@sportenvo | Confirmed official on 2026-09-29 |
+| Substack | https://sportenvo.substack.com/p/concrete-vs-modular-padel-court-foundations | Public brand article confirmed 2026-10-24 |
+| PRLog | https://www.prlog.org/13178022-sportenvo-shares-commercial-padel-court-planning-guidance-for-international-projects.html | Public announcement confirmed 2026-10-24 |
 | LinkedIn | Not in use | No company page; do not add to `sameAs` |
 
 Website Brand Schema may include the confirmed YouTube and Medium URLs in `sameAs`. Keep unconfirmed social profiles and directory listings out of `sameAs`.
