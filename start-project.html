@@ -608,7 +608,7 @@ body.home-signature .site-nav:not(.is-scrolled){background:rgba(4,14,24,.32);bor
     </nav>
     <div class="eyebrow">Commercial Padel Project Planning</div>
     <h1 class="display">Request your padel court quote.</h1>
-    <p>Share your location, court quantity and preferred system. Start with what you know; site drawings can follow.</p><ul class="quote-facts" aria-label="SPORTENVO at a glance" style="list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px"><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">Since 2010</b> · Guangzhou</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">CE</b> certified</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">5,000+</b> clients</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">100+</b> export markets</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">MOQ:</b> 1 court</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">Reply</b> within 24 h</li></ul>
+    <p>Share your location, court quantity and preferred system. Start with what you know; site drawings can follow.</p><ul class="quote-facts" aria-label="SPORTENVO at a glance" style="list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px"><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">2010</b> Manufacturing heritage</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">CE</b> Scope by model</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">5,000+</b> clients</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">100+</b> export markets</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">MOQ:</b> 1 court</li><li style="padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:13px;line-height:1.3;color:#d7e3ec"><b style="color:#fff">Reply</b> within 24 h</li></ul>
 
   </div>
 </header>
@@ -1032,7 +1032,7 @@ Target timeline: Not provided</pre>
   var mount=document.getElementById('zf_div_XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI');
   if(!shell||!mount) return;
   var loading=shell.querySelector('.formal-inquiry-loading');
-  var mounted=false,frame=null;
+  var mounted=false,frame=null,verifiedReady=false;
   function mountForm(){
     if(mounted) return;
     mounted=true;
@@ -1058,10 +1058,6 @@ Target timeline: Not provided</pre>
     frame.style.transition='height .35s ease';
     frame.setAttribute('aria-label','SPORTENVO Project Inquiry');
     frame.setAttribute('title','SPORTENVO Project Inquiry');
-    frame.addEventListener('load',function(){
-      if(loading) loading.style.display='none';
-      try{document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}catch(e){}
-    },{once:true});
     mount.appendChild(frame);
   }
   window.addEventListener('message',function(event){
@@ -1070,6 +1066,11 @@ Target timeline: Not provided</pre>
     var height=Number(parts[1]);
     if(parts[0]==='XD-pakvMRutFV5VW272mlo86-BampgzRVraMENChmNI'&&(parts.length===2||parts.length===3)&&Number.isFinite(height)&&height>0){
       frame.style.height=(Math.floor(height)+15)+'px';
+      if(!verifiedReady){
+        verifiedReady=true;
+        if(loading) loading.style.display='none';
+        try{document.dispatchEvent(new CustomEvent('sportenvo:form-ready'));}catch(e){}
+      }
     }
   },false);
   mountForm();
