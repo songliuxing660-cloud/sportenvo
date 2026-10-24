@@ -69,3 +69,27 @@ test("visible, engaged and contact clicks do not become leads or transmit entere
   v.run();
   assert.equal(v.count("inquiry_form_requested"), 1);
 });
+
+
+test("English and Spanish inquiry pages only mark verified Zoho resize as ready", () => {
+  for (const locale of ["", "es/"]) {
+    const page = readFileSync(new URL("../" + locale + "start-project.html", import.meta.url), "utf8");
+    const start = page.match(/<script id="start-project-zoho-loader">([\s\S]*?)<\/script>/)?.[1];
+    assert.ok(start, locale + "missing Zoho loader");
+    assert.doesNotMatch(start, /frame\.addEventListener\('load',function\(\)\{[\s\S]*?sportenvo:form-ready/);
+    assert.match(start, /event\.source!==frame\.contentWindow/);
+    assert.match(start, /event\.origin!=='https:\/\/forms\.zohopublic\.com'/);
+    assert.match(start, /if\(!verifiedReady\)/);
+    assert.match(start, /sportenvo:form-ready/);
+
+    const home = readFileSync(new URL("../" + locale + "index.html", import.meta.url), "utf8");
+    const homeLoader = home.match(/<script id="home-zoho-lazy-loader">([\s\S]*?)<\/script>/)?.[1];
+    assert.ok(homeLoader, locale + "missing homepage Zoho loader");
+    assert.doesNotMatch(homeLoader, /frame\.addEventListener\('load',function\(\)\{[\s\S]*?project_form_view/);
+    assert.match(homeLoader, /if\(!ready\)\{\s*ready=true;\s*send\('project_form_embed_ready'\)/);
+    assert.match(homeLoader, /event\.source!==frame\.contentWindow/);
+    assert.match(homeLoader, /event\.origin!=='https:\/\/forms\.zohopublic\.com'/);
+    assert.match(page, locale ? /Solo son obligatorios el nombre/ : /Only your name, email/);
+    assert.match(home, locale ? /Solo son obligatorios el nombre/ : /Only name, email/);
+  }
+});
